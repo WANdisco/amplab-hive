@@ -112,6 +112,8 @@ public class HiveResultSetMetaData implements java.sql.ResultSetMetaData {
       return Constants.BIGINT_TYPE_NAME;
     } else if ("decimal".equalsIgnoreCase(type)) {
       return Constants.DECIMAL_TYPE_NAME;
+    } else if ("timestamp".equalsIgnoreCase(type)) {
+      return Constants.TIMESTAMP_TYPE_NAME;
     } else if (type.startsWith("map<")) {
       return Constants.STRING_TYPE_NAME;
     } else if (type.startsWith("array<")) {

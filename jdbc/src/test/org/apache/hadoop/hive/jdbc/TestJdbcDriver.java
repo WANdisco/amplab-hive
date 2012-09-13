@@ -380,7 +380,6 @@ public class TestJdbcDriver extends TestCase {
     assertEquals("{}", res.getString(14));
     assertEquals("[null, null]", res.getString(15));
     assertEquals("[]", res.getString(16));
-    assertEquals(null, res.getBigDecimal(18));
 
     // row 3
     assertTrue(res.next());
@@ -400,7 +399,6 @@ public class TestJdbcDriver extends TestCase {
     assertEquals("{1={11=12, 13=14}, 2={21=22}}", res.getString(14));
     assertEquals("[1, [2, x]]", res.getString(15));
     assertEquals("[[{}, 1], [{c=d, a=b}, 2]]", res.getString(16));
-    assertEquals("123456789.0123456", res.getBigDecimal(18).toString());
 
     // test getBoolean rules on non-boolean columns
     assertEquals(true, res.getBoolean(1));
@@ -494,7 +492,6 @@ public class TestJdbcDriver extends TestCase {
 
   public void testErrorMessages() throws SQLException {
     String invalidSyntaxSQLState = "42000";
-    int parseErrorCode = 10;
 
     // These tests inherently cause exceptions to be written to the test output
     // logs. This is undesirable, since you it might appear to someone looking
@@ -502,27 +499,23 @@ public class TestJdbcDriver extends TestCase {
     // sure
     // how to get around that.
     doTestErrorCase("SELECTT * FROM " + tableName,
-        "cannot recognize input near 'SELECTT' '*' 'FROM'", invalidSyntaxSQLState, 11);
+        "cannot recognize input near 'SELECTT' '*' 'FROM'",
+        invalidSyntaxSQLState, 40000);
     doTestErrorCase("SELECT * FROM some_table_that_does_not_exist",
-        "Table not found", "42000", parseErrorCode);
+        "Table not found", "42S02", 10001);
     doTestErrorCase("drop table some_table_that_does_not_exist",
-        "Table not found", "42000", parseErrorCode);
+        "Table not found", "42S02", 10001);
     doTestErrorCase("SELECT invalid_column FROM " + tableName,
-        "Invalid table alias or column reference", invalidSyntaxSQLState,
-        parseErrorCode);
+        "Invalid table alias or column reference", invalidSyntaxSQLState, 10004);
     doTestErrorCase("SELECT invalid_function(under_col) FROM " + tableName,
-        "Invalid function", invalidSyntaxSQLState, parseErrorCode);
+    "Invalid function", invalidSyntaxSQLState, 10011);
 
-    // TODO: execute errors like this currently don't return good messages (i.e.
-    // 'Table already exists'). This is because the Driver class calls
-    // Task.executeTask() which swallows meaningful exceptions and returns a
-    // status
-    // code. This should be refactored.
+    // TODO: execute errors like this currently don't return good error
+    // codes and messages. This should be fixed.
     doTestErrorCase(
         "create table " + tableName + " (key int, value string)",
-        "Query returned non-zero code: 9, cause: FAILED: Execution Error, "
-        + "return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask",
-        "08S01", 9);
+        "FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask",
+        "08S01", 1);
   }
 
   private void doTestErrorCase(String sql, String expectedMessage,
@@ -662,8 +655,11 @@ public class TestJdbcDriver extends TestCase {
     Map<String[], Integer> tests = new HashMap<String[], Integer>();
     tests.put(new String[]{"testhivejdbcdriver\\_table", null}, 2);
     tests.put(new String[]{"testhivejdbc%", null}, 7);
+    tests.put(new String[]{"testhiveJDBC%", null}, 7);
+    tests.put(new String[]{"testhiveJDB\\C%", null}, 0);
     tests.put(new String[]{"%jdbcdriver\\_table", null}, 2);
     tests.put(new String[]{"%jdbcdriver\\_table%", "under\\_col"}, 1);
+    tests.put(new String[]{"%jdbcdriver\\_table%", "under\\_COL"}, 1);
     tests.put(new String[]{"%jdbcdriver\\_table%", "under\\_co_"}, 1);
     tests.put(new String[]{"%jdbcdriver\\_table%", "under_col"}, 1);
     tests.put(new String[]{"%jdbcdriver\\_table%", "und%"}, 1);
@@ -798,13 +794,13 @@ public class TestJdbcDriver extends TestCase {
 
     ResultSet res = stmt.executeQuery(
         "select c1, c2, c3, c4, c5 as a, c6, c7, c8, c9, c10, c11, c12, " +
-        "c1*2, sentences(null, null, null) as b, c17, c18 from " + dataTypeTableName + " limit 1");
+        "c1*2, sentences(null, null, null) as b from " + dataTypeTableName + " limit 1");
     ResultSetMetaData meta = res.getMetaData();
 
     ResultSet colRS = con.getMetaData().getColumns(null, null,
         dataTypeTableName.toLowerCase(), null);
 
-    assertEquals(16, meta.getColumnCount());
+    assertEquals(14, meta.getColumnCount());
 
     assertTrue(colRS.next());
 
@@ -1000,13 +996,6 @@ public class TestJdbcDriver extends TestCase {
     assertEquals(Integer.MAX_VALUE, meta.getPrecision(14));
     assertEquals(0, meta.getScale(14));
 
-
-    assertEquals("c18", meta.getColumnName(16));
-    assertEquals(Types.DECIMAL, meta.getColumnType(16));
-    assertEquals("decimal", meta.getColumnTypeName(16));
-    assertEquals(Integer.MAX_VALUE, meta.getColumnDisplaySize(16));
-    assertEquals(Integer.MAX_VALUE, meta.getPrecision(16));
-    assertEquals(Integer.MAX_VALUE, meta.getScale(16));
     for (int i = 1; i <= meta.getColumnCount(); i++) {
       assertFalse(meta.isAutoIncrement(i));
       assertFalse(meta.isCurrency(i));
