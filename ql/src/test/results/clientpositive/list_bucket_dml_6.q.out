@@ -310,20 +310,12 @@ PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: -- check DML result
 show partitions list_bucketing_dynamic_part
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 ds=2008-04-08/hr=a1
 ds=2008-04-08/hr=b1
 PREHOOK: query: desc formatted list_bucketing_dynamic_part partition (ds='2008-04-08', hr='a1')
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc formatted list_bucketing_dynamic_part partition (ds='2008-04-08', hr='a1')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                
@@ -366,10 +358,6 @@ PREHOOK: query: desc formatted list_bucketing_dynamic_part partition (ds='2008-0
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc formatted list_bucketing_dynamic_part partition (ds='2008-04-08', hr='b1')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                
@@ -420,10 +408,6 @@ explain extended
 insert overwrite table list_bucketing_dynamic_part partition (ds = '2008-04-08', hr)
 select key, value, if(key % 100 == 0, 'a1', 'b1') from srcpart where ds = '2008-04-08'
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME srcpart))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME list_bucketing_dynamic_part) (TOK_PARTSPEC (TOK_PARTVAL ds '2008-04-08') (TOK_PARTVAL hr)))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_TABLE_OR_COL value)) (TOK_SELEXPR (TOK_FUNCTION if (== (% (TOK_TABLE_OR_COL key) 100) 0) 'a1' 'b1'))) (TOK_WHERE (= (TOK_TABLE_OR_COL ds) '2008-04-08'))))
 
@@ -757,10 +741,6 @@ POSTHOOK: Output: default@list_bucketing_dynamic_part@ds=2008-04-08/hr=a1
 POSTHOOK: Output: default@list_bucketing_dynamic_part@ds=2008-04-08/hr=b1
 POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: -- check DML result
@@ -769,28 +749,12 @@ PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: -- check DML result
 show partitions list_bucketing_dynamic_part
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 ds=2008-04-08/hr=a1
 ds=2008-04-08/hr=b1
 PREHOOK: query: desc formatted list_bucketing_dynamic_part partition (ds='2008-04-08', hr='a1')
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc formatted list_bucketing_dynamic_part partition (ds='2008-04-08', hr='a1')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                
@@ -833,14 +797,6 @@ PREHOOK: query: desc formatted list_bucketing_dynamic_part partition (ds='2008-0
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc formatted list_bucketing_dynamic_part partition (ds='2008-04-08', hr='b1')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                
@@ -893,14 +849,6 @@ POSTHOOK: Input: default@srcpart
 POSTHOOK: Input: default@srcpart@ds=2008-04-08/hr=11
 POSTHOOK: Input: default@srcpart@ds=2008-04-08/hr=12
 #### A masked pattern was here ####
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 1000
 PREHOOK: query: select count(*) from list_bucketing_dynamic_part
 PREHOOK: type: QUERY
@@ -914,14 +862,6 @@ POSTHOOK: Input: default@list_bucketing_dynamic_part
 POSTHOOK: Input: default@list_bucketing_dynamic_part@ds=2008-04-08/hr=a1
 POSTHOOK: Input: default@list_bucketing_dynamic_part@ds=2008-04-08/hr=b1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 1000
 PREHOOK: query: explain extended
 select * from list_bucketing_dynamic_part where key = '484' and value = 'val_484'
@@ -929,14 +869,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: explain extended
 select * from list_bucketing_dynamic_part where key = '484' and value = 'val_484'
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME list_bucketing_dynamic_part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF)) (TOK_WHERE (and (= (TOK_TABLE_OR_COL key) '484') (= (TOK_TABLE_OR_COL value) 'val_484')))))
 
@@ -1102,14 +1034,6 @@ POSTHOOK: Input: default@list_bucketing_dynamic_part
 POSTHOOK: Input: default@list_bucketing_dynamic_part@ds=2008-04-08/hr=a1
 POSTHOOK: Input: default@list_bucketing_dynamic_part@ds=2008-04-08/hr=b1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 484	val_484	2008-04-08	b1
 484	val_484	2008-04-08	b1
 PREHOOK: query: select * from srcpart where ds = '2008-04-08' and key = '484' and value = 'val_484' order by key, value, ds, hr
@@ -1124,14 +1048,6 @@ POSTHOOK: Input: default@srcpart
 POSTHOOK: Input: default@srcpart@ds=2008-04-08/hr=11
 POSTHOOK: Input: default@srcpart@ds=2008-04-08/hr=12
 #### A masked pattern was here ####
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 484	val_484	2008-04-08	11
 484	val_484	2008-04-08	12
 PREHOOK: query: -- clean up
@@ -1144,11 +1060,3 @@ drop table list_bucketing_dynamic_part
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@list_bucketing_dynamic_part
 POSTHOOK: Output: default@list_bucketing_dynamic_part
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=a1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_dynamic_part PARTITION(ds=2008-04-08,hr=b1).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
