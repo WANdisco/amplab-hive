@@ -31,6 +31,7 @@ import org.apache.hadoop.hive.metastore.Warehouse;
 import org.apache.hadoop.hive.metastore.api.hive_metastoreConstants;
 import org.apache.hadoop.hive.metastore.api.MetaException;
 import org.apache.hadoop.hive.metastore.api.Table;
+import org.apache.hadoop.hive.serde.serdeConstants;
 
 import com.google.common.collect.Sets;
 
@@ -48,27 +49,30 @@ public class ExpressionTree {
 
   /** The operators supported. */
   public enum Operator {
-    EQUALS  ("=", "=="),
+    EQUALS  ("=", "==", "="),
     GREATERTHAN  (">"),
     LESSTHAN  ("<"),
     LESSTHANOREQUALTO ("<="),
     GREATERTHANOREQUALTO (">="),
-    LIKE ("LIKE", "matches"),
-    NOTEQUALS2 ("!=", "!="),
-    NOTEQUALS ("<>", "!=");
+    LIKE ("LIKE", "matches", "like"),
+    NOTEQUALS2 ("!=", "!=", "<>"),
+    NOTEQUALS ("<>", "!=", "<>");
 
     private final String op;
     private final String jdoOp;
+    private final String sqlOp;
 
     // private constructor
     private Operator(String op){
       this.op = op;
       this.jdoOp = op;
+      this.sqlOp = op;
     }
 
-    private Operator(String op, String jdoOp){
+    private Operator(String op, String jdoOp, String sqlOp){
       this.op = op;
       this.jdoOp = jdoOp;
+      this.sqlOp = sqlOp;
     }
 
     public String getOp() {
@@ -77,6 +81,10 @@ public class ExpressionTree {
 
     public String getJdoOp() {
       return jdoOp;
+    }
+
+    public String getSqlOp() {
+      return sqlOp;
     }
 
     public static Operator fromString(String inputOperator) {
@@ -97,6 +105,10 @@ public class ExpressionTree {
 
   }
 
+  public static interface TreeVisitor {
+    void visit(TreeNode node) throws MetaException;
+    void visit(LeafNode node) throws MetaException;
+  }
 
   /**
    * The Class representing a Node in the ExpressionTree.
@@ -113,6 +125,23 @@ public class ExpressionTree {
       this.lhs = lhs;
       this.andOr = andOr;
       this.rhs = rhs;
+    }
+
+    public TreeNode getLhs() {
+      return lhs;
+    }
+
+    public LogicalOperator getAndOr() {
+      return andOr;
+    }
+
+    public TreeNode getRhs() {
+      return rhs;
+    }
+
+    /** Double dispatch for TreeVisitor. */
+    public void accept(TreeVisitor visitor) throws MetaException {
+      visitor.visit(this);
     }
 
     /**
@@ -161,6 +190,11 @@ public class ExpressionTree {
     public Object value;
     public boolean isReverseOrder = false;
     private static final String PARAM_PREFIX = "hive_filter_param_";
+
+    @Override
+    public void accept(TreeVisitor visitor) throws MetaException {
+      visitor.visit(this);
+    }
 
     @Override
     public String generateJDOFilter(Table table,
@@ -239,41 +273,19 @@ public class ExpressionTree {
 
     private String generateJDOFilterOverPartitions(Table table, Map<String, Object> params)
     throws MetaException {
-
-      int partitionColumnCount = table.getPartitionKeys().size();
-      int partitionColumnIndex;
-      for(partitionColumnIndex = 0;
-      partitionColumnIndex < partitionColumnCount;
-      partitionColumnIndex++ ) {
-        if( table.getPartitionKeys().get(partitionColumnIndex).getName().
-            equalsIgnoreCase(keyName)) {
-          break;
-        }
-      }
-      assert (table.getPartitionKeys().size() > 0);
-
-      if( partitionColumnIndex == table.getPartitionKeys().size() ) {
-        throw new MetaException("Specified key <" + keyName +
-            "> is not a partitioning key for the table");
-      }
-
-      //Can only support partitions whose types are string
-      if( ! table.getPartitionKeys().get(partitionColumnIndex).
-          getType().equals(org.apache.hadoop.hive.serde.serdeConstants.STRING_TYPE_NAME) ) {
-        throw new MetaException
-        ("Filtering is supported only on partition keys of type string");
-      }
-
-      String valueParam = null;
-      try {
-        valueParam = (String) value;
-      } catch (ClassCastException e) {
-        throw new MetaException("Filtering is supported only on partition keys of type string");
-      }
-
-      String paramName = PARAM_PREFIX + params.size();
-      params.put(paramName, valueParam);
       String filter;
+      int partitionColumnCount = table.getPartitionKeys().size();
+      int partitionColumnIndex = getPartColIndexForFilter(table);
+
+      String valueAsString = getFilterPushdownParam(table, partitionColumnIndex);
+      String paramName = PARAM_PREFIX + params.size();
+      params.put(paramName, valueAsString);
+
+      /* boolean isOpEquals = operator == Operator.EQUALS;
+      if (isOpEquals || operator == Operator.NOTEQUALS || operator == Operator.NOTEQUALS2) {
+        return makeFilterForEquals(keyName, valueAsString, paramName, params,
+            partitionColumnIndex, partitionColumnCount, isOpEquals);
+      } */
 
       String keyEqual = FileUtils.escapePathName(keyName) + "=";
       int keyEqualLength = keyEqual.length();
@@ -294,7 +306,7 @@ public class ExpressionTree {
               "Value should be on the RHS for LIKE operator : " +
               "Key <" + keyName + ">");
         } else if (operator == Operator.EQUALS) {
-          filter = makeFilterForEquals(keyName, valueParam, paramName, params,
+          filter = makeFilterForEquals(keyName, valueAsString, paramName, params,
               partitionColumnIndex, partitionColumnCount);
         } else {
           filter = paramName +
@@ -306,7 +318,7 @@ public class ExpressionTree {
           filter = " " + valString + "."
               + operator.getJdoOp() + "(" + paramName + ") ";
         } else if (operator == Operator.EQUALS) {
-          filter = makeFilterForEquals(keyName, valueParam, paramName, params,
+          filter = makeFilterForEquals(keyName, valueAsString, paramName, params,
               partitionColumnIndex, partitionColumnCount);
         } else {
           filter = " " + valString + " "
@@ -315,7 +327,80 @@ public class ExpressionTree {
       }
       return filter;
     }
+
+    /**
+     * @param operator operator
+     * @return true iff filter pushdown for this operator can be done for integral types.
+     */
+    private static boolean doesOperatorSupportIntegral(Operator operator) {
+      // TODO: for SQL-based filtering, this could be amended if we added casts.
+      return (operator == Operator.EQUALS)
+          || (operator == Operator.NOTEQUALS)
+          || (operator == Operator.NOTEQUALS2);
+    }
+
+    /**
+     * @param type type
+     * @return true iff type is an integral type.
+     */
+    private static boolean isIntegralType(String type) {
+      return type.equals(serdeConstants.TINYINT_TYPE_NAME)
+          || type.equals(serdeConstants.SMALLINT_TYPE_NAME)
+          || type.equals(serdeConstants.INT_TYPE_NAME)
+          || type.equals(serdeConstants.BIGINT_TYPE_NAME);
+    }
+
+    /**
+     * Get partition column index in the table partition column list that
+     * corresponds to the key that is being filtered on by this tree node.
+     * @param table The table.
+     * @return The index.
+     */
+    public int getPartColIndexForFilter(Table table) throws MetaException {
+      int partitionColumnIndex;
+      assert (table.getPartitionKeys().size() > 0);
+      for (partitionColumnIndex = 0; partitionColumnIndex < table.getPartitionKeys().size();
+          ++partitionColumnIndex) {
+        if (table.getPartitionKeys().get(partitionColumnIndex).getName().
+            equalsIgnoreCase(keyName)) {
+          break;
+        }
+      }
+      if( partitionColumnIndex == table.getPartitionKeys().size() ) {
+        throw new MetaException("Specified key <" + keyName +
+            "> is not a partitioning key for the table");
+      }
+
+      return partitionColumnIndex;
+    }
+
+    /**
+     * Validates and gets the query parameter for filter pushdown based on the column
+     * and the constant stored in this node.
+     * In future this may become different for SQL and JDOQL filter pushdown.
+     * @param table The table.
+     * @param partColIndex The index of the column to check.
+     * @return The parameter string.
+     */
+    public String getFilterPushdownParam(Table table, int partColIndex) throws MetaException {
+      boolean isIntegralSupported = doesOperatorSupportIntegral(operator);
+      String colType = table.getPartitionKeys().get(partColIndex).getType();
+      // Can only support partitions whose types are string, or maybe integers
+      if (!colType.equals(serdeConstants.STRING_TYPE_NAME)
+          && (!isIntegralSupported || !isIntegralType(colType))) {
+        throw new MetaException("Filtering is supported only on partition keys of type " +
+            "string" + (isIntegralSupported ? ", or integral types" : ""));
+      }
+
+      boolean isStringValue = value instanceof String;
+      if (!isStringValue && (!isIntegralSupported || !(value instanceof Long))) {
+        throw new MetaException("Filtering is supported only on partition keys of type " +
+            "string" + (isIntegralSupported ? ", or integral types" : ""));
+      }
+
+      return isStringValue ? (String) value : Long.toString((Long) value);
   }
+}
 
   /**
    * For equals, we can make the JDO query much faster by filtering based on the
@@ -377,6 +462,10 @@ public class ExpressionTree {
    * The node stack used to keep track of the tree nodes during parsing.
    */
   private final Stack<TreeNode> nodeStack = new Stack<TreeNode>();
+
+  public TreeNode getRoot() {
+    return this.root;
+  }
 
   /**
    * Adds a intermediate node of either type(AND/OR). Pops last two nodes from
