@@ -23,6 +23,7 @@ import java.math.RoundingMode;
 
 import org.apache.hadoop.hive.ql.exec.Description;
 import org.apache.hadoop.hive.ql.exec.UDF;
+import org.apache.hadoop.hive.serde2.io.BigDecimalWritable;
 import org.apache.hadoop.hive.serde2.io.DoubleWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -36,33 +37,56 @@ import org.apache.hadoop.io.LongWritable;
     extended = "Example:\n"
     + "  > SELECT _FUNC_(12.3456, 1) FROM src LIMIT 1;\n" + "  12.3'")
 public class UDFRound extends UDF {
-  private DoubleWritable doubleWritable = new DoubleWritable();
-  private LongWritable longWritable = new LongWritable();
+  private final BigDecimalWritable bigDecimalWritable = new BigDecimalWritable();
+  private final DoubleWritable doubleWritable = new DoubleWritable();
+  private final LongWritable longWritable = new LongWritable();
 
   public UDFRound() {
   }
 
-  public LongWritable evaluate(DoubleWritable n) {
+  private DoubleWritable evaluate(DoubleWritable n, int i) {
+    double d = n.get();
+    if (Double.isNaN(d) || Double.isInfinite(d)) {
+      doubleWritable.set(d);
+    } else {
+      doubleWritable.set(BigDecimal.valueOf(d).setScale(i,
+              RoundingMode.HALF_UP).doubleValue());
+    }
+    return doubleWritable;
+  }
+
+  public DoubleWritable evaluate(DoubleWritable n) {
     if (n == null) {
       return null;
     }
-    longWritable.set(BigDecimal.valueOf(n.get()).setScale(0,
-        RoundingMode.HALF_UP).longValue());
-    return longWritable;
+    return evaluate(n, 0);
   }
 
   public DoubleWritable evaluate(DoubleWritable n, IntWritable i) {
     if ((n == null) || (i == null)) {
       return null;
     }
-    double d = n.get();
-    if (Double.isNaN(d) || Double.isInfinite(d)) {
-      doubleWritable.set(d);
-    } else {
-      doubleWritable.set(BigDecimal.valueOf(d).setScale(i.get(),
-          RoundingMode.HALF_UP).doubleValue());
-    }
-    return doubleWritable;
+    return evaluate(n, i.get());
   }
 
+  private BigDecimalWritable evaluate(BigDecimalWritable n, int i) {
+    if (n == null) {
+      return null;
+    }
+    BigDecimal bd = n.getBigDecimal();
+    bd = n.getBigDecimal().setScale(i, RoundingMode.HALF_UP);
+    bigDecimalWritable.set(bd);
+    return bigDecimalWritable;
+  }
+
+  public BigDecimalWritable evaluate(BigDecimalWritable n) {
+    return evaluate(n, 0);
+  }
+
+  public BigDecimalWritable evaluate(BigDecimalWritable n, IntWritable i) {
+    if (i == null) {
+      return null;
+    }
+    return evaluate(n, i.get());
+  }
 }

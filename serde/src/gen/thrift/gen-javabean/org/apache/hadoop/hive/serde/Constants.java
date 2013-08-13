@@ -5,20 +5,8 @@
  */
 package org.apache.hadoop.hive.serde;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.EnumMap;
-import java.util.Set;
 import java.util.HashSet;
-import java.util.EnumSet;
-import java.util.Collections;
-import java.util.BitSet;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Set;
 
 public class Constants {
 
@@ -65,6 +53,8 @@ public class Constants {
   public static final String FLOAT_TYPE_NAME = "float";
 
   public static final String DOUBLE_TYPE_NAME = "double";
+
+  public static final String DECIMAL_TYPE_NAME = "decimal";
 
   public static final String STRING_TYPE_NAME = "string";
 

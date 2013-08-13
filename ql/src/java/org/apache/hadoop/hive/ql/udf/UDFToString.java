@@ -20,6 +20,7 @@ package org.apache.hadoop.hive.ql.udf;
 
 import org.apache.hadoop.hive.ql.exec.UDF;
 import org.apache.hadoop.hive.serde2.ByteStream;
+import org.apache.hadoop.hive.serde2.io.BigDecimalWritable;
 import org.apache.hadoop.hive.serde2.io.ByteWritable;
 import org.apache.hadoop.hive.serde2.io.DoubleWritable;
 import org.apache.hadoop.hive.serde2.io.ShortWritable;
@@ -143,6 +144,15 @@ public class UDFToString extends UDF {
   }
 
   public Text evaluate(TimestampWritable i) {
+    if (i == null) {
+      return null;
+    } else {
+      t.set(i.toString());
+      return t;
+    }
+  }
+
+  public Text evaluate(BigDecimalWritable i) {
     if (i == null) {
       return null;
     } else {

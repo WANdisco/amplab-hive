@@ -500,6 +500,8 @@ public final class TypeCheckProcFactory {
           Constants.DATE_TYPE_NAME);
       conversionFunctionTextHashMap.put(HiveParser.TOK_TIMESTAMP,
           Constants.TIMESTAMP_TYPE_NAME);
+      conversionFunctionTextHashMap.put(HiveParser.TOK_DECIMAL,
+          Constants.DECIMAL_TYPE_NAME);
     }
 
     public static boolean isRedundantConversionFunction(ASTNode expr,

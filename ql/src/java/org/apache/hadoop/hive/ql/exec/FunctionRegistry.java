@@ -24,6 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -157,7 +158,6 @@ import org.apache.hadoop.hive.ql.udf.generic.GenericUDFBridge;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFCase;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFCoalesce;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFConcatWS;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFSortArray;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFEWAHBitmapAnd;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFEWAHBitmapEmpty;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFEWAHBitmapOr;
@@ -167,8 +167,8 @@ import org.apache.hadoop.hive.ql.udf.generic.GenericUDFFromUtcTimestamp;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFHash;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFIf;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFIn;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDFIndex;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFInFile;
+import org.apache.hadoop.hive.ql.udf.generic.GenericUDFIndex;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFInstr;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFLocate;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFMap;
@@ -191,12 +191,14 @@ import org.apache.hadoop.hive.ql.udf.generic.GenericUDFPrintf;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFReflect;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFSentences;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFSize;
+import org.apache.hadoop.hive.ql.udf.generic.GenericUDFSortArray;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFSplit;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFStringToMap;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFStruct;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFToDate;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFTimestamp;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFToBinary;
+import org.apache.hadoop.hive.ql.udf.generic.GenericUDFToDecimal;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFToUtcTimestamp;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFUnion;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDFWhen;
@@ -224,10 +226,8 @@ import org.apache.hadoop.hive.serde2.typeinfo.TypeInfoFactory;
 import org.apache.hadoop.hive.serde2.typeinfo.TypeInfoUtils;
 import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.util.ReflectionUtils;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
@@ -400,6 +400,8 @@ public final class FunctionRegistry {
         GenericUDFTimestamp.class);
     registerGenericUDF(Constants.BINARY_TYPE_NAME,
         GenericUDFToBinary.class);
+    registerGenericUDF(Constants.DECIMAL_TYPE_NAME,
+        GenericUDFToDecimal.class);
 
     // Aggregate functions
     registerGenericUDAF("max", new GenericUDAFMax());
@@ -630,7 +632,8 @@ public final class FunctionRegistry {
     registerNumericType(Constants.BIGINT_TYPE_NAME, 4);
     registerNumericType(Constants.FLOAT_TYPE_NAME, 5);
     registerNumericType(Constants.DOUBLE_TYPE_NAME, 6);
-    registerNumericType(Constants.STRING_TYPE_NAME, 7);
+    registerNumericType(Constants.DECIMAL_TYPE_NAME, 7);
+    registerNumericType(Constants.STRING_TYPE_NAME, 8);
   }
 
   /**
@@ -712,6 +715,11 @@ public final class FunctionRegistry {
         && to.equals(TypeInfoFactory.doubleTypeInfo)) {
       return true;
     }
+    // Allow implicit String to Decimal conversion
+    if (from.equals(TypeInfoFactory.stringTypeInfo)
+        && to.equals(TypeInfoFactory.decimalTypeInfo)) {
+      return true;
+    }
     // Void can be converted to any type
     if (from.equals(TypeInfoFactory.voidTypeInfo)) {
       return true;
@@ -728,7 +736,7 @@ public final class FunctionRegistry {
     }
 
     // Allow implicit conversion from Byte -> Integer -> Long -> Float -> Double
-    // -> String
+    // Decimal -> String
     Integer f = numericTypes.get(from);
     Integer t = numericTypes.get(to);
     if (f == null || t == null) {
@@ -1017,8 +1025,57 @@ public final class FunctionRegistry {
       throw new NoMatchingMethodException(udfClass, argumentsPassed, mlist);
     }
     if (udfMethods.size() > 1) {
-      // Ambiguous method found
-      throw new AmbiguousMethodException(udfClass, argumentsPassed, mlist);
+
+      // if the only difference is numeric types, pick the method
+      // with the smallest overall numeric type.
+      int lowestNumericType = Integer.MAX_VALUE;
+      boolean multiple = true;
+      Method candidate = null;
+      List<TypeInfo> referenceArguments = null;
+
+      for (Method m: udfMethods) {
+        int maxNumericType = 0;
+
+        List<TypeInfo> argumentsAccepted = TypeInfoUtils.getParameterTypeInfos(m, argumentsPassed.size());
+
+        if (referenceArguments == null) {
+          // keep the arguments for reference - we want all the non-numeric
+          // arguments to be the same
+          referenceArguments = argumentsAccepted;
+        }
+
+        Iterator<TypeInfo> referenceIterator = referenceArguments.iterator();
+
+        for (TypeInfo accepted: argumentsAccepted) {
+          TypeInfo reference = referenceIterator.next();
+
+          if (numericTypes.containsKey(accepted)) {
+            // We're looking for the udf with the smallest maximum numeric type.
+            int typeValue = numericTypes.get(accepted);
+            maxNumericType = typeValue > maxNumericType ? typeValue : maxNumericType;
+          } else if (!accepted.equals(reference)) {
+            // There are non-numeric arguments that don't match from one UDF to
+            // another. We give up at this point.
+            throw new AmbiguousMethodException(udfClass, argumentsPassed, mlist);
+          }
+        }
+
+        if (lowestNumericType > maxNumericType) {
+          multiple = false;
+          lowestNumericType = maxNumericType;
+          candidate = m;
+        } else if (maxNumericType == lowestNumericType) {
+          // multiple udfs with the same max type. Unless we find a lower one
+          // we'll give up.
+          multiple = true;
+        }
+      }
+
+      if (!multiple) {
+        return candidate;
+      } else {
+        throw new AmbiguousMethodException(udfClass, argumentsPassed, mlist);
+      }
     }
     return udfMethods.get(0);
   }

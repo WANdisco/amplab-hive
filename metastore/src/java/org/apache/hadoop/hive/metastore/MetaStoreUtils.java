@@ -363,7 +363,7 @@ public class MetaStoreUtils {
         org.apache.hadoop.hive.serde.Constants.STRING_TYPE_NAME, "string");
     typeToThriftTypeMap.put(
         org.apache.hadoop.hive.serde.Constants.BINARY_TYPE_NAME, "binary");
-    // These 3 types are not supported yet.
+    // These 4 types are not supported yet.
     // We should define a complex type date in thrift that contains a single int
     // member, and DynamicSerDe
     // should convert it to date type at runtime.
@@ -374,6 +374,8 @@ public class MetaStoreUtils {
     typeToThriftTypeMap
         .put(org.apache.hadoop.hive.serde.Constants.TIMESTAMP_TYPE_NAME,
             "timestamp");
+    typeToThriftTypeMap.put(
+        org.apache.hadoop.hive.serde.Constants.DECIMAL_TYPE_NAME, "decimal");
   }
 
   /**

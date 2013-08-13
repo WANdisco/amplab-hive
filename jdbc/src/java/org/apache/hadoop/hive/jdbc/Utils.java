@@ -46,6 +46,8 @@ public class Utils {
       return Types.INTEGER;
     } else if ("bigint".equalsIgnoreCase(type)) {
       return Types.BIGINT;
+    } else if ("decimal".equalsIgnoreCase(type)) {
+      return Types.DECIMAL;
     } else if (type.startsWith("map<")) {
       return Types.VARCHAR;
     } else if (type.startsWith("array<")) {

@@ -139,6 +139,7 @@ public class DDLSemanticAnalyzer extends BaseSemanticAnalyzer {
     TokenToTypeName.put(HiveParser.TOK_DATE, Constants.DATE_TYPE_NAME);
     TokenToTypeName.put(HiveParser.TOK_DATETIME, Constants.DATETIME_TYPE_NAME);
     TokenToTypeName.put(HiveParser.TOK_TIMESTAMP, Constants.TIMESTAMP_TYPE_NAME);
+    TokenToTypeName.put(HiveParser.TOK_DECIMAL, Constants.DECIMAL_TYPE_NAME);
   }
 
   public static String getTypeName(int token) throws SemanticException {
