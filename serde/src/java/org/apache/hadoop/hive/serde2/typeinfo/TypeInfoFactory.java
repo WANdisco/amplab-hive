@@ -66,7 +66,7 @@ public final class TypeInfoFactory {
   public static final TypeInfo dateTypeInfo = getPrimitiveTypeInfo(Constants.DATE_TYPE_NAME);
   public static final TypeInfo timestampTypeInfo = getPrimitiveTypeInfo(Constants.TIMESTAMP_TYPE_NAME);
   public static final TypeInfo binaryTypeInfo = getPrimitiveTypeInfo(Constants.BINARY_TYPE_NAME);
-
+  public static final TypeInfo decimalTypeInfo = getPrimitiveTypeInfo(Constants.DECIMAL_TYPE_NAME);
   public static final TypeInfo unknownTypeInfo = getPrimitiveTypeInfo("unknown");
 
   public static TypeInfo getPrimitiveTypeInfoFromPrimitiveWritable(
