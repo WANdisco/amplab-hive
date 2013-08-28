@@ -854,7 +854,60 @@ public final class PrimitiveObjectInspectorUtils {
     return result;
   }
 
+  public static Date getDate(Object o, PrimitiveObjectInspector oi) {
+    if (o == null) {
+      return null;
     }
+
+    Date result = null;
+    switch (oi.getPrimitiveCategory()) {
+    case VOID:
+      result = null;
+      break;
+    case BOOLEAN:
+      result = DateWritable.timeToDate((((BooleanObjectInspector) oi).get(o))? 1 : 0);
+      break;
+    case BYTE:
+      result = DateWritable.timeToDate(((ByteObjectInspector) oi).get(o));
+      break;
+    case SHORT:
+      result = DateWritable.timeToDate(((ShortObjectInspector) oi).get(o));
+      break;
+    case INT:
+      result = DateWritable.timeToDate(((IntObjectInspector) oi).get(o));
+      break;
+    case LONG:
+      result = DateWritable.timeToDate(((LongObjectInspector) oi).get(o));
+      break;
+    case FLOAT:
+      result = DateWritable.timeToDate((long)((FloatObjectInspector) oi).get(o));
+      break;
+    case DOUBLE:
+      result = DateWritable.timeToDate((long)((DoubleObjectInspector) oi).get(o));
+      break;
+    case STRING:
+      StringObjectInspector soi = (StringObjectInspector) oi;
+      String s = soi.getPrimitiveJavaObject(o).trim();
+      try {
+        result = Date.valueOf(s);
+      } catch (IllegalArgumentException e) {
+        result = null;
+      }
+      break;
+    case DATE:
+      result = ((DateObjectInspector) oi).getPrimitiveWritableObject(o).get();
+      break;
+    case TIMESTAMP:
+      result = DateWritable.timeToDate(((TimestampObjectInspector) oi).getPrimitiveWritableObject(o).getSeconds());
+      break;
+    case BINARY:
+      throw new RuntimeException("Cannot convert to Date from: "
+        + oi.getTypeName());
+    default:
+      throw new RuntimeException("Hive 2 Internal error: unknown type: "
+          + oi.getTypeName());
+    }
+
 /*
     if (result != null) {
       // Drop time components in a Date
@@ -863,6 +916,7 @@ public final class PrimitiveObjectInspectorUtils {
 */
     return result;
   }
+
 
   public static Timestamp getTimestamp(Object o, PrimitiveObjectInspector oi) {
     if (o == null) {
