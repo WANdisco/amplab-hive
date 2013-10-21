@@ -20,10 +20,12 @@ package org.apache.hadoop.hive.shims;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URI;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.ProxyFileSystem;
 import org.apache.hadoop.fs.Trash;
 import org.apache.hadoop.hive.shims.HadoopShimsSecure;
 import org.apache.hadoop.hdfs.MiniDFSCluster;
@@ -187,5 +189,9 @@ public class Hadoop20SShims extends HadoopShimsSecure {
     public void shutdown() {
       cluster.shutdown();
     }
+  }
+  @Override
+  public FileSystem createProxyFileSystem(FileSystem fs, URI uri) {
+    return new ProxyFileSystem(fs, uri);
   }
 }
