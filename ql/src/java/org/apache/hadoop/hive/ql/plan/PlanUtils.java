@@ -556,7 +556,7 @@ public final class PlanUtils {
           new ArrayList<String>(),
         includeKeyCols ? outputColumnNames.subList(keyCols.size(),
             outputColumnNames.size()) : outputColumnNames,
-        includeKeyCols, tag, partitionCols, order, numReducers, false);
+        includeKeyCols, tag, partitionCols, order, numReducers);
   }
 
   /**
@@ -591,8 +591,7 @@ public final class PlanUtils {
       List<String> outputKeyColumnNames,
       List<String> outputValueColumnNames,
       boolean includeKeyCols, int tag,
-      ArrayList<ExprNodeDesc> partitionCols, String order, int numReducers,
-      boolean optimizeSkew) {
+      ArrayList<ExprNodeDesc> partitionCols, String order, int numReducers) {
     TableDesc keyTable = null;
     TableDesc valueTable = null;
     ArrayList<String> outputKeyCols = new ArrayList<String>();
@@ -618,7 +617,7 @@ public final class PlanUtils {
     return new ReduceSinkDesc(keyCols, numKeys, valueCols, outputKeyCols,
         distinctColIndices, outputValCols,
         tag, partitionCols, numReducers, keyTable,
-        valueTable, optimizeSkew);
+        valueTable);
   }
 
   /**
@@ -651,7 +650,7 @@ public final class PlanUtils {
         includeKey ?
             outputColumnNames.subList(keyCols.size(), outputColumnNames.size())
             : outputColumnNames,
-        includeKey, tag, numPartitionFields, numReducers, false);
+        includeKey, tag, numPartitionFields, numReducers);
   }
 
   /**
@@ -685,8 +684,7 @@ public final class PlanUtils {
       List<List<Integer>> distinctColIndices,
       List<String> outputKeyColumnNames, List<String> outputValueColumnNames,
       boolean includeKey, int tag,
-      int numPartitionFields, int numReducers, boolean optimizeSkew
-      ) throws SemanticException {
+      int numPartitionFields, int numReducers) throws SemanticException {
     ArrayList<ExprNodeDesc> partitionCols = null;
 
     if (numPartitionFields >= keyCols.size()) {
@@ -709,7 +707,7 @@ public final class PlanUtils {
     }
     return getReduceSinkDesc(keyCols, numKeys, valueCols, distinctColIndices,
         outputKeyColumnNames, outputValueColumnNames, includeKey, tag,
-        partitionCols, order.toString(), numReducers, optimizeSkew);
+        partitionCols, order.toString(), numReducers);
   }
 
   /**
