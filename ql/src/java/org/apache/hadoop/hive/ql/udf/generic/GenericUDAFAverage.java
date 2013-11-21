@@ -42,6 +42,7 @@ import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectIn
 import org.apache.hadoop.hive.serde2.typeinfo.PrimitiveTypeInfo;
 import org.apache.hadoop.hive.serde2.typeinfo.TypeInfo;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.util.StringUtils;
 
 /**
@@ -313,7 +314,7 @@ public class GenericUDAFAverage extends AbstractGenericUDAFResolver {
         throws HiveException {
       assert (parameters.length == 1);
       Object parameter = parameters[0];
-      if (parameter != null) {
+      if (parameter != null && !(parameter instanceof NullWritable)) {
         AverageAggregationBuffer<TYPE> averageAggregation = (AverageAggregationBuffer<TYPE>) aggregation;
         try {
           doIterate(averageAggregation, inputOI, parameter);

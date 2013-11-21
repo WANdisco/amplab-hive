@@ -22,6 +22,7 @@ import org.apache.hadoop.hive.ql.exec.Description;
 import org.apache.hadoop.hive.ql.metadata.HiveException;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorUtils;
 import org.apache.hadoop.hive.shims.ShimLoader;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 
 /**
@@ -38,11 +39,11 @@ public class GenericUDFOPEqualOrGreaterThan extends GenericUDFBaseCompare {
   public Object evaluate(DeferredObject[] arguments) throws HiveException {
     Object o0,o1;
     o0 = arguments[0].get();
-    if (o0 == null) {
+    if (o0 == null || o0 instanceof NullWritable) {
       return null;
     }
     o1 = arguments[1].get();
-    if (o1 == null) {
+    if (o1 == null || o1 instanceof NullWritable) {
       return null;
     }
 

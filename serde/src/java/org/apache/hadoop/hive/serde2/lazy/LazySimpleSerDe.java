@@ -47,6 +47,7 @@ import org.apache.hadoop.hive.serde2.typeinfo.TypeInfo;
 import org.apache.hadoop.hive.serde2.typeinfo.TypeInfoFactory;
 import org.apache.hadoop.hive.serde2.typeinfo.TypeInfoUtils;
 import org.apache.hadoop.io.BytesWritable;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 
@@ -177,6 +178,7 @@ public class LazySimpleSerDe extends AbstractSerDe {
    *
    * @see SerDe#initialize(Configuration, Properties)
    */
+  @Override
   public void initialize(Configuration job, Properties tbl)
       throws SerDeException {
 
@@ -272,6 +274,7 @@ public class LazySimpleSerDe extends AbstractSerDe {
    * @return The deserialized row Object.
    * @see SerDe#deserialize(Writable)
    */
+  @Override
   public Object deserialize(Writable field) throws SerDeException {
     if (byteArrayRef == null) {
       byteArrayRef = new ByteArrayRef();
@@ -297,6 +300,7 @@ public class LazySimpleSerDe extends AbstractSerDe {
   /**
    * Returns the ObjectInspector for the row.
    */
+  @Override
   public ObjectInspector getObjectInspector() throws SerDeException {
     return cachedObjectInspector;
   }
@@ -306,6 +310,7 @@ public class LazySimpleSerDe extends AbstractSerDe {
    *
    * @see SerDe#getSerializedClass()
    */
+  @Override
   public Class<? extends Writable> getSerializedClass() {
     return Text.class;
   }
@@ -324,6 +329,7 @@ public class LazySimpleSerDe extends AbstractSerDe {
    * @throws IOException
    * @see SerDe#serialize(Object, ObjectInspector)
    */
+  @Override
   public Writable serialize(Object obj, ObjectInspector objInspector)
       throws SerDeException {
 
@@ -416,7 +422,7 @@ public class LazySimpleSerDe extends AbstractSerDe {
       Text nullSequence, boolean escaped, byte escapeChar, boolean[] needsEscape)
       throws IOException {
 
-    if (obj == null) {
+    if (obj == null || obj instanceof NullWritable) {
       out.write(nullSequence.getBytes(), 0, nullSequence.getLength());
       return;
     }
@@ -517,6 +523,7 @@ public class LazySimpleSerDe extends AbstractSerDe {
    * Returns the statistics after (de)serialization)
    */
 
+  @Override
   public SerDeStats getSerDeStats() {
     // must be different
     assert (lastOperationSerialize != lastOperationDeserialize);
