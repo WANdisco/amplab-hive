@@ -73,6 +73,10 @@ public class CLIService extends CompositeService implements ICLIService {
     super.init(hiveConf);
   }
 
+  public void sharkInit (HiveConf hiveConf) {
+    super.init(hiveConf);
+  }
+
   @Override
   public synchronized void start() {
     super.start();

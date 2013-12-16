@@ -131,7 +131,7 @@ public class OperationManager extends AbstractService {
     return operation;
   }
 
-  private synchronized void addOperation(Operation operation) {
+  protected synchronized void addOperation(Operation operation) {
     handleToOperation.put(operation.getHandle(), operation);
   }
 

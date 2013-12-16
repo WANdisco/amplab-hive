@@ -56,6 +56,10 @@ public class HiveServer2 extends CompositeService {
     super.init(hiveConf);
   }
 
+  public void sharkInit (HiveConf hiveConf) {
+    super.init(hiveConf);
+  }
+
   @Override
   public synchronized void start() {
     super.start();

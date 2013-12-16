@@ -42,6 +42,10 @@ public class SessionManager extends CompositeService {
     super("SessionManager");
   }
 
+  protected void sharkInit(HiveConf hiveConf) {
+    super.init(hiveConf);
+  }
+
   @Override
   public synchronized void init(HiveConf hiveConf) {
     this.hiveConf = hiveConf;
