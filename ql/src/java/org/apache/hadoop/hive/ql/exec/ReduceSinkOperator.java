@@ -210,6 +210,14 @@ public class ReduceSinkOperator extends TerminalOperator<ReduceSinkDesc>
     return ObjectInspectorFactory.getStandardStructObjectInspector(outputColNames, sois );
   }
 
+  protected static StructObjectInspector initEvaluatorsAndReturnStruct(
+      ExprNodeEvaluator[] evals, List<List<Integer>> distinctColIndices,
+      List<String> outputColNames,
+      int length, ObjectInspector rowInspector) throws HiveException {
+    return initEvaluatorsAndReturnStruct(evals, distinctColIndices, outputColNames, length,
+      rowInspector, false, null);
+  }
+
   @Override
   public void processOp(Object row, int tag) throws HiveException {
     try {
