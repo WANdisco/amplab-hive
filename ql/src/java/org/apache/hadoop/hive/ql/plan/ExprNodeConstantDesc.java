@@ -96,6 +96,9 @@ public class ExprNodeConstantDesc extends ExprNodeDesc implements Serializable {
 
   @Override
   public boolean isSame(Object o) {
+    if (o == null) {
+      return false;
+    }
     if (!(o instanceof ExprNodeConstantDesc)) {
       return false;
     }
@@ -107,7 +110,7 @@ public class ExprNodeConstantDesc extends ExprNodeDesc implements Serializable {
       return false;
     }
 
-    return true;
+    return value != null ? value.equals(dest.getValue()) : dest.getValue() == null;
   }
 
   @Override
