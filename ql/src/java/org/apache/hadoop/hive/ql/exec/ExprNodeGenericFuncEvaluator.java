@@ -48,6 +48,7 @@ public class ExprNodeGenericFuncEvaluator extends ExprNodeEvaluator {
   transient ExprNodeEvaluator[] children;
   transient GenericUDF.DeferredObject[] deferredChildren;
   transient boolean isEager;
+  transient boolean constDetermined = false;
 
   /**
    * Class to allow deferred evaluation for GenericUDF.
@@ -139,6 +140,11 @@ public class ExprNodeGenericFuncEvaluator extends ExprNodeEvaluator {
       context.setup(genericUDF);
     }
     this.outputOI = genericUDF.initializeAndFoldConstants(childrenOIs);
+
+    // cause the isDeterministic will call Class.initAnnotationsIfNecessary() indirectly, which is
+    // a synchronized function and it impacts the performance in multi-threads env significantly.
+    // try select -0.1 from xxx for instance.
+    constDetermined = ObjectInspectorUtils.isConstantObjectInspector(outputOI) && isDeterministic();
     return this.outputOI;
   }
 
@@ -154,8 +160,7 @@ public class ExprNodeGenericFuncEvaluator extends ExprNodeEvaluator {
   @Override
   public Object evaluate(Object row) throws HiveException {
     rowObject = row;
-    if (ObjectInspectorUtils.isConstantObjectInspector(outputOI) &&
-        isDeterministic()) {
+    if (constDetermined) {
       // The output of this UDF is constant, so don't even bother evaluating.
       return ((ConstantObjectInspector)outputOI).getWritableConstantValue();
     }
