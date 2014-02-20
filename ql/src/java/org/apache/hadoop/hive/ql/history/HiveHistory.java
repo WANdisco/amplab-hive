@@ -29,6 +29,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,7 +62,8 @@ public class HiveHistory {
   private Map<String, String> idToTableMap = null;
 
   // Job Hash Map
-  private final HashMap<String, QueryInfo> queryInfoMap = new HashMap<String, QueryInfo>();
+  private final ConcurrentHashMap<String, QueryInfo> queryInfoMap =
+    new ConcurrentHashMap<String, QueryInfo>();
 
   // Task Hash Map
   private final HashMap<String, TaskInfo> taskInfoMap = new HashMap<String, TaskInfo>();
@@ -330,7 +332,9 @@ public class HiveHistory {
     if (ji == null) {
       return;
     }
-    ji.hm.put(propName.name(), propValue);
+    synchronized(ji) {
+      ji.hm.put(propName.name(), propValue);
+    }
   }
 
   /**
@@ -400,8 +404,10 @@ public class HiveHistory {
     }
     if (sb1.length() > 0) {
       taskInfoMap.get(id).hm.put(Keys.ROWS_INSERTED.name(), sb1.toString());
-      queryInfoMap.get(queryId).hm.put(Keys.ROWS_INSERTED.name(), sb1
-          .toString());
+      QueryInfo qi = queryInfoMap.get(queryId);
+      synchronized(qi) {
+        qi.hm.put(Keys.ROWS_INSERTED.name(), sb1.toString());
+      }
     }
     if (sb.length() > 0) {
       taskInfoMap.get(id).hm.put(Keys.TASK_COUNTERS.name(), sb.toString());
@@ -413,8 +419,10 @@ public class HiveHistory {
     if (ji == null) {
       return;
     }
-    for (String tab : ji.rowCountMap.keySet()) {
-      console.printInfo(ji.rowCountMap.get(tab) + " Rows loaded to " + tab);
+    synchronized(ji) {
+      for (String tab : ji.rowCountMap.keySet()) {
+        console.printInfo(ji.rowCountMap.get(tab) + " Rows loaded to " + tab);
+      }
     }
   }
 
@@ -425,10 +433,12 @@ public class HiveHistory {
    */
   public void endQuery(String queryId) {
     QueryInfo ji = queryInfoMap.get(queryId);
-    if (ji == null) {
-      return;
+    synchronized(ji) {
+      if (ji == null) {
+        return;
+      }
+      log(RecordTypes.QueryEnd, ji.hm);
     }
-    log(RecordTypes.QueryEnd, ji.hm);
     queryInfoMap.remove(queryId);
   }
 
