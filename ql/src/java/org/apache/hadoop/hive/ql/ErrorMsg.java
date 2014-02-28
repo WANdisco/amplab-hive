@@ -336,6 +336,8 @@ public enum ErrorMsg {
             + "fails to construct aggregation for the partition "),
   ANALYZE_TABLE_PARTIALSCAN_AUTOGATHER(10233, "Analyze partialscan is not allowed " +
             "if hive.stats.autogather is set to false"),
+  UNSUPPORTED_SUBQUERY_EXPRESSION(10249, "Unsupported SubQuery Expression"),
+  INVALID_SUBQUERY_EXPRESSION(10250, "Invalid SubQuery expression"),
 
   SCRIPT_INIT_ERROR(20000, "Unable to initialize custom script."),
   SCRIPT_IO_ERROR(20001, "An error occurred while reading or writing to your custom script. "
