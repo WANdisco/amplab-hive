@@ -180,7 +180,6 @@ STAGE PLANS:
                 table:
                     input format: org.apache.hadoop.mapred.TextInputFormat
                     output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
-                    serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
 
   Stage: Stage-0
     Fetch Operator
@@ -341,7 +340,7 @@ where b.p_name not in
   )
 POSTHOOK: type: QUERY
 ABSTRACT SYNTAX TREE:
-  (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part) b)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_mfgr)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL b) p_name)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size))) (TOK_WHERE (not (TOK_SUBQUERY_EXPR (TOK_SUBQUERY_OP in) (TOK_QUERY (TOK_FROM (TOK_SUBQUERY (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_mfgr)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_name)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size)) (TOK_SELEXPR (TOK_FUNCTION rank (TOK_WINDOWSPEC (TOK_PARTITIONINGSPEC (TOK_DISTRIBUTEBY (TOK_TABLE_OR_COL p_mfgr)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL p_size)))))) r)))) a)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_name))) (TOK_WHERE (and (<= (TOK_TABLE_OR_COL r) 2) (= (. (TOK_TABLE_OR_COL b) p_mfgr) (. (TOK_TABLE_OR_COL a) p_mfgr)))))) (. (TOK_TABLE_OR_COL b) p_name))))))
+  (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part) b)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_mfgr)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL b) p_name)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size))) (TOK_WHERE (not (TOK_SUBQUERY_EXPR (TOK_SUBQUERY_OP in) (TOK_QUERY (TOK_FROM (TOK_SUBQUERY (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_mfgr)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_name)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size)) (TOK_SELEXPR (TOK_FUNCTION rank) r (TOK_WINDOWSPEC (TOK_PARTITIONINGSPEC (TOK_DISTRIBUTEBY (TOK_TABLE_OR_COL p_mfgr)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL p_size))))))))) a)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_name))) (TOK_WHERE (and (<= (TOK_TABLE_OR_COL r) 2) (= (. (TOK_TABLE_OR_COL b) p_mfgr) (. (TOK_TABLE_OR_COL a) p_mfgr)))))) (. (TOK_TABLE_OR_COL b) p_name))))))
 
 STAGE DEPENDENCIES:
   Stage-2 is a root stage
@@ -393,13 +392,11 @@ STAGE PLANS:
                   table:
                       input format: org.apache.hadoop.mapred.SequenceFileInputFormat
                       output format: org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
-                      serde: org.apache.hadoop.hive.serde2.lazybinary.LazyBinarySerDe
 
   Stage: Stage-1
     Map Reduce
       Alias -> Map Operator Tree:
         $INTNAME 
-          TableScan
             Reduce Output Operator
               key expressions:
                     expr: _col0
@@ -467,7 +464,6 @@ STAGE PLANS:
                 table:
                     input format: org.apache.hadoop.mapred.TextInputFormat
                     output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
-                    serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
 
   Stage: Stage-0
     Fetch Operator
@@ -533,7 +529,7 @@ part where part.p_size not in
   )
 POSTHOOK: type: QUERY
 ABSTRACT SYNTAX TREE:
-  (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_name)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size))) (TOK_WHERE (not (TOK_SUBQUERY_EXPR (TOK_SUBQUERY_OP in) (TOK_QUERY (TOK_FROM (TOK_SUBQUERY (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_size)) (TOK_SELEXPR (TOK_FUNCTION rank (TOK_WINDOWSPEC (TOK_PARTITIONINGSPEC (TOK_DISTRIBUTEBY (TOK_TABLE_OR_COL p_mfgr)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL p_size)))))) r)))) a)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION avg (TOK_TABLE_OR_COL p_size)))) (TOK_WHERE (<= (TOK_TABLE_OR_COL r) 2)))) (. (TOK_TABLE_OR_COL part) p_size))))))
+  (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_name)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size))) (TOK_WHERE (not (TOK_SUBQUERY_EXPR (TOK_SUBQUERY_OP in) (TOK_QUERY (TOK_FROM (TOK_SUBQUERY (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_size)) (TOK_SELEXPR (TOK_FUNCTION rank) r (TOK_WINDOWSPEC (TOK_PARTITIONINGSPEC (TOK_DISTRIBUTEBY (TOK_TABLE_OR_COL p_mfgr)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL p_size))))))))) a)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION avg (TOK_TABLE_OR_COL p_size)))) (TOK_WHERE (<= (TOK_TABLE_OR_COL r) 2)))) (. (TOK_TABLE_OR_COL part) p_size))))))
 
 STAGE DEPENDENCIES:
   Stage-1 is a root stage
@@ -588,13 +584,11 @@ STAGE PLANS:
                     table:
                         input format: org.apache.hadoop.mapred.SequenceFileInputFormat
                         output format: org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
-                        serde: org.apache.hadoop.hive.serde2.lazybinary.LazyBinarySerDe
 
   Stage: Stage-2
     Map Reduce
       Alias -> Map Operator Tree:
 #### A masked pattern was here ####
-          TableScan
             Reduce Output Operator
               sort order: 
               tag: -1
@@ -619,13 +613,11 @@ STAGE PLANS:
               table:
                   input format: org.apache.hadoop.mapred.SequenceFileInputFormat
                   output format: org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
-                  serde: org.apache.hadoop.hive.serde2.lazybinary.LazyBinarySerDe
 
   Stage: Stage-3
     Map Reduce
       Alias -> Map Operator Tree:
         $INTNAME 
-          TableScan
             Reduce Output Operator
               key expressions:
                     expr: _col0
@@ -681,7 +673,6 @@ STAGE PLANS:
                 table:
                     input format: org.apache.hadoop.mapred.TextInputFormat
                     output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
-                    serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
 
   Stage: Stage-0
     Fetch Operator
@@ -753,7 +744,7 @@ from part b where b.p_size not in
   )
 POSTHOOK: type: QUERY
 ABSTRACT SYNTAX TREE:
-  (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part) b)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_mfgr)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_name)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size))) (TOK_WHERE (not (TOK_SUBQUERY_EXPR (TOK_SUBQUERY_OP in) (TOK_QUERY (TOK_FROM (TOK_SUBQUERY (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_mfgr)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size)) (TOK_SELEXPR (TOK_FUNCTION rank (TOK_WINDOWSPEC (TOK_PARTITIONINGSPEC (TOK_DISTRIBUTEBY (TOK_TABLE_OR_COL p_mfgr)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL p_size)))))) r)))) a)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION min (TOK_TABLE_OR_COL p_size)))) (TOK_WHERE (and (<= (TOK_TABLE_OR_COL r) 2) (= (. (TOK_TABLE_OR_COL b) p_mfgr) (. (TOK_TABLE_OR_COL a) p_mfgr)))))) (. (TOK_TABLE_OR_COL b) p_size))))))
+  (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part) b)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_mfgr)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_name)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size))) (TOK_WHERE (not (TOK_SUBQUERY_EXPR (TOK_SUBQUERY_OP in) (TOK_QUERY (TOK_FROM (TOK_SUBQUERY (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL p_mfgr)) (TOK_SELEXPR (TOK_TABLE_OR_COL p_size)) (TOK_SELEXPR (TOK_FUNCTION rank) r (TOK_WINDOWSPEC (TOK_PARTITIONINGSPEC (TOK_DISTRIBUTEBY (TOK_TABLE_OR_COL p_mfgr)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL p_size))))))))) a)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION min (TOK_TABLE_OR_COL p_size)))) (TOK_WHERE (and (<= (TOK_TABLE_OR_COL r) 2) (= (. (TOK_TABLE_OR_COL b) p_mfgr) (. (TOK_TABLE_OR_COL a) p_mfgr)))))) (. (TOK_TABLE_OR_COL b) p_size))))))
 
 STAGE DEPENDENCIES:
   Stage-2 is a root stage
@@ -813,13 +804,11 @@ STAGE PLANS:
                     table:
                         input format: org.apache.hadoop.mapred.SequenceFileInputFormat
                         output format: org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
-                        serde: org.apache.hadoop.hive.serde2.lazybinary.LazyBinarySerDe
 
   Stage: Stage-3
     Map Reduce
       Alias -> Map Operator Tree:
 #### A masked pattern was here ####
-          TableScan
             Reduce Output Operator
               key expressions:
                     expr: _col0
@@ -855,13 +844,11 @@ STAGE PLANS:
               table:
                   input format: org.apache.hadoop.mapred.SequenceFileInputFormat
                   output format: org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
-                  serde: org.apache.hadoop.hive.serde2.lazybinary.LazyBinarySerDe
 
   Stage: Stage-1
     Map Reduce
       Alias -> Map Operator Tree:
         $INTNAME 
-          TableScan
             Reduce Output Operator
               key expressions:
                     expr: _col0
@@ -929,7 +916,6 @@ STAGE PLANS:
                 table:
                     input format: org.apache.hadoop.mapred.TextInputFormat
                     output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
-                    serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
 
   Stage: Stage-0
     Fetch Operator

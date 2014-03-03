@@ -35,9 +35,10 @@ PREHOOK: Output: default@part
 POSTHOOK: query: LOAD DATA LOCAL INPATH '../data/files/part_tiny.txt' overwrite into table part
 POSTHOOK: type: LOAD
 POSTHOOK: Output: default@part
-FAILED: SemanticException Line 9:8 Unsupported SubQuery Expression '1' in definition of SubQuery sq_1 [
+FAILED: SemanticException Failed to breakup Windowing invocations into Groups. At least 1 group must only depend on input columns. Also check for circular dependencies.
+Underlying error: org.apache.hadoop.hive.ql.parse.SemanticException: Line 8:48 Expression not in GROUP BY key 'p_mfgr' in definition of SubQuery sq_1 [
 a.p_size in 
   (select first_value(p_size) over(partition by p_mfgr order by p_size) 
    from part b 
    where a.p_brand = b.p_brand)
-] used as sq_1 at Line 7:15: Correlated Sub Queries cannot contain Windowing clauses.
+] used as sq_1 at Line 7:15
