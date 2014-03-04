@@ -103,6 +103,7 @@ public class Optimizer {
     if (HiveConf.getBoolVar(hiveConf, HiveConf.ConfVars.HIVELIMITOPTENABLE)) {
       transformations.add(new GlobalLimitOptimizer());
     }
+    transformations.add(new MapGroupByDistinctAggrOptimizer());
     transformations.add(new SimpleFetchOptimizer());  // must be called last
   }
 
