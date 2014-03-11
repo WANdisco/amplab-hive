@@ -76,9 +76,9 @@ columns:struct columns { i32 key, string value}
 partitioned:false
 partitionColumns:
 totalNumberFiles:1
-totalFileSize:661
-maxFileSize:661
-minFileSize:661
+totalFileSize:660
+maxFileSize:660
+minFileSize:660
 #### A masked pattern was here ####
 
 PREHOOK: query: select count(1) from src_orc_merge_test
@@ -188,9 +188,9 @@ columns:struct columns { i32 key, string value}
 partitioned:true
 partitionColumns:struct partition_columns { string ds}
 totalNumberFiles:1
-totalFileSize:661
-maxFileSize:661
-minFileSize:661
+totalFileSize:660
+maxFileSize:660
+minFileSize:660
 #### A masked pattern was here ####
 
 PREHOOK: query: select count(1) from src_orc_merge_test_part
