@@ -15,6 +15,9 @@ show partitions ptestfilter;
 alter table ptestfilter drop partition (c='2');
 show partitions ptestfilter;
 
+alter table ptestfilter drop partition (c<'2');
+show partitions ptestfilter;
+
 drop table ptestfilter;
 
 

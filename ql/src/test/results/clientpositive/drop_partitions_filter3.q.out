@@ -103,6 +103,20 @@ POSTHOOK: type: SHOWPARTITIONS
 c=1/d=2
 c=3/d=1
 c=3/d=2
+PREHOOK: query: alter table ptestfilter drop partition (c<'2')
+PREHOOK: type: ALTERTABLE_DROPPARTS
+PREHOOK: Input: default@ptestfilter
+PREHOOK: Output: default@ptestfilter@c=1/d=2
+POSTHOOK: query: alter table ptestfilter drop partition (c<'2')
+POSTHOOK: type: ALTERTABLE_DROPPARTS
+POSTHOOK: Input: default@ptestfilter
+POSTHOOK: Output: default@ptestfilter@c=1/d=2
+PREHOOK: query: show partitions ptestfilter
+PREHOOK: type: SHOWPARTITIONS
+POSTHOOK: query: show partitions ptestfilter
+POSTHOOK: type: SHOWPARTITIONS
+c=3/d=1
+c=3/d=2
 PREHOOK: query: drop table ptestfilter
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@ptestfilter

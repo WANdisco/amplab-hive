@@ -2263,10 +2263,18 @@ public class DDLSemanticAnalyzer extends BaseSemanticAnalyzer {
     boolean stringPartitionColumns = true;
     List<FieldSchema> partCols = tab.getPartCols();
 
-    for (FieldSchema partCol : partCols) {
-      if (!partCol.getType().toLowerCase().equals("string")) {
-        stringPartitionColumns = false;
-        break;
+    for (PartitionSpec partSpec : partSpecs) {
+      Map<String, String> partialSpec = partSpec.getPartSpecWithoutOperator();
+      for (FieldSchema partCol : partCols) {
+        boolean isPartColExist = true;
+        if (partialSpec.containsKey(partCol.getName()))
+        {
+          isPartColExist = false;
+        }
+        if (!isPartColExist && !partCol.getType().equalsIgnoreCase("string")) {
+          stringPartitionColumns = false;
+          break;
+        }
       }
     }
 
