@@ -1,10 +1,10 @@
-PREHOOK: query: -- INCLUDE_HADOOP_MAJOR_VERSIONS(0.20,0.20S)
+PREHOOK: query: -- EXCLUDE_HADOOP_MAJOR_VERSIONS(0.20,0.20S)
 -- Tests that when overwriting a partition in a table after altering the bucketing/sorting metadata
 -- the partition metadata is updated as well.
 
 CREATE TABLE tst1(key STRING, value STRING) PARTITIONED BY (ds STRING)
 PREHOOK: type: CREATETABLE
-POSTHOOK: query: -- INCLUDE_HADOOP_MAJOR_VERSIONS(0.20,0.20S)
+POSTHOOK: query: -- EXCLUDE_HADOOP_MAJOR_VERSIONS(0.20,0.20S)
 -- Tests that when overwriting a partition in a table after altering the bucketing/sorting metadata
 -- the partition metadata is updated as well.
 
@@ -175,7 +175,7 @@ Table:              	tst1
 Protect Mode:       	None                	 
 #### A masked pattern was here ####
 Partition Parameters:	 	 
-	numFiles            	1                   
+	numFiles            	8                   
 	numRows             	500                 
 	rawDataSize         	5312                
 	totalSize           	5812                
@@ -224,7 +224,7 @@ Retention:          	0
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 #### A masked pattern was here ####
-	numFiles            	1                   
+	numFiles            	8                   
 	numPartitions       	1                   
 	numRows             	500                 
 	rawDataSize         	5312                
@@ -273,7 +273,7 @@ Table:              	tst1
 Protect Mode:       	None                	 
 #### A masked pattern was here ####
 Partition Parameters:	 	 
-	numFiles            	1                   
+	numFiles            	8                   
 	numRows             	500                 
 	rawDataSize         	5312                
 	totalSize           	5812                
@@ -322,7 +322,7 @@ Retention:          	0
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 #### A masked pattern was here ####
-	numFiles            	1                   
+	numFiles            	8                   
 	numPartitions       	1                   
 	numRows             	500                 
 	rawDataSize         	5312                
@@ -371,7 +371,7 @@ Table:              	tst1
 Protect Mode:       	None                	 
 #### A masked pattern was here ####
 Partition Parameters:	 	 
-	numFiles            	1                   
+	numFiles            	8                   
 	numRows             	500                 
 	rawDataSize         	5312                
 	totalSize           	5812                
@@ -420,7 +420,7 @@ Retention:          	0
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 #### A masked pattern was here ####
-	numFiles            	1                   
+	numFiles            	8                   
 	numPartitions       	1                   
 	numRows             	500                 
 	rawDataSize         	5312                
@@ -469,7 +469,7 @@ Table:              	tst1
 Protect Mode:       	None                	 
 #### A masked pattern was here ####
 Partition Parameters:	 	 
-	numFiles            	1                   
+	numFiles            	4                   
 	numRows             	500                 
 	rawDataSize         	5312                
 	totalSize           	5812                
@@ -518,7 +518,7 @@ Retention:          	0
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 #### A masked pattern was here ####
-	numFiles            	1                   
+	numFiles            	4                   
 	numPartitions       	1                   
 	numRows             	500                 
 	rawDataSize         	5312                
@@ -567,7 +567,7 @@ Table:              	tst1
 Protect Mode:       	None                	 
 #### A masked pattern was here ####
 Partition Parameters:	 	 
-	numFiles            	1                   
+	numFiles            	4                   
 	numRows             	500                 
 	rawDataSize         	5312                
 	totalSize           	5812                
@@ -616,7 +616,7 @@ Retention:          	0
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 #### A masked pattern was here ####
-	numFiles            	1                   
+	numFiles            	4                   
 	numPartitions       	1                   
 	numRows             	500                 
 	rawDataSize         	5312                
@@ -665,7 +665,7 @@ Table:              	tst1
 Protect Mode:       	None                	 
 #### A masked pattern was here ####
 Partition Parameters:	 	 
-	numFiles            	1                   
+	numFiles            	4                   
 	numRows             	500                 
 	rawDataSize         	5312                
 	totalSize           	5812                
@@ -714,7 +714,7 @@ Retention:          	0
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 #### A masked pattern was here ####
-	numFiles            	1                   
+	numFiles            	4                   
 	numPartitions       	1                   
 	numRows             	500                 
 	rawDataSize         	5312                
@@ -763,7 +763,7 @@ Table:              	tst1
 Protect Mode:       	None                	 
 #### A masked pattern was here ####
 Partition Parameters:	 	 
-	numFiles            	1                   
+	numFiles            	4                   
 	numRows             	500                 
 	rawDataSize         	5312                
 	totalSize           	5812                
@@ -812,7 +812,7 @@ Retention:          	0
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 #### A masked pattern was here ####
-	numFiles            	1                   
+	numFiles            	4                   
 	numPartitions       	1                   
 	numRows             	500                 
 	rawDataSize         	5312                
