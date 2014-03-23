@@ -122,6 +122,7 @@ public class SQLOperation extends ExecuteStatementOperation {
       driver.close();
       driver.destroy();
     }
+    driver = null;
 
     SessionState session = SessionState.get();
     if (session.getTmpOutputFile() != null) {

@@ -114,7 +114,7 @@ public class HiveSessionImpl implements HiveSession {
 
   protected synchronized void release() {
     assert sessionState != null;
-    // no need to release sessionState...
+    SessionState.detachSession();
   }
 
   public SessionHandle getSessionHandle() {
@@ -312,10 +312,10 @@ public class HiveSessionImpl implements HiveSession {
       sessionState.close();
       // close all FileSystem for all UGIs created during this Connection live time
       TUGIContainingProcessor.closeAllFsForUGIs();
-      release();
     } catch (IOException ioe) {
-      release();
       throw new HiveSQLException("Failure to close", ioe);
+    } finally {
+      release();
     }
   }
 

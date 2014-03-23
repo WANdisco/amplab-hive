@@ -40,6 +40,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.hive.common.JavaUtils;
 import org.apache.hadoop.hive.conf.HiveConf;
 import org.apache.hadoop.hive.ql.MapRedStats;
 import org.apache.hadoop.hive.ql.exec.Utilities;
@@ -60,6 +61,8 @@ import org.apache.hadoop.hive.ql.util.DosToUnix;
  */
 public class SessionState {
   private static final Log LOG = LogFactory.getLog(SessionState.class);
+
+  protected ClassLoader parentLoader;
 
   /**
    * current configuration.
@@ -192,6 +195,7 @@ public class SessionState {
     if (StringUtils.isEmpty(conf.getVar(HiveConf.ConfVars.HIVESESSIONID))) {
       conf.setVar(HiveConf.ConfVars.HIVESESSIONID, makeSessionId());
     }
+    parentLoader = JavaUtils.getClassLoader();
   }
 
   private static final SimpleDateFormat DATE_FORMAT =
@@ -236,6 +240,18 @@ public class SessionState {
   public static SessionState start(HiveConf conf) {
     SessionState ss = new SessionState(conf);
     return start(ss);
+  }
+
+  /**
+   * Sets the given session state in the thread local var for sessions.
+   */
+  public static void setCurrentSessionState(SessionState startSs) {
+    tss.set(startSs);
+    Thread.currentThread().setContextClassLoader(startSs.getConf().getClassLoader());
+  }
+
+  public static void detachSession() {
+    tss.remove();
   }
 
   /**
@@ -738,6 +754,7 @@ public class SessionState {
   }
 
   public void close() throws IOException {
+    JavaUtils.closeClassLoadersTo(conf.getClassLoader(), parentLoader);
     File resourceDir =
       new File(getConf().getVar(HiveConf.ConfVars.DOWNLOADED_RESOURCES_DIR));
     LOG.debug("Removing resource dir " + resourceDir);
@@ -747,6 +764,8 @@ public class SessionState {
       }
     } catch (IOException e) {
       LOG.info("Error removing session resource dir " + resourceDir, e);
+    } finally {
+      detachSession();
     }
   }
 }
