@@ -94,7 +94,8 @@ SELECT COUNT(*) FROM orc_create_people where id < 10 and state = 'Ca';
 
 -- test predicate push down with no column projection
 SELECT id, first_name, last_name, address
-  FROM orc_create_people WHERE id > 90;
+  FROM orc_create_people WHERE id > 90
+  ORDER BY id, first_name, last_name;
 
 DROP TABLE orc_create;
 DROP TABLE orc_create_complex;
