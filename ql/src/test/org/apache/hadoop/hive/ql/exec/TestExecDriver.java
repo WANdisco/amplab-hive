@@ -281,7 +281,7 @@ public class TestExecDriver extends TestCase {
    */
   @SuppressWarnings("unchecked")
   private void populateMapRedPlan3(Table src, Table src2) throws SemanticException {
-    mr.setNumReduceTasks(Integer.valueOf(5));
+    mr.setNumReduceTasks(Integer.valueOf(1));
     mr.setNeedsTagging(true);
     ArrayList<String> outputColumns = new ArrayList<String>();
     for (int i = 0; i < 2; i++) {
