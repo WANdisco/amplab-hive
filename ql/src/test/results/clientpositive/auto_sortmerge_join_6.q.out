@@ -87,7 +87,7 @@ POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-2 is a root stage
   Stage-3 depends on stages: Stage-2
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-3
 
 STAGE PLANS:
   Stage: Stage-2
@@ -191,7 +191,7 @@ POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-1 is a root stage
   Stage-2 depends on stages: Stage-1
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-2
 
 STAGE PLANS:
   Stage: Stage-1
@@ -295,7 +295,7 @@ POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-1 is a root stage
   Stage-3 depends on stages: Stage-1
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-3
 
 STAGE PLANS:
   Stage: Stage-1
@@ -402,7 +402,7 @@ STAGE DEPENDENCIES:
   Stage-11 has a backup stage: Stage-1
   Stage-7 depends on stages: Stage-11
   Stage-1
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-2
 
 STAGE PLANS:
   Stage: Stage-8
@@ -710,7 +710,7 @@ explain select count(*) FROM tbl1 a JOIN tbl2 b ON a.key = b.key join tbl3 c on 
 POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-1 is a root stage
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-1
 
 STAGE PLANS:
   Stage: Stage-1
@@ -782,7 +782,7 @@ POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-2 is a root stage
   Stage-3 depends on stages: Stage-2
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-3
 
 STAGE PLANS:
   Stage: Stage-2
@@ -882,7 +882,7 @@ POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-2 is a root stage
   Stage-3 depends on stages: Stage-2
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-3
 
 STAGE PLANS:
   Stage: Stage-2
@@ -989,7 +989,7 @@ STAGE DEPENDENCIES:
   Stage-11 has a backup stage: Stage-1
   Stage-7 depends on stages: Stage-11
   Stage-1
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-2
 
 STAGE PLANS:
   Stage: Stage-8
@@ -1304,7 +1304,7 @@ STAGE DEPENDENCIES:
   Stage-10 has a backup stage: Stage-1
   Stage-6 depends on stages: Stage-10
   Stage-1
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-4, Stage-5, Stage-6, Stage-1
 
 STAGE PLANS:
   Stage: Stage-7
@@ -1610,7 +1610,7 @@ POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-2 is a root stage
   Stage-3 depends on stages: Stage-2
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-3
 
 STAGE PLANS:
   Stage: Stage-2

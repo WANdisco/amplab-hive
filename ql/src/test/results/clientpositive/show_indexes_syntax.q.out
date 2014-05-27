@@ -33,7 +33,7 @@ SHOW INDEX ON show_idx_t1
 POSTHOOK: type: SHOWINDEXES
 STAGE DEPENDENCIES:
   Stage-0 is a root stage
-  Stage-1 is a root stage
+  Stage-1 depends on stages: Stage-0
 
 STAGE PLANS:
   Stage: Stage-0
@@ -59,7 +59,7 @@ SHOW INDEXES ON show_idx_t1
 POSTHOOK: type: SHOWINDEXES
 STAGE DEPENDENCIES:
   Stage-0 is a root stage
-  Stage-1 is a root stage
+  Stage-1 depends on stages: Stage-0
 
 STAGE PLANS:
   Stage: Stage-0
@@ -85,7 +85,7 @@ SHOW FORMATTED INDEXES ON show_idx_t1
 POSTHOOK: type: SHOWINDEXES
 STAGE DEPENDENCIES:
   Stage-0 is a root stage
-  Stage-1 is a root stage
+  Stage-1 depends on stages: Stage-0
 
 STAGE PLANS:
   Stage: Stage-0

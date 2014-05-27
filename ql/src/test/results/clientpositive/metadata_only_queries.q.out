@@ -181,7 +181,7 @@ select count(*), sum(1), sum(0.2), count(1), count(s), count(bo), count(bin), co
 POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-1 is a root stage
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-1
 
 STAGE PLANS:
   Stage: Stage-1
@@ -235,7 +235,7 @@ select count(*), sum(1), sum(0.2), count(1), count(s), count(bo), count(bin), co
 POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-1 is a root stage
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-1
 
 STAGE PLANS:
   Stage: Stage-1
@@ -371,7 +371,7 @@ POSTHOOK: query: explain select count(ts) from stats_tbl_part
 POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-1 is a root stage
-  Stage-0 is a root stage
+  Stage-0 depends on stages: Stage-1
 
 STAGE PLANS:
   Stage: Stage-1
