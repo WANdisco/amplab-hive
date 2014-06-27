@@ -105,8 +105,6 @@ PREHOOK: query: DESCRIBE EXTENDED part_special PARTITION(ds='2008 04 08', ts = '
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: DESCRIBE EXTENDED part_special PARTITION(ds='2008 04 08', ts = '10:11:12=455')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: part_special PARTITION(ds=2008 04 08,ts=10:11:12=455).a SIMPLE []
-POSTHOOK: Lineage: part_special PARTITION(ds=2008 04 08,ts=10:11:12=455).b SIMPLE []
 a                   	string              	None                
 b                   	string              	None                
 ds                  	string              	None                
@@ -129,6 +127,4 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@part_special
 POSTHOOK: Input: default@part_special@ds=2008 04 08/ts=10%3A11%3A12%3D455
 #### A masked pattern was here ####
-POSTHOOK: Lineage: part_special PARTITION(ds=2008 04 08,ts=10:11:12=455).a SIMPLE []
-POSTHOOK: Lineage: part_special PARTITION(ds=2008 04 08,ts=10:11:12=455).b SIMPLE []
 1	2	2008 04 08	10:11:12=455

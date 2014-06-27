@@ -55,7 +55,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@alter_rename_partition
 POSTHOOK: Input: default@alter_rename_partition@pcol1=old_part1%3A/pcol2=old_part2%3A
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 1	old_part1:	old_part2:
 2	old_part1:	old_part2:
 3	old_part1:	old_part2:
@@ -72,12 +71,10 @@ POSTHOOK: Input: default@alter_rename_partition
 POSTHOOK: Input: default@alter_rename_partition@pcol1=old_part1%3A/pcol2=old_part2%3A
 POSTHOOK: Output: default@alter_rename_partition@pcol1=new_part1%3A/pcol2=new_part2%3A
 POSTHOOK: Output: default@alter_rename_partition@pcol1=old_part1%3A/pcol2=old_part2%3A
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: SHOW PARTITIONS alter_rename_partition
 PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: SHOW PARTITIONS alter_rename_partition
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 pcol1=new_part1%3A/pcol2=new_part2%3A
 PREHOOK: query: select * from alter_rename_partition where pcol1='old_part1:' and pcol2='old_part2:'
 PREHOOK: type: QUERY
@@ -87,7 +84,6 @@ POSTHOOK: query: select * from alter_rename_partition where pcol1='old_part1:' a
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@alter_rename_partition
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: select * from alter_rename_partition where pcol1='new_part1:' and pcol2='new_part2:'
 PREHOOK: type: QUERY
 PREHOOK: Input: default@alter_rename_partition
@@ -98,7 +94,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@alter_rename_partition
 POSTHOOK: Input: default@alter_rename_partition@pcol1=new_part1%3A/pcol2=new_part2%3A
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 1	new_part1:	new_part2:
 2	new_part1:	new_part2:
 3	new_part1:	new_part2:
@@ -115,7 +110,6 @@ DROP TABLE alter_rename_partition_src
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@alter_rename_partition_src
 POSTHOOK: Output: default@alter_rename_partition_src
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: DROP TABLE alter_rename_partition
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@alter_rename_partition
@@ -124,12 +118,10 @@ POSTHOOK: query: DROP TABLE alter_rename_partition
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@alter_rename_partition
 POSTHOOK: Output: default@alter_rename_partition
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: SHOW TABLES
 PREHOOK: type: SHOWTABLES
 POSTHOOK: query: SHOW TABLES
 POSTHOOK: type: SHOWTABLES
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 src
 src1
 src_json
@@ -146,36 +138,30 @@ POSTHOOK: query: -- With non-default Database
 
 CREATE DATABASE alter_rename_partition_db
 POSTHOOK: type: CREATEDATABASE
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: USE alter_rename_partition_db
 PREHOOK: type: SWITCHDATABASE
 POSTHOOK: query: USE alter_rename_partition_db
 POSTHOOK: type: SWITCHDATABASE
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: SHOW TABLES
 PREHOOK: type: SHOWTABLES
 POSTHOOK: query: SHOW TABLES
 POSTHOOK: type: SHOWTABLES
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: CREATE TABLE alter_rename_partition_src (col1 STRING) STORED AS TEXTFILE
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: CREATE TABLE alter_rename_partition_src (col1 STRING) STORED AS TEXTFILE
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: alter_rename_partition_db@alter_rename_partition_src
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: LOAD DATA LOCAL INPATH '../data/files/test.dat' OVERWRITE INTO TABLE alter_rename_partition_src
 PREHOOK: type: LOAD
 PREHOOK: Output: alter_rename_partition_db@alter_rename_partition_src
 POSTHOOK: query: LOAD DATA LOCAL INPATH '../data/files/test.dat' OVERWRITE INTO TABLE alter_rename_partition_src
 POSTHOOK: type: LOAD
 POSTHOOK: Output: alter_rename_partition_db@alter_rename_partition_src
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: CREATE TABLE alter_rename_partition (col1 STRING) PARTITIONED BY (pcol1 STRING, pcol2 STRING) STORED AS SEQUENCEFILE
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: CREATE TABLE alter_rename_partition (col1 STRING) PARTITIONED BY (pcol1 STRING, pcol2 STRING) STORED AS SEQUENCEFILE
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: alter_rename_partition_db@alter_rename_partition
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: INSERT OVERWRITE TABLE alter_rename_partition PARTITION (pCol1='old_part1:', pcol2='old_part2:') SELECT col1 FROM alter_rename_partition_src
 PREHOOK: type: QUERY
 PREHOOK: Input: alter_rename_partition_db@alter_rename_partition_src
@@ -184,7 +170,6 @@ POSTHOOK: query: INSERT OVERWRITE TABLE alter_rename_partition PARTITION (pCol1=
 POSTHOOK: type: QUERY
 POSTHOOK: Input: alter_rename_partition_db@alter_rename_partition_src
 POSTHOOK: Output: alter_rename_partition_db@alter_rename_partition@pcol1=old_part1%3A/pcol2=old_part2%3A
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: SELECT * FROM alter_rename_partition WHERE pcol1='old_part1:' AND pcol2='old_part2:'
 PREHOOK: type: QUERY
@@ -196,8 +181,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: alter_rename_partition_db@alter_rename_partition
 POSTHOOK: Input: alter_rename_partition_db@alter_rename_partition@pcol1=old_part1%3A/pcol2=old_part2%3A
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 1	old_part1:	old_part2:
 2	old_part1:	old_part2:
 3	old_part1:	old_part2:
@@ -214,14 +197,10 @@ POSTHOOK: Input: alter_rename_partition_db@alter_rename_partition
 POSTHOOK: Input: alter_rename_partition_db@alter_rename_partition@pcol1=old_part1%3A/pcol2=old_part2%3A
 POSTHOOK: Output: alter_rename_partition_db@alter_rename_partition@pcol1=new_part1%3A/pcol2=new_part2%3A
 POSTHOOK: Output: alter_rename_partition_db@alter_rename_partition@pcol1=old_part1%3A/pcol2=old_part2%3A
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: SHOW PARTITIONS alter_rename_partition
 PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: SHOW PARTITIONS alter_rename_partition
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 pcol1=new_part1%3A/pcol2=new_part2%3A
 PREHOOK: query: SELECT * FROM alter_rename_partition WHERE pcol1='old_part1:' and pcol2='old_part2:'
 PREHOOK: type: QUERY
@@ -231,8 +210,6 @@ POSTHOOK: query: SELECT * FROM alter_rename_partition WHERE pcol1='old_part1:' a
 POSTHOOK: type: QUERY
 POSTHOOK: Input: alter_rename_partition_db@alter_rename_partition
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 PREHOOK: query: SELECT * FROM alter_rename_partition WHERE pcol1='new_part1:' and pcol2='new_part2:'
 PREHOOK: type: QUERY
 PREHOOK: Input: alter_rename_partition_db@alter_rename_partition
@@ -243,8 +220,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: alter_rename_partition_db@alter_rename_partition
 POSTHOOK: Input: alter_rename_partition_db@alter_rename_partition@pcol1=new_part1%3A/pcol2=new_part2%3A
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
-POSTHOOK: Lineage: alter_rename_partition PARTITION(pcol1=old_part1:,pcol2=old_part2:).col1 SIMPLE [(alter_rename_partition_src)alter_rename_partition_src.FieldSchema(name:col1, type:string, comment:null), ]
 1	new_part1:	new_part2:
 2	new_part1:	new_part2:
 3	new_part1:	new_part2:

@@ -196,10 +196,6 @@ POSTHOOK: query: select * from e1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 100	2
 200	2
 PREHOOK: query: select * from e2
@@ -210,10 +206,6 @@ POSTHOOK: query: select * from e2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 400	1
 PREHOOK: query: explain
 from src
@@ -237,10 +229,6 @@ select value, count(*)
 where src.key + src.key = 400 or src.key - 100 = 500 AND VALUE IS NOT NULL
 group by value
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME src))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME e1))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL value)) (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (or (or (= (+ (. (TOK_TABLE_OR_COL src) key) (. (TOK_TABLE_OR_COL src) key)) 200) (= (- (. (TOK_TABLE_OR_COL src) key) 100) 100)) (AND (= (. (TOK_TABLE_OR_COL src) key) 300) (TOK_FUNCTION TOK_ISNOTNULL (TOK_TABLE_OR_COL VALUE))))) (TOK_GROUPBY (TOK_TABLE_OR_COL value))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME e2))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL value)) (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (or (= (+ (. (TOK_TABLE_OR_COL src) key) (. (TOK_TABLE_OR_COL src) key)) 400) (AND (= (- (. (TOK_TABLE_OR_COL src) key) 100) 500) (TOK_FUNCTION TOK_ISNOTNULL (TOK_TABLE_OR_COL VALUE))))) (TOK_GROUPBY (TOK_TABLE_OR_COL value))))
 
@@ -394,12 +382,8 @@ POSTHOOK: Input: default@src
 POSTHOOK: Output: default@e1
 POSTHOOK: Output: default@e2
 POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 PREHOOK: query: select * from e1
 PREHOOK: type: QUERY
@@ -409,14 +393,6 @@ POSTHOOK: query: select * from e1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 val_100	2
 val_200	2
 PREHOOK: query: select * from e2
@@ -427,14 +403,6 @@ POSTHOOK: query: select * from e2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 val_200	2
 PREHOOK: query: explain
 from src
@@ -458,14 +426,6 @@ select key, count(*)
 where src.value in ('val_400', 'val_500') AND key in (400, 450)
 group by key
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME src))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME e1))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (AND (TOK_FUNCTION in (. (TOK_TABLE_OR_COL src) value) 'val_100' 'val_200' 'val_300') (TOK_FUNCTION in (TOK_TABLE_OR_COL key) 100 150 200))) (TOK_GROUPBY (TOK_TABLE_OR_COL key))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME e2))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (AND (TOK_FUNCTION in (. (TOK_TABLE_OR_COL src) value) 'val_400' 'val_500') (TOK_FUNCTION in (TOK_TABLE_OR_COL key) 400 450))) (TOK_GROUPBY (TOK_TABLE_OR_COL key))))
 
@@ -619,16 +579,8 @@ POSTHOOK: Input: default@src
 POSTHOOK: Output: default@e1
 POSTHOOK: Output: default@e2
 POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: select * from e1
 PREHOOK: type: QUERY
@@ -638,18 +590,6 @@ POSTHOOK: query: select * from e1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 100	2
 200	2
 PREHOOK: query: select * from e2
@@ -660,18 +600,6 @@ POSTHOOK: query: select * from e2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 400	1
 PREHOOK: query: explain
 from src
@@ -695,18 +623,6 @@ select value, count(*)
 where src.key + src.key = 400 or src.key - 100 = 500 AND VALUE IS NOT NULL
 group by value
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME src))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME e1))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL value)) (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (or (or (= (+ (. (TOK_TABLE_OR_COL src) key) (. (TOK_TABLE_OR_COL src) key)) 200) (= (- (. (TOK_TABLE_OR_COL src) key) 100) 100)) (AND (= (. (TOK_TABLE_OR_COL src) key) 300) (TOK_FUNCTION TOK_ISNOTNULL (TOK_TABLE_OR_COL VALUE))))) (TOK_GROUPBY (TOK_TABLE_OR_COL value))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME e2))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL value)) (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (or (= (+ (. (TOK_TABLE_OR_COL src) key) (. (TOK_TABLE_OR_COL src) key)) 400) (AND (= (- (. (TOK_TABLE_OR_COL src) key) 100) 500) (TOK_FUNCTION TOK_ISNOTNULL (TOK_TABLE_OR_COL VALUE))))) (TOK_GROUPBY (TOK_TABLE_OR_COL value))))
 
@@ -860,20 +776,8 @@ POSTHOOK: Input: default@src
 POSTHOOK: Output: default@e1
 POSTHOOK: Output: default@e2
 POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 PREHOOK: query: select * from e1
 PREHOOK: type: QUERY
@@ -883,22 +787,6 @@ POSTHOOK: query: select * from e1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 val_100	2
 val_200	2
 PREHOOK: query: select * from e2
@@ -909,20 +797,4 @@ POSTHOOK: query: select * from e2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e1.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.count EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: e2.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 val_200	2

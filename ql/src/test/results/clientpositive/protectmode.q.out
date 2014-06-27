@@ -324,7 +324,6 @@ POSTHOOK: query: insert overwrite table tbl1 select col from tbl1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@tbl1
 POSTHOOK: Output: default@tbl1
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl2)tbl2.FieldSchema(name:col, type:string, comment:null), ]
 POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl1)tbl1.FieldSchema(name:col, type:string, comment:null), ]
 PREHOOK: query: alter table tbl2 partition (p='p1') enable no_drop
 PREHOOK: type: ALTERPARTITION_PROTECTMODE
@@ -335,8 +334,6 @@ POSTHOOK: type: ALTERPARTITION_PROTECTMODE
 POSTHOOK: Input: default@tbl2
 POSTHOOK: Input: default@tbl2@p=p1
 POSTHOOK: Output: default@tbl2@p=p1
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl2)tbl2.FieldSchema(name:col, type:string, comment:null), ]
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl1)tbl1.FieldSchema(name:col, type:string, comment:null), ]
 PREHOOK: query: alter table tbl2 partition (p='p1') disable no_drop
 PREHOOK: type: ALTERPARTITION_PROTECTMODE
 PREHOOK: Input: default@tbl2
@@ -346,8 +343,6 @@ POSTHOOK: type: ALTERPARTITION_PROTECTMODE
 POSTHOOK: Input: default@tbl2
 POSTHOOK: Input: default@tbl2@p=p1
 POSTHOOK: Output: default@tbl2@p=p1
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl2)tbl2.FieldSchema(name:col, type:string, comment:null), ]
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl1)tbl1.FieldSchema(name:col, type:string, comment:null), ]
 PREHOOK: query: alter table tbl2 partition (p='p2') enable no_drop
 PREHOOK: type: ALTERPARTITION_PROTECTMODE
 PREHOOK: Input: default@tbl2
@@ -357,8 +352,6 @@ POSTHOOK: type: ALTERPARTITION_PROTECTMODE
 POSTHOOK: Input: default@tbl2
 POSTHOOK: Input: default@tbl2@p=p2
 POSTHOOK: Output: default@tbl2@p=p2
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl2)tbl2.FieldSchema(name:col, type:string, comment:null), ]
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl1)tbl1.FieldSchema(name:col, type:string, comment:null), ]
 PREHOOK: query: alter table tbl2 drop partition (p='p1')
 PREHOOK: type: ALTERTABLE_DROPPARTS
 PREHOOK: Input: default@tbl2
@@ -367,8 +360,6 @@ POSTHOOK: query: alter table tbl2 drop partition (p='p1')
 POSTHOOK: type: ALTERTABLE_DROPPARTS
 POSTHOOK: Input: default@tbl2
 POSTHOOK: Output: default@tbl2@p=p1
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl2)tbl2.FieldSchema(name:col, type:string, comment:null), ]
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl1)tbl1.FieldSchema(name:col, type:string, comment:null), ]
 PREHOOK: query: alter table tbl2 partition (p='p2') disable no_drop
 PREHOOK: type: ALTERPARTITION_PROTECTMODE
 PREHOOK: Input: default@tbl2
@@ -378,8 +369,6 @@ POSTHOOK: type: ALTERPARTITION_PROTECTMODE
 POSTHOOK: Input: default@tbl2
 POSTHOOK: Input: default@tbl2@p=p2
 POSTHOOK: Output: default@tbl2@p=p2
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl2)tbl2.FieldSchema(name:col, type:string, comment:null), ]
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl1)tbl1.FieldSchema(name:col, type:string, comment:null), ]
 PREHOOK: query: drop table tbl1
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@tbl1
@@ -388,8 +377,6 @@ POSTHOOK: query: drop table tbl1
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@tbl1
 POSTHOOK: Output: default@tbl1
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl2)tbl2.FieldSchema(name:col, type:string, comment:null), ]
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl1)tbl1.FieldSchema(name:col, type:string, comment:null), ]
 PREHOOK: query: drop table tbl2
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@tbl2
@@ -398,5 +385,3 @@ POSTHOOK: query: drop table tbl2
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@tbl2
 POSTHOOK: Output: default@tbl2
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl2)tbl2.FieldSchema(name:col, type:string, comment:null), ]
-POSTHOOK: Lineage: tbl1.col SIMPLE [(tbl1)tbl1.FieldSchema(name:col, type:string, comment:null), ]

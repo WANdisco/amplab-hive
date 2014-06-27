@@ -157,8 +157,6 @@ POSTHOOK: query: SELECT * FROM tmptable x SORT BY x.key, x.value
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@tmptable
 #### A masked pattern was here ####
-POSTHOOK: Lineage: tmptable.key EXPRESSION [(src1)s2.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: tmptable.value EXPRESSION [(src)s1.null, (src1)s2.FieldSchema(name:value, type:string, comment:default), ]
 	
 	
 	
@@ -189,8 +187,6 @@ PREHOOK: query: DESCRIBE FORMATTED tmptable
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: DESCRIBE FORMATTED tmptable
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: tmptable.key EXPRESSION [(src1)s2.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: tmptable.value EXPRESSION [(src)s1.null, (src1)s2.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                
@@ -233,14 +229,10 @@ POSTHOOK: query: -- Load a file into a existing table
 load data local inpath '../data/files/srcbucket20.txt' INTO TABLE tmptable
 POSTHOOK: type: LOAD
 POSTHOOK: Output: default@tmptable
-POSTHOOK: Lineage: tmptable.key EXPRESSION [(src1)s2.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: tmptable.value EXPRESSION [(src)s1.null, (src1)s2.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: DESCRIBE FORMATTED tmptable
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: DESCRIBE FORMATTED tmptable
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: tmptable.key EXPRESSION [(src1)s2.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: tmptable.value EXPRESSION [(src)s1.null, (src1)s2.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                

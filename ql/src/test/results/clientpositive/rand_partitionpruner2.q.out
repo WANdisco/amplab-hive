@@ -376,10 +376,6 @@ POSTHOOK: query: select * from tmptable x sort by x.key,x.value,x.ds,x.hr
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@tmptable
 #### A masked pattern was here ####
-POSTHOOK: Lineage: tmptable.ds SIMPLE [(srcpart)a.FieldSchema(name:hr, type:string, comment:null), ]
-POSTHOOK: Lineage: tmptable.hr SIMPLE [(srcpart)a.FieldSchema(name:ds, type:string, comment:null), ]
-POSTHOOK: Lineage: tmptable.key SIMPLE [(srcpart)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: tmptable.value SIMPLE [(srcpart)a.FieldSchema(name:value, type:string, comment:default), ]
 103	val_103	2008-04-08	11
 118	val_118	2008-04-08	12
 119	val_119	2008-04-08	12

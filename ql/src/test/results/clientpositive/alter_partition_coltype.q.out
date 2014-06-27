@@ -21,8 +21,6 @@ PREHOOK: query: desc alter_coltype
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc alter_coltype
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 key                 	string              	None                
 value               	string              	None                
 dt                  	string              	None                
@@ -45,8 +43,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@alter_coltype
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=6%3A30pm
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 25
 PREHOOK: query: -- alter partition key column data type for dt column.
 alter table alter_coltype partition column (dt int)
@@ -57,8 +53,6 @@ alter table alter_coltype partition column (dt int)
 POSTHOOK: type: null
 POSTHOOK: Input: default@alter_coltype
 POSTHOOK: Output: default@alter_coltype
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: -- load a new partition using new data type.
 insert overwrite table alter_coltype partition(dt=10, ts='3.0') select * from src1
 PREHOOK: type: QUERY
@@ -71,8 +65,6 @@ POSTHOOK: Input: default@src1
 POSTHOOK: Output: default@alter_coltype@dt=10/ts=3.0
 POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: -- make sure the partition predicate still works. 
 select count(*) from alter_coltype where dt = '100x'
 PREHOOK: type: QUERY
@@ -85,19 +77,11 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@alter_coltype
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=6%3A30pm
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 25
 PREHOOK: query: explain extended select count(*) from alter_coltype where dt = '100x'
 PREHOOK: type: QUERY
 POSTHOOK: query: explain extended select count(*) from alter_coltype where dt = '100x'
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME alter_coltype))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (= (TOK_TABLE_OR_COL dt) '100x'))))
 
@@ -223,10 +207,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@alter_coltype
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=6%3A30pm
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 0
 PREHOOK: query: -- alter partition key column data type for ts column.
 alter table alter_coltype partition column (ts double)
@@ -237,10 +217,6 @@ alter table alter_coltype partition column (ts double)
 POSTHOOK: type: null
 POSTHOOK: Input: default@alter_coltype
 POSTHOOK: Output: default@alter_coltype
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: -- load a new partition using new data type.
 insert overwrite table alter_coltype partition(dt='100x', ts=3.0) select * from src1
 PREHOOK: type: QUERY
@@ -251,12 +227,8 @@ insert overwrite table alter_coltype partition(dt='100x', ts=3.0) select * from 
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src1
 POSTHOOK: Output: default@alter_coltype@dt=100x/ts=3.0
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: --  validate partition key column predicate can still work.
 select count(*) from alter_coltype where ts = '6:30pm'
 PREHOOK: type: QUERY
@@ -269,23 +241,11 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@alter_coltype
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=6%3A30pm
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 25
 PREHOOK: query: explain extended select count(*) from alter_coltype where ts = '6:30pm'
 PREHOOK: type: QUERY
 POSTHOOK: query: explain extended select count(*) from alter_coltype where ts = '6:30pm'
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME alter_coltype))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (= (TOK_TABLE_OR_COL ts) '6:30pm'))))
 
@@ -419,23 +379,11 @@ POSTHOOK: Input: default@alter_coltype@dt=10/ts=3.0
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=3.0
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=6%3A30pm
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 25
 PREHOOK: query: explain extended select count(*) from alter_coltype where ts = 3.0 and dt=10
 PREHOOK: type: QUERY
 POSTHOOK: query: explain extended select count(*) from alter_coltype where ts = 3.0 and dt=10
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME alter_coltype))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (and (= (TOK_TABLE_OR_COL ts) 3.0) (= (TOK_TABLE_OR_COL dt) 10)))))
 
@@ -666,12 +614,6 @@ POSTHOOK: Input: default@alter_coltype@dt=10/ts=3.0
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=3.0
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=6%3A30pm
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 238	val_238	10	3.0
 		10	3.0
 311	val_311	10	3.0
@@ -751,12 +693,6 @@ PREHOOK: query: explain extended select key, value, dt, ts from alter_coltype wh
 PREHOOK: type: QUERY
 POSTHOOK: query: explain extended select key, value, dt, ts from alter_coltype where dt is not null
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME alter_coltype))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_TABLE_OR_COL value)) (TOK_SELEXPR (TOK_TABLE_OR_COL dt)) (TOK_SELEXPR (TOK_TABLE_OR_COL ts))) (TOK_WHERE (TOK_FUNCTION TOK_ISNOTNULL (TOK_TABLE_OR_COL dt)))))
 
@@ -966,12 +902,6 @@ POSTHOOK: Input: default@alter_coltype@dt=10/ts=3.0
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=3.0
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=6%3A30pm
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 50
 PREHOOK: query: -- make sure the partition predicate still works. 
 select count(*) from alter_coltype where dt = '100x' or dt = '10'
@@ -989,23 +919,11 @@ POSTHOOK: Input: default@alter_coltype@dt=10/ts=3.0
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=3.0
 POSTHOOK: Input: default@alter_coltype@dt=100x/ts=6%3A30pm
 #### A masked pattern was here ####
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 75
 PREHOOK: query: explain extended select count(*) from alter_coltype where dt = '100x' or dt = '10'
 PREHOOK: type: QUERY
 POSTHOOK: query: explain extended select count(*) from alter_coltype where dt = '100x' or dt = '10'
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME alter_coltype))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (or (= (TOK_TABLE_OR_COL dt) '100x') (= (TOK_TABLE_OR_COL dt) '10')))))
 
@@ -1219,12 +1137,6 @@ PREHOOK: query: desc alter_coltype
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc alter_coltype
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 key                 	string              	None                
 value               	string              	None                
 dt                  	int                 	None                
@@ -1239,12 +1151,6 @@ PREHOOK: query: desc alter_coltype partition (dt='100x', ts='6:30pm')
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc alter_coltype partition (dt='100x', ts='6:30pm')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 key                 	string              	None                
 value               	string              	None                
 dt                  	int                 	None                
@@ -1259,12 +1165,6 @@ PREHOOK: query: desc alter_coltype partition (dt='100x', ts=3.0)
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc alter_coltype partition (dt='100x', ts=3.0)
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 key                 	string              	None                
 value               	string              	None                
 dt                  	int                 	None                
@@ -1279,12 +1179,6 @@ PREHOOK: query: desc alter_coltype partition (dt=10, ts=3.0)
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc alter_coltype partition (dt=10, ts=3.0)
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 key                 	string              	None                
 value               	string              	None                
 dt                  	int                 	None                
@@ -1303,9 +1197,3 @@ POSTHOOK: query: drop table alter_coltype
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@alter_coltype
 POSTHOOK: Output: default@alter_coltype
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=10,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=3.0).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: alter_coltype PARTITION(dt=100x,ts=6:30pm).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]

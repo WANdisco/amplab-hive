@@ -235,8 +235,6 @@ POSTHOOK: query: select * from e1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION []
-POSTHOOK: Lineage: e2.count EXPRESSION []
 452	1
 453	1
 454	3
@@ -282,8 +280,6 @@ POSTHOOK: query: select * from e2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION []
-POSTHOOK: Lineage: e2.count EXPRESSION []
 PREHOOK: query: explain FROM src
 INSERT OVERWRITE TABLE e1
     SELECT key, COUNT(*) WHERE key>450 GROUP BY key ORDER BY key
@@ -296,8 +292,6 @@ INSERT OVERWRITE TABLE e1
 INSERT OVERWRITE TABLE e2
     SELECT key, COUNT(*) GROUP BY key ORDER BY key
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: e1.count EXPRESSION []
-POSTHOOK: Lineage: e2.count EXPRESSION []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME src))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME e1))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_FUNCTIONSTAR COUNT))) (TOK_WHERE (> (TOK_TABLE_OR_COL key) 450)) (TOK_GROUPBY (TOK_TABLE_OR_COL key)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL key)))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME e2))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_FUNCTIONSTAR COUNT))) (TOK_GROUPBY (TOK_TABLE_OR_COL key)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL key)))))
 
@@ -494,8 +488,6 @@ POSTHOOK: Input: default@src
 POSTHOOK: Output: default@e1
 POSTHOOK: Output: default@e2
 POSTHOOK: Lineage: e1.count EXPRESSION []
-POSTHOOK: Lineage: e1.count EXPRESSION []
-POSTHOOK: Lineage: e2.count EXPRESSION []
 POSTHOOK: Lineage: e2.count EXPRESSION []
 PREHOOK: query: select * from e1
 PREHOOK: type: QUERY
@@ -505,10 +497,6 @@ POSTHOOK: query: select * from e1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION []
-POSTHOOK: Lineage: e1.count EXPRESSION []
-POSTHOOK: Lineage: e2.count EXPRESSION []
-POSTHOOK: Lineage: e2.count EXPRESSION []
 452	1
 453	1
 454	3
@@ -554,10 +542,6 @@ POSTHOOK: query: select * from e2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@e2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: e1.count EXPRESSION []
-POSTHOOK: Lineage: e1.count EXPRESSION []
-POSTHOOK: Lineage: e2.count EXPRESSION []
-POSTHOOK: Lineage: e2.count EXPRESSION []
 0	3
 10	1
 100	2

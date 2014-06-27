@@ -22,8 +22,6 @@ PREHOOK: query: explain insert into table insert1 select a.key, a.value from ins
 PREHOOK: type: QUERY
 POSTHOOK: query: explain insert into table insert1 select a.key, a.value from insert2 a WHERE (a.key=-1)
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME insert2) a)) (TOK_INSERT (TOK_INSERT_INTO (TOK_TAB (TOK_TABNAME insert1))) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) key)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) value))) (TOK_WHERE (= (. (TOK_TABLE_OR_COL a) key) (- 1)))))
 
@@ -123,8 +121,6 @@ PREHOOK: query: explain insert into table INSERT1 select a.key, a.value from ins
 PREHOOK: type: QUERY
 POSTHOOK: query: explain insert into table INSERT1 select a.key, a.value from insert2 a WHERE (a.key=-1)
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME insert2) a)) (TOK_INSERT (TOK_INSERT_INTO (TOK_TAB (TOK_TABNAME INSERT1))) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) key)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) value))) (TOK_WHERE (= (. (TOK_TABLE_OR_COL a) key) (- 1)))))
 
@@ -226,21 +222,15 @@ PREHOOK: type: CREATEDATABASE
 POSTHOOK: query: -- HIVE-3465
 create database x
 POSTHOOK: type: CREATEDATABASE
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: create table x.insert1(key int, value string) stored as textfile
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: create table x.insert1(key int, value string) stored as textfile
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: x@insert1
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: explain insert into table x.INSERT1 select a.key, a.value from insert2 a WHERE (a.key=-1)
 PREHOOK: type: QUERY
 POSTHOOK: query: explain insert into table x.INSERT1 select a.key, a.value from insert2 a WHERE (a.key=-1)
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME insert2) a)) (TOK_INSERT (TOK_INSERT_INTO (TOK_TAB (TOK_TABNAME x INSERT1))) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) key)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) value))) (TOK_WHERE (= (. (TOK_TABLE_OR_COL a) key) (- 1)))))
 
@@ -340,8 +330,6 @@ PREHOOK: query: explain insert into table default.INSERT1 select a.key, a.value 
 PREHOOK: type: QUERY
 POSTHOOK: query: explain insert into table default.INSERT1 select a.key, a.value from insert2 a WHERE (a.key=-1)
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME insert2) a)) (TOK_INSERT (TOK_INSERT_INTO (TOK_TAB (TOK_TABNAME default INSERT1))) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) key)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) value))) (TOK_WHERE (= (. (TOK_TABLE_OR_COL a) key) (- 1)))))
 
@@ -447,8 +435,6 @@ from insert2
 insert into table insert1 select * where key < 10
 insert overwrite table x.insert1 select * where key > 10 and key < 20
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME insert2))) (TOK_INSERT (TOK_INSERT_INTO (TOK_TAB (TOK_TABNAME insert1))) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF)) (TOK_WHERE (< (TOK_TABLE_OR_COL key) 10))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME x insert1))) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF)) (TOK_WHERE (and (> (TOK_TABLE_OR_COL key) 10) (< (TOK_TABLE_OR_COL key) 20)))))
 
@@ -630,21 +616,15 @@ PREHOOK: type: CREATEDATABASE
 POSTHOOK: query: -- HIVE-3676
 CREATE DATABASE db2
 POSTHOOK: type: CREATEDATABASE
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: USE db2
 PREHOOK: type: SWITCHDATABASE
 POSTHOOK: query: USE db2
 POSTHOOK: type: SWITCHDATABASE
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: CREATE TABLE result(col1 STRING)
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: CREATE TABLE result(col1 STRING)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: db2@result
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: INSERT OVERWRITE TABLE result SELECT 'db2_insert1' FROM default.src LIMIT 1
 PREHOOK: type: QUERY
 PREHOOK: Input: default@src
@@ -653,8 +633,6 @@ POSTHOOK: query: INSERT OVERWRITE TABLE result SELECT 'db2_insert1' FROM default
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: db2@result
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
 POSTHOOK: Lineage: result.col1 SIMPLE []
 PREHOOK: query: INSERT INTO TABLE result SELECT 'db2_insert2' FROM default.src LIMIT 1
 PREHOOK: type: QUERY
@@ -664,9 +642,6 @@ POSTHOOK: query: INSERT INTO TABLE result SELECT 'db2_insert2' FROM default.src 
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: db2@result
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: result.col1 SIMPLE []
 POSTHOOK: Lineage: result.col1 SIMPLE []
 PREHOOK: query: SELECT * FROM result order by col1
 PREHOOK: type: QUERY
@@ -676,37 +651,21 @@ POSTHOOK: query: SELECT * FROM result order by col1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: db2@result
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
 db2_insert1
 db2_insert2
 PREHOOK: query: USE default
 PREHOOK: type: SWITCHDATABASE
 POSTHOOK: query: USE default
 POSTHOOK: type: SWITCHDATABASE
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
 PREHOOK: query: CREATE DATABASE db1
 PREHOOK: type: CREATEDATABASE
 POSTHOOK: query: CREATE DATABASE db1
 POSTHOOK: type: CREATEDATABASE
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
 PREHOOK: query: CREATE TABLE db1.result(col1 STRING)
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: CREATE TABLE db1.result(col1 STRING)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: db1@result
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
 PREHOOK: query: INSERT OVERWRITE TABLE db1.result SELECT 'db1_insert1' FROM src LIMIT 1
 PREHOOK: type: QUERY
 PREHOOK: Input: default@src
@@ -715,10 +674,6 @@ POSTHOOK: query: INSERT OVERWRITE TABLE db1.result SELECT 'db1_insert1' FROM src
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: db1@result
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
 POSTHOOK: Lineage: result.col1 SIMPLE []
 PREHOOK: query: INSERT INTO TABLE db1.result SELECT 'db1_insert2' FROM src LIMIT 1
 PREHOOK: type: QUERY
@@ -728,11 +683,6 @@ POSTHOOK: query: INSERT INTO TABLE db1.result SELECT 'db1_insert2' FROM src LIMI
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: db1@result
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
 POSTHOOK: Lineage: result.col1 SIMPLE []
 PREHOOK: query: SELECT * FROM db1.result order by col1
 PREHOOK: type: QUERY
@@ -742,11 +692,5 @@ POSTHOOK: query: SELECT * FROM db1.result order by col1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: db1@result
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert1.key SIMPLE [(insert2)a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert1.value SIMPLE [(insert2)a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
-POSTHOOK: Lineage: result.col1 SIMPLE []
 db1_insert1
 db1_insert2

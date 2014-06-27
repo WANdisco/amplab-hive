@@ -237,11 +237,6 @@ POSTHOOK: query: SELECT mi1.* FROM mi1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@mi1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 0	val_0
 0	val_0
 0	val_0
@@ -398,11 +393,6 @@ POSTHOOK: query: SELECT mi2.* FROM mi2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@mi2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 100	val_100
 100	val_100
 100	val_100
@@ -624,11 +614,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@mi3
 POSTHOOK: Input: default@mi3@ds=2008-04-08/hr=12
 #### A masked pattern was here ####
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 200	2008-04-08	12
 200	2008-04-08	12
 200	2008-04-08	12
@@ -1312,11 +1297,6 @@ INSERT OVERWRITE TABLE mi2 SELECT a.key, a.value WHERE a.key >= 100 and a.key < 
 INSERT OVERWRITE TABLE mi3 PARTITION(ds='2008-04-08', hr='12') SELECT a.key WHERE a.key >= 200 and a.key < 300
 INSERT OVERWRITE DIRECTORY '../build/ql/test/data/warehouse/mi4.out' SELECT a.value WHERE a.key >= 300
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_JOIN (TOK_TABREF (TOK_TABNAME src) a) (TOK_TABREF (TOK_TABNAME src) b) (= (. (TOK_TABLE_OR_COL a) key) (. (TOK_TABLE_OR_COL b) key)))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME mi1))) (TOK_SELECT (TOK_SELEXPR (TOK_ALLCOLREF (TOK_TABNAME a)))) (TOK_WHERE (< (. (TOK_TABLE_OR_COL a) key) 100))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME mi2))) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) key)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) value))) (TOK_WHERE (and (>= (. (TOK_TABLE_OR_COL a) key) 100) (< (. (TOK_TABLE_OR_COL a) key) 200)))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME mi3) (TOK_PARTSPEC (TOK_PARTVAL ds '2008-04-08') (TOK_PARTVAL hr '12')))) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) key))) (TOK_WHERE (and (>= (. (TOK_TABLE_OR_COL a) key) 200) (< (. (TOK_TABLE_OR_COL a) key) 300)))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR '../build/ql/test/data/warehouse/mi4.out')) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) value))) (TOK_WHERE (>= (. (TOK_TABLE_OR_COL a) key) 300))))
 
@@ -1515,14 +1495,9 @@ POSTHOOK: Output: default@mi1
 POSTHOOK: Output: default@mi2
 POSTHOOK: Output: default@mi3@ds=2008-04-08/hr=12
 POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 PREHOOK: query: SELECT mi1.* FROM mi1
 PREHOOK: type: QUERY
@@ -1532,16 +1507,6 @@ POSTHOOK: query: SELECT mi1.* FROM mi1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@mi1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 0	val_0
 0	val_0
 0	val_0
@@ -1698,16 +1663,6 @@ POSTHOOK: query: SELECT mi2.* FROM mi2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@mi2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 100	val_100
 100	val_100
 100	val_100
@@ -1929,16 +1884,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@mi3
 POSTHOOK: Input: default@mi3@ds=2008-04-08/hr=12
 #### A masked pattern was here ####
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi1.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi2.value SIMPLE [(src)a.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: mi3 PARTITION(ds=2008-04-08,hr=12).key EXPRESSION [(src)a.FieldSchema(name:key, type:string, comment:default), ]
 200	2008-04-08	12
 200	2008-04-08	12
 200	2008-04-08	12

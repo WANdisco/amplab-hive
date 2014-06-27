@@ -316,10 +316,6 @@ POSTHOOK: query: select * from t3 order by key
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@t3
 #### A masked pattern was here ####
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
 0	6
 2	2
 4	2
@@ -334,10 +330,6 @@ POSTHOOK: query: select * from t4 order by value
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@t4
 #### A masked pattern was here ####
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
 val_0	6
 val_2	2
 val_4	2
@@ -349,19 +341,11 @@ PREHOOK: type: CREATETABLE
 POSTHOOK: query: create table t5(c1 string, cnt int)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@t5
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: create table t6(c1 string, cnt int)
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: create table t6(c1 string, cnt int)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@t6
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: explain
 from
 (
@@ -386,10 +370,6 @@ insert overwrite table t5
 insert overwrite table t6
   select c1, sum(cnt) group by c1
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_SUBQUERY (TOK_UNION (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME t1))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key) c1) (TOK_SELEXPR (TOK_FUNCTION count 1) cnt)) (TOK_GROUPBY (TOK_TABLE_OR_COL key)))) (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME t2))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key) c1) (TOK_SELEXPR (TOK_FUNCTION count 1) cnt)) (TOK_GROUPBY (TOK_TABLE_OR_COL key))))) x)) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME t5))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL c1)) (TOK_SELEXPR (TOK_FUNCTION sum (TOK_TABLE_OR_COL cnt)))) (TOK_GROUPBY (TOK_TABLE_OR_COL c1))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME t6))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL c1)) (TOK_SELEXPR (TOK_FUNCTION sum (TOK_TABLE_OR_COL cnt)))) (TOK_GROUPBY (TOK_TABLE_OR_COL c1))))
 
@@ -670,10 +650,6 @@ POSTHOOK: Input: default@t1
 POSTHOOK: Input: default@t2
 POSTHOOK: Output: default@t5
 POSTHOOK: Output: default@t6
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
 POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
@@ -686,14 +662,6 @@ POSTHOOK: query: select * from t5 order by c1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@t5
 #### A masked pattern was here ####
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 0	6
 2	2
 4	2
@@ -708,14 +676,6 @@ POSTHOOK: query: select * from t6 order by c1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@t6
 #### A masked pattern was here ####
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 0	6
 2	2
 4	2
@@ -730,14 +690,6 @@ POSTHOOK: query: drop table t1
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@t1
 POSTHOOK: Output: default@t1
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 PREHOOK: query: drop table t2
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@t2
@@ -746,14 +698,6 @@ POSTHOOK: query: drop table t2
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@t2
 POSTHOOK: Output: default@t2
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 PREHOOK: query: create table t1 as select * from src where key < 10
 PREHOOK: type: CREATETABLE_AS_SELECT
 PREHOOK: Input: default@src
@@ -761,14 +705,6 @@ POSTHOOK: query: create table t1 as select * from src where key < 10
 POSTHOOK: type: CREATETABLE_AS_SELECT
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@t1
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 PREHOOK: query: create table t2 as select key, count(1) as cnt from src where key < 10 group by key
 PREHOOK: type: CREATETABLE_AS_SELECT
 PREHOOK: Input: default@src
@@ -776,40 +712,16 @@ POSTHOOK: query: create table t2 as select key, count(1) as cnt from src where k
 POSTHOOK: type: CREATETABLE_AS_SELECT
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@t2
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 PREHOOK: query: create table t7(c1 string, cnt int)
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: create table t7(c1 string, cnt int)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@t7
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 PREHOOK: query: create table t8(c1 string, cnt int)
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: create table t8(c1 string, cnt int)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@t8
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 PREHOOK: query: explain
 from
 (
@@ -834,14 +746,6 @@ insert overwrite table t7
 insert overwrite table t8
   select c1, count(1) group by c1
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_SUBQUERY (TOK_UNION (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME t1))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key) c1) (TOK_SELEXPR (TOK_FUNCTION count 1) cnt)) (TOK_GROUPBY (TOK_TABLE_OR_COL key)))) (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME t2))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key) c1) (TOK_SELEXPR (TOK_TABLE_OR_COL cnt)))))) x)) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME t7))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL c1)) (TOK_SELEXPR (TOK_FUNCTION count 1))) (TOK_GROUPBY (TOK_TABLE_OR_COL c1))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME t8))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL c1)) (TOK_SELEXPR (TOK_FUNCTION count 1))) (TOK_GROUPBY (TOK_TABLE_OR_COL c1))))
 
@@ -1069,14 +973,6 @@ POSTHOOK: Input: default@t1
 POSTHOOK: Input: default@t2
 POSTHOOK: Output: default@t7
 POSTHOOK: Output: default@t8
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 POSTHOOK: Lineage: t7.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 POSTHOOK: Lineage: t7.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 POSTHOOK: Lineage: t8.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
@@ -1089,18 +985,6 @@ POSTHOOK: query: select * from t7 order by c1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@t7
 #### A masked pattern was here ####
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t7.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t7.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t8.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t8.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 0	2
 2	2
 4	2
@@ -1115,18 +999,6 @@ POSTHOOK: query: select * from t8 order by c1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@t8
 #### A masked pattern was here ####
-POSTHOOK: Lineage: t3.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t3.key EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t4.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t4.value EXPRESSION [(t2)t2.FieldSchema(name:value, type:string, comment:null), (t1)t1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t5.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t6.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t6.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t7.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t7.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
-POSTHOOK: Lineage: t8.c1 EXPRESSION [(t2)t2.FieldSchema(name:key, type:string, comment:null), (t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: t8.cnt EXPRESSION [(t2)t2.null, (t1)t1.null, ]
 0	2
 2	2
 4	2

@@ -23,8 +23,6 @@ POSTHOOK: query: SELECT key, value FROM rcfileTableLazyDecompress where key > 23
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@rcfiletablelazydecompress
 #### A masked pattern was here ####
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 255	val_255
 278	val_278
 311	val_311
@@ -38,8 +36,6 @@ POSTHOOK: query: SELECT key, value FROM rcfileTableLazyDecompress where key > 23
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@rcfiletablelazydecompress
 #### A masked pattern was here ####
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 255	val_255
 278	val_278
 311	val_311
@@ -51,8 +47,6 @@ POSTHOOK: query: SELECT key, count(1) FROM rcfileTableLazyDecompress where key >
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@rcfiletablelazydecompress
 #### A masked pattern was here ####
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 255	1
 278	1
 311	1
@@ -69,8 +63,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@rcfiletablelazydecompress
 POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: SELECT key, value FROM rcfileTableLazyDecompress where key > 238 ORDER BY key ASC, value ASC
 PREHOOK: type: QUERY
@@ -80,10 +72,6 @@ POSTHOOK: query: SELECT key, value FROM rcfileTableLazyDecompress where key > 23
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@rcfiletablelazydecompress
 #### A masked pattern was here ####
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 255	val_255
 278	val_278
 311	val_311
@@ -97,10 +85,6 @@ POSTHOOK: query: SELECT key, value FROM rcfileTableLazyDecompress where key > 23
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@rcfiletablelazydecompress
 #### A masked pattern was here ####
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 255	val_255
 278	val_278
 311	val_311
@@ -112,10 +96,6 @@ POSTHOOK: query: SELECT key, count(1) FROM rcfileTableLazyDecompress where key >
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@rcfiletablelazydecompress
 #### A masked pattern was here ####
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: rcfiletablelazydecompress.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 255	1
 278	1
 311	1

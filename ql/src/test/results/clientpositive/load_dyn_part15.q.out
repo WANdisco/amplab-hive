@@ -28,9 +28,6 @@ PREHOOK: query: show partitions load_dyn_part15_test
 PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: show partitions load_dyn_part15_test
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: load_dyn_part15_test PARTITION(part_key=1).key SCRIPT []
-POSTHOOK: Lineage: load_dyn_part15_test PARTITION(part_key=3]).key SCRIPT []
-POSTHOOK: Lineage: load_dyn_part15_test PARTITION(part_key={2).key SCRIPT []
 part_key=%7B2
 part_key=1
 part_key=3%5D

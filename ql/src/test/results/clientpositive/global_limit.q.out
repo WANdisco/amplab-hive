@@ -1098,7 +1098,6 @@ POSTHOOK: query: select * from gl_tgt ORDER BY key ASC
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@gl_tgt
 #### A masked pattern was here ####
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 38
 67
 151
@@ -1116,7 +1115,6 @@ POSTHOOK: query: -- empty table
 create table gl_src2 (key int, value string) stored as textfile
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@gl_src2
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: select key from gl_src2 ORDER BY key ASC limit 10
 PREHOOK: type: QUERY
 PREHOOK: Input: default@gl_src2
@@ -1125,7 +1123,6 @@ POSTHOOK: query: select key from gl_src2 ORDER BY key ASC limit 10
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@gl_src2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: -- partition
 create table gl_src_part1 (key int, value string) partitioned by (p string) stored as textfile
 PREHOOK: type: CREATETABLE
@@ -1133,7 +1130,6 @@ POSTHOOK: query: -- partition
 create table gl_src_part1 (key int, value string) partitioned by (p string) stored as textfile
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@gl_src_part1
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: load data local inpath '../data/files/srcbucket21.txt' INTO TABLE gl_src_part1 partition(p='11')
 PREHOOK: type: LOAD
 PREHOOK: Output: default@gl_src_part1
@@ -1141,7 +1137,6 @@ POSTHOOK: query: load data local inpath '../data/files/srcbucket21.txt' INTO TAB
 POSTHOOK: type: LOAD
 POSTHOOK: Output: default@gl_src_part1
 POSTHOOK: Output: default@gl_src_part1@p=11
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: load data local inpath '../data/files/srcbucket20.txt' INTO TABLE gl_src_part1 partition(p='12')
 PREHOOK: type: LOAD
 PREHOOK: Output: default@gl_src_part1
@@ -1149,21 +1144,18 @@ POSTHOOK: query: load data local inpath '../data/files/srcbucket20.txt' INTO TAB
 POSTHOOK: type: LOAD
 POSTHOOK: Output: default@gl_src_part1
 POSTHOOK: Output: default@gl_src_part1@p=12
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: load data local inpath '../data/files/srcbucket20.txt' INTO TABLE gl_src_part1 partition(p='12')
 PREHOOK: type: LOAD
 PREHOOK: Output: default@gl_src_part1@p=12
 POSTHOOK: query: load data local inpath '../data/files/srcbucket20.txt' INTO TABLE gl_src_part1 partition(p='12')
 POSTHOOK: type: LOAD
 POSTHOOK: Output: default@gl_src_part1@p=12
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: load data local inpath '../data/files/srcbucket20.txt' INTO TABLE gl_src_part1 partition(p='12')
 PREHOOK: type: LOAD
 PREHOOK: Output: default@gl_src_part1@p=12
 POSTHOOK: query: load data local inpath '../data/files/srcbucket20.txt' INTO TABLE gl_src_part1 partition(p='12')
 POSTHOOK: type: LOAD
 POSTHOOK: Output: default@gl_src_part1@p=12
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: select key from gl_src_part1 where p like '1%' ORDER BY key ASC limit 10
 PREHOOK: type: QUERY
 PREHOOK: Input: default@gl_src_part1
@@ -1176,7 +1168,6 @@ POSTHOOK: Input: default@gl_src_part1
 POSTHOOK: Input: default@gl_src_part1@p=11
 POSTHOOK: Input: default@gl_src_part1@p=12
 #### A masked pattern was here ####
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 0
 0
 0
@@ -1197,7 +1188,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@gl_src_part1
 POSTHOOK: Input: default@gl_src_part1@p=11
 #### A masked pattern was here ####
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 5
 5
 5
@@ -1218,7 +1208,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@gl_src_part1
 POSTHOOK: Input: default@gl_src_part1@p=12
 #### A masked pattern was here ####
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 0
 0
 0
@@ -1237,7 +1226,6 @@ POSTHOOK: query: select key from gl_src_part1 where p='13' ORDER BY key ASC limi
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@gl_src_part1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: alter table gl_src_part1 add partition (p='13')
 PREHOOK: type: ALTERTABLE_ADDPARTS
 PREHOOK: Input: default@gl_src_part1
@@ -1245,7 +1233,6 @@ POSTHOOK: query: alter table gl_src_part1 add partition (p='13')
 POSTHOOK: type: ALTERTABLE_ADDPARTS
 POSTHOOK: Input: default@gl_src_part1
 POSTHOOK: Output: default@gl_src_part1@p=13
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: select key from gl_src_part1 where p='13' ORDER BY key ASC limit 10
 PREHOOK: type: QUERY
 PREHOOK: Input: default@gl_src_part1
@@ -1256,7 +1243,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@gl_src_part1
 POSTHOOK: Input: default@gl_src_part1@p=13
 #### A masked pattern was here ####
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: select key from gl_src_part1 where p='12' ORDER BY key ASC limit 1000
 PREHOOK: type: QUERY
 PREHOOK: Input: default@gl_src_part1
@@ -1267,7 +1253,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@gl_src_part1
 POSTHOOK: Input: default@gl_src_part1@p=12
 #### A masked pattern was here ####
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 0
 0
 0
@@ -1630,7 +1615,6 @@ POSTHOOK: query: drop table gl_src1
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@gl_src1
 POSTHOOK: Output: default@gl_src1
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: drop table gl_src2
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@gl_src2
@@ -1639,7 +1623,6 @@ POSTHOOK: query: drop table gl_src2
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@gl_src2
 POSTHOOK: Output: default@gl_src2
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: drop table gl_src_part1
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@gl_src_part1
@@ -1648,7 +1631,6 @@ POSTHOOK: query: drop table gl_src_part1
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@gl_src_part1
 POSTHOOK: Output: default@gl_src_part1
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: drop table gl_tgt
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@gl_tgt
@@ -1657,4 +1639,3 @@ POSTHOOK: query: drop table gl_tgt
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@gl_tgt
 POSTHOOK: Output: default@gl_tgt
-POSTHOOK: Lineage: gl_tgt.key EXPRESSION [(gl_src1)gl_src1.FieldSchema(name:key, type:int, comment:null), ]

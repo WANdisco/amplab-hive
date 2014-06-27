@@ -77,7 +77,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN
 SELECT transform('0\0021\0022') USING 'cat' AS (col array<int>) FROM transform1_t2
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: transform1_t2.col EXPRESSION []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME transform1_t2))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TRANSFORM (TOK_EXPLIST '0\0021\0022') TOK_SERDE TOK_RECORDWRITER 'cat' TOK_SERDE TOK_RECORDREADER (TOK_TABCOLLIST (TOK_TABCOL col (TOK_LIST TOK_INT))))))))
 
@@ -122,5 +121,4 @@ POSTHOOK: query: SELECT transform('0\0021\0022') USING 'cat' AS (col array<int>)
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@transform1_t2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: transform1_t2.col EXPRESSION []
 [0,1,2]

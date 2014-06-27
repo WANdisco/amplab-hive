@@ -155,8 +155,6 @@ POSTHOOK: query: SELECT * FROM outputTbl1 ORDER BY key
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@outputtbl1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 PREHOOK: query: LOAD DATA LOCAL INPATH '../data/files/T1.txt' INTO TABLE T1 PARTITION (ds='2')
 PREHOOK: type: LOAD
 PREHOOK: Output: default@t1
@@ -164,8 +162,6 @@ POSTHOOK: query: LOAD DATA LOCAL INPATH '../data/files/T1.txt' INTO TABLE T1 PAR
 POSTHOOK: type: LOAD
 POSTHOOK: Output: default@t1
 POSTHOOK: Output: default@t1@ds=2
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 PREHOOK: query: -- The plan should not be converted to a map-side group since no partition is being accessed
 EXPLAIN EXTENDED
 INSERT OVERWRITE TABLE outputTbl1
@@ -176,8 +172,6 @@ EXPLAIN EXTENDED
 INSERT OVERWRITE TABLE outputTbl1
 SELECT key, count(1) FROM T1 where ds = '1' GROUP BY key
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME T1))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME outputTbl1))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_FUNCTION count 1))) (TOK_WHERE (= (TOK_TABLE_OR_COL ds) '1')) (TOK_GROUPBY (TOK_TABLE_OR_COL key))))
 
@@ -316,8 +310,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@t1
 POSTHOOK: Output: default@outputtbl1
 POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 PREHOOK: query: SELECT * FROM outputTbl1 ORDER BY key
 PREHOOK: type: QUERY
@@ -327,10 +319,6 @@ POSTHOOK: query: SELECT * FROM outputTbl1 ORDER BY key
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@outputtbl1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 PREHOOK: query: -- The plan should not be converted to a map-side group since the partition being accessed
 -- is neither bucketed not sorted
 EXPLAIN EXTENDED
@@ -343,10 +331,6 @@ EXPLAIN EXTENDED
 INSERT OVERWRITE TABLE outputTbl1
 SELECT key, count(1) FROM T1 where ds = '2' GROUP BY key
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME T1))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME outputTbl1))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_FUNCTION count 1))) (TOK_WHERE (= (TOK_TABLE_OR_COL ds) '2')) (TOK_GROUPBY (TOK_TABLE_OR_COL key))))
 
@@ -532,10 +516,6 @@ POSTHOOK: Input: default@t1
 POSTHOOK: Input: default@t1@ds=2
 POSTHOOK: Output: default@outputtbl1
 POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 PREHOOK: query: SELECT * FROM outputTbl1 ORDER BY key
 PREHOOK: type: QUERY
@@ -545,12 +525,6 @@ POSTHOOK: query: SELECT * FROM outputTbl1 ORDER BY key
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@outputtbl1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.cnt EXPRESSION [(t1)t1.null, ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: outputtbl1.key EXPRESSION [(t1)t1.FieldSchema(name:key, type:string, comment:null), ]
 1	1
 2	1
 3	1

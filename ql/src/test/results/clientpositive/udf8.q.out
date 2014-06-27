@@ -21,15 +21,12 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@dest1
 POSTHOOK: Lineage: dest1.c1 SIMPLE []
-POSTHOOK: Lineage: dest1.c1 SIMPLE []
 PREHOOK: query: EXPLAIN
 SELECT avg(c1), sum(c1), count(c1) FROM dest1
 PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN
 SELECT avg(c1), sum(c1), count(c1) FROM dest1
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: dest1.c1 SIMPLE []
-POSTHOOK: Lineage: dest1.c1 SIMPLE []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME dest1))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION avg (TOK_TABLE_OR_COL c1))) (TOK_SELEXPR (TOK_FUNCTION sum (TOK_TABLE_OR_COL c1))) (TOK_SELEXPR (TOK_FUNCTION count (TOK_TABLE_OR_COL c1))))))
 
@@ -105,6 +102,4 @@ POSTHOOK: query: SELECT avg(c1), sum(c1), count(c1) FROM dest1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@dest1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: dest1.c1 SIMPLE []
-POSTHOOK: Lineage: dest1.c1 SIMPLE []
 1.0	1.0	1

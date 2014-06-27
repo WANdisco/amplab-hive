@@ -25,8 +25,6 @@ SELECT f.key, g.value
 FROM filter_join_breaktask f JOIN filter_join_breaktask m ON( f.key = m.key AND f.ds='2008-04-08' AND m.ds='2008-04-08' AND f.key is not null) 
 JOIN filter_join_breaktask g ON(g.value = m.value AND g.ds='2008-04-08' AND m.ds='2008-04-08' AND m.value is not null AND m.value !='')
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: filter_join_breaktask PARTITION(ds=2008-04-08).key EXPRESSION [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: filter_join_breaktask PARTITION(ds=2008-04-08).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_JOIN (TOK_JOIN (TOK_TABREF (TOK_TABNAME filter_join_breaktask) f) (TOK_TABREF (TOK_TABNAME filter_join_breaktask) m) (AND (AND (AND (= (. (TOK_TABLE_OR_COL f) key) (. (TOK_TABLE_OR_COL m) key)) (= (. (TOK_TABLE_OR_COL f) ds) '2008-04-08')) (= (. (TOK_TABLE_OR_COL m) ds) '2008-04-08')) (TOK_FUNCTION TOK_ISNOTNULL (. (TOK_TABLE_OR_COL f) key)))) (TOK_TABREF (TOK_TABNAME filter_join_breaktask) g) (AND (AND (AND (AND (= (. (TOK_TABLE_OR_COL g) value) (. (TOK_TABLE_OR_COL m) value)) (= (. (TOK_TABLE_OR_COL g) ds) '2008-04-08')) (= (. (TOK_TABLE_OR_COL m) ds) '2008-04-08')) (TOK_FUNCTION TOK_ISNOTNULL (. (TOK_TABLE_OR_COL m) value))) (!= (. (TOK_TABLE_OR_COL m) value) '')))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL f) key)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL g) value)))))
 
@@ -315,8 +313,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@filter_join_breaktask
 POSTHOOK: Input: default@filter_join_breaktask@ds=2008-04-08
 #### A masked pattern was here ####
-POSTHOOK: Lineage: filter_join_breaktask PARTITION(ds=2008-04-08).key EXPRESSION [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: filter_join_breaktask PARTITION(ds=2008-04-08).value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
 146	val_146
 150	val_150
 213	val_213

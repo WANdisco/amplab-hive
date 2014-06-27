@@ -175,10 +175,6 @@ POSTHOOK: query: SELECT SUM(HASH(c)) FROM (
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into3a
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 7813690682
 PREHOOK: query: SELECT SUM(HASH(c)) FROM (
     SELECT TRANSFORM(*) USING 'tr \t _' AS (c) FROM insert_into3b
@@ -192,10 +188,6 @@ POSTHOOK: query: SELECT SUM(HASH(c)) FROM (
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into3b
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 10226524244
 PREHOOK: query: EXPLAIN FROM src INSERT OVERWRITE TABLE insert_into3a SELECT * LIMIT 10
                  INSERT INTO TABLE insert_into3b SELECT * LIMIT 10
@@ -203,10 +195,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN FROM src INSERT OVERWRITE TABLE insert_into3a SELECT * LIMIT 10
                  INSERT INTO TABLE insert_into3b SELECT * LIMIT 10
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME src))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME insert_into3a))) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF)) (TOK_LIMIT 10)) (TOK_INSERT (TOK_INSERT_INTO (TOK_TAB (TOK_TABNAME insert_into3b))) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF)) (TOK_LIMIT 10)))
 
@@ -345,12 +333,8 @@ POSTHOOK: Input: default@src
 POSTHOOK: Output: default@insert_into3a
 POSTHOOK: Output: default@insert_into3b
 POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: SELECT SUM(HASH(c)) FROM (
     SELECT TRANSFORM(*) USING 'tr \t _' AS (c) FROM insert_into3a
@@ -364,14 +348,6 @@ POSTHOOK: query: SELECT SUM(HASH(c)) FROM (
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into3a
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 -826625916
 PREHOOK: query: SELECT SUM(HASH(c)) FROM (
     SELECT TRANSFORM(*) USING 'tr \t _' AS (c) FROM insert_into3b
@@ -385,14 +361,6 @@ POSTHOOK: query: SELECT SUM(HASH(c)) FROM (
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into3b
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 9399898328
 PREHOOK: query: DROP TABLE insert_into3a
 PREHOOK: type: DROPTABLE
@@ -402,14 +370,6 @@ POSTHOOK: query: DROP TABLE insert_into3a
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@insert_into3a
 POSTHOOK: Output: default@insert_into3a
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: DROP TABLE insert_into3b
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@insert_into3b
@@ -418,11 +378,3 @@ POSTHOOK: query: DROP TABLE insert_into3b
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@insert_into3b
 POSTHOOK: Output: default@insert_into3b
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3a.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: insert_into3b.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]

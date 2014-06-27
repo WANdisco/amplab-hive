@@ -21,7 +21,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@ppr_test@ds=22
 POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
 PREHOOK: query: select * from ppr_test where ds = '2'
 PREHOOK: type: QUERY
 PREHOOK: Input: default@ppr_test
@@ -32,8 +31,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@ppr_test
 POSTHOOK: Input: default@ppr_test@ds=2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
 2	2
 PREHOOK: query: select * from ppr_test where ds = '22'
 PREHOOK: type: QUERY
@@ -45,16 +42,12 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@ppr_test
 POSTHOOK: Input: default@ppr_test@ds=22
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
 22	22
 PREHOOK: query: create table ppr_test2 (key string) partitioned by (ds string, s string)
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: create table ppr_test2 (key string) partitioned by (ds string, s string)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@ppr_test2
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
 PREHOOK: query: insert overwrite table ppr_test2 partition(ds='1', s='2') select '1' from src limit 1
 PREHOOK: type: QUERY
 PREHOOK: Input: default@src
@@ -63,8 +56,6 @@ POSTHOOK: query: insert overwrite table ppr_test2 partition(ds='1', s='2') selec
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@ppr_test2@ds=1/s=2
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
 POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
 PREHOOK: query: insert overwrite table ppr_test2 partition(ds='2', s='1') select '2' from src limit 1
 PREHOOK: type: QUERY
@@ -74,9 +65,6 @@ POSTHOOK: query: insert overwrite table ppr_test2 partition(ds='2', s='1') selec
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@ppr_test2@ds=2/s=1
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
 POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
 PREHOOK: query: select * from ppr_test2 where s = '1'
 PREHOOK: type: QUERY
@@ -88,10 +76,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@ppr_test2
 POSTHOOK: Input: default@ppr_test2@ds=2/s=1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
 2	2	1
 PREHOOK: query: select * from ppr_test2 where ds = '1'
 PREHOOK: type: QUERY
@@ -103,20 +87,12 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@ppr_test2
 POSTHOOK: Input: default@ppr_test2@ds=1/s=2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
 1	1	2
 PREHOOK: query: create table ppr_test3 (key string) partitioned by (col string, ol string, l string)
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: create table ppr_test3 (key string) partitioned by (col string, ol string, l string)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@ppr_test3
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
 PREHOOK: query: insert overwrite table ppr_test3 partition(col='1', ol='2', l = '3') select '1' from src limit 1
 PREHOOK: type: QUERY
 PREHOOK: Input: default@src
@@ -125,10 +101,6 @@ POSTHOOK: query: insert overwrite table ppr_test3 partition(col='1', ol='2', l =
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@ppr_test3@col=1/ol=2/l=3
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
 POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 PREHOOK: query: insert overwrite table ppr_test3 partition(col='1', ol='1', l = '2') select '2' from src limit 1
 PREHOOK: type: QUERY
@@ -138,12 +110,7 @@ POSTHOOK: query: insert overwrite table ppr_test3 partition(col='1', ol='1', l =
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@ppr_test3@col=1/ol=1/l=2
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
 POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=1,l=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 PREHOOK: query: insert overwrite table ppr_test3 partition(col='1', ol='2', l = '1') select '3' from src limit 1
 PREHOOK: type: QUERY
 PREHOOK: Input: default@src
@@ -152,13 +119,7 @@ POSTHOOK: query: insert overwrite table ppr_test3 partition(col='1', ol='2', l =
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@ppr_test3@col=1/ol=2/l=1
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=1,l=2).key SIMPLE []
 POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 PREHOOK: query: select * from ppr_test3 where l = '1'
 PREHOOK: type: QUERY
 PREHOOK: Input: default@ppr_test3
@@ -169,13 +130,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@ppr_test3
 POSTHOOK: Input: default@ppr_test3@col=1/ol=2/l=1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=1,l=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 3	1	2	1
 PREHOOK: query: select * from ppr_test3 where l = '2'
 PREHOOK: type: QUERY
@@ -187,13 +141,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@ppr_test3
 POSTHOOK: Input: default@ppr_test3@col=1/ol=1/l=2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=1,l=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 2	1	1	2
 PREHOOK: query: select * from ppr_test3 where ol = '1'
 PREHOOK: type: QUERY
@@ -205,13 +152,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@ppr_test3
 POSTHOOK: Input: default@ppr_test3@col=1/ol=1/l=2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=1,l=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 2	1	1	2
 PREHOOK: query: select * from ppr_test3 where ol = '2'
 PREHOOK: type: QUERY
@@ -225,13 +165,6 @@ POSTHOOK: Input: default@ppr_test3
 POSTHOOK: Input: default@ppr_test3@col=1/ol=2/l=1
 POSTHOOK: Input: default@ppr_test3@col=1/ol=2/l=3
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=1,l=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 3	1	2	1
 1	1	2	3
 PREHOOK: query: select * from ppr_test3 where col = '1'
@@ -248,13 +181,6 @@ POSTHOOK: Input: default@ppr_test3@col=1/ol=1/l=2
 POSTHOOK: Input: default@ppr_test3@col=1/ol=2/l=1
 POSTHOOK: Input: default@ppr_test3@col=1/ol=2/l=3
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=1,l=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 2	1	1	2
 3	1	2	1
 1	1	2	3
@@ -268,13 +194,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@ppr_test3
 POSTHOOK: Input: default@ppr_test3@col=1/ol=2/l=1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=1,l=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 3	1	2	1
 PREHOOK: query: select * from ppr_test3 where col='1' and ol = '2' and l = '1'
 PREHOOK: type: QUERY
@@ -286,11 +205,4 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@ppr_test3
 POSTHOOK: Input: default@ppr_test3@col=1/ol=2/l=1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: ppr_test PARTITION(ds=22).key SIMPLE []
-POSTHOOK: Lineage: ppr_test PARTITION(ds=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=1,s=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test2 PARTITION(ds=2,s=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=1,l=2).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=1).key SIMPLE []
-POSTHOOK: Lineage: ppr_test3 PARTITION(col=1,ol=2,l=3).key SIMPLE []
 3	1	2	1

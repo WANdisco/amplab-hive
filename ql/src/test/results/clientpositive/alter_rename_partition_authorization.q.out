@@ -65,7 +65,7 @@ database	default
 table	authorization_part	
 principalName	hive_test_user	
 principalType	USER	
-privilege	Update	
+privilege	Drop	
 #### A masked pattern was here ####
 grantor	hive_test_user	
 
@@ -73,7 +73,7 @@ database	default
 table	authorization_part	
 principalName	hive_test_user	
 principalType	USER	
-privilege	Drop	
+privilege	Update	
 #### A masked pattern was here ####
 grantor	hive_test_user	
 PREHOOK: query: grant select(key) on table authorization_part to user hive_test_user
@@ -96,8 +96,6 @@ PREHOOK: query: show grant user hive_test_user on table authorization_part(key) 
 PREHOOK: type: SHOW_GRANT
 POSTHOOK: query: show grant user hive_test_user on table authorization_part(key) partition (ds='2010')
 POSTHOOK: type: SHOW_GRANT
-POSTHOOK: Lineage: authorization_part PARTITION(ds=2010).key EXPRESSION [(src_auth_tmp)src_auth_tmp.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: authorization_part PARTITION(ds=2010).value SIMPLE [(src_auth_tmp)src_auth_tmp.FieldSchema(name:value, type:string, comment:null), ]
 
 database	default	
 table	authorization_part	
@@ -118,14 +116,10 @@ POSTHOOK: Input: default@authorization_part
 POSTHOOK: Input: default@authorization_part@ds=2010
 POSTHOOK: Output: default@authorization_part@ds=2010
 POSTHOOK: Output: default@authorization_part@ds=2010_tmp
-POSTHOOK: Lineage: authorization_part PARTITION(ds=2010).key EXPRESSION [(src_auth_tmp)src_auth_tmp.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: authorization_part PARTITION(ds=2010).value SIMPLE [(src_auth_tmp)src_auth_tmp.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: show grant user hive_test_user on table authorization_part(key) partition (ds='2010_tmp')
 PREHOOK: type: SHOW_GRANT
 POSTHOOK: query: show grant user hive_test_user on table authorization_part(key) partition (ds='2010_tmp')
 POSTHOOK: type: SHOW_GRANT
-POSTHOOK: Lineage: authorization_part PARTITION(ds=2010).key EXPRESSION [(src_auth_tmp)src_auth_tmp.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: authorization_part PARTITION(ds=2010).value SIMPLE [(src_auth_tmp)src_auth_tmp.FieldSchema(name:value, type:string, comment:null), ]
 
 database	default	
 table	authorization_part	
@@ -144,5 +138,3 @@ POSTHOOK: query: drop table authorization_part
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@authorization_part
 POSTHOOK: Output: default@authorization_part
-POSTHOOK: Lineage: authorization_part PARTITION(ds=2010).key EXPRESSION [(src_auth_tmp)src_auth_tmp.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: authorization_part PARTITION(ds=2010).value SIMPLE [(src_auth_tmp)src_auth_tmp.FieldSchema(name:value, type:string, comment:null), ]

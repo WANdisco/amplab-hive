@@ -43,7 +43,6 @@ PREHOOK: query: DESCRIBE EXTENDED rcfile_default_format_txtfile
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: DESCRIBE EXTENDED rcfile_default_format_txtfile
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: rcfile_default_format_txtfile.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 key                 	string              	None                
 	 	 
 #### A masked pattern was here ####
@@ -54,12 +53,10 @@ POSTHOOK: query: CREATE TABLE textfile_default_format_ctas AS SELECT key,value F
 POSTHOOK: type: CREATETABLE_AS_SELECT
 POSTHOOK: Input: default@rcfile_default_format_ctas
 POSTHOOK: Output: default@textfile_default_format_ctas
-POSTHOOK: Lineage: rcfile_default_format_txtfile.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 PREHOOK: query: DESCRIBE EXTENDED textfile_default_format_ctas
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: DESCRIBE EXTENDED textfile_default_format_ctas
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: rcfile_default_format_txtfile.key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 key                 	string              	None                
 value               	string              	None                
 	 	 

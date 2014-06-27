@@ -35,10 +35,6 @@ PREHOOK: query: EXPLAIN SELECT key, value FROM srcpart WHERE key=86 AND ds='2008
 PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN SELECT key, value FROM srcpart WHERE key=86 AND ds='2008-04-09' ORDER BY key
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12)._bitmaps EXPRESSION [(srcpart)srcpart.FieldSchema(name:ROW__OFFSET__INSIDE__BLOCK, type:bigint, comment:), ]
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12)._bucketname SIMPLE [(srcpart)srcpart.FieldSchema(name:INPUT__FILE__NAME, type:string, comment:), ]
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12)._offset SIMPLE [(srcpart)srcpart.FieldSchema(name:BLOCK__OFFSET__INSIDE__FILE, type:bigint, comment:), ]
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME srcpart))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_TABLE_OR_COL value))) (TOK_WHERE (AND (= (TOK_TABLE_OR_COL key) 86) (= (TOK_TABLE_OR_COL ds) '2008-04-09'))) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL key)))))
 
@@ -183,17 +179,9 @@ POSTHOOK: Input: default@srcpart
 POSTHOOK: Input: default@srcpart@ds=2008-04-09/hr=11
 POSTHOOK: Input: default@srcpart@ds=2008-04-09/hr=12
 #### A masked pattern was here ####
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12)._bitmaps EXPRESSION [(srcpart)srcpart.FieldSchema(name:ROW__OFFSET__INSIDE__BLOCK, type:bigint, comment:), ]
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12)._bucketname SIMPLE [(srcpart)srcpart.FieldSchema(name:INPUT__FILE__NAME, type:string, comment:), ]
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12)._offset SIMPLE [(srcpart)srcpart.FieldSchema(name:BLOCK__OFFSET__INSIDE__FILE, type:bigint, comment:), ]
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
 86	val_86
 86	val_86
 PREHOOK: query: DROP INDEX src_part_index ON srcpart
 PREHOOK: type: DROPINDEX
 POSTHOOK: query: DROP INDEX src_part_index ON srcpart
 POSTHOOK: type: DROPINDEX
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12)._bitmaps EXPRESSION [(srcpart)srcpart.FieldSchema(name:ROW__OFFSET__INSIDE__BLOCK, type:bigint, comment:), ]
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12)._bucketname SIMPLE [(srcpart)srcpart.FieldSchema(name:INPUT__FILE__NAME, type:string, comment:), ]
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12)._offset SIMPLE [(srcpart)srcpart.FieldSchema(name:BLOCK__OFFSET__INSIDE__FILE, type:bigint, comment:), ]
-POSTHOOK: Lineage: default__srcpart_src_part_index__ PARTITION(ds=2008-04-09,hr=12).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]

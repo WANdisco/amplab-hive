@@ -108,10 +108,6 @@ PREHOOK: query: show partitions nzhang_part10
 PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: show partitions nzhang_part10
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: nzhang_part10 PARTITION(ds=2008-12-31,hr=11).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: nzhang_part10 PARTITION(ds=2008-12-31,hr=11).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: nzhang_part10 PARTITION(ds=2008-12-31,hr=12).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: nzhang_part10 PARTITION(ds=2008-12-31,hr=12).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 ds=2008-12-31/hr=11
 ds=2008-12-31/hr=12
 PREHOOK: query: select * from nzhang_part10 where ds is not null and hr is not null
@@ -126,10 +122,6 @@ POSTHOOK: Input: default@nzhang_part10
 POSTHOOK: Input: default@nzhang_part10@ds=2008-12-31/hr=11
 POSTHOOK: Input: default@nzhang_part10@ds=2008-12-31/hr=12
 #### A masked pattern was here ####
-POSTHOOK: Lineage: nzhang_part10 PARTITION(ds=2008-12-31,hr=11).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: nzhang_part10 PARTITION(ds=2008-12-31,hr=11).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: nzhang_part10 PARTITION(ds=2008-12-31,hr=12).key SIMPLE [(srcpart)srcpart.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: nzhang_part10 PARTITION(ds=2008-12-31,hr=12).value SIMPLE [(srcpart)srcpart.FieldSchema(name:value, type:string, comment:default), ]
 238	val_238	2008-12-31	11
 86	val_86	2008-12-31	11
 311	val_311	2008-12-31	11

@@ -390,9 +390,6 @@ POSTHOOK: query: select * from dest_j1 x order by x.key
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@dest_j1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1)x.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src)y.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
 128	val_128	val_128
 128	val_128	val_128
 128	val_128	val_128
@@ -505,17 +502,11 @@ PREHOOK: type: CREATETABLE
 POSTHOOK: query: CREATE TABLE src_copy(key int, value string)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@src_copy
-POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1)x.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src)y.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: CREATE TABLE src1_copy(key string, value string)
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: CREATE TABLE src1_copy(key string, value string)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@src1_copy
-POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1)x.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src)y.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: INSERT OVERWRITE TABLE src_copy select key, value from src
 PREHOOK: type: QUERY
 PREHOOK: Input: default@src
@@ -524,9 +515,6 @@ POSTHOOK: query: INSERT OVERWRITE TABLE src_copy select key, value from src
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@src_copy
-POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1)x.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src)y.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: src_copy.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: src_copy.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: INSERT OVERWRITE TABLE src1_copy select key, value from src1
@@ -537,13 +525,8 @@ POSTHOOK: query: INSERT OVERWRITE TABLE src1_copy select key, value from src1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src1
 POSTHOOK: Output: default@src1_copy
-POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1)x.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src)y.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: src1_copy.key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: src1_copy.value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: src_copy.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: src_copy.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: EXPLAIN EXTENDED
 INSERT OVERWRITE TABLE dest_j1
 SELECT /*+ MAPJOIN(x,y) */ x.key, z.value, y.value
@@ -558,13 +541,6 @@ FROM src1_copy x JOIN src_copy y ON (x.key = y.key)
 JOIN srcpart z ON (x.key = z.key)
 WHERE z.ds='2008-04-08' and z.hr=11
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1)x.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src)y.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: src1_copy.key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: src1_copy.value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: src_copy.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: src_copy.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_JOIN (TOK_JOIN (TOK_TABREF (TOK_TABNAME src1_copy) x) (TOK_TABREF (TOK_TABNAME src_copy) y) (= (. (TOK_TABLE_OR_COL x) key) (. (TOK_TABLE_OR_COL y) key))) (TOK_TABREF (TOK_TABNAME srcpart) z) (= (. (TOK_TABLE_OR_COL x) key) (. (TOK_TABLE_OR_COL z) key)))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME dest_j1))) (TOK_SELECT (TOK_HINTLIST (TOK_HINT TOK_MAPJOIN (TOK_HINTARGLIST x y))) (TOK_SELEXPR (. (TOK_TABLE_OR_COL x) key)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL z) value)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL y) value))) (TOK_WHERE (and (= (. (TOK_TABLE_OR_COL z) ds) '2008-04-08') (= (. (TOK_TABLE_OR_COL z) hr) 11)))))
 
@@ -967,16 +943,9 @@ POSTHOOK: Input: default@src_copy
 POSTHOOK: Input: default@srcpart
 POSTHOOK: Input: default@srcpart@ds=2008-04-08/hr=11
 POSTHOOK: Output: default@dest_j1
-POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1)x.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1_copy)x.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src)y.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src_copy)y.FieldSchema(name:value, type:string, comment:null), ]
 POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: src1_copy.key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: src1_copy.value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: src_copy.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: src_copy.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 PREHOOK: query: select * from dest_j1 x order by x.key
 PREHOOK: type: QUERY
 PREHOOK: Input: default@dest_j1
@@ -985,16 +954,6 @@ POSTHOOK: query: select * from dest_j1 x order by x.key
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@dest_j1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1)x.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.key SIMPLE [(src1_copy)x.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src)y.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.val2 SIMPLE [(src_copy)y.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: dest_j1.value SIMPLE [(srcpart)z.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: src1_copy.key SIMPLE [(src1)src1.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: src1_copy.value SIMPLE [(src1)src1.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: src_copy.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: src_copy.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 128	val_128	val_128
 128	val_128	val_128
 128	val_128	val_128

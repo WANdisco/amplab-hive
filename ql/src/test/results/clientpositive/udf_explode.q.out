@@ -686,8 +686,6 @@ POSTHOOK: query: SELECT array_col, myCol from lazy_array_map lateral view explod
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@lazy_array_map
 #### A masked pattern was here ####
-POSTHOOK: Lineage: lazy_array_map.array_col EXPRESSION []
-POSTHOOK: Lineage: lazy_array_map.map_col EXPRESSION []
 ["100","200","300"]	100
 ["100","200","300"]	200
 ["100","200","300"]	300
@@ -699,8 +697,6 @@ POSTHOOK: query: SELECT map_col, myKey, myValue from lazy_array_map lateral view
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@lazy_array_map
 #### A masked pattern was here ####
-POSTHOOK: Lineage: lazy_array_map.array_col EXPRESSION []
-POSTHOOK: Lineage: lazy_array_map.map_col EXPRESSION []
 {1:"one",2:"two",3:"three"}	1	one
 {1:"one",2:"two",3:"three"}	2	two
 {1:"one",2:"two",3:"three"}	3	three

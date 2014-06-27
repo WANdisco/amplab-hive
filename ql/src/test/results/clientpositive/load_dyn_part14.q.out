@@ -301,8 +301,6 @@ PREHOOK: query: show partitions nzhang_part14
 PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: show partitions nzhang_part14
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: nzhang_part14 PARTITION(value= ).key EXPRESSION []
-POSTHOOK: Lineage: nzhang_part14 PARTITION(value=__HIVE_DEFAULT_PARTITION__).key EXPRESSION []
 value= 
 value=__HIVE_DEFAULT_PARTITION__
 PREHOOK: query: select * from nzhang_part14 where value <> 'a'
@@ -319,8 +317,6 @@ POSTHOOK: Input: default@nzhang_part14
 POSTHOOK: Input: default@nzhang_part14@value= 
 POSTHOOK: Input: default@nzhang_part14@value=__HIVE_DEFAULT_PARTITION__
 #### A masked pattern was here ####
-POSTHOOK: Lineage: nzhang_part14 PARTITION(value= ).key EXPRESSION []
-POSTHOOK: Lineage: nzhang_part14 PARTITION(value=__HIVE_DEFAULT_PARTITION__).key EXPRESSION []
 k1	__HIVE_DEFAULT_PARTITION__
 k1	__HIVE_DEFAULT_PARTITION__
 k2	__HIVE_DEFAULT_PARTITION__

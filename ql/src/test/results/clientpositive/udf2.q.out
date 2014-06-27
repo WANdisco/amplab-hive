@@ -18,7 +18,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN
 SELECT '|', trim(dest1.c1), '|', rtrim(dest1.c1), '|', ltrim(dest1.c1), '|' FROM dest1
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: dest1.c1 SIMPLE []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME dest1))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR '|') (TOK_SELEXPR (TOK_FUNCTION trim (. (TOK_TABLE_OR_COL dest1) c1))) (TOK_SELEXPR '|') (TOK_SELEXPR (TOK_FUNCTION rtrim (. (TOK_TABLE_OR_COL dest1) c1))) (TOK_SELEXPR '|') (TOK_SELEXPR (TOK_FUNCTION ltrim (. (TOK_TABLE_OR_COL dest1) c1))) (TOK_SELEXPR '|'))))
 
@@ -70,5 +69,4 @@ POSTHOOK: query: SELECT '|', trim(dest1.c1), '|', rtrim(dest1.c1), '|', ltrim(de
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@dest1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: dest1.c1 SIMPLE []
 |	abc	|	  abc	|	abc  	|

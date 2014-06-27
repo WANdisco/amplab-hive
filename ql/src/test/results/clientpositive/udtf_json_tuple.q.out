@@ -45,8 +45,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: explain 
 select a.key, b.* from json_t a lateral view json_tuple(a.jstring, 'f1', 'f2', 'f3', 'f4', 'f5') b as f1, f2, f3, f4, f5 order by a.key
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_LATERAL_VIEW (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION json_tuple (. (TOK_TABLE_OR_COL a) jstring) 'f1' 'f2' 'f3' 'f4' 'f5') f1 f2 f3 f4 f5 (TOK_TABALIAS b))) (TOK_TABREF (TOK_TABNAME json_t) a))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) key)) (TOK_SELEXPR (TOK_ALLCOLREF (TOK_TABNAME b)))) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (. (TOK_TABLE_OR_COL a) key)))))
 
@@ -178,8 +176,6 @@ POSTHOOK: query: select a.key, b.* from json_t a lateral view json_tuple(a.jstri
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@json_t
 #### A masked pattern was here ####
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 1	value1	value2	3	NULL	5.23
 2	value12	2	value3	4.01	NULL
 3	value13	2	value33	value44	5.01
@@ -192,8 +188,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: explain 
 select json_tuple(a.jstring, 'f1', 'f2', 'f3', 'f4', 'f5') as (f1, f2, f3, f4, f5) from json_t a order by f1, f2, f3
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME json_t) a)) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION json_tuple (. (TOK_TABLE_OR_COL a) jstring) 'f1' 'f2' 'f3' 'f4' 'f5') f1 f2 f3 f4 f5)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL f1)) (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL f2)) (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL f3)))))
 
@@ -268,8 +262,6 @@ POSTHOOK: query: select json_tuple(a.jstring, 'f1', 'f2', 'f3', 'f4', 'f5') as (
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@json_t
 #### A masked pattern was here ####
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 NULL	NULL	NULL	NULL	NULL
 NULL	NULL	NULL	NULL	NULL
 	NULL	NULL	NULL	NULL
@@ -282,8 +274,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: explain 
 select a.key, b.f2, b.f5 from json_t a lateral view json_tuple(a.jstring, 'f1', 'f2', 'f3', 'f4', 'f5') b as f1, f2, f3, f4, f5 order by a.key
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_LATERAL_VIEW (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION json_tuple (. (TOK_TABLE_OR_COL a) jstring) 'f1' 'f2' 'f3' 'f4' 'f5') f1 f2 f3 f4 f5 (TOK_TABALIAS b))) (TOK_TABREF (TOK_TABNAME json_t) a))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL a) key)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL b) f2)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL b) f5))) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (. (TOK_TABLE_OR_COL a) key)))))
 
@@ -391,8 +381,6 @@ POSTHOOK: query: select a.key, b.f2, b.f5 from json_t a lateral view json_tuple(
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@json_t
 #### A masked pattern was here ####
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 1	value2	5.23
 2	2	NULL
 3	2	5.01
@@ -405,8 +393,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: explain 
 select f2, count(*) from json_t a lateral view json_tuple(a.jstring, 'f1', 'f2', 'f3', 'f4', 'f5') b as f1, f2, f3, f4, f5 where f1 is not null group by f2 order by f2
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_LATERAL_VIEW (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION json_tuple (. (TOK_TABLE_OR_COL a) jstring) 'f1' 'f2' 'f3' 'f4' 'f5') f1 f2 f3 f4 f5 (TOK_TABALIAS b))) (TOK_TABREF (TOK_TABNAME json_t) a))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL f2)) (TOK_SELEXPR (TOK_FUNCTIONSTAR count))) (TOK_WHERE (TOK_FUNCTION TOK_ISNOTNULL (TOK_TABLE_OR_COL f1))) (TOK_GROUPBY (TOK_TABLE_OR_COL f2)) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL f2)))))
 
@@ -566,8 +552,6 @@ POSTHOOK: query: select f2, count(*) from json_t a lateral view json_tuple(a.jst
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@json_t
 #### A masked pattern was here ####
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 NULL	1
 2	2
 value2	1
@@ -580,8 +564,6 @@ POSTHOOK: query: -- Verify that json_tuple can handle new lines in JSON values
 CREATE TABLE dest1(c1 STRING) STORED AS RCFILE
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@dest1
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 PREHOOK: query: INSERT OVERWRITE TABLE dest1 SELECT '{"a":"b\nc"}' FROM src LIMIT 1
 PREHOOK: type: QUERY
 PREHOOK: Input: default@src
@@ -591,8 +573,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@dest1
 POSTHOOK: Lineage: dest1.c1 SIMPLE []
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 PREHOOK: query: SELECT * FROM dest1
 PREHOOK: type: QUERY
 PREHOOK: Input: default@dest1
@@ -601,9 +581,6 @@ POSTHOOK: query: SELECT * FROM dest1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@dest1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: dest1.c1 SIMPLE []
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 {"a":"b
 c"}
 PREHOOK: query: SELECT json FROM dest1 a LATERAL VIEW json_tuple(c1, 'a') b AS json
@@ -614,8 +591,5 @@ POSTHOOK: query: SELECT json FROM dest1 a LATERAL VIEW json_tuple(c1, 'a') b AS 
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@dest1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: dest1.c1 SIMPLE []
-POSTHOOK: Lineage: json_t.jstring EXPRESSION []
-POSTHOOK: Lineage: json_t.key EXPRESSION []
 b
 c

@@ -36,8 +36,6 @@ POSTHOOK: query: -- Insert data into the bucketed table by selecting from anothe
 EXPLAIN INSERT OVERWRITE TABLE test_table2
 SELECT * FROM test_table1
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME test_table1))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME test_table2))) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF))))
 
@@ -93,8 +91,6 @@ SELECT * FROM test_table1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table1
 POSTHOOK: Output: default@test_table2
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
 POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: select count(*) from test_table1
@@ -105,10 +101,6 @@ POSTHOOK: query: select count(*) from test_table1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 500
 PREHOOK: query: select count(*) from test_table1 tablesample (bucket 2 out of 2) s
 PREHOOK: type: QUERY
@@ -118,10 +110,6 @@ POSTHOOK: query: select count(*) from test_table1 tablesample (bucket 2 out of 2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 253
 PREHOOK: query: select count(*) from test_table2
 PREHOOK: type: QUERY
@@ -131,10 +119,6 @@ POSTHOOK: query: select count(*) from test_table2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 500
 PREHOOK: query: select count(*) from test_table2 tablesample (bucket 2 out of 2) s
 PREHOOK: type: QUERY
@@ -144,10 +128,6 @@ POSTHOOK: query: select count(*) from test_table2 tablesample (bucket 2 out of 2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 253
 PREHOOK: query: drop table test_table1
 PREHOOK: type: DROPTABLE
@@ -157,10 +137,6 @@ POSTHOOK: query: drop table test_table1
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@test_table1
 POSTHOOK: Output: default@test_table1
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: drop table test_table2
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@test_table2
@@ -169,10 +145,6 @@ POSTHOOK: query: drop table test_table2
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@test_table2
 POSTHOOK: Output: default@test_table2
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: CREATE TABLE test_table1 (key INT, value STRING)
 CLUSTERED BY (key) INTO 2 BUCKETS
 PREHOOK: type: CREATETABLE
@@ -180,10 +152,6 @@ POSTHOOK: query: CREATE TABLE test_table1 (key INT, value STRING)
 CLUSTERED BY (key) INTO 2 BUCKETS
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@test_table1
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: CREATE TABLE test_table2 (key INT, value STRING)
 CLUSTERED BY (key) INTO 2 BUCKETS
 PREHOOK: type: CREATETABLE
@@ -191,10 +159,6 @@ POSTHOOK: query: CREATE TABLE test_table2 (key INT, value STRING)
 CLUSTERED BY (key) INTO 2 BUCKETS
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@test_table2
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: FROM src
 INSERT OVERWRITE TABLE test_table1 SELECT *
 PREHOOK: type: QUERY
@@ -206,11 +170,7 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@test_table1
 POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: -- Insert data into the bucketed table by selecting from another bucketed table
 -- This should be a map-only operation
 EXPLAIN INSERT OVERWRITE TABLE test_table2
@@ -221,12 +181,6 @@ POSTHOOK: query: -- Insert data into the bucketed table by selecting from anothe
 EXPLAIN INSERT OVERWRITE TABLE test_table2
 SELECT * FROM test_table1
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME test_table1))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME test_table2))) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF))))
 
@@ -282,13 +236,7 @@ SELECT * FROM test_table1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table1
 POSTHOOK: Output: default@test_table2
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: select count(*) from test_table1
 PREHOOK: type: QUERY
@@ -298,14 +246,6 @@ POSTHOOK: query: select count(*) from test_table1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 500
 PREHOOK: query: select count(*) from test_table1 tablesample (bucket 2 out of 2) s
 PREHOOK: type: QUERY
@@ -315,14 +255,6 @@ POSTHOOK: query: select count(*) from test_table1 tablesample (bucket 2 out of 2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 253
 PREHOOK: query: select count(*) from test_table2
 PREHOOK: type: QUERY
@@ -332,14 +264,6 @@ POSTHOOK: query: select count(*) from test_table2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 500
 PREHOOK: query: select count(*) from test_table2 tablesample (bucket 2 out of 2) s
 PREHOOK: type: QUERY
@@ -349,12 +273,4 @@ POSTHOOK: query: select count(*) from test_table2 tablesample (bucket 2 out of 2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@test_table2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table1.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.key SIMPLE [(test_table1)test_table1.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: test_table2.value SIMPLE [(test_table1)test_table1.FieldSchema(name:value, type:string, comment:null), ]
 253

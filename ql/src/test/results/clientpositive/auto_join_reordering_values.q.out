@@ -39,21 +39,11 @@ PREHOOK: query: drop table if exists user_small
 PREHOOK: type: DROPTABLE
 POSTHOOK: query: drop table if exists user_small
 POSTHOOK: type: DROPTABLE
-POSTHOOK: Lineage: orderpayment_small.cityid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.date SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.dealid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.time SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.userid SIMPLE []
 PREHOOK: query: create table user_small( userid int)
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: create table user_small( userid int)
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@user_small
-POSTHOOK: Lineage: orderpayment_small.cityid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.date SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.dealid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.time SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.userid SIMPLE []
 PREHOOK: query: insert overwrite table user_small select key from testsrc limit 100
 PREHOOK: type: QUERY
 PREHOOK: Input: default@testsrc
@@ -62,11 +52,6 @@ POSTHOOK: query: insert overwrite table user_small select key from testsrc limit
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@testsrc
 POSTHOOK: Output: default@user_small
-POSTHOOK: Lineage: orderpayment_small.cityid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.date SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.dealid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.time SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.userid SIMPLE []
 POSTHOOK: Lineage: user_small.userid SIMPLE [(testsrc)testsrc.FieldSchema(name:key, type:int, comment:null), ]
 PREHOOK: query: explain extended SELECT
      `dim_pay_date`.`date`
@@ -88,12 +73,6 @@ JOIN `orderpayment_small` `order_city` ON `order_city`.`cityid` = `orderpayment`
 JOIN `user_small` `user` ON `user`.`userid` = `orderpayment`.`userid`
 limit 5
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: orderpayment_small.cityid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.date SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.dealid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.time SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.userid SIMPLE []
-POSTHOOK: Lineage: user_small.userid SIMPLE [(testsrc)testsrc.FieldSchema(name:key, type:int, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_JOIN (TOK_JOIN (TOK_JOIN (TOK_JOIN (TOK_TABREF (TOK_TABNAME `orderpayment_small`) `orderpayment`) (TOK_TABREF (TOK_TABNAME `orderpayment_small`) `dim_pay_date`) (= (. (TOK_TABLE_OR_COL `dim_pay_date`) `date`) (. (TOK_TABLE_OR_COL `orderpayment`) `date`))) (TOK_TABREF (TOK_TABNAME `orderpayment_small`) `deal`) (= (. (TOK_TABLE_OR_COL `deal`) `dealid`) (. (TOK_TABLE_OR_COL `orderpayment`) `dealid`))) (TOK_TABREF (TOK_TABNAME `orderpayment_small`) `order_city`) (= (. (TOK_TABLE_OR_COL `order_city`) `cityid`) (. (TOK_TABLE_OR_COL `orderpayment`) `cityid`))) (TOK_TABREF (TOK_TABNAME `user_small`) `user`) (= (. (TOK_TABLE_OR_COL `user`) `userid`) (. (TOK_TABLE_OR_COL `orderpayment`) `userid`)))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (. (TOK_TABLE_OR_COL `dim_pay_date`) `date`)) (TOK_SELEXPR (. (TOK_TABLE_OR_COL `deal`) `dealid`))) (TOK_LIMIT 5)))
 
@@ -628,9 +607,3 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@orderpayment_small
 POSTHOOK: Input: default@user_small
 #### A masked pattern was here ####
-POSTHOOK: Lineage: orderpayment_small.cityid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.date SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.dealid SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.time SIMPLE []
-POSTHOOK: Lineage: orderpayment_small.userid SIMPLE []
-POSTHOOK: Lineage: user_small.userid SIMPLE [(testsrc)testsrc.FieldSchema(name:key, type:int, comment:null), ]

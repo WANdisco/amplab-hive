@@ -99,15 +99,11 @@ POSTHOOK: query: SELECT SUM(HASH(c)) FROM (
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into5a
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
 481928560
 PREHOOK: query: EXPLAIN INSERT INTO TABLE insert_into5a SELECT * FROM insert_into5a
 PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN INSERT INTO TABLE insert_into5a SELECT * FROM insert_into5a
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME insert_into5a))) (TOK_INSERT (TOK_INSERT_INTO (TOK_TAB (TOK_TABNAME insert_into5a))) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF))))
 
@@ -207,9 +203,7 @@ POSTHOOK: query: INSERT INTO TABLE insert_into5a SELECT * FROM insert_into5a
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into5a
 POSTHOOK: Output: default@insert_into5a
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
 POSTHOOK: Lineage: insert_into5a.key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
 POSTHOOK: Lineage: insert_into5a.value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: SELECT SUM(HASH(c)) FROM (
     SELECT TRANSFORM(*) USING 'tr \t _' AS (c) FROM insert_into5a
@@ -223,10 +217,6 @@ POSTHOOK: query: SELECT SUM(HASH(c)) FROM (
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into5a
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 963857120
 PREHOOK: query: EXPLAIN INSERT INTO TABLE insert_into5b PARTITION (ds='1') 
   SELECT * FROM insert_into5a
@@ -234,10 +224,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN INSERT INTO TABLE insert_into5b PARTITION (ds='1') 
   SELECT * FROM insert_into5a
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME insert_into5a))) (TOK_INSERT (TOK_INSERT_INTO (TOK_TAB (TOK_TABNAME insert_into5b) (TOK_PARTSPEC (TOK_PARTVAL ds '1')))) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF))))
 
@@ -339,10 +325,6 @@ POSTHOOK: query: INSERT INTO TABLE insert_into5b PARTITION (ds='1') SELECT * FRO
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into5a
 POSTHOOK: Output: default@insert_into5b@ds=1
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
 POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: SELECT SUM(HASH(c)) FROM (
@@ -359,12 +341,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into5b
 POSTHOOK: Input: default@insert_into5b@ds=1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 -18626052920
 PREHOOK: query: EXPLAIN INSERT INTO TABLE insert_into5b PARTITION (ds='1')
   SELECT key, value FROM insert_into5b
@@ -372,12 +348,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN INSERT INTO TABLE insert_into5b PARTITION (ds='1')
   SELECT key, value FROM insert_into5b
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME insert_into5b))) (TOK_INSERT (TOK_INSERT_INTO (TOK_TAB (TOK_TABNAME insert_into5b) (TOK_PARTSPEC (TOK_PARTVAL ds '1')))) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_TABLE_OR_COL value)))))
 
@@ -483,14 +453,8 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into5b
 POSTHOOK: Input: default@insert_into5b@ds=1
 POSTHOOK: Output: default@insert_into5b@ds=1
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).key SIMPLE [(insert_into5b)insert_into5b.FieldSchema(name:key, type:int, comment:null), ]
 POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).value SIMPLE [(insert_into5b)insert_into5b.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 PREHOOK: query: SELECT SUM(HASH(c)) FROM (
     SELECT TRANSFORM(*) USING 'tr \t _' AS (c) FROM insert_into5b
 ) t
@@ -505,14 +469,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@insert_into5b
 POSTHOOK: Input: default@insert_into5b@ds=1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).key SIMPLE [(insert_into5b)insert_into5b.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).value SIMPLE [(insert_into5b)insert_into5b.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
 -37252105840
 PREHOOK: query: DROP TABLE insert_into5a
 PREHOOK: type: DROPTABLE
@@ -522,11 +478,3 @@ POSTHOOK: query: DROP TABLE insert_into5a
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@insert_into5a
 POSTHOOK: Output: default@insert_into5a
-POSTHOOK: Lineage: insert_into5a.key SIMPLE []
-POSTHOOK: Lineage: insert_into5a.key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5a.value SIMPLE []
-POSTHOOK: Lineage: insert_into5a.value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).key SIMPLE [(insert_into5b)insert_into5b.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).value SIMPLE [(insert_into5b)insert_into5b.FieldSchema(name:value, type:string, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).key SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:key, type:int, comment:null), ]
-POSTHOOK: Lineage: insert_into5b PARTITION(ds=1).value SIMPLE [(insert_into5a)insert_into5a.FieldSchema(name:value, type:string, comment:null), ]
