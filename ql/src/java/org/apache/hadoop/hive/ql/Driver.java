@@ -1,4 +1,3 @@
-
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -965,8 +964,7 @@ public class Driver implements CommandProcessor {
   }
 
   public CommandProcessorResponse compileAndRespond(String command) {
-    return new CommandProcessorResponse(compileInternal(command),
-        errorMessage, SQLState);
+    return createProcessorResponse(compileInternal(command));
   }
 
   private int compileInternal(String command) {
@@ -992,7 +990,7 @@ public class Driver implements CommandProcessor {
     downstreamError = null;
 
     if (!validateConfVariables()) {
-      return new CommandProcessorResponse(12, errorMessage, SQLState);
+      return createProcessorResponse(12);
     }
 
     HiveDriverRunHookContext hookContext = new HiveDriverRunHookContextImpl(conf, command);
@@ -1010,7 +1008,7 @@ public class Driver implements CommandProcessor {
       downstreamError = e;
       console.printError(errorMessage + "\n"
           + org.apache.hadoop.util.StringUtils.stringifyException(e));
-      return new CommandProcessorResponse(12, errorMessage, SQLState);
+      return createProcessorResponse(12);
     }
 
     // Reset the perf logger
@@ -1018,7 +1016,6 @@ public class Driver implements CommandProcessor {
     perfLogger.PerfLogBegin(CLASS_NAME, PerfLogger.DRIVER_RUN);
     perfLogger.PerfLogBegin(CLASS_NAME, PerfLogger.TIME_TO_SUBMIT);
 
-    int ret;
     boolean requireLock = false;
     boolean ckLock = false;
     try {
@@ -1030,16 +1027,17 @@ public class Driver implements CommandProcessor {
       downstreamError = e;
       console.printError(errorMessage, "\n"
           + org.apache.hadoop.util.StringUtils.stringifyException(e));
-      ret = 10;
-      return new CommandProcessorResponse(ret, errorMessage, SQLState);
+      return createProcessorResponse(10);
     }
-    ret = recordValidTxns();
-    if (ret != 0) return new CommandProcessorResponse(ret, errorMessage, SQLState);
+    int ret = recordValidTxns();
+    if (ret != 0) {
+      return createProcessorResponse(ret);
+    }
 
     if (!alreadyCompiled) {
       ret = compileInternal(command);
       if (ret != 0) {
-        return new CommandProcessorResponse(ret, errorMessage, SQLState);
+        return createProcessorResponse(ret);
       }
     }
 
@@ -1081,7 +1079,7 @@ public class Driver implements CommandProcessor {
         } catch (LockException e) {
           // Not much to do here
         }
-        return new CommandProcessorResponse(ret, errorMessage, SQLState);
+        return createProcessorResponse(ret);
       }
     }
 
@@ -1093,7 +1091,7 @@ public class Driver implements CommandProcessor {
       } catch (LockException e) {
         // Nothing to do here
       }
-      return new CommandProcessorResponse(ret, errorMessage, SQLState);
+      return createProcessorResponse(ret);
     }
 
     //if needRequireLock is false, the release here will do nothing because there is no lock
@@ -1105,7 +1103,7 @@ public class Driver implements CommandProcessor {
       downstreamError = e;
       console.printError(errorMessage + "\n"
           + org.apache.hadoop.util.StringUtils.stringifyException(e));
-      return new CommandProcessorResponse(12, errorMessage, SQLState);
+      return createProcessorResponse(12);
     }
 
     perfLogger.PerfLogEnd(CLASS_NAME, PerfLogger.DRIVER_RUN);
@@ -1122,10 +1120,14 @@ public class Driver implements CommandProcessor {
       downstreamError = e;
       console.printError(errorMessage + "\n"
           + org.apache.hadoop.util.StringUtils.stringifyException(e));
-      return new CommandProcessorResponse(12, errorMessage, SQLState);
+      return createProcessorResponse(12);
     }
 
-    return new CommandProcessorResponse(ret);
+    return createProcessorResponse(ret);
+  }
+
+  private CommandProcessorResponse createProcessorResponse(int ret) {
+    return new CommandProcessorResponse(ret, errorMessage, SQLState, downstreamError);
   }
 
   /**
@@ -1461,6 +1463,7 @@ public class Driver implements CommandProcessor {
 
     return (0);
   }
+
   private void setErrorMsgAndDetail(int exitVal, Throwable downstreamError, Task tsk) {
     this.downstreamError = downstreamError;
     errorMessage = "FAILED: Execution Error, return code " + exitVal + " from " + tsk.getClass().getName();
@@ -1527,6 +1530,7 @@ public class Driver implements CommandProcessor {
     return plan != null && plan.getFetchTask() != null;
   }
 
+  @SuppressWarnings("unchecked")
   public boolean getResults(List res) throws IOException, CommandNeedRetryException {
     if (destroyed) {
       throw new IOException("FAILED: Operation cancelled");
