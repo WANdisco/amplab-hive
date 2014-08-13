@@ -187,21 +187,11 @@ PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: -- check DML result
 show partitions list_bucketing_mul_col
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col1 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col2 SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col3 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col4 SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col5 EXPRESSION []
 ds=2008-04-08/hr=2013-01-23+18%3A00%3A99
 PREHOOK: query: desc formatted list_bucketing_mul_col partition (ds='2008-04-08', hr='2013-01-23+18:00:99')
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc formatted list_bucketing_mul_col partition (ds='2008-04-08', hr='2013-01-23+18:00:99')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col1 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col2 SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col3 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col4 SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col5 EXPRESSION []
 # col_name            	data_type           	comment             
 	 	 
 col1                	string              	None                
@@ -253,11 +243,6 @@ POSTHOOK: query: explain extended
 select * from list_bucketing_mul_col 
 where ds='2008-04-08' and hr='2013-01-23+18:00:99' and col2 = "466" and col4 = "val_466" ORDER BY col2, col4, ds, hr
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col1 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col2 SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col3 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col4 SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col5 EXPRESSION []
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME list_bucketing_mul_col))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF)) (TOK_WHERE (and (and (and (= (TOK_TABLE_OR_COL ds) '2008-04-08') (= (TOK_TABLE_OR_COL hr) '2013-01-23+18:00:99')) (= (TOK_TABLE_OR_COL col2) "466")) (= (TOK_TABLE_OR_COL col4) "val_466"))) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL col2)) (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL col4)) (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL ds)) (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL hr)))))
 
@@ -411,11 +396,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@list_bucketing_mul_col
 POSTHOOK: Input: default@list_bucketing_mul_col@ds=2008-04-08/hr=2013-01-23+18%3A00%3A99
 #### A masked pattern was here ####
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col1 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col2 SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col3 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col4 SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col5 EXPRESSION []
 1	466	1	val_466	1	2008-04-08	2013-01-23+18:00:99
 1	466	1	val_466	1	2008-04-08	2013-01-23+18:00:99
 1	466	1	val_466	1	2008-04-08	2013-01-23+18:00:99
@@ -427,8 +407,3 @@ POSTHOOK: query: drop table list_bucketing_mul_col
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@list_bucketing_mul_col
 POSTHOOK: Output: default@list_bucketing_mul_col
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col1 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col2 SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col3 EXPRESSION []
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col4 SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_mul_col PARTITION(ds=2008-04-08,hr=2013-01-23+18:00:99).col5 EXPRESSION []

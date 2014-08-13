@@ -621,10 +621,6 @@ ORDER BY key1, key2, val1, val2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@dest1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: dest1.key1 SIMPLE [(t1)a.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.key2 SIMPLE [(t2)b.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val1 SIMPLE [(t1)a.FieldSchema(name:val, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val2 SIMPLE [(t2)b.FieldSchema(name:val, type:string, comment:null), ]
 2	12	2	22
 3	13	3	13
 8	18	8	18
@@ -639,10 +635,6 @@ POSTHOOK: query: EXPLAIN
 INSERT OVERWRITE TABLE DEST1
 SELECT * FROM T1 a RIGHT OUTER JOIN T2 b ON a.key = b.key
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: dest1.key1 SIMPLE [(t1)a.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.key2 SIMPLE [(t2)b.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val1 SIMPLE [(t1)a.FieldSchema(name:val, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val2 SIMPLE [(t2)b.FieldSchema(name:val, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_RIGHTOUTERJOIN (TOK_TABREF (TOK_TABNAME T1) a) (TOK_TABREF (TOK_TABNAME T2) b) (= (. (TOK_TABLE_OR_COL a) key) (. (TOK_TABLE_OR_COL b) key)))) (TOK_INSERT (TOK_DESTINATION (TOK_TAB (TOK_TABNAME DEST1))) (TOK_SELECT (TOK_SELEXPR TOK_ALLCOLREF))))
 
@@ -824,12 +816,8 @@ POSTHOOK: Input: default@t1
 POSTHOOK: Input: default@t2
 POSTHOOK: Output: default@dest1
 POSTHOOK: Lineage: dest1.key1 SIMPLE [(t1)a.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.key1 SIMPLE [(t1)a.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.key2 SIMPLE [(t2)b.FieldSchema(name:key, type:string, comment:null), ]
 POSTHOOK: Lineage: dest1.key2 SIMPLE [(t2)b.FieldSchema(name:key, type:string, comment:null), ]
 POSTHOOK: Lineage: dest1.val1 SIMPLE [(t1)a.FieldSchema(name:val, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val1 SIMPLE [(t1)a.FieldSchema(name:val, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val2 SIMPLE [(t2)b.FieldSchema(name:val, type:string, comment:null), ]
 POSTHOOK: Lineage: dest1.val2 SIMPLE [(t2)b.FieldSchema(name:val, type:string, comment:null), ]
 PREHOOK: query: SELECT * FROM DEST1
 ORDER BY key1, key2, val1, val2
@@ -841,14 +829,6 @@ ORDER BY key1, key2, val1, val2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@dest1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: dest1.key1 SIMPLE [(t1)a.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.key1 SIMPLE [(t1)a.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.key2 SIMPLE [(t2)b.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.key2 SIMPLE [(t2)b.FieldSchema(name:key, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val1 SIMPLE [(t1)a.FieldSchema(name:val, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val1 SIMPLE [(t1)a.FieldSchema(name:val, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val2 SIMPLE [(t2)b.FieldSchema(name:val, type:string, comment:null), ]
-POSTHOOK: Lineage: dest1.val2 SIMPLE [(t2)b.FieldSchema(name:val, type:string, comment:null), ]
 NULL	NULL	4	14
 NULL	NULL	5	15
 2	12	2	22

@@ -182,15 +182,11 @@ PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: -- check DML result
 show partitions list_bucketing_static_part
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ds=2008-04-08/hr=11
 PREHOOK: query: desc formatted list_bucketing_static_part partition (ds='2008-04-08', hr='11')
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc formatted list_bucketing_static_part partition (ds='2008-04-08', hr='11')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                
@@ -237,8 +233,6 @@ PREHOOK: type: QUERY
 POSTHOOK: query: explain extended
 select key, value from list_bucketing_static_part where ds='2008-04-08' and hr='11' and value = "val_466"
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME list_bucketing_static_part))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_TABLE_OR_COL value))) (TOK_WHERE (and (and (= (TOK_TABLE_OR_COL ds) '2008-04-08') (= (TOK_TABLE_OR_COL hr) '11')) (= (TOK_TABLE_OR_COL value) "val_466")))))
 
@@ -351,8 +345,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@list_bucketing_static_part
 POSTHOOK: Input: default@list_bucketing_static_part@ds=2008-04-08/hr=11
 #### A masked pattern was here ####
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 466	val_466
 466	val_466
 466	val_466
@@ -364,5 +356,3 @@ POSTHOOK: query: drop table list_bucketing_static_part
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@list_bucketing_static_part
 POSTHOOK: Output: default@list_bucketing_static_part
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
