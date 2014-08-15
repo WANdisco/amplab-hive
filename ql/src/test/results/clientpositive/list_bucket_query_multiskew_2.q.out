@@ -51,8 +51,6 @@ PREHOOK: query: describe formatted fact_daily PARTITION (ds = '1', hr='4')
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: describe formatted fact_daily PARTITION (ds = '1', hr='4')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                
@@ -103,8 +101,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@fact_daily
 POSTHOOK: Input: default@fact_daily@ds=1/hr=4
 #### A masked pattern was here ####
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 500
 PREHOOK: query: -- pruner only pick up default directory
 -- explain plan shows which directory selected: Truncated Path -> Alias
@@ -114,8 +110,6 @@ POSTHOOK: query: -- pruner only pick up default directory
 -- explain plan shows which directory selected: Truncated Path -> Alias
 explain extended SELECT key, value FROM fact_daily WHERE ds='1' and hr='4' and value= 'val_484'
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME fact_daily))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_TABLE_OR_COL value))) (TOK_WHERE (and (and (= (TOK_TABLE_OR_COL ds) '1') (= (TOK_TABLE_OR_COL hr) '4')) (= (TOK_TABLE_OR_COL value) 'val_484')))))
 
@@ -277,8 +271,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@fact_daily
 POSTHOOK: Input: default@fact_daily@ds=1/hr=4
 #### A masked pattern was here ####
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 484	val_484
 PREHOOK: query: -- pruner only pick up default directory
 -- explain plan shows which directory selected: Truncated Path -> Alias
@@ -288,8 +280,6 @@ POSTHOOK: query: -- pruner only pick up default directory
 -- explain plan shows which directory selected: Truncated Path -> Alias
 explain extended SELECT key FROM fact_daily WHERE ds='1' and hr='4' and key= '406'
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME fact_daily))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key))) (TOK_WHERE (and (and (= (TOK_TABLE_OR_COL ds) '1') (= (TOK_TABLE_OR_COL hr) '4')) (= (TOK_TABLE_OR_COL key) '406')))))
 
@@ -402,8 +392,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@fact_daily
 POSTHOOK: Input: default@fact_daily@ds=1/hr=4
 #### A masked pattern was here ####
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 406	val_406
 406	val_406
 406	val_406
@@ -416,8 +404,6 @@ POSTHOOK: query: -- pruner only pick up skewed-value directory
 -- explain plan shows which directory selected: Truncated Path -> Alias
 explain extended SELECT key, value FROM fact_daily WHERE ds='1' and hr='4' and ( (key='484' and value ='val_484')  or (key='238' and value= 'val_238'))
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME fact_daily))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_TABLE_OR_COL value))) (TOK_WHERE (and (and (= (TOK_TABLE_OR_COL ds) '1') (= (TOK_TABLE_OR_COL hr) '4')) (or (and (= (TOK_TABLE_OR_COL key) '484') (= (TOK_TABLE_OR_COL value) 'val_484')) (and (= (TOK_TABLE_OR_COL key) '238') (= (TOK_TABLE_OR_COL value) 'val_238')))))))
 
@@ -579,9 +565,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@fact_daily
 POSTHOOK: Input: default@fact_daily@ds=1/hr=4
 #### A masked pattern was here ####
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-484	val_484
 238	val_238
 238	val_238
 PREHOOK: query: -- clean up
@@ -594,5 +577,3 @@ drop table fact_daily
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@fact_daily
 POSTHOOK: Output: default@fact_daily
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]

@@ -39,8 +39,6 @@ PREHOOK: query: DESC FORMATTED list_bucketing_table PARTITION (part = '1')
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: DESC FORMATTED list_bucketing_table PARTITION (part = '1')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: list_bucketing_table PARTITION(part=1).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_table PARTITION(part=1).value EXPRESSION [(src)src.null, ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                
@@ -93,8 +91,6 @@ SKEWED BY (key) ON ("abc")
 STORED AS DIRECTORIES
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@list_bucketing_table2
-POSTHOOK: Lineage: list_bucketing_table PARTITION(part=1).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_table PARTITION(part=1).value EXPRESSION [(src)src.null, ]
 PREHOOK: query: -- should not be bucketed or sorted
 INSERT OVERWRITE TABLE list_bucketing_table2 PARTITION (part = '1')
 SELECT key, count(*) FROM src GROUP BY key
@@ -107,18 +103,12 @@ SELECT key, count(*) FROM src GROUP BY key
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@src
 POSTHOOK: Output: default@list_bucketing_table2@part=1
-POSTHOOK: Lineage: list_bucketing_table PARTITION(part=1).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_table PARTITION(part=1).value EXPRESSION [(src)src.null, ]
 POSTHOOK: Lineage: list_bucketing_table2 PARTITION(part=1).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
 POSTHOOK: Lineage: list_bucketing_table2 PARTITION(part=1).value EXPRESSION [(src)src.null, ]
 PREHOOK: query: DESC FORMATTED list_bucketing_table2 PARTITION (part = '1')
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: DESC FORMATTED list_bucketing_table2 PARTITION (part = '1')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: list_bucketing_table PARTITION(part=1).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_table PARTITION(part=1).value EXPRESSION [(src)src.null, ]
-POSTHOOK: Lineage: list_bucketing_table2 PARTITION(part=1).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_table2 PARTITION(part=1).value EXPRESSION [(src)src.null, ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                
