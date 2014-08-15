@@ -150,6 +150,7 @@ STAGE PLANS:
                         type: string
                         expr: _col1
                         type: string
+      Needs Tagging: false
       Path -> Alias:
 #### A masked pattern was here ####
       Path -> Partition:
@@ -245,10 +246,6 @@ STAGE PLANS:
               serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
               name: default.fact_daily
             name: default.fact_daily
-      Truncated Path -> Alias:
-        /fact_daily/ds=1/hr=4/HIVE_DEFAULT_LIST_BUCKETING_DIR_NAME/HIVE_DEFAULT_LIST_BUCKETING_DIR_NAME [fact_daily]
-        /fact_daily/ds=1/hr=4/key=484/value=val_484 [fact_daily]
-      Needs Tagging: false
       Reduce Operator Tree:
         Extract
           File Output Operator
@@ -264,11 +261,13 @@ STAGE PLANS:
                   columns _col0,_col1
                   columns.types string:string
                   escape.delim \
-                  hive.serialization.extend.nesting.levels true
                   serialization.format 1
             TotalFiles: 1
             GatherStats: false
             MultiFileSpray: false
+      Truncated Path -> Alias:
+        /fact_daily/ds=1/hr=4/HIVE_DEFAULT_LIST_BUCKETING_DIR_NAME/HIVE_DEFAULT_LIST_BUCKETING_DIR_NAME [fact_daily]
+        /fact_daily/ds=1/hr=4/key=484/value=val_484 [fact_daily]
 
   Stage: Stage-0
     Fetch Operator
@@ -287,8 +286,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@fact_daily
 POSTHOOK: Input: default@fact_daily@ds=1/hr=4
 #### A masked pattern was here ####
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 484	val_484
 PREHOOK: query: -- pruner only pick up default directory
 -- explain plan shows which directory selected: Truncated Path -> Alias
@@ -298,8 +295,6 @@ POSTHOOK: query: -- pruner only pick up default directory
 -- explain plan shows which directory selected: Truncated Path -> Alias
 explain extended SELECT key FROM fact_daily WHERE ds='1' and hr='4' and key= '406' ORDER BY key
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME fact_daily))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key))) (TOK_WHERE (and (and (= (TOK_TABLE_OR_COL ds) '1') (= (TOK_TABLE_OR_COL hr) '4')) (= (TOK_TABLE_OR_COL key) '406'))) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL key)))))
 
@@ -334,6 +329,7 @@ STAGE PLANS:
                   value expressions:
                         expr: _col0
                         type: string
+      Needs Tagging: false
       Path -> Alias:
 #### A masked pattern was here ####
       Path -> Partition:
@@ -383,9 +379,6 @@ STAGE PLANS:
               serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
               name: default.fact_daily
             name: default.fact_daily
-      Truncated Path -> Alias:
-        /fact_daily/ds=1/hr=4/HIVE_DEFAULT_LIST_BUCKETING_DIR_NAME/HIVE_DEFAULT_LIST_BUCKETING_DIR_NAME [fact_daily]
-      Needs Tagging: false
       Reduce Operator Tree:
         Extract
           File Output Operator
@@ -401,11 +394,12 @@ STAGE PLANS:
                   columns _col0
                   columns.types string
                   escape.delim \
-                  hive.serialization.extend.nesting.levels true
                   serialization.format 1
             TotalFiles: 1
             GatherStats: false
             MultiFileSpray: false
+      Truncated Path -> Alias:
+        /fact_daily/ds=1/hr=4/HIVE_DEFAULT_LIST_BUCKETING_DIR_NAME/HIVE_DEFAULT_LIST_BUCKETING_DIR_NAME [fact_daily]
 
   Stage: Stage-0
     Fetch Operator
@@ -424,8 +418,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@fact_daily
 POSTHOOK: Input: default@fact_daily@ds=1/hr=4
 #### A masked pattern was here ####
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 406	val_406
 406	val_406
 406	val_406
@@ -438,8 +430,6 @@ POSTHOOK: query: -- pruner only pick up skewed-value directory
 -- explain plan shows which directory selected: Truncated Path -> Alias
 explain extended SELECT key, value FROM fact_daily WHERE ds='1' and hr='4' and ( (key='484' and value ='val_484')  or (key='238' and value= 'val_238')) ORDER BY key, value
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME fact_daily))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_TABLE_OR_COL key)) (TOK_SELEXPR (TOK_TABLE_OR_COL value))) (TOK_WHERE (and (and (= (TOK_TABLE_OR_COL ds) '1') (= (TOK_TABLE_OR_COL hr) '4')) (or (and (= (TOK_TABLE_OR_COL key) '484') (= (TOK_TABLE_OR_COL value) 'val_484')) (and (= (TOK_TABLE_OR_COL key) '238') (= (TOK_TABLE_OR_COL value) 'val_238'))))) (TOK_ORDERBY (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL key)) (TOK_TABSORTCOLNAMEASC (TOK_TABLE_OR_COL value)))))
 
@@ -480,6 +470,7 @@ STAGE PLANS:
                         type: string
                         expr: _col1
                         type: string
+      Needs Tagging: false
       Path -> Alias:
 #### A masked pattern was here ####
       Path -> Partition:
@@ -575,10 +566,6 @@ STAGE PLANS:
               serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
               name: default.fact_daily
             name: default.fact_daily
-      Truncated Path -> Alias:
-        /fact_daily/ds=1/hr=4/key=238/value=val_238 [fact_daily]
-        /fact_daily/ds=1/hr=4/key=484/value=val_484 [fact_daily]
-      Needs Tagging: false
       Reduce Operator Tree:
         Extract
           File Output Operator
@@ -594,11 +581,13 @@ STAGE PLANS:
                   columns _col0,_col1
                   columns.types string:string
                   escape.delim \
-                  hive.serialization.extend.nesting.levels true
                   serialization.format 1
             TotalFiles: 1
             GatherStats: false
             MultiFileSpray: false
+      Truncated Path -> Alias:
+        /fact_daily/ds=1/hr=4/key=238/value=val_238 [fact_daily]
+        /fact_daily/ds=1/hr=4/key=484/value=val_484 [fact_daily]
 
   Stage: Stage-0
     Fetch Operator
@@ -617,8 +606,6 @@ POSTHOOK: type: QUERY
 POSTHOOK: Input: default@fact_daily
 POSTHOOK: Input: default@fact_daily@ds=1/hr=4
 #### A masked pattern was here ####
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 238	val_238
 238	val_238
 484	val_484
@@ -632,5 +619,3 @@ drop table fact_daily
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@fact_daily
 POSTHOOK: Output: default@fact_daily
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: fact_daily PARTITION(ds=1,hr=4).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
