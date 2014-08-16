@@ -1170,19 +1170,6 @@ STAGE PLANS:
               File Output Operator
                 compressed: false
                 GlobalTableId: 1
-=======
-      Map Operator Tree:
-          TableScan
-            alias: srcpart
-            Statistics: Num rows: 58 Data size: 11624 Basic stats: COMPLETE Column stats: NONE
-            Select Operator
-              expressions: key (type: string), value (type: string)
-              outputColumnNames: _col0, _col1
-              Statistics: Num rows: 58 Data size: 11624 Basic stats: COMPLETE Column stats: NONE
-              File Output Operator
-                compressed: false
-                Statistics: Num rows: 58 Data size: 11624 Basic stats: COMPLETE Column stats: NONE
->>>>>>> bcae025... HIVE-6821 : Fix some non-deterministic tests (Jason Dere via Ashutosh Chauhan)
                 table:
                     input format: org.apache.hadoop.mapred.TextInputFormat
                     output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
