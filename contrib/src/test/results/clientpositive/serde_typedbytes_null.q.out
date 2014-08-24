@@ -24,7 +24,6 @@ POSTHOOK: query: SELECT * FROM table1
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@table1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: table1.a EXPRESSION []
 NULL
 NULL
 NULL
@@ -533,7 +532,6 @@ POSTHOOK: query: SELECT a FROM table1 WHERE a IS NULL
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@table1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: table1.a EXPRESSION []
 NULL
 NULL
 NULL
@@ -1042,7 +1040,6 @@ POSTHOOK: query: SELECT a FROM table1 WHERE a IS NOT NULL
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@table1
 #### A masked pattern was here ####
-POSTHOOK: Lineage: table1.a EXPRESSION []
 PREHOOK: query: DROP TABLE table1
 PREHOOK: type: DROPTABLE
 PREHOOK: Input: default@table1
@@ -1051,4 +1048,3 @@ POSTHOOK: query: DROP TABLE table1
 POSTHOOK: type: DROPTABLE
 POSTHOOK: Input: default@table1
 POSTHOOK: Output: default@table1
-POSTHOOK: Lineage: table1.a EXPRESSION []

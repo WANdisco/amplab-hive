@@ -473,10 +473,6 @@ PREHOOK: query: DESC FORMATTED bucketed_table
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: DESC FORMATTED bucketed_table
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: bucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: bucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	int                 	None                
@@ -516,10 +512,6 @@ POSTHOOK: query: SELECT * FROM bucketed_table TABLESAMPLE (BUCKET 1 OUT OF 2) s 
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@bucketed_table
 #### A masked pattern was here ####
-POSTHOOK: Lineage: bucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: bucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 0	val_0
 0	val_0
 0	val_0
@@ -538,10 +530,6 @@ POSTHOOK: query: SELECT * FROM bucketed_table TABLESAMPLE (BUCKET 2 OUT OF 2) s 
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@bucketed_table
 #### A masked pattern was here ####
-POSTHOOK: Lineage: bucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: bucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 5	val_5
 5	val_5
 5	val_5
@@ -562,10 +550,6 @@ SELECT COUNT(DISTINCT INPUT__FILE__NAME) FROM bucketed_table
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@bucketed_table
 #### A masked pattern was here ####
-POSTHOOK: Lineage: bucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: bucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 2
 PREHOOK: query: -- Should be 1 (merged)
 SELECT COUNT(DISTINCT INPUT__FILE__NAME) FROM unbucketed_table
@@ -577,8 +561,4 @@ SELECT COUNT(DISTINCT INPUT__FILE__NAME) FROM unbucketed_table
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@unbucketed_table
 #### A masked pattern was here ####
-POSTHOOK: Lineage: bucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: bucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.key EXPRESSION [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: unbucketed_table.value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 1

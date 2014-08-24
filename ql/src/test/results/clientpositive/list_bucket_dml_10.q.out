@@ -294,15 +294,11 @@ PREHOOK: type: SHOWPARTITIONS
 POSTHOOK: query: -- check DML result
 show partitions list_bucketing_static_part
 POSTHOOK: type: SHOWPARTITIONS
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 ds=2008-04-08/hr=11
 PREHOOK: query: desc formatted list_bucketing_static_part partition (ds='2008-04-08', hr='11')
 PREHOOK: type: DESCTABLE
 POSTHOOK: query: desc formatted list_bucketing_static_part partition (ds='2008-04-08', hr='11')
 POSTHOOK: type: DESCTABLE
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).key SIMPLE [(src)src.FieldSchema(name:key, type:string, comment:default), ]
-POSTHOOK: Lineage: list_bucketing_static_part PARTITION(ds=2008-04-08,hr=11).value SIMPLE [(src)src.FieldSchema(name:value, type:string, comment:default), ]
 # col_name            	data_type           	comment             
 	 	 
 key                 	string              	None                

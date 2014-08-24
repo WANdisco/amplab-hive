@@ -208,7 +208,6 @@ PREHOOK: query: EXPLAIN SELECT COUNT(1) FROM T2
 PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN SELECT COUNT(1) FROM T2
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: t2.name SIMPLE [(t1)t1.FieldSchema(name:name, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME T2))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION COUNT 1)))))
 
@@ -268,33 +267,28 @@ POSTHOOK: query: SELECT COUNT(1) FROM T2
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@t2
 #### A masked pattern was here ####
-POSTHOOK: Lineage: t2.name SIMPLE [(t1)t1.FieldSchema(name:name, type:string, comment:null), ]
 5000000
 PREHOOK: query: CREATE TABLE T3(name STRING) STORED AS TEXTFILE
 PREHOOK: type: CREATETABLE
 POSTHOOK: query: CREATE TABLE T3(name STRING) STORED AS TEXTFILE
 POSTHOOK: type: CREATETABLE
 POSTHOOK: Output: default@T3
-POSTHOOK: Lineage: t2.name SIMPLE [(t1)t1.FieldSchema(name:name, type:string, comment:null), ]
 PREHOOK: query: LOAD DATA LOCAL INPATH '../data/files/kv1.txt' INTO TABLE T3
 PREHOOK: type: LOAD
 PREHOOK: Output: default@t3
 POSTHOOK: query: LOAD DATA LOCAL INPATH '../data/files/kv1.txt' INTO TABLE T3
 POSTHOOK: type: LOAD
 POSTHOOK: Output: default@t3
-POSTHOOK: Lineage: t2.name SIMPLE [(t1)t1.FieldSchema(name:name, type:string, comment:null), ]
 PREHOOK: query: LOAD DATA LOCAL INPATH '../data/files/kv2.txt' INTO TABLE T3
 PREHOOK: type: LOAD
 PREHOOK: Output: default@t3
 POSTHOOK: query: LOAD DATA LOCAL INPATH '../data/files/kv2.txt' INTO TABLE T3
 POSTHOOK: type: LOAD
 POSTHOOK: Output: default@t3
-POSTHOOK: Lineage: t2.name SIMPLE [(t1)t1.FieldSchema(name:name, type:string, comment:null), ]
 PREHOOK: query: EXPLAIN SELECT COUNT(1) FROM T3
 PREHOOK: type: QUERY
 POSTHOOK: query: EXPLAIN SELECT COUNT(1) FROM T3
 POSTHOOK: type: QUERY
-POSTHOOK: Lineage: t2.name SIMPLE [(t1)t1.FieldSchema(name:name, type:string, comment:null), ]
 ABSTRACT SYNTAX TREE:
   (TOK_QUERY (TOK_FROM (TOK_TABREF (TOK_TABNAME T3))) (TOK_INSERT (TOK_DESTINATION (TOK_DIR TOK_TMP_FILE)) (TOK_SELECT (TOK_SELEXPR (TOK_FUNCTION COUNT 1)))))
 
@@ -354,5 +348,4 @@ POSTHOOK: query: SELECT COUNT(1) FROM T3
 POSTHOOK: type: QUERY
 POSTHOOK: Input: default@t3
 #### A masked pattern was here ####
-POSTHOOK: Lineage: t2.name SIMPLE [(t1)t1.FieldSchema(name:name, type:string, comment:null), ]
 1000
