@@ -122,6 +122,9 @@ public class $className extends TestCase {
 
   private void runTest(String tname, String fname, String fpath) throws Exception {
     long startTime = System.currentTimeMillis();
+    PrintStream ps = System.out;
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(baos));
     try {
       System.err.println("Begin query: " + fname);
 
@@ -163,7 +166,9 @@ public class $className extends TestCase {
       e.printStackTrace();
       System.err.println("Failed query: " + fname);
       System.err.flush();
-      fail("Unexpected exception" + debugHint);
+      fail("Unexpected exception" + debugHint + "\n" + baos.toString());
+    } finally {
+      System.setOut(ps);
     }
 
     long elapsedTime = System.currentTimeMillis() - startTime;
