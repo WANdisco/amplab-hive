@@ -3579,8 +3579,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
       boolean changeNumPartitionFields,
       int numReducers,
       boolean mapAggrDone,
-      boolean groupingSetsPresent,
-      boolean optimizeSkew) throws SemanticException {
+      boolean groupingSetsPresent) throws SemanticException {
 
     RowResolver reduceSinkInputRowResolver = opParseCtx.get(inputOperatorInfo)
         .getRowResolver();
@@ -3588,7 +3587,6 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
     RowResolver reduceSinkOutputRowResolver = new RowResolver();
     reduceSinkOutputRowResolver.setIsExprResolver(true);
     Map<String, ExprNodeDesc> colExprMap = new HashMap<String, ExprNodeDesc>();
-    int numPartitionCols = -1;
     // Pre-compute group-by keys and store in reduceKeys
 
     List<String> outputKeyColumnNames = new ArrayList<String>();
@@ -3642,17 +3640,13 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
       }
     }
 
-    if(!optimizeSkew) {
-      numPartitionCols = grpByExprs.size();
-    }
-
     ReduceSinkOperator rsOp = (ReduceSinkOperator) putOpInsertMap(
         OperatorFactory.getAndMakeChild(
             PlanUtils.getReduceSinkDesc(reduceKeys,
                 groupingSetsPresent ? grpByExprs.size() + 1 : grpByExprs.size(),
                 reduceValues, distinctColIndices,
-                outputKeyColumnNames, outputValueColumnNames, true, -1, numPartitionCols,
-                numReducers, optimizeSkew),
+                outputKeyColumnNames, outputValueColumnNames, true, -1, numPartitionFields,
+                numReducers),
             new RowSchema(reduceSinkOutputRowResolver.getColumnInfos()), inputOperatorInfo),
         reduceSinkOutputRowResolver);
     rsOp.setColumnExprMap(colExprMap);
@@ -3768,7 +3762,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
 
   @SuppressWarnings("nls")
   private Operator genCommonGroupByPlanReduceSinkOperator(QB qb, List<String> dests,
-      Operator inputOperatorInfo, boolean optimizeSkew) throws SemanticException {
+      Operator inputOperatorInfo) throws SemanticException {
 
     RowResolver reduceSinkInputRowResolver = opParseCtx.get(inputOperatorInfo)
         .getRowResolver();
@@ -3837,7 +3831,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
         OperatorFactory.getAndMakeChild(PlanUtils.getReduceSinkDesc(reduceKeys,
             grpByExprs.size(), reduceValues, distinctColIndices,
             outputKeyColumnNames, outputValueColumnNames, true, -1, grpByExprs.size(),
-            -1, optimizeSkew), new RowSchema(reduceSinkOutputRowResolver
+            -1), new RowSchema(reduceSinkOutputRowResolver
             .getColumnInfos()), inputOperatorInfo), reduceSinkOutputRowResolver);
     rsOp.setColumnExprMap(colExprMap);
     return rsOp;
@@ -4123,7 +4117,6 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
             false,
             numReducers,
             false,
-            false,
             false);
 
     // ////// 2. Generate GroupbyOperator
@@ -4199,7 +4192,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
     Operator select = insertSelectAllPlanForGroupBy(selectInput);
 
     // Generate ReduceSinkOperator
-    Operator reduceSinkOperatorInfo = genCommonGroupByPlanReduceSinkOperator(qb, dests, select, true);
+    Operator reduceSinkOperatorInfo = genCommonGroupByPlanReduceSinkOperator(qb, dests, select);
 
     // It is assumed throughout the code that a reducer has a single child, add a
     // ForwardOperator so that we can add multiple filter/group by operators as children
@@ -4361,7 +4354,6 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
     // DISTINCT
     // operator. We set the numPartitionColumns to -1 for this purpose. This is
     // captured by WritableComparableHiveObject.hashCode() function.
-
     Operator reduceSinkOperatorInfo =
         genGroupByPlanReduceSinkOperator(qb,
             dest,
@@ -4371,8 +4363,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
             false,
             -1,
             false,
-            false,
-            true);
+            false);
 
     // ////// 2. Generate GroupbyOperator
     Map<String, GenericUDAFEvaluator> genericUDAFEvaluators =
@@ -4607,7 +4598,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
             true,
             numReducers,
             true,
-            groupingSetsPresent && !groupingSetsNeedAdditionalMRJob, false);
+            groupingSetsPresent && !groupingSetsNeedAdditionalMRJob);
 
     // Does it require a new MR job for grouping sets
     if (!groupingSetsPresent || !groupingSetsNeedAdditionalMRJob) {
@@ -4759,7 +4750,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
               false,
               -1,
               true,
-              groupingSetsPresent, true);
+              groupingSetsPresent);
 
       // ////// Generate GroupbyOperator for a partial aggregation
       Operator groupByOperatorInfo2 = genGroupByPlanGroupByOperator1(parseInfo,
@@ -4795,7 +4786,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
               false,
               1,
               true,
-              groupingSetsPresent, false);
+              groupingSetsPresent);
 
       return genGroupByPlanGroupByOperator2MR(parseInfo, dest,
           reduceSinkOperatorInfo, GroupByDesc.Mode.FINAL, genericUDAFEvaluators, false);
@@ -7475,6 +7466,12 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
 
               if (qbp.getAggregationExprsForClause(dest).size() != 0
                   || getGroupByForClause(qbp, dest).size() > 0) {
+                // multiple distincts is not supported with skew in data
+                if (conf.getBoolVar(HiveConf.ConfVars.HIVEGROUPBYSKEW) &&
+                    qbp.getDistinctFuncExprsForClause(dest).size() > 1) {
+                  throw new SemanticException(ErrorMsg.UNSUPPORTED_MULTIPLE_DISTINCTS.
+                      getMsg());
+                }
                 // insert a select operator here used by the ColumnPruner to reduce
                 // the data to shuffle
                 curr = insertSelectAllPlanForGroupBy(curr);
