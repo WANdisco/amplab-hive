@@ -3615,9 +3615,6 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
 
     List<List<Integer>> distinctColIndices = getDistinctColIndicesForReduceSink(parseInfo, dest,
         reduceKeys, reduceSinkInputRowResolver, reduceSinkOutputRowResolver, outputKeyColumnNames);
-    if (!parseInfo.getDistinctFuncExprsForClause(dest).isEmpty()) {
-        numPartitionCols = grpByExprs.size();
-    }
 
     ArrayList<ExprNodeDesc> reduceValues = new ArrayList<ExprNodeDesc>();
     HashMap<String, ASTNode> aggregationTrees = parseInfo
@@ -3645,8 +3642,8 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
       }
     }
 
-    if (!optimizeSkew) {
-      numPartitionCols = numPartitionFields;
+    if(!optimizeSkew) {
+      numPartitionCols = grpByExprs.size();
     }
 
     ReduceSinkOperator rsOp = (ReduceSinkOperator) putOpInsertMap(
@@ -3655,7 +3652,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
                 groupingSetsPresent ? grpByExprs.size() + 1 : grpByExprs.size(),
                 reduceValues, distinctColIndices,
                 outputKeyColumnNames, outputValueColumnNames, true, -1, numPartitionCols,
-                numReducers,optimizeSkew),
+                numReducers, optimizeSkew),
             new RowSchema(reduceSinkOutputRowResolver.getColumnInfos()), inputOperatorInfo),
         reduceSinkOutputRowResolver);
     rsOp.setColumnExprMap(colExprMap);
@@ -3840,7 +3837,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
         OperatorFactory.getAndMakeChild(PlanUtils.getReduceSinkDesc(reduceKeys,
             grpByExprs.size(), reduceValues, distinctColIndices,
             outputKeyColumnNames, outputValueColumnNames, true, -1, grpByExprs.size(),
-            -1, false), new RowSchema(reduceSinkOutputRowResolver
+            -1, optimizeSkew), new RowSchema(reduceSinkOutputRowResolver
             .getColumnInfos()), inputOperatorInfo), reduceSinkOutputRowResolver);
     rsOp.setColumnExprMap(colExprMap);
     return rsOp;
@@ -4762,8 +4759,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
               false,
               -1,
               true,
-              groupingSetsPresent,
-              false);
+              groupingSetsPresent, true);
 
       // ////// Generate GroupbyOperator for a partial aggregation
       Operator groupByOperatorInfo2 = genGroupByPlanGroupByOperator1(parseInfo,
@@ -4799,8 +4795,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
               false,
               1,
               true,
-              groupingSetsPresent,
-              false);
+              groupingSetsPresent, false);
 
       return genGroupByPlanGroupByOperator2MR(parseInfo, dest,
           reduceSinkOperatorInfo, GroupByDesc.Mode.FINAL, genericUDAFEvaluators, false);

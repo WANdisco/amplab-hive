@@ -80,8 +80,8 @@ public class ReduceSinkOperator extends TerminalOperator<ReduceSinkDesc>
   transient byte[] tagByte = new byte[1];
   transient protected int numDistributionKeys;
   transient protected int numDistinctExprs;
-  transient protected boolean optimizeSkew;
   transient String inputAlias;  // input alias of this RS for join (used for PPD)
+  transient protected boolean optimizeSkew;
 
 
 
@@ -234,7 +234,6 @@ public class ReduceSinkOperator extends TerminalOperator<ReduceSinkDesc>
         valueObjectInspector = initEvaluatorsAndReturnStruct(valueEval, conf
             .getOutputValueColumnNames(), rowInspector);
         partitionObjectInspectors = initEvaluators(partitionEval, rowInspector);
-        //keyColObjectInspectors = initEvaluators(keyEval, rowInspector);
         int numKeys = numDistinctExprs > 0 ? numDistinctExprs : 1;
         int keyLen = numDistinctExprs > 0 ? numDistributionKeys + 1 :
           numDistributionKeys;
@@ -292,7 +291,6 @@ public class ReduceSinkOperator extends TerminalOperator<ReduceSinkDesc>
                 + ObjectInspectorUtils.hashCode(distinctParameters[j],
                     keyColObjectInspectors[distinctColIndices.get(i).get(j)]);
             }
-
           }
           cachedKeys[i][numDistributionKeys] =
               new StandardUnion((byte)i, distinctParameters);
