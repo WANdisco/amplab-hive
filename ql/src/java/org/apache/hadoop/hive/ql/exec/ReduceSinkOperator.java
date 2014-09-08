@@ -172,8 +172,7 @@ public class ReduceSinkOperator extends TerminalOperator<ReduceSinkDesc>
   protected static StructObjectInspector initEvaluatorsAndReturnStruct(
       ExprNodeEvaluator[] evals, List<List<Integer>> distinctColIndices,
       List<String> outputColNames,
-      int length, ObjectInspector rowInspector, boolean optimizeSkew,
-      ObjectInspector[] keyColObjectInspectors)
+      int length, ObjectInspector rowInspector)
       throws HiveException {
     int inspectorLen = evals.length > length ? length + 1 : evals.length;
     List<ObjectInspector> sois = new ArrayList<ObjectInspector>(inspectorLen);
@@ -181,9 +180,6 @@ public class ReduceSinkOperator extends TerminalOperator<ReduceSinkDesc>
     // keys
     ObjectInspector[] fieldObjectInspectors = initEvaluators(evals, 0, length, rowInspector);
     sois.addAll(Arrays.asList(fieldObjectInspectors));
-    if (optimizeSkew) {
-      System.arraycopy(fieldObjectInspectors, 0, keyColObjectInspectors, 0, length);
-    }
 
     if (outputColNames.size() > length) {
       // union keys
@@ -194,11 +190,7 @@ public class ReduceSinkOperator extends TerminalOperator<ReduceSinkDesc>
         int numExprs = 0;
         for (int i : distinctCols) {
           names.add(HiveConf.getColumnInternalName(numExprs));
-          ObjectInspector oi = evals[i].initialize(rowInspector);
-          eois.add(oi);
-          if (optimizeSkew && keyColObjectInspectors[i] == null) {
-            keyColObjectInspectors[i] = oi;
-          }
+          eois.add(evals[i].initialize(rowInspector));
           numExprs++;
         }
         uois.add(ObjectInspectorFactory.getStandardStructObjectInspector(names, eois));
@@ -224,16 +216,13 @@ public class ReduceSinkOperator extends TerminalOperator<ReduceSinkDesc>
       ObjectInspector rowInspector = inputObjInspectors[tag];
       if (firstRow) {
         firstRow = false;
-        if (optimizeSkew) {
-          keyColObjectInspectors = new ObjectInspector[keyEval.length];
-        }
         keyObjectInspector = initEvaluatorsAndReturnStruct(keyEval,
             distinctColIndices,
-            conf.getOutputKeyColumnNames(), numDistributionKeys, rowInspector,
-            optimizeSkew, keyColObjectInspectors);
+            conf.getOutputKeyColumnNames(), numDistributionKeys, rowInspector);
         valueObjectInspector = initEvaluatorsAndReturnStruct(valueEval, conf
             .getOutputValueColumnNames(), rowInspector);
         partitionObjectInspectors = initEvaluators(partitionEval, rowInspector);
+        keyColObjectInspectors = initEvaluators(keyEval, rowInspector);
         int numKeys = numDistinctExprs > 0 ? numDistinctExprs : 1;
         int keyLen = numDistinctExprs > 0 ? numDistributionKeys + 1 :
           numDistributionKeys;
