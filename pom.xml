@@ -47,7 +47,6 @@
     <module>common</module>
     <module>contrib</module>
     <module>hbase-handler</module>
-    <module>hcatalog</module>
     <module>hwi</module>
     <module>jdbc</module>
     <module>metastore</module>
@@ -57,7 +56,6 @@
     <module>service</module>
     <module>shims</module>
     <module>testutils</module>
-    <module>packaging</module>
   </modules>
 
   <properties>
@@ -580,6 +578,20 @@
             </dependency>
           </dependencies>
         </plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-gpg-plugin</artifactId>
+	  <version>1.5</version>
+	  <executions>
+	    <execution>
+	      <id>sign-artifacts</id>
+	      <phase>verify</phase>
+	      <goals>
+		<goal>sign</goal>
+	      </goals>
+	    </execution>
+	  </executions>
+	</plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
@@ -892,6 +904,10 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+              <minmemory>512m</minmemory>
+              <maxmemory>3g</maxmemory>
+            </configuration>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
