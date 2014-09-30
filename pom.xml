@@ -23,6 +23,16 @@
   <artifactId>hive</artifactId>
   <version>0.13.1</version>
   <packaging>pom</packaging>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
   <name>Hive</name>
   <url>http://hive.apache.org</url>
@@ -209,9 +219,9 @@
         <version>${guava.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.google.protobuf</groupId>
+        <groupId>org.spark-project.protobuf</groupId>
         <artifactId>protobuf-java</artifactId>
-        <version>${protobuf.version}</version>
+        <version>${protobuf.version}-spark</version>
       </dependency>
       <dependency>
         <groupId>com.google.code.tempus-fugit</groupId>

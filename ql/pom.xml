@@ -498,36 +498,9 @@
               <artifactSet>
                 <includes>
                   <!-- order is meant to be the same as the ant build -->
-                  <include>org.apache.hive:hive-common</include>
                   <include>org.apache.hive:hive-exec</include>
-                  <include>org.apache.hive:hive-serde</include>
-                  <include>com.esotericsoftware.kryo:kryo</include>
-                  <include>com.twitter:parquet-hadoop-bundle</include>
-                  <include>org.apache.thrift:libthrift</include>
-                  <include>commons-lang:commons-lang</include>
-                  <include>org.json:json</include>
-                  <include>org.apache.avro:avro-mapred</include>
-                  <include>org.apache.hive.shims:hive-shims-0.20</include>
-                  <include>org.apache.hive.shims:hive-shims-0.20S</include>
-                  <include>org.apache.hive.shims:hive-shims-0.23</include>
-                  <include>org.apache.hive.shims:hive-shims-0.23</include>
-                  <include>org.apache.hive.shims:hive-shims-common</include>
-                  <include>org.apache.hive.shims:hive-shims-common-secure</include>
-                  <include>com.googlecode.javaewah:JavaEWAH</include>
-                  <include>javolution:javolution</include>
-                  <include>com.google.protobuf:protobuf-java</include>
-                  <include>org.iq80.snappy:snappy</include>
-                  <include>org.codehaus.jackson:jackson-core-asl</include>
-                  <include>org.codehaus.jackson:jackson-mapper-asl</include>
-                  <include>com.google.guava:guava</include>
                 </includes>
               </artifactSet>
-              <relocations>
-                <relocation>
-                  <pattern>com.esotericsoftware</pattern>
-                  <shadedPattern>org.apache.hive.com.esotericsoftware</shadedPattern>
-                </relocation>
-              </relocations>
             </configuration>
           </execution>
         </executions>
