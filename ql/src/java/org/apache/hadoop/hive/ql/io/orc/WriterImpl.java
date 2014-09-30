@@ -69,8 +69,8 @@ import org.apache.hadoop.io.BytesWritable;
 import org.apache.hadoop.io.Text;
 
 import com.google.common.collect.Lists;
-import org.spark-project.protobuf.ByteString;
-import org.spark-project.protobuf.CodedOutputStream;
+import org.spark_project.protobuf.ByteString;
+import org.spark_project.protobuf.CodedOutputStream;
 
 /**
  * An ORC file writer. The file is divided into stripes, which is the natural
