@@ -6,10 +6,10 @@ package org.apache.hcatalog.hbase.snapshot;
 public final class RevisionManagerEndpointProtos {
   private RevisionManagerEndpointProtos() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+      org.spark-project.protobuf.ExtensionRegistry registry) {
   }
   public interface CreateTableRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required string table_name = 1;
     /**
@@ -23,7 +23,7 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getTableNameBytes();
 
     // repeated string column_families = 2;
@@ -43,21 +43,21 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>repeated string column_families = 2;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getColumnFamiliesBytes(int index);
   }
   /**
    * Protobuf type {@code CreateTableRequest}
    */
   public static final class CreateTableRequest extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements CreateTableRequestOrBuilder {
     // Use CreateTableRequest.newBuilder() to construct.
-    private CreateTableRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private CreateTableRequest(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private CreateTableRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private CreateTableRequest(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final CreateTableRequest defaultInstance;
     public static CreateTableRequest getDefaultInstance() {
@@ -68,20 +68,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private CreateTableRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -104,7 +104,7 @@ public final class RevisionManagerEndpointProtos {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                columnFamilies_ = new com.google.protobuf.LazyStringArrayList();
+                columnFamilies_ = new org.spark-project.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000002;
               }
               columnFamilies_.add(input.readBytes());
@@ -112,43 +112,43 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          columnFamilies_ = new com.google.protobuf.UnmodifiableLazyStringList(columnFamilies_);
+          columnFamilies_ = new org.spark-project.protobuf.UnmodifiableLazyStringList(columnFamilies_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableRequest_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<CreateTableRequest> PARSER =
-        new com.google.protobuf.AbstractParser<CreateTableRequest>() {
+    public static org.spark-project.protobuf.Parser<CreateTableRequest> PARSER =
+        new org.spark-project.protobuf.AbstractParser<CreateTableRequest>() {
       public CreateTableRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new CreateTableRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CreateTableRequest> getParserForType() {
+    public org.spark-project.protobuf.Parser<CreateTableRequest> getParserForType() {
       return PARSER;
     }
 
@@ -170,8 +170,8 @@ public final class RevisionManagerEndpointProtos {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           tableName_ = s;
@@ -182,23 +182,23 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getTableNameBytes() {
       java.lang.Object ref = tableName_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         tableName_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
     // repeated string column_families = 2;
     public static final int COLUMN_FAMILIES_FIELD_NUMBER = 2;
-    private com.google.protobuf.LazyStringList columnFamilies_;
+    private org.spark-project.protobuf.LazyStringList columnFamilies_;
     /**
      * <code>repeated string column_families = 2;</code>
      */
@@ -221,14 +221,14 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>repeated string column_families = 2;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getColumnFamiliesBytes(int index) {
       return columnFamilies_.getByteString(index);
     }
 
     private void initFields() {
       tableName_ = "";
-      columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -243,7 +243,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -262,13 +262,13 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getTableNameBytes());
       }
       {
         int dataSize = 0;
         for (int i = 0; i < columnFamilies_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
+          dataSize += org.spark-project.protobuf.CodedOutputStream
             .computeBytesSizeNoTag(columnFamilies_.getByteString(i));
         }
         size += dataSize;
@@ -331,24 +331,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parseFrom(java.io.InputStream input)
@@ -357,7 +357,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -367,18 +367,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -392,7 +392,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -400,14 +400,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code CreateTableRequest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableRequest_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -420,12 +420,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -436,7 +436,7 @@ public final class RevisionManagerEndpointProtos {
         super.clear();
         tableName_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -445,7 +445,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableRequest_descriptor;
       }
@@ -471,7 +471,7 @@ public final class RevisionManagerEndpointProtos {
         }
         result.tableName_ = tableName_;
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          columnFamilies_ = new com.google.protobuf.UnmodifiableLazyStringList(
+          columnFamilies_ = new org.spark-project.protobuf.UnmodifiableLazyStringList(
               columnFamilies_);
           bitField0_ = (bitField0_ & ~0x00000002);
         }
@@ -481,7 +481,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest)other);
         } else {
@@ -520,13 +520,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -552,7 +552,7 @@ public final class RevisionManagerEndpointProtos {
       public java.lang.String getTableName() {
         java.lang.Object ref = tableName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           tableName_ = s;
           return s;
@@ -563,17 +563,17 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string table_name = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getTableNameBytes() {
         java.lang.Object ref = tableName_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           tableName_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -602,7 +602,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>required string table_name = 1;</code>
        */
       public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -613,10 +613,10 @@ public final class RevisionManagerEndpointProtos {
       }
 
       // repeated string column_families = 2;
-      private com.google.protobuf.LazyStringList columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private org.spark-project.protobuf.LazyStringList columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
       private void ensureColumnFamiliesIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          columnFamilies_ = new com.google.protobuf.LazyStringArrayList(columnFamilies_);
+          columnFamilies_ = new org.spark-project.protobuf.LazyStringArrayList(columnFamilies_);
           bitField0_ |= 0x00000002;
          }
       }
@@ -642,7 +642,7 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>repeated string column_families = 2;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getColumnFamiliesBytes(int index) {
         return columnFamilies_.getByteString(index);
       }
@@ -686,7 +686,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>repeated string column_families = 2;</code>
        */
       public Builder clearColumnFamilies() {
-        columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
@@ -695,7 +695,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>repeated string column_families = 2;</code>
        */
       public Builder addColumnFamiliesBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -717,20 +717,20 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface CreateTableResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
   }
   /**
    * Protobuf type {@code CreateTableResponse}
    */
   public static final class CreateTableResponse extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements CreateTableResponseOrBuilder {
     // Use CreateTableResponse.newBuilder() to construct.
-    private CreateTableResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private CreateTableResponse(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private CreateTableResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private CreateTableResponse(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final CreateTableResponse defaultInstance;
     public static CreateTableResponse getDefaultInstance() {
@@ -741,19 +741,19 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private CreateTableResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -771,40 +771,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableResponse_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<CreateTableResponse> PARSER =
-        new com.google.protobuf.AbstractParser<CreateTableResponse>() {
+    public static org.spark-project.protobuf.Parser<CreateTableResponse> PARSER =
+        new org.spark-project.protobuf.AbstractParser<CreateTableResponse>() {
       public CreateTableResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new CreateTableResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CreateTableResponse> getParserForType() {
+    public org.spark-project.protobuf.Parser<CreateTableResponse> getParserForType() {
       return PARSER;
     }
 
@@ -819,7 +819,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
@@ -873,24 +873,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parseFrom(java.io.InputStream input)
@@ -899,7 +899,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -909,18 +909,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -934,7 +934,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -942,14 +942,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code CreateTableResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableResponse_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -962,12 +962,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -983,7 +983,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateTableResponse_descriptor;
       }
@@ -1006,7 +1006,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse)other);
         } else {
@@ -1026,13 +1026,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -1055,7 +1055,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface DropTableRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required string table_name = 1;
     /**
@@ -1069,21 +1069,21 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getTableNameBytes();
   }
   /**
    * Protobuf type {@code DropTableRequest}
    */
   public static final class DropTableRequest extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements DropTableRequestOrBuilder {
     // Use DropTableRequest.newBuilder() to construct.
-    private DropTableRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DropTableRequest(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private DropTableRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private DropTableRequest(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final DropTableRequest defaultInstance;
     public static DropTableRequest getDefaultInstance() {
@@ -1094,20 +1094,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private DropTableRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1130,40 +1130,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableRequest_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DropTableRequest> PARSER =
-        new com.google.protobuf.AbstractParser<DropTableRequest>() {
+    public static org.spark-project.protobuf.Parser<DropTableRequest> PARSER =
+        new org.spark-project.protobuf.AbstractParser<DropTableRequest>() {
       public DropTableRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new DropTableRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DropTableRequest> getParserForType() {
+    public org.spark-project.protobuf.Parser<DropTableRequest> getParserForType() {
       return PARSER;
     }
 
@@ -1185,8 +1185,8 @@ public final class RevisionManagerEndpointProtos {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           tableName_ = s;
@@ -1197,17 +1197,17 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getTableNameBytes() {
       java.lang.Object ref = tableName_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         tableName_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -1227,7 +1227,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1243,7 +1243,7 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getTableNameBytes());
       }
       size += getUnknownFields().getSerializedSize();
@@ -1297,24 +1297,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parseFrom(java.io.InputStream input)
@@ -1323,7 +1323,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -1333,18 +1333,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -1358,7 +1358,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1366,14 +1366,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code DropTableRequest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableRequest_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1386,12 +1386,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -1409,7 +1409,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableRequest_descriptor;
       }
@@ -1439,7 +1439,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest)other);
         } else {
@@ -1468,13 +1468,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -1500,7 +1500,7 @@ public final class RevisionManagerEndpointProtos {
       public java.lang.String getTableName() {
         java.lang.Object ref = tableName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           tableName_ = s;
           return s;
@@ -1511,17 +1511,17 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string table_name = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getTableNameBytes() {
         java.lang.Object ref = tableName_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           tableName_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -1550,7 +1550,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>required string table_name = 1;</code>
        */
       public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1572,20 +1572,20 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface DropTableResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
   }
   /**
    * Protobuf type {@code DropTableResponse}
    */
   public static final class DropTableResponse extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements DropTableResponseOrBuilder {
     // Use DropTableResponse.newBuilder() to construct.
-    private DropTableResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DropTableResponse(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private DropTableResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private DropTableResponse(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final DropTableResponse defaultInstance;
     public static DropTableResponse getDefaultInstance() {
@@ -1596,19 +1596,19 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private DropTableResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1626,40 +1626,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableResponse_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DropTableResponse> PARSER =
-        new com.google.protobuf.AbstractParser<DropTableResponse>() {
+    public static org.spark-project.protobuf.Parser<DropTableResponse> PARSER =
+        new org.spark-project.protobuf.AbstractParser<DropTableResponse>() {
       public DropTableResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new DropTableResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DropTableResponse> getParserForType() {
+    public org.spark-project.protobuf.Parser<DropTableResponse> getParserForType() {
       return PARSER;
     }
 
@@ -1674,7 +1674,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
@@ -1728,24 +1728,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parseFrom(java.io.InputStream input)
@@ -1754,7 +1754,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -1764,18 +1764,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -1789,7 +1789,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1797,14 +1797,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code DropTableResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableResponse_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1817,12 +1817,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -1838,7 +1838,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_DropTableResponse_descriptor;
       }
@@ -1861,7 +1861,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse)other);
         } else {
@@ -1881,13 +1881,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -1910,7 +1910,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface BeginWriteTransactionRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required string table_name = 1;
     /**
@@ -1924,7 +1924,7 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getTableNameBytes();
 
     // optional int64 keep_alive = 2;
@@ -1954,21 +1954,21 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>repeated string column_families = 3;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getColumnFamiliesBytes(int index);
   }
   /**
    * Protobuf type {@code BeginWriteTransactionRequest}
    */
   public static final class BeginWriteTransactionRequest extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements BeginWriteTransactionRequestOrBuilder {
     // Use BeginWriteTransactionRequest.newBuilder() to construct.
-    private BeginWriteTransactionRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BeginWriteTransactionRequest(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private BeginWriteTransactionRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private BeginWriteTransactionRequest(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final BeginWriteTransactionRequest defaultInstance;
     public static BeginWriteTransactionRequest getDefaultInstance() {
@@ -1979,20 +1979,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private BeginWriteTransactionRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2020,7 +2020,7 @@ public final class RevisionManagerEndpointProtos {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                columnFamilies_ = new com.google.protobuf.LazyStringArrayList();
+                columnFamilies_ = new org.spark-project.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000004;
               }
               columnFamilies_.add(input.readBytes());
@@ -2028,43 +2028,43 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          columnFamilies_ = new com.google.protobuf.UnmodifiableLazyStringList(columnFamilies_);
+          columnFamilies_ = new org.spark-project.protobuf.UnmodifiableLazyStringList(columnFamilies_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionRequest_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<BeginWriteTransactionRequest> PARSER =
-        new com.google.protobuf.AbstractParser<BeginWriteTransactionRequest>() {
+    public static org.spark-project.protobuf.Parser<BeginWriteTransactionRequest> PARSER =
+        new org.spark-project.protobuf.AbstractParser<BeginWriteTransactionRequest>() {
       public BeginWriteTransactionRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new BeginWriteTransactionRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<BeginWriteTransactionRequest> getParserForType() {
+    public org.spark-project.protobuf.Parser<BeginWriteTransactionRequest> getParserForType() {
       return PARSER;
     }
 
@@ -2086,8 +2086,8 @@ public final class RevisionManagerEndpointProtos {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           tableName_ = s;
@@ -2098,17 +2098,17 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getTableNameBytes() {
       java.lang.Object ref = tableName_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         tableName_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -2130,7 +2130,7 @@ public final class RevisionManagerEndpointProtos {
 
     // repeated string column_families = 3;
     public static final int COLUMN_FAMILIES_FIELD_NUMBER = 3;
-    private com.google.protobuf.LazyStringList columnFamilies_;
+    private org.spark-project.protobuf.LazyStringList columnFamilies_;
     /**
      * <code>repeated string column_families = 3;</code>
      */
@@ -2153,7 +2153,7 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>repeated string column_families = 3;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getColumnFamiliesBytes(int index) {
       return columnFamilies_.getByteString(index);
     }
@@ -2161,7 +2161,7 @@ public final class RevisionManagerEndpointProtos {
     private void initFields() {
       tableName_ = "";
       keepAlive_ = 0L;
-      columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2176,7 +2176,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2198,17 +2198,17 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getTableNameBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeInt64Size(2, keepAlive_);
       }
       {
         int dataSize = 0;
         for (int i = 0; i < columnFamilies_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
+          dataSize += org.spark-project.protobuf.CodedOutputStream
             .computeBytesSizeNoTag(columnFamilies_.getByteString(i));
         }
         size += dataSize;
@@ -2280,24 +2280,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parseFrom(java.io.InputStream input)
@@ -2306,7 +2306,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -2316,18 +2316,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -2341,7 +2341,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2349,14 +2349,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code BeginWriteTransactionRequest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionRequest_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2369,12 +2369,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -2387,7 +2387,7 @@ public final class RevisionManagerEndpointProtos {
         bitField0_ = (bitField0_ & ~0x00000001);
         keepAlive_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -2396,7 +2396,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionRequest_descriptor;
       }
@@ -2426,7 +2426,7 @@ public final class RevisionManagerEndpointProtos {
         }
         result.keepAlive_ = keepAlive_;
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          columnFamilies_ = new com.google.protobuf.UnmodifiableLazyStringList(
+          columnFamilies_ = new org.spark-project.protobuf.UnmodifiableLazyStringList(
               columnFamilies_);
           bitField0_ = (bitField0_ & ~0x00000004);
         }
@@ -2436,7 +2436,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest)other);
         } else {
@@ -2478,13 +2478,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -2510,7 +2510,7 @@ public final class RevisionManagerEndpointProtos {
       public java.lang.String getTableName() {
         java.lang.Object ref = tableName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           tableName_ = s;
           return s;
@@ -2521,17 +2521,17 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string table_name = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getTableNameBytes() {
         java.lang.Object ref = tableName_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           tableName_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -2560,7 +2560,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>required string table_name = 1;</code>
        */
       public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2604,10 +2604,10 @@ public final class RevisionManagerEndpointProtos {
       }
 
       // repeated string column_families = 3;
-      private com.google.protobuf.LazyStringList columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private org.spark-project.protobuf.LazyStringList columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
       private void ensureColumnFamiliesIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          columnFamilies_ = new com.google.protobuf.LazyStringArrayList(columnFamilies_);
+          columnFamilies_ = new org.spark-project.protobuf.LazyStringArrayList(columnFamilies_);
           bitField0_ |= 0x00000004;
          }
       }
@@ -2633,7 +2633,7 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>repeated string column_families = 3;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getColumnFamiliesBytes(int index) {
         return columnFamilies_.getByteString(index);
       }
@@ -2677,7 +2677,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>repeated string column_families = 3;</code>
        */
       public Builder clearColumnFamilies() {
-        columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
@@ -2686,7 +2686,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>repeated string column_families = 3;</code>
        */
       public Builder addColumnFamiliesBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2708,7 +2708,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface BeginWriteTransactionResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required .Transaction transaction = 1;
     /**
@@ -2728,14 +2728,14 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf type {@code BeginWriteTransactionResponse}
    */
   public static final class BeginWriteTransactionResponse extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements BeginWriteTransactionResponseOrBuilder {
     // Use BeginWriteTransactionResponse.newBuilder() to construct.
-    private BeginWriteTransactionResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BeginWriteTransactionResponse(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private BeginWriteTransactionResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private BeginWriteTransactionResponse(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final BeginWriteTransactionResponse defaultInstance;
     public static BeginWriteTransactionResponse getDefaultInstance() {
@@ -2746,20 +2746,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private BeginWriteTransactionResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2790,40 +2790,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionResponse_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<BeginWriteTransactionResponse> PARSER =
-        new com.google.protobuf.AbstractParser<BeginWriteTransactionResponse>() {
+    public static org.spark-project.protobuf.Parser<BeginWriteTransactionResponse> PARSER =
+        new org.spark-project.protobuf.AbstractParser<BeginWriteTransactionResponse>() {
       public BeginWriteTransactionResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new BeginWriteTransactionResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<BeginWriteTransactionResponse> getParserForType() {
+    public org.spark-project.protobuf.Parser<BeginWriteTransactionResponse> getParserForType() {
       return PARSER;
     }
 
@@ -2870,7 +2870,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2886,7 +2886,7 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, transaction_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -2940,24 +2940,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parseFrom(java.io.InputStream input)
@@ -2966,7 +2966,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -2976,18 +2976,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -3001,7 +3001,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3009,14 +3009,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code BeginWriteTransactionResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionResponse_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -3029,12 +3029,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getTransactionFieldBuilder();
         }
       }
@@ -3057,7 +3057,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_BeginWriteTransactionResponse_descriptor;
       }
@@ -3091,7 +3091,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse)other);
         } else {
@@ -3122,13 +3122,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -3142,7 +3142,7 @@ public final class RevisionManagerEndpointProtos {
 
       // required .Transaction transaction = 1;
       private org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction transaction_ = org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder> transactionBuilder_;
       /**
        * <code>required .Transaction transaction = 1;</code>
@@ -3243,11 +3243,11 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required .Transaction transaction = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder> 
           getTransactionFieldBuilder() {
         if (transactionBuilder_ == null) {
-          transactionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          transactionBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder>(
                   transaction_,
                   getParentForChildren(),
@@ -3269,7 +3269,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface CommitWriteTransactionRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required .Transaction transaction = 1;
     /**
@@ -3289,14 +3289,14 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf type {@code CommitWriteTransactionRequest}
    */
   public static final class CommitWriteTransactionRequest extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements CommitWriteTransactionRequestOrBuilder {
     // Use CommitWriteTransactionRequest.newBuilder() to construct.
-    private CommitWriteTransactionRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private CommitWriteTransactionRequest(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private CommitWriteTransactionRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private CommitWriteTransactionRequest(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final CommitWriteTransactionRequest defaultInstance;
     public static CommitWriteTransactionRequest getDefaultInstance() {
@@ -3307,20 +3307,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private CommitWriteTransactionRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3351,40 +3351,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionRequest_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<CommitWriteTransactionRequest> PARSER =
-        new com.google.protobuf.AbstractParser<CommitWriteTransactionRequest>() {
+    public static org.spark-project.protobuf.Parser<CommitWriteTransactionRequest> PARSER =
+        new org.spark-project.protobuf.AbstractParser<CommitWriteTransactionRequest>() {
       public CommitWriteTransactionRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new CommitWriteTransactionRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CommitWriteTransactionRequest> getParserForType() {
+    public org.spark-project.protobuf.Parser<CommitWriteTransactionRequest> getParserForType() {
       return PARSER;
     }
 
@@ -3431,7 +3431,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3447,7 +3447,7 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, transaction_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -3501,24 +3501,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parseFrom(java.io.InputStream input)
@@ -3527,7 +3527,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -3537,18 +3537,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -3562,7 +3562,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3570,14 +3570,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code CommitWriteTransactionRequest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionRequest_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -3590,12 +3590,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getTransactionFieldBuilder();
         }
       }
@@ -3618,7 +3618,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionRequest_descriptor;
       }
@@ -3652,7 +3652,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest)other);
         } else {
@@ -3683,13 +3683,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -3703,7 +3703,7 @@ public final class RevisionManagerEndpointProtos {
 
       // required .Transaction transaction = 1;
       private org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction transaction_ = org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder> transactionBuilder_;
       /**
        * <code>required .Transaction transaction = 1;</code>
@@ -3804,11 +3804,11 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required .Transaction transaction = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder> 
           getTransactionFieldBuilder() {
         if (transactionBuilder_ == null) {
-          transactionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          transactionBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder>(
                   transaction_,
                   getParentForChildren(),
@@ -3830,20 +3830,20 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface CommitWriteTransactionResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
   }
   /**
    * Protobuf type {@code CommitWriteTransactionResponse}
    */
   public static final class CommitWriteTransactionResponse extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements CommitWriteTransactionResponseOrBuilder {
     // Use CommitWriteTransactionResponse.newBuilder() to construct.
-    private CommitWriteTransactionResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private CommitWriteTransactionResponse(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private CommitWriteTransactionResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private CommitWriteTransactionResponse(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final CommitWriteTransactionResponse defaultInstance;
     public static CommitWriteTransactionResponse getDefaultInstance() {
@@ -3854,19 +3854,19 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private CommitWriteTransactionResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3884,40 +3884,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionResponse_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<CommitWriteTransactionResponse> PARSER =
-        new com.google.protobuf.AbstractParser<CommitWriteTransactionResponse>() {
+    public static org.spark-project.protobuf.Parser<CommitWriteTransactionResponse> PARSER =
+        new org.spark-project.protobuf.AbstractParser<CommitWriteTransactionResponse>() {
       public CommitWriteTransactionResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new CommitWriteTransactionResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CommitWriteTransactionResponse> getParserForType() {
+    public org.spark-project.protobuf.Parser<CommitWriteTransactionResponse> getParserForType() {
       return PARSER;
     }
 
@@ -3932,7 +3932,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
@@ -3986,24 +3986,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parseFrom(java.io.InputStream input)
@@ -4012,7 +4012,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -4022,18 +4022,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -4047,7 +4047,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4055,14 +4055,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code CommitWriteTransactionResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionResponse_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4075,12 +4075,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -4096,7 +4096,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CommitWriteTransactionResponse_descriptor;
       }
@@ -4119,7 +4119,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse)other);
         } else {
@@ -4139,13 +4139,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -4168,7 +4168,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface AbortWriteTransactionRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required .Transaction transaction = 1;
     /**
@@ -4188,14 +4188,14 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf type {@code AbortWriteTransactionRequest}
    */
   public static final class AbortWriteTransactionRequest extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements AbortWriteTransactionRequestOrBuilder {
     // Use AbortWriteTransactionRequest.newBuilder() to construct.
-    private AbortWriteTransactionRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private AbortWriteTransactionRequest(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private AbortWriteTransactionRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private AbortWriteTransactionRequest(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final AbortWriteTransactionRequest defaultInstance;
     public static AbortWriteTransactionRequest getDefaultInstance() {
@@ -4206,20 +4206,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private AbortWriteTransactionRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -4250,40 +4250,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionRequest_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<AbortWriteTransactionRequest> PARSER =
-        new com.google.protobuf.AbstractParser<AbortWriteTransactionRequest>() {
+    public static org.spark-project.protobuf.Parser<AbortWriteTransactionRequest> PARSER =
+        new org.spark-project.protobuf.AbstractParser<AbortWriteTransactionRequest>() {
       public AbortWriteTransactionRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new AbortWriteTransactionRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AbortWriteTransactionRequest> getParserForType() {
+    public org.spark-project.protobuf.Parser<AbortWriteTransactionRequest> getParserForType() {
       return PARSER;
     }
 
@@ -4330,7 +4330,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4346,7 +4346,7 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, transaction_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -4400,24 +4400,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parseFrom(java.io.InputStream input)
@@ -4426,7 +4426,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -4436,18 +4436,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -4461,7 +4461,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4469,14 +4469,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code AbortWriteTransactionRequest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionRequest_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4489,12 +4489,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getTransactionFieldBuilder();
         }
       }
@@ -4517,7 +4517,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionRequest_descriptor;
       }
@@ -4551,7 +4551,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest)other);
         } else {
@@ -4582,13 +4582,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -4602,7 +4602,7 @@ public final class RevisionManagerEndpointProtos {
 
       // required .Transaction transaction = 1;
       private org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction transaction_ = org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder> transactionBuilder_;
       /**
        * <code>required .Transaction transaction = 1;</code>
@@ -4703,11 +4703,11 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required .Transaction transaction = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder> 
           getTransactionFieldBuilder() {
         if (transactionBuilder_ == null) {
-          transactionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          transactionBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder>(
                   transaction_,
                   getParentForChildren(),
@@ -4729,20 +4729,20 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface AbortWriteTransactionResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
   }
   /**
    * Protobuf type {@code AbortWriteTransactionResponse}
    */
   public static final class AbortWriteTransactionResponse extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements AbortWriteTransactionResponseOrBuilder {
     // Use AbortWriteTransactionResponse.newBuilder() to construct.
-    private AbortWriteTransactionResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private AbortWriteTransactionResponse(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private AbortWriteTransactionResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private AbortWriteTransactionResponse(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final AbortWriteTransactionResponse defaultInstance;
     public static AbortWriteTransactionResponse getDefaultInstance() {
@@ -4753,19 +4753,19 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private AbortWriteTransactionResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -4783,40 +4783,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionResponse_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<AbortWriteTransactionResponse> PARSER =
-        new com.google.protobuf.AbstractParser<AbortWriteTransactionResponse>() {
+    public static org.spark-project.protobuf.Parser<AbortWriteTransactionResponse> PARSER =
+        new org.spark-project.protobuf.AbstractParser<AbortWriteTransactionResponse>() {
       public AbortWriteTransactionResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new AbortWriteTransactionResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AbortWriteTransactionResponse> getParserForType() {
+    public org.spark-project.protobuf.Parser<AbortWriteTransactionResponse> getParserForType() {
       return PARSER;
     }
 
@@ -4831,7 +4831,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
@@ -4885,24 +4885,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parseFrom(java.io.InputStream input)
@@ -4911,7 +4911,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -4921,18 +4921,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -4946,7 +4946,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4954,14 +4954,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code AbortWriteTransactionResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionResponse_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4974,12 +4974,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -4995,7 +4995,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_AbortWriteTransactionResponse_descriptor;
       }
@@ -5018,7 +5018,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse)other);
         } else {
@@ -5038,13 +5038,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -5067,7 +5067,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface GetAbortedWriteTransactionsRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required string table_name = 1;
     /**
@@ -5081,7 +5081,7 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getTableNameBytes();
 
     // required string column_family = 2;
@@ -5096,21 +5096,21 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string column_family = 2;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getColumnFamilyBytes();
   }
   /**
    * Protobuf type {@code GetAbortedWriteTransactionsRequest}
    */
   public static final class GetAbortedWriteTransactionsRequest extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements GetAbortedWriteTransactionsRequestOrBuilder {
     // Use GetAbortedWriteTransactionsRequest.newBuilder() to construct.
-    private GetAbortedWriteTransactionsRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private GetAbortedWriteTransactionsRequest(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private GetAbortedWriteTransactionsRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GetAbortedWriteTransactionsRequest(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final GetAbortedWriteTransactionsRequest defaultInstance;
     public static GetAbortedWriteTransactionsRequest getDefaultInstance() {
@@ -5121,20 +5121,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private GetAbortedWriteTransactionsRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -5162,40 +5162,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsRequest_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<GetAbortedWriteTransactionsRequest> PARSER =
-        new com.google.protobuf.AbstractParser<GetAbortedWriteTransactionsRequest>() {
+    public static org.spark-project.protobuf.Parser<GetAbortedWriteTransactionsRequest> PARSER =
+        new org.spark-project.protobuf.AbstractParser<GetAbortedWriteTransactionsRequest>() {
       public GetAbortedWriteTransactionsRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new GetAbortedWriteTransactionsRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<GetAbortedWriteTransactionsRequest> getParserForType() {
+    public org.spark-project.protobuf.Parser<GetAbortedWriteTransactionsRequest> getParserForType() {
       return PARSER;
     }
 
@@ -5217,8 +5217,8 @@ public final class RevisionManagerEndpointProtos {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           tableName_ = s;
@@ -5229,17 +5229,17 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getTableNameBytes() {
       java.lang.Object ref = tableName_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         tableName_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -5260,8 +5260,8 @@ public final class RevisionManagerEndpointProtos {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           columnFamily_ = s;
@@ -5272,17 +5272,17 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string column_family = 2;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getColumnFamilyBytes() {
       java.lang.Object ref = columnFamily_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         columnFamily_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -5307,7 +5307,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5326,11 +5326,11 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getTableNameBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(2, getColumnFamilyBytes());
       }
       size += getUnknownFields().getSerializedSize();
@@ -5393,24 +5393,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parseFrom(java.io.InputStream input)
@@ -5419,7 +5419,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -5429,18 +5429,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -5454,7 +5454,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -5462,14 +5462,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code GetAbortedWriteTransactionsRequest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsRequest_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -5482,12 +5482,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -5507,7 +5507,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsRequest_descriptor;
       }
@@ -5541,7 +5541,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest)other);
         } else {
@@ -5579,13 +5579,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -5611,7 +5611,7 @@ public final class RevisionManagerEndpointProtos {
       public java.lang.String getTableName() {
         java.lang.Object ref = tableName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           tableName_ = s;
           return s;
@@ -5622,17 +5622,17 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string table_name = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getTableNameBytes() {
         java.lang.Object ref = tableName_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           tableName_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -5661,7 +5661,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>required string table_name = 1;</code>
        */
       public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -5685,7 +5685,7 @@ public final class RevisionManagerEndpointProtos {
       public java.lang.String getColumnFamily() {
         java.lang.Object ref = columnFamily_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           columnFamily_ = s;
           return s;
@@ -5696,17 +5696,17 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string column_family = 2;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getColumnFamilyBytes() {
         java.lang.Object ref = columnFamily_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           columnFamily_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -5735,7 +5735,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>required string column_family = 2;</code>
        */
       public Builder setColumnFamilyBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -5757,7 +5757,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface GetAbortedWriteTransactionsResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // repeated .FamilyRevision family_revisions = 1;
     /**
@@ -5788,14 +5788,14 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf type {@code GetAbortedWriteTransactionsResponse}
    */
   public static final class GetAbortedWriteTransactionsResponse extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements GetAbortedWriteTransactionsResponseOrBuilder {
     // Use GetAbortedWriteTransactionsResponse.newBuilder() to construct.
-    private GetAbortedWriteTransactionsResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private GetAbortedWriteTransactionsResponse(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private GetAbortedWriteTransactionsResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GetAbortedWriteTransactionsResponse(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final GetAbortedWriteTransactionsResponse defaultInstance;
     public static GetAbortedWriteTransactionsResponse getDefaultInstance() {
@@ -5806,20 +5806,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private GetAbortedWriteTransactionsResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -5845,10 +5845,10 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5858,30 +5858,30 @@ public final class RevisionManagerEndpointProtos {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsResponse_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<GetAbortedWriteTransactionsResponse> PARSER =
-        new com.google.protobuf.AbstractParser<GetAbortedWriteTransactionsResponse>() {
+    public static org.spark-project.protobuf.Parser<GetAbortedWriteTransactionsResponse> PARSER =
+        new org.spark-project.protobuf.AbstractParser<GetAbortedWriteTransactionsResponse>() {
       public GetAbortedWriteTransactionsResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new GetAbortedWriteTransactionsResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<GetAbortedWriteTransactionsResponse> getParserForType() {
+    public org.spark-project.protobuf.Parser<GetAbortedWriteTransactionsResponse> getParserForType() {
       return PARSER;
     }
 
@@ -5939,7 +5939,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       for (int i = 0; i < familyRevisions_.size(); i++) {
@@ -5955,7 +5955,7 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       for (int i = 0; i < familyRevisions_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, familyRevisions_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
@@ -6006,24 +6006,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parseFrom(java.io.InputStream input)
@@ -6032,7 +6032,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -6042,18 +6042,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -6067,7 +6067,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6075,14 +6075,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code GetAbortedWriteTransactionsResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsResponse_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -6095,12 +6095,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getFamilyRevisionsFieldBuilder();
         }
       }
@@ -6123,7 +6123,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_GetAbortedWriteTransactionsResponse_descriptor;
       }
@@ -6156,7 +6156,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse)other);
         } else {
@@ -6186,7 +6186,7 @@ public final class RevisionManagerEndpointProtos {
               familyRevisions_ = other.familyRevisions_;
               bitField0_ = (bitField0_ & ~0x00000001);
               familyRevisionsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getFamilyRevisionsFieldBuilder() : null;
             } else {
               familyRevisionsBuilder_.addAllMessages(other.familyRevisions_);
@@ -6208,13 +6208,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -6236,7 +6236,7 @@ public final class RevisionManagerEndpointProtos {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevisionOrBuilder> familyRevisionsBuilder_;
 
       /**
@@ -6451,11 +6451,11 @@ public final class RevisionManagerEndpointProtos {
            getFamilyRevisionsBuilderList() {
         return getFamilyRevisionsFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevisionOrBuilder> 
           getFamilyRevisionsFieldBuilder() {
         if (familyRevisionsBuilder_ == null) {
-          familyRevisionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          familyRevisionsBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevisionOrBuilder>(
                   familyRevisions_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -6478,7 +6478,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface CreateSnapshotRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required string table_name = 1;
     /**
@@ -6492,7 +6492,7 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getTableNameBytes();
 
     // optional int64 revision = 2;
@@ -6509,14 +6509,14 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf type {@code CreateSnapshotRequest}
    */
   public static final class CreateSnapshotRequest extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements CreateSnapshotRequestOrBuilder {
     // Use CreateSnapshotRequest.newBuilder() to construct.
-    private CreateSnapshotRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private CreateSnapshotRequest(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private CreateSnapshotRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private CreateSnapshotRequest(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final CreateSnapshotRequest defaultInstance;
     public static CreateSnapshotRequest getDefaultInstance() {
@@ -6527,20 +6527,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private CreateSnapshotRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -6568,40 +6568,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotRequest_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<CreateSnapshotRequest> PARSER =
-        new com.google.protobuf.AbstractParser<CreateSnapshotRequest>() {
+    public static org.spark-project.protobuf.Parser<CreateSnapshotRequest> PARSER =
+        new org.spark-project.protobuf.AbstractParser<CreateSnapshotRequest>() {
       public CreateSnapshotRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new CreateSnapshotRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CreateSnapshotRequest> getParserForType() {
+    public org.spark-project.protobuf.Parser<CreateSnapshotRequest> getParserForType() {
       return PARSER;
     }
 
@@ -6623,8 +6623,8 @@ public final class RevisionManagerEndpointProtos {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           tableName_ = s;
@@ -6635,17 +6635,17 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getTableNameBytes() {
       java.lang.Object ref = tableName_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         tableName_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -6682,7 +6682,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6701,11 +6701,11 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getTableNameBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeInt64Size(2, revision_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -6768,24 +6768,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parseFrom(java.io.InputStream input)
@@ -6794,7 +6794,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -6804,18 +6804,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -6829,7 +6829,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6837,14 +6837,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code CreateSnapshotRequest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotRequest_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -6857,12 +6857,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -6882,7 +6882,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotRequest_descriptor;
       }
@@ -6916,7 +6916,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest)other);
         } else {
@@ -6948,13 +6948,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -6980,7 +6980,7 @@ public final class RevisionManagerEndpointProtos {
       public java.lang.String getTableName() {
         java.lang.Object ref = tableName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           tableName_ = s;
           return s;
@@ -6991,17 +6991,17 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string table_name = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getTableNameBytes() {
         java.lang.Object ref = tableName_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           tableName_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -7030,7 +7030,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>required string table_name = 1;</code>
        */
       public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -7085,7 +7085,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface CreateSnapshotResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required .TableSnapshot table_snapshot = 1;
     /**
@@ -7105,14 +7105,14 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf type {@code CreateSnapshotResponse}
    */
   public static final class CreateSnapshotResponse extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements CreateSnapshotResponseOrBuilder {
     // Use CreateSnapshotResponse.newBuilder() to construct.
-    private CreateSnapshotResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private CreateSnapshotResponse(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private CreateSnapshotResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private CreateSnapshotResponse(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final CreateSnapshotResponse defaultInstance;
     public static CreateSnapshotResponse getDefaultInstance() {
@@ -7123,20 +7123,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private CreateSnapshotResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -7167,40 +7167,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotResponse_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<CreateSnapshotResponse> PARSER =
-        new com.google.protobuf.AbstractParser<CreateSnapshotResponse>() {
+    public static org.spark-project.protobuf.Parser<CreateSnapshotResponse> PARSER =
+        new org.spark-project.protobuf.AbstractParser<CreateSnapshotResponse>() {
       public CreateSnapshotResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new CreateSnapshotResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CreateSnapshotResponse> getParserForType() {
+    public org.spark-project.protobuf.Parser<CreateSnapshotResponse> getParserForType() {
       return PARSER;
     }
 
@@ -7247,7 +7247,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7263,7 +7263,7 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, tableSnapshot_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -7317,24 +7317,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parseFrom(java.io.InputStream input)
@@ -7343,7 +7343,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -7353,18 +7353,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -7378,7 +7378,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -7386,14 +7386,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code CreateSnapshotResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotResponse_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -7406,12 +7406,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getTableSnapshotFieldBuilder();
         }
       }
@@ -7434,7 +7434,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_CreateSnapshotResponse_descriptor;
       }
@@ -7468,7 +7468,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse)other);
         } else {
@@ -7499,13 +7499,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -7519,7 +7519,7 @@ public final class RevisionManagerEndpointProtos {
 
       // required .TableSnapshot table_snapshot = 1;
       private org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot tableSnapshot_ = org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshotOrBuilder> tableSnapshotBuilder_;
       /**
        * <code>required .TableSnapshot table_snapshot = 1;</code>
@@ -7620,11 +7620,11 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required .TableSnapshot table_snapshot = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshotOrBuilder> 
           getTableSnapshotFieldBuilder() {
         if (tableSnapshotBuilder_ == null) {
-          tableSnapshotBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          tableSnapshotBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshotOrBuilder>(
                   tableSnapshot_,
                   getParentForChildren(),
@@ -7646,7 +7646,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface KeepAliveTransactionRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required .Transaction transaction = 1;
     /**
@@ -7666,14 +7666,14 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf type {@code KeepAliveTransactionRequest}
    */
   public static final class KeepAliveTransactionRequest extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements KeepAliveTransactionRequestOrBuilder {
     // Use KeepAliveTransactionRequest.newBuilder() to construct.
-    private KeepAliveTransactionRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private KeepAliveTransactionRequest(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private KeepAliveTransactionRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private KeepAliveTransactionRequest(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final KeepAliveTransactionRequest defaultInstance;
     public static KeepAliveTransactionRequest getDefaultInstance() {
@@ -7684,20 +7684,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private KeepAliveTransactionRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -7728,40 +7728,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionRequest_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<KeepAliveTransactionRequest> PARSER =
-        new com.google.protobuf.AbstractParser<KeepAliveTransactionRequest>() {
+    public static org.spark-project.protobuf.Parser<KeepAliveTransactionRequest> PARSER =
+        new org.spark-project.protobuf.AbstractParser<KeepAliveTransactionRequest>() {
       public KeepAliveTransactionRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new KeepAliveTransactionRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<KeepAliveTransactionRequest> getParserForType() {
+    public org.spark-project.protobuf.Parser<KeepAliveTransactionRequest> getParserForType() {
       return PARSER;
     }
 
@@ -7808,7 +7808,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7824,7 +7824,7 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, transaction_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -7878,24 +7878,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parseFrom(java.io.InputStream input)
@@ -7904,7 +7904,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -7914,18 +7914,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -7939,7 +7939,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -7947,14 +7947,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code KeepAliveTransactionRequest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionRequest_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -7967,12 +7967,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getTransactionFieldBuilder();
         }
       }
@@ -7995,7 +7995,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionRequest_descriptor;
       }
@@ -8029,7 +8029,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest)other);
         } else {
@@ -8060,13 +8060,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -8080,7 +8080,7 @@ public final class RevisionManagerEndpointProtos {
 
       // required .Transaction transaction = 1;
       private org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction transaction_ = org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder> transactionBuilder_;
       /**
        * <code>required .Transaction transaction = 1;</code>
@@ -8181,11 +8181,11 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required .Transaction transaction = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder> 
           getTransactionFieldBuilder() {
         if (transactionBuilder_ == null) {
-          transactionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          transactionBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder>(
                   transaction_,
                   getParentForChildren(),
@@ -8207,20 +8207,20 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface KeepAliveTransactionResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
   }
   /**
    * Protobuf type {@code KeepAliveTransactionResponse}
    */
   public static final class KeepAliveTransactionResponse extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements KeepAliveTransactionResponseOrBuilder {
     // Use KeepAliveTransactionResponse.newBuilder() to construct.
-    private KeepAliveTransactionResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private KeepAliveTransactionResponse(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private KeepAliveTransactionResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private KeepAliveTransactionResponse(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final KeepAliveTransactionResponse defaultInstance;
     public static KeepAliveTransactionResponse getDefaultInstance() {
@@ -8231,19 +8231,19 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private KeepAliveTransactionResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -8261,40 +8261,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionResponse_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<KeepAliveTransactionResponse> PARSER =
-        new com.google.protobuf.AbstractParser<KeepAliveTransactionResponse>() {
+    public static org.spark-project.protobuf.Parser<KeepAliveTransactionResponse> PARSER =
+        new org.spark-project.protobuf.AbstractParser<KeepAliveTransactionResponse>() {
       public KeepAliveTransactionResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new KeepAliveTransactionResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<KeepAliveTransactionResponse> getParserForType() {
+    public org.spark-project.protobuf.Parser<KeepAliveTransactionResponse> getParserForType() {
       return PARSER;
     }
 
@@ -8309,7 +8309,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
@@ -8363,24 +8363,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parseFrom(java.io.InputStream input)
@@ -8389,7 +8389,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -8399,18 +8399,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -8424,7 +8424,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -8432,14 +8432,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code KeepAliveTransactionResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionResponse_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -8452,12 +8452,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -8473,7 +8473,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_KeepAliveTransactionResponse_descriptor;
       }
@@ -8496,7 +8496,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse)other);
         } else {
@@ -8516,13 +8516,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -8545,7 +8545,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface FamilyRevisionOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required int64 revision = 1;
     /**
@@ -8571,14 +8571,14 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf type {@code FamilyRevision}
    */
   public static final class FamilyRevision extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements FamilyRevisionOrBuilder {
     // Use FamilyRevision.newBuilder() to construct.
-    private FamilyRevision(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private FamilyRevision(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private FamilyRevision(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private FamilyRevision(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final FamilyRevision defaultInstance;
     public static FamilyRevision getDefaultInstance() {
@@ -8589,20 +8589,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private FamilyRevision(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -8630,40 +8630,40 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_FamilyRevision_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_FamilyRevision_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<FamilyRevision> PARSER =
-        new com.google.protobuf.AbstractParser<FamilyRevision>() {
+    public static org.spark-project.protobuf.Parser<FamilyRevision> PARSER =
+        new org.spark-project.protobuf.AbstractParser<FamilyRevision>() {
       public FamilyRevision parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new FamilyRevision(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<FamilyRevision> getParserForType() {
+    public org.spark-project.protobuf.Parser<FamilyRevision> getParserForType() {
       return PARSER;
     }
 
@@ -8721,7 +8721,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8740,11 +8740,11 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeInt64Size(1, revision_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeInt64Size(2, timestamp_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -8807,24 +8807,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parseFrom(java.io.InputStream input)
@@ -8833,7 +8833,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -8843,18 +8843,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -8868,7 +8868,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -8876,14 +8876,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code FamilyRevision}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevisionOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_FamilyRevision_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_FamilyRevision_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -8896,12 +8896,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -8921,7 +8921,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_FamilyRevision_descriptor;
       }
@@ -8955,7 +8955,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision)other);
         } else {
@@ -8989,13 +8989,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.FamilyRevision) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -9085,7 +9085,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface TransactionOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required string table_name = 1;
     /**
@@ -9099,7 +9099,7 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getTableNameBytes();
 
     // required int64 time_stamp = 2;
@@ -9149,21 +9149,21 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>repeated string column_families = 5;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getColumnFamiliesBytes(int index);
   }
   /**
    * Protobuf type {@code Transaction}
    */
   public static final class Transaction extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements TransactionOrBuilder {
     // Use Transaction.newBuilder() to construct.
-    private Transaction(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Transaction(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private Transaction(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private Transaction(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final Transaction defaultInstance;
     public static Transaction getDefaultInstance() {
@@ -9174,20 +9174,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private Transaction(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -9225,7 +9225,7 @@ public final class RevisionManagerEndpointProtos {
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                columnFamilies_ = new com.google.protobuf.LazyStringArrayList();
+                columnFamilies_ = new org.spark-project.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000010;
               }
               columnFamilies_.add(input.readBytes());
@@ -9233,43 +9233,43 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          columnFamilies_ = new com.google.protobuf.UnmodifiableLazyStringList(columnFamilies_);
+          columnFamilies_ = new org.spark-project.protobuf.UnmodifiableLazyStringList(columnFamilies_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_Transaction_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_Transaction_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Transaction> PARSER =
-        new com.google.protobuf.AbstractParser<Transaction>() {
+    public static org.spark-project.protobuf.Parser<Transaction> PARSER =
+        new org.spark-project.protobuf.AbstractParser<Transaction>() {
       public Transaction parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new Transaction(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Transaction> getParserForType() {
+    public org.spark-project.protobuf.Parser<Transaction> getParserForType() {
       return PARSER;
     }
 
@@ -9291,8 +9291,8 @@ public final class RevisionManagerEndpointProtos {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           tableName_ = s;
@@ -9303,17 +9303,17 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getTableNameBytes() {
       java.lang.Object ref = tableName_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         tableName_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -9367,7 +9367,7 @@ public final class RevisionManagerEndpointProtos {
 
     // repeated string column_families = 5;
     public static final int COLUMN_FAMILIES_FIELD_NUMBER = 5;
-    private com.google.protobuf.LazyStringList columnFamilies_;
+    private org.spark-project.protobuf.LazyStringList columnFamilies_;
     /**
      * <code>repeated string column_families = 5;</code>
      */
@@ -9390,7 +9390,7 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>repeated string column_families = 5;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getColumnFamiliesBytes(int index) {
       return columnFamilies_.getByteString(index);
     }
@@ -9400,7 +9400,7 @@ public final class RevisionManagerEndpointProtos {
       timeStamp_ = 0L;
       keepAlive_ = 0L;
       revision_ = 0L;
-      columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -9427,7 +9427,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9455,25 +9455,25 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getTableNameBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeInt64Size(2, timeStamp_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeInt64Size(3, keepAlive_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeInt64Size(4, revision_);
       }
       {
         int dataSize = 0;
         for (int i = 0; i < columnFamilies_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
+          dataSize += org.spark-project.protobuf.CodedOutputStream
             .computeBytesSizeNoTag(columnFamilies_.getByteString(i));
         }
         size += dataSize;
@@ -9563,24 +9563,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parseFrom(java.io.InputStream input)
@@ -9589,7 +9589,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -9599,18 +9599,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -9624,7 +9624,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -9632,14 +9632,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code Transaction}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TransactionOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_Transaction_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_Transaction_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -9652,12 +9652,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -9674,7 +9674,7 @@ public final class RevisionManagerEndpointProtos {
         bitField0_ = (bitField0_ & ~0x00000004);
         revision_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
-        columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -9683,7 +9683,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_Transaction_descriptor;
       }
@@ -9721,7 +9721,7 @@ public final class RevisionManagerEndpointProtos {
         }
         result.revision_ = revision_;
         if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          columnFamilies_ = new com.google.protobuf.UnmodifiableLazyStringList(
+          columnFamilies_ = new org.spark-project.protobuf.UnmodifiableLazyStringList(
               columnFamilies_);
           bitField0_ = (bitField0_ & ~0x00000010);
         }
@@ -9731,7 +9731,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction)other);
         } else {
@@ -9791,13 +9791,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.Transaction) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -9823,7 +9823,7 @@ public final class RevisionManagerEndpointProtos {
       public java.lang.String getTableName() {
         java.lang.Object ref = tableName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           tableName_ = s;
           return s;
@@ -9834,17 +9834,17 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string table_name = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getTableNameBytes() {
         java.lang.Object ref = tableName_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           tableName_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -9873,7 +9873,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>required string table_name = 1;</code>
        */
       public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -9983,10 +9983,10 @@ public final class RevisionManagerEndpointProtos {
       }
 
       // repeated string column_families = 5;
-      private com.google.protobuf.LazyStringList columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private org.spark-project.protobuf.LazyStringList columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
       private void ensureColumnFamiliesIsMutable() {
         if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          columnFamilies_ = new com.google.protobuf.LazyStringArrayList(columnFamilies_);
+          columnFamilies_ = new org.spark-project.protobuf.LazyStringArrayList(columnFamilies_);
           bitField0_ |= 0x00000010;
          }
       }
@@ -10012,7 +10012,7 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>repeated string column_families = 5;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getColumnFamiliesBytes(int index) {
         return columnFamilies_.getByteString(index);
       }
@@ -10056,7 +10056,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>repeated string column_families = 5;</code>
        */
       public Builder clearColumnFamilies() {
-        columnFamilies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        columnFamilies_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
@@ -10065,7 +10065,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>repeated string column_families = 5;</code>
        */
       public Builder addColumnFamiliesBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -10087,7 +10087,7 @@ public final class RevisionManagerEndpointProtos {
   }
 
   public interface TableSnapshotOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required string table_name = 1;
     /**
@@ -10101,7 +10101,7 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getTableNameBytes();
 
     // required int64 latest_revision = 2;
@@ -10143,14 +10143,14 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf type {@code TableSnapshot}
    */
   public static final class TableSnapshot extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements TableSnapshotOrBuilder {
     // Use TableSnapshot.newBuilder() to construct.
-    private TableSnapshot(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private TableSnapshot(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private TableSnapshot(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private TableSnapshot(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final TableSnapshot defaultInstance;
     public static TableSnapshot getDefaultInstance() {
@@ -10161,20 +10161,20 @@ public final class RevisionManagerEndpointProtos {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private TableSnapshot(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -10210,10 +10210,10 @@ public final class RevisionManagerEndpointProtos {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
@@ -10223,35 +10223,35 @@ public final class RevisionManagerEndpointProtos {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<TableSnapshot> PARSER =
-        new com.google.protobuf.AbstractParser<TableSnapshot>() {
+    public static org.spark-project.protobuf.Parser<TableSnapshot> PARSER =
+        new org.spark-project.protobuf.AbstractParser<TableSnapshot>() {
       public TableSnapshot parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new TableSnapshot(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<TableSnapshot> getParserForType() {
+    public org.spark-project.protobuf.Parser<TableSnapshot> getParserForType() {
       return PARSER;
     }
 
     public interface ColumnFamilyRevisionOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
+        extends org.spark-project.protobuf.MessageOrBuilder {
 
       // required string key = 1;
       /**
@@ -10265,7 +10265,7 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string key = 1;</code>
        */
-      com.google.protobuf.ByteString
+      org.spark-project.protobuf.ByteString
           getKeyBytes();
 
       // required int64 value = 2;
@@ -10282,14 +10282,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code TableSnapshot.ColumnFamilyRevision}
      */
     public static final class ColumnFamilyRevision extends
-        com.google.protobuf.GeneratedMessage
+        org.spark-project.protobuf.GeneratedMessage
         implements ColumnFamilyRevisionOrBuilder {
       // Use ColumnFamilyRevision.newBuilder() to construct.
-      private ColumnFamilyRevision(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      private ColumnFamilyRevision(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
         this.unknownFields = builder.getUnknownFields();
       }
-      private ColumnFamilyRevision(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+      private ColumnFamilyRevision(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
       private static final ColumnFamilyRevision defaultInstance;
       public static ColumnFamilyRevision getDefaultInstance() {
@@ -10300,20 +10300,20 @@ public final class RevisionManagerEndpointProtos {
         return defaultInstance;
       }
 
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
+      private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
       @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
+      public final org.spark-project.protobuf.UnknownFieldSet
           getUnknownFields() {
         return this.unknownFields;
       }
       private ColumnFamilyRevision(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         initFields();
         int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
+        org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+            org.spark-project.protobuf.UnknownFieldSet.newBuilder();
         try {
           boolean done = false;
           while (!done) {
@@ -10341,40 +10341,40 @@ public final class RevisionManagerEndpointProtos {
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
+          throw new org.spark-project.protobuf.InvalidProtocolBufferException(
               e.getMessage()).setUnfinishedMessage(this);
         } finally {
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
         }
       }
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_ColumnFamilyRevision_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_ColumnFamilyRevision_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision.class, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<ColumnFamilyRevision> PARSER =
-          new com.google.protobuf.AbstractParser<ColumnFamilyRevision>() {
+      public static org.spark-project.protobuf.Parser<ColumnFamilyRevision> PARSER =
+          new org.spark-project.protobuf.AbstractParser<ColumnFamilyRevision>() {
         public ColumnFamilyRevision parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+            org.spark-project.protobuf.CodedInputStream input,
+            org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws org.spark-project.protobuf.InvalidProtocolBufferException {
           return new ColumnFamilyRevision(input, extensionRegistry);
         }
       };
 
       @java.lang.Override
-      public com.google.protobuf.Parser<ColumnFamilyRevision> getParserForType() {
+      public org.spark-project.protobuf.Parser<ColumnFamilyRevision> getParserForType() {
         return PARSER;
       }
 
@@ -10396,8 +10396,8 @@ public final class RevisionManagerEndpointProtos {
         if (ref instanceof java.lang.String) {
           return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
+          org.spark-project.protobuf.ByteString bs = 
+              (org.spark-project.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             key_ = s;
@@ -10408,17 +10408,17 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string key = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getKeyBytes() {
         java.lang.Object ref = key_;
         if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           key_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
 
@@ -10459,7 +10459,7 @@ public final class RevisionManagerEndpointProtos {
         return true;
       }
 
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
+      public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
         getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10478,11 +10478,11 @@ public final class RevisionManagerEndpointProtos {
 
         size = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
+          size += org.spark-project.protobuf.CodedOutputStream
             .computeBytesSize(1, getKeyBytes());
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
+          size += org.spark-project.protobuf.CodedOutputStream
             .computeInt64Size(2, value_);
         }
         size += getUnknownFields().getSerializedSize();
@@ -10545,24 +10545,24 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.ByteString data)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
       public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.ByteString data,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
       public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
       public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parseFrom(
           byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
       public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parseFrom(java.io.InputStream input)
@@ -10571,7 +10571,7 @@ public final class RevisionManagerEndpointProtos {
       }
       public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parseFrom(
           java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
@@ -10581,18 +10581,18 @@ public final class RevisionManagerEndpointProtos {
       }
       public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parseDelimitedFrom(
           java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
       public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parseFrom(
-          com.google.protobuf.CodedInputStream input)
+          org.spark-project.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
       public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
@@ -10606,7 +10606,7 @@ public final class RevisionManagerEndpointProtos {
 
       @java.lang.Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -10614,14 +10614,14 @@ public final class RevisionManagerEndpointProtos {
        * Protobuf type {@code TableSnapshot.ColumnFamilyRevision}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
+          org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
          implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevisionOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
+        public static final org.spark-project.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_ColumnFamilyRevision_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_ColumnFamilyRevision_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
@@ -10634,12 +10634,12 @@ public final class RevisionManagerEndpointProtos {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           }
         }
         private static Builder create() {
@@ -10659,7 +10659,7 @@ public final class RevisionManagerEndpointProtos {
           return create().mergeFrom(buildPartial());
         }
 
-        public com.google.protobuf.Descriptors.Descriptor
+        public org.spark-project.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
           return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_ColumnFamilyRevision_descriptor;
         }
@@ -10693,7 +10693,7 @@ public final class RevisionManagerEndpointProtos {
           return result;
         }
 
-        public Builder mergeFrom(com.google.protobuf.Message other) {
+        public Builder mergeFrom(org.spark-project.protobuf.Message other) {
           if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision) {
             return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision)other);
           } else {
@@ -10729,13 +10729,13 @@ public final class RevisionManagerEndpointProtos {
         }
 
         public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            org.spark-project.protobuf.CodedInputStream input,
+            org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
             parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision) e.getUnfinishedMessage();
             throw e;
           } finally {
@@ -10761,7 +10761,7 @@ public final class RevisionManagerEndpointProtos {
         public java.lang.String getKey() {
           java.lang.Object ref = key_;
           if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+            java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
                 .toStringUtf8();
             key_ = s;
             return s;
@@ -10772,17 +10772,17 @@ public final class RevisionManagerEndpointProtos {
         /**
          * <code>required string key = 1;</code>
          */
-        public com.google.protobuf.ByteString
+        public org.spark-project.protobuf.ByteString
             getKeyBytes() {
           java.lang.Object ref = key_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
+            org.spark-project.protobuf.ByteString b = 
+                org.spark-project.protobuf.ByteString.copyFromUtf8(
                     (java.lang.String) ref);
             key_ = b;
             return b;
           } else {
-            return (com.google.protobuf.ByteString) ref;
+            return (org.spark-project.protobuf.ByteString) ref;
           }
         }
         /**
@@ -10811,7 +10811,7 @@ public final class RevisionManagerEndpointProtos {
          * <code>required string key = 1;</code>
          */
         public Builder setKeyBytes(
-            com.google.protobuf.ByteString value) {
+            org.spark-project.protobuf.ByteString value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -10883,8 +10883,8 @@ public final class RevisionManagerEndpointProtos {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           tableName_ = s;
@@ -10895,17 +10895,17 @@ public final class RevisionManagerEndpointProtos {
     /**
      * <code>required string table_name = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getTableNameBytes() {
       java.lang.Object ref = tableName_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         tableName_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -10989,7 +10989,7 @@ public final class RevisionManagerEndpointProtos {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11011,15 +11011,15 @@ public final class RevisionManagerEndpointProtos {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getTableNameBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeInt64Size(2, latestRevision_);
       }
       for (int i = 0; i < columnFamilyRevision_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(3, columnFamilyRevision_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
@@ -11088,24 +11088,24 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parseFrom(java.io.InputStream input)
@@ -11114,7 +11114,7 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -11124,18 +11124,18 @@ public final class RevisionManagerEndpointProtos {
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -11149,7 +11149,7 @@ public final class RevisionManagerEndpointProtos {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -11157,14 +11157,14 @@ public final class RevisionManagerEndpointProtos {
      * Protobuf type {@code TableSnapshot}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshotOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -11177,12 +11177,12 @@ public final class RevisionManagerEndpointProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getColumnFamilyRevisionFieldBuilder();
         }
       }
@@ -11209,7 +11209,7 @@ public final class RevisionManagerEndpointProtos {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.internal_static_TableSnapshot_descriptor;
       }
@@ -11252,7 +11252,7 @@ public final class RevisionManagerEndpointProtos {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot) {
           return mergeFrom((org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot)other);
         } else {
@@ -11290,7 +11290,7 @@ public final class RevisionManagerEndpointProtos {
               columnFamilyRevision_ = other.columnFamilyRevision_;
               bitField0_ = (bitField0_ & ~0x00000004);
               columnFamilyRevisionBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getColumnFamilyRevisionFieldBuilder() : null;
             } else {
               columnFamilyRevisionBuilder_.addAllMessages(other.columnFamilyRevision_);
@@ -11320,13 +11320,13 @@ public final class RevisionManagerEndpointProtos {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -11352,7 +11352,7 @@ public final class RevisionManagerEndpointProtos {
       public java.lang.String getTableName() {
         java.lang.Object ref = tableName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           tableName_ = s;
           return s;
@@ -11363,17 +11363,17 @@ public final class RevisionManagerEndpointProtos {
       /**
        * <code>required string table_name = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getTableNameBytes() {
         java.lang.Object ref = tableName_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           tableName_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -11402,7 +11402,7 @@ public final class RevisionManagerEndpointProtos {
        * <code>required string table_name = 1;</code>
        */
       public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -11455,7 +11455,7 @@ public final class RevisionManagerEndpointProtos {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevisionOrBuilder> columnFamilyRevisionBuilder_;
 
       /**
@@ -11670,11 +11670,11 @@ public final class RevisionManagerEndpointProtos {
            getColumnFamilyRevisionBuilderList() {
         return getColumnFamilyRevisionFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevisionOrBuilder> 
           getColumnFamilyRevisionFieldBuilder() {
         if (columnFamilyRevisionBuilder_ == null) {
-          columnFamilyRevisionBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          columnFamilyRevisionBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevision.Builder, org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.TableSnapshot.ColumnFamilyRevisionOrBuilder>(
                   columnFamilyRevision_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
@@ -11700,7 +11700,7 @@ public final class RevisionManagerEndpointProtos {
    * Protobuf service {@code RevisionManagerEndpointService}
    */
   public static abstract class RevisionManagerEndpointService
-      implements com.google.protobuf.Service {
+      implements org.spark-project.protobuf.Service {
     protected RevisionManagerEndpointService() {}
 
     public interface Interface {
@@ -11708,151 +11708,151 @@ public final class RevisionManagerEndpointProtos {
        * <code>rpc createTable(.CreateTableRequest) returns (.CreateTableResponse);</code>
        */
       public abstract void createTable(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse> done);
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse> done);
 
       /**
        * <code>rpc dropTable(.DropTableRequest) returns (.DropTableResponse);</code>
        */
       public abstract void dropTable(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse> done);
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse> done);
 
       /**
        * <code>rpc beginWriteTransaction(.BeginWriteTransactionRequest) returns (.BeginWriteTransactionResponse);</code>
        */
       public abstract void beginWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse> done);
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse> done);
 
       /**
        * <code>rpc commitWriteTransaction(.CommitWriteTransactionRequest) returns (.CommitWriteTransactionResponse);</code>
        */
       public abstract void commitWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse> done);
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse> done);
 
       /**
        * <code>rpc abortWriteTransaction(.AbortWriteTransactionRequest) returns (.AbortWriteTransactionResponse);</code>
        */
       public abstract void abortWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse> done);
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse> done);
 
       /**
        * <code>rpc getAbortedWriteTransactions(.GetAbortedWriteTransactionsRequest) returns (.GetAbortedWriteTransactionsResponse);</code>
        */
       public abstract void getAbortedWriteTransactions(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse> done);
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse> done);
 
       /**
        * <code>rpc createSnapshot(.CreateSnapshotRequest) returns (.CreateSnapshotResponse);</code>
        */
       public abstract void createSnapshot(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse> done);
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse> done);
 
       /**
        * <code>rpc keepAliveTransaction(.KeepAliveTransactionRequest) returns (.KeepAliveTransactionResponse);</code>
        */
       public abstract void keepAliveTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse> done);
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse> done);
 
     }
 
-    public static com.google.protobuf.Service newReflectiveService(
+    public static org.spark-project.protobuf.Service newReflectiveService(
         final Interface impl) {
       return new RevisionManagerEndpointService() {
         @java.lang.Override
         public  void createTable(
-            com.google.protobuf.RpcController controller,
+            org.spark-project.protobuf.RpcController controller,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest request,
-            com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse> done) {
+            org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse> done) {
           impl.createTable(controller, request, done);
         }
 
         @java.lang.Override
         public  void dropTable(
-            com.google.protobuf.RpcController controller,
+            org.spark-project.protobuf.RpcController controller,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest request,
-            com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse> done) {
+            org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse> done) {
           impl.dropTable(controller, request, done);
         }
 
         @java.lang.Override
         public  void beginWriteTransaction(
-            com.google.protobuf.RpcController controller,
+            org.spark-project.protobuf.RpcController controller,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest request,
-            com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse> done) {
+            org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse> done) {
           impl.beginWriteTransaction(controller, request, done);
         }
 
         @java.lang.Override
         public  void commitWriteTransaction(
-            com.google.protobuf.RpcController controller,
+            org.spark-project.protobuf.RpcController controller,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest request,
-            com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse> done) {
+            org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse> done) {
           impl.commitWriteTransaction(controller, request, done);
         }
 
         @java.lang.Override
         public  void abortWriteTransaction(
-            com.google.protobuf.RpcController controller,
+            org.spark-project.protobuf.RpcController controller,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest request,
-            com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse> done) {
+            org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse> done) {
           impl.abortWriteTransaction(controller, request, done);
         }
 
         @java.lang.Override
         public  void getAbortedWriteTransactions(
-            com.google.protobuf.RpcController controller,
+            org.spark-project.protobuf.RpcController controller,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest request,
-            com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse> done) {
+            org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse> done) {
           impl.getAbortedWriteTransactions(controller, request, done);
         }
 
         @java.lang.Override
         public  void createSnapshot(
-            com.google.protobuf.RpcController controller,
+            org.spark-project.protobuf.RpcController controller,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest request,
-            com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse> done) {
+            org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse> done) {
           impl.createSnapshot(controller, request, done);
         }
 
         @java.lang.Override
         public  void keepAliveTransaction(
-            com.google.protobuf.RpcController controller,
+            org.spark-project.protobuf.RpcController controller,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest request,
-            com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse> done) {
+            org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse> done) {
           impl.keepAliveTransaction(controller, request, done);
         }
 
       };
     }
 
-    public static com.google.protobuf.BlockingService
+    public static org.spark-project.protobuf.BlockingService
         newReflectiveBlockingService(final BlockingInterface impl) {
-      return new com.google.protobuf.BlockingService() {
-        public final com.google.protobuf.Descriptors.ServiceDescriptor
+      return new org.spark-project.protobuf.BlockingService() {
+        public final org.spark-project.protobuf.Descriptors.ServiceDescriptor
             getDescriptorForType() {
           return getDescriptor();
         }
 
-        public final com.google.protobuf.Message callBlockingMethod(
-            com.google.protobuf.Descriptors.MethodDescriptor method,
-            com.google.protobuf.RpcController controller,
-            com.google.protobuf.Message request)
-            throws com.google.protobuf.ServiceException {
+        public final org.spark-project.protobuf.Message callBlockingMethod(
+            org.spark-project.protobuf.Descriptors.MethodDescriptor method,
+            org.spark-project.protobuf.RpcController controller,
+            org.spark-project.protobuf.Message request)
+            throws org.spark-project.protobuf.ServiceException {
           if (method.getService() != getDescriptor()) {
             throw new java.lang.IllegalArgumentException(
               "Service.callBlockingMethod() given method descriptor for " +
@@ -11880,9 +11880,9 @@ public final class RevisionManagerEndpointProtos {
           }
         }
 
-        public final com.google.protobuf.Message
+        public final org.spark-project.protobuf.Message
             getRequestPrototype(
-            com.google.protobuf.Descriptors.MethodDescriptor method) {
+            org.spark-project.protobuf.Descriptors.MethodDescriptor method) {
           if (method.getService() != getDescriptor()) {
             throw new java.lang.IllegalArgumentException(
               "Service.getRequestPrototype() given method " +
@@ -11910,9 +11910,9 @@ public final class RevisionManagerEndpointProtos {
           }
         }
 
-        public final com.google.protobuf.Message
+        public final org.spark-project.protobuf.Message
             getResponsePrototype(
-            com.google.protobuf.Descriptors.MethodDescriptor method) {
+            org.spark-project.protobuf.Descriptors.MethodDescriptor method) {
           if (method.getService() != getDescriptor()) {
             throw new java.lang.IllegalArgumentException(
               "Service.getResponsePrototype() given method " +
@@ -11947,82 +11947,82 @@ public final class RevisionManagerEndpointProtos {
      * <code>rpc createTable(.CreateTableRequest) returns (.CreateTableResponse);</code>
      */
     public abstract void createTable(
-        com.google.protobuf.RpcController controller,
+        org.spark-project.protobuf.RpcController controller,
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest request,
-        com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse> done);
+        org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse> done);
 
     /**
      * <code>rpc dropTable(.DropTableRequest) returns (.DropTableResponse);</code>
      */
     public abstract void dropTable(
-        com.google.protobuf.RpcController controller,
+        org.spark-project.protobuf.RpcController controller,
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest request,
-        com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse> done);
+        org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse> done);
 
     /**
      * <code>rpc beginWriteTransaction(.BeginWriteTransactionRequest) returns (.BeginWriteTransactionResponse);</code>
      */
     public abstract void beginWriteTransaction(
-        com.google.protobuf.RpcController controller,
+        org.spark-project.protobuf.RpcController controller,
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest request,
-        com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse> done);
+        org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse> done);
 
     /**
      * <code>rpc commitWriteTransaction(.CommitWriteTransactionRequest) returns (.CommitWriteTransactionResponse);</code>
      */
     public abstract void commitWriteTransaction(
-        com.google.protobuf.RpcController controller,
+        org.spark-project.protobuf.RpcController controller,
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest request,
-        com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse> done);
+        org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse> done);
 
     /**
      * <code>rpc abortWriteTransaction(.AbortWriteTransactionRequest) returns (.AbortWriteTransactionResponse);</code>
      */
     public abstract void abortWriteTransaction(
-        com.google.protobuf.RpcController controller,
+        org.spark-project.protobuf.RpcController controller,
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest request,
-        com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse> done);
+        org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse> done);
 
     /**
      * <code>rpc getAbortedWriteTransactions(.GetAbortedWriteTransactionsRequest) returns (.GetAbortedWriteTransactionsResponse);</code>
      */
     public abstract void getAbortedWriteTransactions(
-        com.google.protobuf.RpcController controller,
+        org.spark-project.protobuf.RpcController controller,
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest request,
-        com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse> done);
+        org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse> done);
 
     /**
      * <code>rpc createSnapshot(.CreateSnapshotRequest) returns (.CreateSnapshotResponse);</code>
      */
     public abstract void createSnapshot(
-        com.google.protobuf.RpcController controller,
+        org.spark-project.protobuf.RpcController controller,
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest request,
-        com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse> done);
+        org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse> done);
 
     /**
      * <code>rpc keepAliveTransaction(.KeepAliveTransactionRequest) returns (.KeepAliveTransactionResponse);</code>
      */
     public abstract void keepAliveTransaction(
-        com.google.protobuf.RpcController controller,
+        org.spark-project.protobuf.RpcController controller,
         org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest request,
-        com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse> done);
+        org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse> done);
 
     public static final
-        com.google.protobuf.Descriptors.ServiceDescriptor
+        org.spark-project.protobuf.Descriptors.ServiceDescriptor
         getDescriptor() {
       return org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.getDescriptor().getServices().get(0);
     }
-    public final com.google.protobuf.Descriptors.ServiceDescriptor
+    public final org.spark-project.protobuf.Descriptors.ServiceDescriptor
         getDescriptorForType() {
       return getDescriptor();
     }
 
     public final void callMethod(
-        com.google.protobuf.Descriptors.MethodDescriptor method,
-        com.google.protobuf.RpcController controller,
-        com.google.protobuf.Message request,
-        com.google.protobuf.RpcCallback<
-          com.google.protobuf.Message> done) {
+        org.spark-project.protobuf.Descriptors.MethodDescriptor method,
+        org.spark-project.protobuf.RpcController controller,
+        org.spark-project.protobuf.Message request,
+        org.spark-project.protobuf.RpcCallback<
+          org.spark-project.protobuf.Message> done) {
       if (method.getService() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
           "Service.callMethod() given method descriptor for wrong " +
@@ -12031,42 +12031,42 @@ public final class RevisionManagerEndpointProtos {
       switch(method.getIndex()) {
         case 0:
           this.createTable(controller, (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest)request,
-            com.google.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse>specializeCallback(
+            org.spark-project.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse>specializeCallback(
               done));
           return;
         case 1:
           this.dropTable(controller, (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest)request,
-            com.google.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse>specializeCallback(
+            org.spark-project.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse>specializeCallback(
               done));
           return;
         case 2:
           this.beginWriteTransaction(controller, (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest)request,
-            com.google.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse>specializeCallback(
+            org.spark-project.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse>specializeCallback(
               done));
           return;
         case 3:
           this.commitWriteTransaction(controller, (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest)request,
-            com.google.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse>specializeCallback(
+            org.spark-project.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse>specializeCallback(
               done));
           return;
         case 4:
           this.abortWriteTransaction(controller, (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest)request,
-            com.google.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse>specializeCallback(
+            org.spark-project.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse>specializeCallback(
               done));
           return;
         case 5:
           this.getAbortedWriteTransactions(controller, (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest)request,
-            com.google.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse>specializeCallback(
+            org.spark-project.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse>specializeCallback(
               done));
           return;
         case 6:
           this.createSnapshot(controller, (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest)request,
-            com.google.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse>specializeCallback(
+            org.spark-project.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse>specializeCallback(
               done));
           return;
         case 7:
           this.keepAliveTransaction(controller, (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest)request,
-            com.google.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse>specializeCallback(
+            org.spark-project.protobuf.RpcUtil.<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse>specializeCallback(
               done));
           return;
         default:
@@ -12074,9 +12074,9 @@ public final class RevisionManagerEndpointProtos {
       }
     }
 
-    public final com.google.protobuf.Message
+    public final org.spark-project.protobuf.Message
         getRequestPrototype(
-        com.google.protobuf.Descriptors.MethodDescriptor method) {
+        org.spark-project.protobuf.Descriptors.MethodDescriptor method) {
       if (method.getService() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
           "Service.getRequestPrototype() given method " +
@@ -12104,9 +12104,9 @@ public final class RevisionManagerEndpointProtos {
       }
     }
 
-    public final com.google.protobuf.Message
+    public final org.spark-project.protobuf.Message
         getResponsePrototype(
-        com.google.protobuf.Descriptors.MethodDescriptor method) {
+        org.spark-project.protobuf.Descriptors.MethodDescriptor method) {
       if (method.getService() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
           "Service.getResponsePrototype() given method " +
@@ -12135,136 +12135,136 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static Stub newStub(
-        com.google.protobuf.RpcChannel channel) {
+        org.spark-project.protobuf.RpcChannel channel) {
       return new Stub(channel);
     }
 
     public static final class Stub extends org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.RevisionManagerEndpointService implements Interface {
-      private Stub(com.google.protobuf.RpcChannel channel) {
+      private Stub(org.spark-project.protobuf.RpcChannel channel) {
         this.channel = channel;
       }
 
-      private final com.google.protobuf.RpcChannel channel;
+      private final org.spark-project.protobuf.RpcChannel channel;
 
-      public com.google.protobuf.RpcChannel getChannel() {
+      public org.spark-project.protobuf.RpcChannel getChannel() {
         return channel;
       }
 
       public  void createTable(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse> done) {
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse> done) {
         channel.callMethod(
           getDescriptor().getMethods().get(0),
           controller,
           request,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse.getDefaultInstance(),
-          com.google.protobuf.RpcUtil.generalizeCallback(
+          org.spark-project.protobuf.RpcUtil.generalizeCallback(
             done,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse.class,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse.getDefaultInstance()));
       }
 
       public  void dropTable(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse> done) {
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse> done) {
         channel.callMethod(
           getDescriptor().getMethods().get(1),
           controller,
           request,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse.getDefaultInstance(),
-          com.google.protobuf.RpcUtil.generalizeCallback(
+          org.spark-project.protobuf.RpcUtil.generalizeCallback(
             done,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse.class,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse.getDefaultInstance()));
       }
 
       public  void beginWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse> done) {
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse> done) {
         channel.callMethod(
           getDescriptor().getMethods().get(2),
           controller,
           request,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse.getDefaultInstance(),
-          com.google.protobuf.RpcUtil.generalizeCallback(
+          org.spark-project.protobuf.RpcUtil.generalizeCallback(
             done,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse.class,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse.getDefaultInstance()));
       }
 
       public  void commitWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse> done) {
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse> done) {
         channel.callMethod(
           getDescriptor().getMethods().get(3),
           controller,
           request,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse.getDefaultInstance(),
-          com.google.protobuf.RpcUtil.generalizeCallback(
+          org.spark-project.protobuf.RpcUtil.generalizeCallback(
             done,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse.class,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse.getDefaultInstance()));
       }
 
       public  void abortWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse> done) {
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse> done) {
         channel.callMethod(
           getDescriptor().getMethods().get(4),
           controller,
           request,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse.getDefaultInstance(),
-          com.google.protobuf.RpcUtil.generalizeCallback(
+          org.spark-project.protobuf.RpcUtil.generalizeCallback(
             done,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse.class,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse.getDefaultInstance()));
       }
 
       public  void getAbortedWriteTransactions(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse> done) {
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse> done) {
         channel.callMethod(
           getDescriptor().getMethods().get(5),
           controller,
           request,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse.getDefaultInstance(),
-          com.google.protobuf.RpcUtil.generalizeCallback(
+          org.spark-project.protobuf.RpcUtil.generalizeCallback(
             done,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse.class,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse.getDefaultInstance()));
       }
 
       public  void createSnapshot(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse> done) {
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse> done) {
         channel.callMethod(
           getDescriptor().getMethods().get(6),
           controller,
           request,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse.getDefaultInstance(),
-          com.google.protobuf.RpcUtil.generalizeCallback(
+          org.spark-project.protobuf.RpcUtil.generalizeCallback(
             done,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse.class,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse.getDefaultInstance()));
       }
 
       public  void keepAliveTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest request,
-          com.google.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse> done) {
+          org.spark-project.protobuf.RpcCallback<org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse> done) {
         channel.callMethod(
           getDescriptor().getMethods().get(7),
           controller,
           request,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse.getDefaultInstance(),
-          com.google.protobuf.RpcUtil.generalizeCallback(
+          org.spark-project.protobuf.RpcUtil.generalizeCallback(
             done,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse.class,
             org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse.getDefaultInstance()));
@@ -12272,63 +12272,63 @@ public final class RevisionManagerEndpointProtos {
     }
 
     public static BlockingInterface newBlockingStub(
-        com.google.protobuf.BlockingRpcChannel channel) {
+        org.spark-project.protobuf.BlockingRpcChannel channel) {
       return new BlockingStub(channel);
     }
 
     public interface BlockingInterface {
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse createTable(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest request)
-          throws com.google.protobuf.ServiceException;
+          throws org.spark-project.protobuf.ServiceException;
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse dropTable(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest request)
-          throws com.google.protobuf.ServiceException;
+          throws org.spark-project.protobuf.ServiceException;
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse beginWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest request)
-          throws com.google.protobuf.ServiceException;
+          throws org.spark-project.protobuf.ServiceException;
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse commitWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest request)
-          throws com.google.protobuf.ServiceException;
+          throws org.spark-project.protobuf.ServiceException;
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse abortWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest request)
-          throws com.google.protobuf.ServiceException;
+          throws org.spark-project.protobuf.ServiceException;
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse getAbortedWriteTransactions(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest request)
-          throws com.google.protobuf.ServiceException;
+          throws org.spark-project.protobuf.ServiceException;
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse createSnapshot(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest request)
-          throws com.google.protobuf.ServiceException;
+          throws org.spark-project.protobuf.ServiceException;
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse keepAliveTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest request)
-          throws com.google.protobuf.ServiceException;
+          throws org.spark-project.protobuf.ServiceException;
     }
 
     private static final class BlockingStub implements BlockingInterface {
-      private BlockingStub(com.google.protobuf.BlockingRpcChannel channel) {
+      private BlockingStub(org.spark-project.protobuf.BlockingRpcChannel channel) {
         this.channel = channel;
       }
 
-      private final com.google.protobuf.BlockingRpcChannel channel;
+      private final org.spark-project.protobuf.BlockingRpcChannel channel;
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse createTable(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableRequest request)
-          throws com.google.protobuf.ServiceException {
+          throws org.spark-project.protobuf.ServiceException {
         return (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateTableResponse) channel.callBlockingMethod(
           getDescriptor().getMethods().get(0),
           controller,
@@ -12338,9 +12338,9 @@ public final class RevisionManagerEndpointProtos {
 
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse dropTable(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableRequest request)
-          throws com.google.protobuf.ServiceException {
+          throws org.spark-project.protobuf.ServiceException {
         return (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.DropTableResponse) channel.callBlockingMethod(
           getDescriptor().getMethods().get(1),
           controller,
@@ -12350,9 +12350,9 @@ public final class RevisionManagerEndpointProtos {
 
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse beginWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionRequest request)
-          throws com.google.protobuf.ServiceException {
+          throws org.spark-project.protobuf.ServiceException {
         return (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.BeginWriteTransactionResponse) channel.callBlockingMethod(
           getDescriptor().getMethods().get(2),
           controller,
@@ -12362,9 +12362,9 @@ public final class RevisionManagerEndpointProtos {
 
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse commitWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionRequest request)
-          throws com.google.protobuf.ServiceException {
+          throws org.spark-project.protobuf.ServiceException {
         return (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CommitWriteTransactionResponse) channel.callBlockingMethod(
           getDescriptor().getMethods().get(3),
           controller,
@@ -12374,9 +12374,9 @@ public final class RevisionManagerEndpointProtos {
 
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse abortWriteTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionRequest request)
-          throws com.google.protobuf.ServiceException {
+          throws org.spark-project.protobuf.ServiceException {
         return (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.AbortWriteTransactionResponse) channel.callBlockingMethod(
           getDescriptor().getMethods().get(4),
           controller,
@@ -12386,9 +12386,9 @@ public final class RevisionManagerEndpointProtos {
 
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse getAbortedWriteTransactions(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsRequest request)
-          throws com.google.protobuf.ServiceException {
+          throws org.spark-project.protobuf.ServiceException {
         return (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.GetAbortedWriteTransactionsResponse) channel.callBlockingMethod(
           getDescriptor().getMethods().get(5),
           controller,
@@ -12398,9 +12398,9 @@ public final class RevisionManagerEndpointProtos {
 
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse createSnapshot(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotRequest request)
-          throws com.google.protobuf.ServiceException {
+          throws org.spark-project.protobuf.ServiceException {
         return (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.CreateSnapshotResponse) channel.callBlockingMethod(
           getDescriptor().getMethods().get(6),
           controller,
@@ -12410,9 +12410,9 @@ public final class RevisionManagerEndpointProtos {
 
 
       public org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse keepAliveTransaction(
-          com.google.protobuf.RpcController controller,
+          org.spark-project.protobuf.RpcController controller,
           org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionRequest request)
-          throws com.google.protobuf.ServiceException {
+          throws org.spark-project.protobuf.ServiceException {
         return (org.apache.hcatalog.hbase.snapshot.RevisionManagerEndpointProtos.KeepAliveTransactionResponse) channel.callBlockingMethod(
           getDescriptor().getMethods().get(7),
           controller,
@@ -12425,112 +12425,112 @@ public final class RevisionManagerEndpointProtos {
     // @@protoc_insertion_point(class_scope:RevisionManagerEndpointService)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_CreateTableRequest_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_CreateTableRequest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_CreateTableResponse_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_CreateTableResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_DropTableRequest_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DropTableRequest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_DropTableResponse_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DropTableResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_BeginWriteTransactionRequest_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_BeginWriteTransactionRequest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_BeginWriteTransactionResponse_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_BeginWriteTransactionResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_CommitWriteTransactionRequest_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_CommitWriteTransactionRequest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_CommitWriteTransactionResponse_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_CommitWriteTransactionResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_AbortWriteTransactionRequest_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_AbortWriteTransactionRequest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_AbortWriteTransactionResponse_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_AbortWriteTransactionResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_GetAbortedWriteTransactionsRequest_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_GetAbortedWriteTransactionsRequest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_GetAbortedWriteTransactionsResponse_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_GetAbortedWriteTransactionsResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_CreateSnapshotRequest_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_CreateSnapshotRequest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_CreateSnapshotResponse_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_CreateSnapshotResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_KeepAliveTransactionRequest_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_KeepAliveTransactionRequest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_KeepAliveTransactionResponse_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_KeepAliveTransactionResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_FamilyRevision_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FamilyRevision_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_Transaction_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Transaction_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_TableSnapshot_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_TableSnapshot_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_TableSnapshot_ColumnFamilyRevision_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_TableSnapshot_ColumnFamilyRevision_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
+  public static org.spark-project.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static org.spark-project.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -12589,137 +12589,137 @@ public final class RevisionManagerEndpointProtos {
       "shotB\035RevisionManagerEndpointProtos\210\001\001\240\001" +
       "\001"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
+    org.spark-project.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+      new org.spark-project.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        public org.spark-project.protobuf.ExtensionRegistry assignDescriptors(
+            org.spark-project.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
           internal_static_CreateTableRequest_descriptor =
             getDescriptor().getMessageTypes().get(0);
           internal_static_CreateTableRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_CreateTableRequest_descriptor,
               new java.lang.String[] { "TableName", "ColumnFamilies", });
           internal_static_CreateTableResponse_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_CreateTableResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_CreateTableResponse_descriptor,
               new java.lang.String[] { });
           internal_static_DropTableRequest_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_DropTableRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DropTableRequest_descriptor,
               new java.lang.String[] { "TableName", });
           internal_static_DropTableResponse_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_DropTableResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DropTableResponse_descriptor,
               new java.lang.String[] { });
           internal_static_BeginWriteTransactionRequest_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_BeginWriteTransactionRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_BeginWriteTransactionRequest_descriptor,
               new java.lang.String[] { "TableName", "KeepAlive", "ColumnFamilies", });
           internal_static_BeginWriteTransactionResponse_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_BeginWriteTransactionResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_BeginWriteTransactionResponse_descriptor,
               new java.lang.String[] { "Transaction", });
           internal_static_CommitWriteTransactionRequest_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_CommitWriteTransactionRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_CommitWriteTransactionRequest_descriptor,
               new java.lang.String[] { "Transaction", });
           internal_static_CommitWriteTransactionResponse_descriptor =
             getDescriptor().getMessageTypes().get(7);
           internal_static_CommitWriteTransactionResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_CommitWriteTransactionResponse_descriptor,
               new java.lang.String[] { });
           internal_static_AbortWriteTransactionRequest_descriptor =
             getDescriptor().getMessageTypes().get(8);
           internal_static_AbortWriteTransactionRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_AbortWriteTransactionRequest_descriptor,
               new java.lang.String[] { "Transaction", });
           internal_static_AbortWriteTransactionResponse_descriptor =
             getDescriptor().getMessageTypes().get(9);
           internal_static_AbortWriteTransactionResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_AbortWriteTransactionResponse_descriptor,
               new java.lang.String[] { });
           internal_static_GetAbortedWriteTransactionsRequest_descriptor =
             getDescriptor().getMessageTypes().get(10);
           internal_static_GetAbortedWriteTransactionsRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_GetAbortedWriteTransactionsRequest_descriptor,
               new java.lang.String[] { "TableName", "ColumnFamily", });
           internal_static_GetAbortedWriteTransactionsResponse_descriptor =
             getDescriptor().getMessageTypes().get(11);
           internal_static_GetAbortedWriteTransactionsResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_GetAbortedWriteTransactionsResponse_descriptor,
               new java.lang.String[] { "FamilyRevisions", });
           internal_static_CreateSnapshotRequest_descriptor =
             getDescriptor().getMessageTypes().get(12);
           internal_static_CreateSnapshotRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_CreateSnapshotRequest_descriptor,
               new java.lang.String[] { "TableName", "Revision", });
           internal_static_CreateSnapshotResponse_descriptor =
             getDescriptor().getMessageTypes().get(13);
           internal_static_CreateSnapshotResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_CreateSnapshotResponse_descriptor,
               new java.lang.String[] { "TableSnapshot", });
           internal_static_KeepAliveTransactionRequest_descriptor =
             getDescriptor().getMessageTypes().get(14);
           internal_static_KeepAliveTransactionRequest_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_KeepAliveTransactionRequest_descriptor,
               new java.lang.String[] { "Transaction", });
           internal_static_KeepAliveTransactionResponse_descriptor =
             getDescriptor().getMessageTypes().get(15);
           internal_static_KeepAliveTransactionResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_KeepAliveTransactionResponse_descriptor,
               new java.lang.String[] { });
           internal_static_FamilyRevision_descriptor =
             getDescriptor().getMessageTypes().get(16);
           internal_static_FamilyRevision_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FamilyRevision_descriptor,
               new java.lang.String[] { "Revision", "Timestamp", });
           internal_static_Transaction_descriptor =
             getDescriptor().getMessageTypes().get(17);
           internal_static_Transaction_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Transaction_descriptor,
               new java.lang.String[] { "TableName", "TimeStamp", "KeepAlive", "Revision", "ColumnFamilies", });
           internal_static_TableSnapshot_descriptor =
             getDescriptor().getMessageTypes().get(18);
           internal_static_TableSnapshot_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_TableSnapshot_descriptor,
               new java.lang.String[] { "TableName", "LatestRevision", "ColumnFamilyRevision", });
           internal_static_TableSnapshot_ColumnFamilyRevision_descriptor =
             internal_static_TableSnapshot_descriptor.getNestedTypes().get(0);
           internal_static_TableSnapshot_ColumnFamilyRevision_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_TableSnapshot_ColumnFamilyRevision_descriptor,
               new java.lang.String[] { "Key", "Value", });
           return null;
         }
       };
-    com.google.protobuf.Descriptors.FileDescriptor
+    org.spark-project.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        new org.spark-project.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
   }
 

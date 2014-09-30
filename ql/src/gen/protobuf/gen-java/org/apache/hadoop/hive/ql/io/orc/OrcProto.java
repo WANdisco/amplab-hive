@@ -6,13 +6,13 @@ package org.apache.hadoop.hive.ql.io.orc;
 public final class OrcProto {
   private OrcProto() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+      org.spark-project.protobuf.ExtensionRegistry registry) {
   }
   /**
    * Protobuf enum {@code org.apache.hadoop.hive.ql.io.orc.CompressionKind}
    */
   public enum CompressionKind
-      implements com.google.protobuf.ProtocolMessageEnum {
+      implements org.spark-project.protobuf.ProtocolMessageEnum {
     /**
      * <code>NONE = 0;</code>
      */
@@ -61,27 +61,27 @@ public final class OrcProto {
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<CompressionKind>
+    public static org.spark-project.protobuf.Internal.EnumLiteMap<CompressionKind>
         internalGetValueMap() {
       return internalValueMap;
     }
-    private static com.google.protobuf.Internal.EnumLiteMap<CompressionKind>
+    private static org.spark-project.protobuf.Internal.EnumLiteMap<CompressionKind>
         internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<CompressionKind>() {
+          new org.spark-project.protobuf.Internal.EnumLiteMap<CompressionKind>() {
             public CompressionKind findValueByNumber(int number) {
               return CompressionKind.valueOf(number);
             }
           };
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+    public final org.spark-project.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
       return getDescriptor().getValues().get(index);
     }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
+    public final org.spark-project.protobuf.Descriptors.EnumDescriptor
         getDescriptorForType() {
       return getDescriptor();
     }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
+    public static final org.spark-project.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.getDescriptor().getEnumTypes().get(0);
     }
@@ -89,7 +89,7 @@ public final class OrcProto {
     private static final CompressionKind[] VALUES = values();
 
     public static CompressionKind valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        org.spark-project.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
@@ -109,7 +109,7 @@ public final class OrcProto {
   }
 
   public interface IntegerStatisticsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional sint64 minimum = 1;
     /**
@@ -145,14 +145,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.IntegerStatistics}
    */
   public static final class IntegerStatistics extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements IntegerStatisticsOrBuilder {
     // Use IntegerStatistics.newBuilder() to construct.
-    private IntegerStatistics(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private IntegerStatistics(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private IntegerStatistics(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private IntegerStatistics(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final IntegerStatistics defaultInstance;
     public static IntegerStatistics getDefaultInstance() {
@@ -163,20 +163,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private IntegerStatistics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -209,40 +209,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<IntegerStatistics> PARSER =
-        new com.google.protobuf.AbstractParser<IntegerStatistics>() {
+    public static org.spark-project.protobuf.Parser<IntegerStatistics> PARSER =
+        new org.spark-project.protobuf.AbstractParser<IntegerStatistics>() {
       public IntegerStatistics parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new IntegerStatistics(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<IntegerStatistics> getParserForType() {
+    public org.spark-project.protobuf.Parser<IntegerStatistics> getParserForType() {
       return PARSER;
     }
 
@@ -309,7 +309,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -331,15 +331,15 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeSInt64Size(1, minimum_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeSInt64Size(2, maximum_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeSInt64Size(3, sum_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -355,24 +355,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parseFrom(java.io.InputStream input)
@@ -381,7 +381,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -391,18 +391,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -416,7 +416,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -424,14 +424,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.IntegerStatistics}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatisticsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -444,12 +444,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -471,7 +471,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_descriptor;
       }
@@ -509,7 +509,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics)other);
         } else {
@@ -538,13 +538,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -667,7 +667,7 @@ public final class OrcProto {
   }
 
   public interface DoubleStatisticsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional double minimum = 1;
     /**
@@ -703,14 +703,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.DoubleStatistics}
    */
   public static final class DoubleStatistics extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements DoubleStatisticsOrBuilder {
     // Use DoubleStatistics.newBuilder() to construct.
-    private DoubleStatistics(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DoubleStatistics(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private DoubleStatistics(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private DoubleStatistics(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final DoubleStatistics defaultInstance;
     public static DoubleStatistics getDefaultInstance() {
@@ -721,20 +721,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private DoubleStatistics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -767,40 +767,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DoubleStatistics> PARSER =
-        new com.google.protobuf.AbstractParser<DoubleStatistics>() {
+    public static org.spark-project.protobuf.Parser<DoubleStatistics> PARSER =
+        new org.spark-project.protobuf.AbstractParser<DoubleStatistics>() {
       public DoubleStatistics parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new DoubleStatistics(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DoubleStatistics> getParserForType() {
+    public org.spark-project.protobuf.Parser<DoubleStatistics> getParserForType() {
       return PARSER;
     }
 
@@ -867,7 +867,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -889,15 +889,15 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeDoubleSize(1, minimum_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeDoubleSize(2, maximum_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeDoubleSize(3, sum_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -913,24 +913,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parseFrom(java.io.InputStream input)
@@ -939,7 +939,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -949,18 +949,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -974,7 +974,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -982,14 +982,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.DoubleStatistics}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatisticsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1002,12 +1002,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -1029,7 +1029,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_descriptor;
       }
@@ -1067,7 +1067,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics)other);
         } else {
@@ -1096,13 +1096,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -1225,7 +1225,7 @@ public final class OrcProto {
   }
 
   public interface StringStatisticsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional string minimum = 1;
     /**
@@ -1239,7 +1239,7 @@ public final class OrcProto {
     /**
      * <code>optional string minimum = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getMinimumBytes();
 
     // optional string maximum = 2;
@@ -1254,7 +1254,7 @@ public final class OrcProto {
     /**
      * <code>optional string maximum = 2;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getMaximumBytes();
 
     // optional sint64 sum = 3;
@@ -1279,14 +1279,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.StringStatistics}
    */
   public static final class StringStatistics extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements StringStatisticsOrBuilder {
     // Use StringStatistics.newBuilder() to construct.
-    private StringStatistics(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private StringStatistics(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private StringStatistics(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private StringStatistics(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final StringStatistics defaultInstance;
     public static StringStatistics getDefaultInstance() {
@@ -1297,20 +1297,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private StringStatistics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1343,40 +1343,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<StringStatistics> PARSER =
-        new com.google.protobuf.AbstractParser<StringStatistics>() {
+    public static org.spark-project.protobuf.Parser<StringStatistics> PARSER =
+        new org.spark-project.protobuf.AbstractParser<StringStatistics>() {
       public StringStatistics parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new StringStatistics(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<StringStatistics> getParserForType() {
+    public org.spark-project.protobuf.Parser<StringStatistics> getParserForType() {
       return PARSER;
     }
 
@@ -1398,8 +1398,8 @@ public final class OrcProto {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           minimum_ = s;
@@ -1410,17 +1410,17 @@ public final class OrcProto {
     /**
      * <code>optional string minimum = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getMinimumBytes() {
       java.lang.Object ref = minimum_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         minimum_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -1441,8 +1441,8 @@ public final class OrcProto {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           maximum_ = s;
@@ -1453,17 +1453,17 @@ public final class OrcProto {
     /**
      * <code>optional string maximum = 2;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getMaximumBytes() {
       java.lang.Object ref = maximum_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         maximum_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -1505,7 +1505,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1527,15 +1527,15 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getMinimumBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(2, getMaximumBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeSInt64Size(3, sum_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -1551,24 +1551,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parseFrom(java.io.InputStream input)
@@ -1577,7 +1577,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -1587,18 +1587,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -1612,7 +1612,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1620,14 +1620,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.StringStatistics}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatisticsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1640,12 +1640,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -1667,7 +1667,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_descriptor;
       }
@@ -1705,7 +1705,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics)other);
         } else {
@@ -1738,13 +1738,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -1770,7 +1770,7 @@ public final class OrcProto {
       public java.lang.String getMinimum() {
         java.lang.Object ref = minimum_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           minimum_ = s;
           return s;
@@ -1781,17 +1781,17 @@ public final class OrcProto {
       /**
        * <code>optional string minimum = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getMinimumBytes() {
         java.lang.Object ref = minimum_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           minimum_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -1820,7 +1820,7 @@ public final class OrcProto {
        * <code>optional string minimum = 1;</code>
        */
       public Builder setMinimumBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1844,7 +1844,7 @@ public final class OrcProto {
       public java.lang.String getMaximum() {
         java.lang.Object ref = maximum_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           maximum_ = s;
           return s;
@@ -1855,17 +1855,17 @@ public final class OrcProto {
       /**
        * <code>optional string maximum = 2;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getMaximumBytes() {
         java.lang.Object ref = maximum_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           maximum_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -1894,7 +1894,7 @@ public final class OrcProto {
        * <code>optional string maximum = 2;</code>
        */
       public Builder setMaximumBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1965,7 +1965,7 @@ public final class OrcProto {
   }
 
   public interface BucketStatisticsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // repeated uint64 count = 1 [packed = true];
     /**
@@ -1985,14 +1985,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.BucketStatistics}
    */
   public static final class BucketStatistics extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements BucketStatisticsOrBuilder {
     // Use BucketStatistics.newBuilder() to construct.
-    private BucketStatistics(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BucketStatistics(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private BucketStatistics(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private BucketStatistics(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final BucketStatistics defaultInstance;
     public static BucketStatistics getDefaultInstance() {
@@ -2003,20 +2003,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private BucketStatistics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2055,10 +2055,10 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2068,30 +2068,30 @@ public final class OrcProto {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<BucketStatistics> PARSER =
-        new com.google.protobuf.AbstractParser<BucketStatistics>() {
+    public static org.spark-project.protobuf.Parser<BucketStatistics> PARSER =
+        new org.spark-project.protobuf.AbstractParser<BucketStatistics>() {
       public BucketStatistics parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new BucketStatistics(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<BucketStatistics> getParserForType() {
+    public org.spark-project.protobuf.Parser<BucketStatistics> getParserForType() {
       return PARSER;
     }
 
@@ -2131,7 +2131,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (getCountList().size() > 0) {
@@ -2153,13 +2153,13 @@ public final class OrcProto {
       {
         int dataSize = 0;
         for (int i = 0; i < count_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
+          dataSize += org.spark-project.protobuf.CodedOutputStream
             .computeUInt64SizeNoTag(count_.get(i));
         }
         size += dataSize;
         if (!getCountList().isEmpty()) {
           size += 1;
-          size += com.google.protobuf.CodedOutputStream
+          size += org.spark-project.protobuf.CodedOutputStream
               .computeInt32SizeNoTag(dataSize);
         }
         countMemoizedSerializedSize = dataSize;
@@ -2177,24 +2177,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parseFrom(java.io.InputStream input)
@@ -2203,7 +2203,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -2213,18 +2213,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -2238,7 +2238,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2246,14 +2246,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.BucketStatistics}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatisticsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2266,12 +2266,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -2289,7 +2289,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_descriptor;
       }
@@ -2318,7 +2318,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics)other);
         } else {
@@ -2348,13 +2348,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -2444,7 +2444,7 @@ public final class OrcProto {
   }
 
   public interface DecimalStatisticsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional string minimum = 1;
     /**
@@ -2458,7 +2458,7 @@ public final class OrcProto {
     /**
      * <code>optional string minimum = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getMinimumBytes();
 
     // optional string maximum = 2;
@@ -2473,7 +2473,7 @@ public final class OrcProto {
     /**
      * <code>optional string maximum = 2;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getMaximumBytes();
 
     // optional string sum = 3;
@@ -2488,21 +2488,21 @@ public final class OrcProto {
     /**
      * <code>optional string sum = 3;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getSumBytes();
   }
   /**
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.DecimalStatistics}
    */
   public static final class DecimalStatistics extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements DecimalStatisticsOrBuilder {
     // Use DecimalStatistics.newBuilder() to construct.
-    private DecimalStatistics(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DecimalStatistics(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private DecimalStatistics(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private DecimalStatistics(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final DecimalStatistics defaultInstance;
     public static DecimalStatistics getDefaultInstance() {
@@ -2513,20 +2513,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private DecimalStatistics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2559,40 +2559,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DecimalStatistics> PARSER =
-        new com.google.protobuf.AbstractParser<DecimalStatistics>() {
+    public static org.spark-project.protobuf.Parser<DecimalStatistics> PARSER =
+        new org.spark-project.protobuf.AbstractParser<DecimalStatistics>() {
       public DecimalStatistics parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new DecimalStatistics(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DecimalStatistics> getParserForType() {
+    public org.spark-project.protobuf.Parser<DecimalStatistics> getParserForType() {
       return PARSER;
     }
 
@@ -2614,8 +2614,8 @@ public final class OrcProto {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           minimum_ = s;
@@ -2626,17 +2626,17 @@ public final class OrcProto {
     /**
      * <code>optional string minimum = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getMinimumBytes() {
       java.lang.Object ref = minimum_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         minimum_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -2657,8 +2657,8 @@ public final class OrcProto {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           maximum_ = s;
@@ -2669,17 +2669,17 @@ public final class OrcProto {
     /**
      * <code>optional string maximum = 2;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getMaximumBytes() {
       java.lang.Object ref = maximum_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         maximum_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -2700,8 +2700,8 @@ public final class OrcProto {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           sum_ = s;
@@ -2712,17 +2712,17 @@ public final class OrcProto {
     /**
      * <code>optional string sum = 3;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getSumBytes() {
       java.lang.Object ref = sum_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         sum_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -2740,7 +2740,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2762,15 +2762,15 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getMinimumBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(2, getMaximumBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(3, getSumBytes());
       }
       size += getUnknownFields().getSerializedSize();
@@ -2786,24 +2786,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parseFrom(java.io.InputStream input)
@@ -2812,7 +2812,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -2822,18 +2822,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -2847,7 +2847,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2855,14 +2855,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.DecimalStatistics}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatisticsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2875,12 +2875,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -2902,7 +2902,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_descriptor;
       }
@@ -2940,7 +2940,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics)other);
         } else {
@@ -2975,13 +2975,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -3007,7 +3007,7 @@ public final class OrcProto {
       public java.lang.String getMinimum() {
         java.lang.Object ref = minimum_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           minimum_ = s;
           return s;
@@ -3018,17 +3018,17 @@ public final class OrcProto {
       /**
        * <code>optional string minimum = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getMinimumBytes() {
         java.lang.Object ref = minimum_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           minimum_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -3057,7 +3057,7 @@ public final class OrcProto {
        * <code>optional string minimum = 1;</code>
        */
       public Builder setMinimumBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3081,7 +3081,7 @@ public final class OrcProto {
       public java.lang.String getMaximum() {
         java.lang.Object ref = maximum_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           maximum_ = s;
           return s;
@@ -3092,17 +3092,17 @@ public final class OrcProto {
       /**
        * <code>optional string maximum = 2;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getMaximumBytes() {
         java.lang.Object ref = maximum_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           maximum_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -3131,7 +3131,7 @@ public final class OrcProto {
        * <code>optional string maximum = 2;</code>
        */
       public Builder setMaximumBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3155,7 +3155,7 @@ public final class OrcProto {
       public java.lang.String getSum() {
         java.lang.Object ref = sum_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           sum_ = s;
           return s;
@@ -3166,17 +3166,17 @@ public final class OrcProto {
       /**
        * <code>optional string sum = 3;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getSumBytes() {
         java.lang.Object ref = sum_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           sum_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -3205,7 +3205,7 @@ public final class OrcProto {
        * <code>optional string sum = 3;</code>
        */
       public Builder setSumBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3227,7 +3227,7 @@ public final class OrcProto {
   }
 
   public interface DateStatisticsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional sint32 minimum = 1;
     /**
@@ -3261,14 +3261,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.DateStatistics}
    */
   public static final class DateStatistics extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements DateStatisticsOrBuilder {
     // Use DateStatistics.newBuilder() to construct.
-    private DateStatistics(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DateStatistics(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private DateStatistics(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private DateStatistics(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final DateStatistics defaultInstance;
     public static DateStatistics getDefaultInstance() {
@@ -3279,20 +3279,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private DateStatistics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3320,40 +3320,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DateStatistics> PARSER =
-        new com.google.protobuf.AbstractParser<DateStatistics>() {
+    public static org.spark-project.protobuf.Parser<DateStatistics> PARSER =
+        new org.spark-project.protobuf.AbstractParser<DateStatistics>() {
       public DateStatistics parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new DateStatistics(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DateStatistics> getParserForType() {
+    public org.spark-project.protobuf.Parser<DateStatistics> getParserForType() {
       return PARSER;
     }
 
@@ -3411,7 +3411,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3430,11 +3430,11 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeSInt32Size(1, minimum_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeSInt32Size(2, maximum_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -3450,24 +3450,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parseFrom(java.io.InputStream input)
@@ -3476,7 +3476,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -3486,18 +3486,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -3511,7 +3511,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3519,14 +3519,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.DateStatistics}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatisticsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -3539,12 +3539,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -3564,7 +3564,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_descriptor;
       }
@@ -3598,7 +3598,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics)other);
         } else {
@@ -3624,13 +3624,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -3736,7 +3736,7 @@ public final class OrcProto {
   }
 
   public interface BinaryStatisticsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional sint64 sum = 1;
     /**
@@ -3760,14 +3760,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.BinaryStatistics}
    */
   public static final class BinaryStatistics extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements BinaryStatisticsOrBuilder {
     // Use BinaryStatistics.newBuilder() to construct.
-    private BinaryStatistics(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private BinaryStatistics(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private BinaryStatistics(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private BinaryStatistics(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final BinaryStatistics defaultInstance;
     public static BinaryStatistics getDefaultInstance() {
@@ -3778,20 +3778,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private BinaryStatistics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3814,40 +3814,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<BinaryStatistics> PARSER =
-        new com.google.protobuf.AbstractParser<BinaryStatistics>() {
+    public static org.spark-project.protobuf.Parser<BinaryStatistics> PARSER =
+        new org.spark-project.protobuf.AbstractParser<BinaryStatistics>() {
       public BinaryStatistics parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new BinaryStatistics(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<BinaryStatistics> getParserForType() {
+    public org.spark-project.protobuf.Parser<BinaryStatistics> getParserForType() {
       return PARSER;
     }
 
@@ -3888,7 +3888,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3904,7 +3904,7 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeSInt64Size(1, sum_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -3920,24 +3920,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parseFrom(java.io.InputStream input)
@@ -3946,7 +3946,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -3956,18 +3956,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -3981,7 +3981,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3989,14 +3989,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.BinaryStatistics}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatisticsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4009,12 +4009,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -4032,7 +4032,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_descriptor;
       }
@@ -4062,7 +4062,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics)other);
         } else {
@@ -4085,13 +4085,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -4164,7 +4164,7 @@ public final class OrcProto {
   }
 
   public interface ColumnStatisticsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional uint64 numberOfValues = 1;
     /**
@@ -4278,14 +4278,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.ColumnStatistics}
    */
   public static final class ColumnStatistics extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements ColumnStatisticsOrBuilder {
     // Use ColumnStatistics.newBuilder() to construct.
-    private ColumnStatistics(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ColumnStatistics(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ColumnStatistics(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private ColumnStatistics(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final ColumnStatistics defaultInstance;
     public static ColumnStatistics getDefaultInstance() {
@@ -4296,20 +4296,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private ColumnStatistics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -4423,40 +4423,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ColumnStatistics> PARSER =
-        new com.google.protobuf.AbstractParser<ColumnStatistics>() {
+    public static org.spark-project.protobuf.Parser<ColumnStatistics> PARSER =
+        new org.spark-project.protobuf.AbstractParser<ColumnStatistics>() {
       public ColumnStatistics parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new ColumnStatistics(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ColumnStatistics> getParserForType() {
+    public org.spark-project.protobuf.Parser<ColumnStatistics> getParserForType() {
       return PARSER;
     }
 
@@ -4650,7 +4650,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4687,35 +4687,35 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(1, numberOfValues_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(2, intStatistics_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(3, doubleStatistics_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(4, stringStatistics_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(5, bucketStatistics_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(6, decimalStatistics_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(7, dateStatistics_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(8, binaryStatistics_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -4731,24 +4731,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parseFrom(java.io.InputStream input)
@@ -4757,7 +4757,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -4767,18 +4767,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -4792,7 +4792,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4800,14 +4800,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.ColumnStatistics}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4820,12 +4820,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getIntStatisticsFieldBuilder();
           getDoubleStatisticsFieldBuilder();
           getStringStatisticsFieldBuilder();
@@ -4892,7 +4892,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_descriptor;
       }
@@ -4978,7 +4978,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics)other);
         } else {
@@ -5022,13 +5022,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -5075,7 +5075,7 @@ public final class OrcProto {
 
       // optional .org.apache.hadoop.hive.ql.io.orc.IntegerStatistics intStatistics = 2;
       private org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics intStatistics_ = org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatisticsOrBuilder> intStatisticsBuilder_;
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.IntegerStatistics intStatistics = 2;</code>
@@ -5176,11 +5176,11 @@ public final class OrcProto {
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.IntegerStatistics intStatistics = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatisticsOrBuilder> 
           getIntStatisticsFieldBuilder() {
         if (intStatisticsBuilder_ == null) {
-          intStatisticsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          intStatisticsBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.IntegerStatisticsOrBuilder>(
                   intStatistics_,
                   getParentForChildren(),
@@ -5192,7 +5192,7 @@ public final class OrcProto {
 
       // optional .org.apache.hadoop.hive.ql.io.orc.DoubleStatistics doubleStatistics = 3;
       private org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics doubleStatistics_ = org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatisticsOrBuilder> doubleStatisticsBuilder_;
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.DoubleStatistics doubleStatistics = 3;</code>
@@ -5293,11 +5293,11 @@ public final class OrcProto {
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.DoubleStatistics doubleStatistics = 3;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatisticsOrBuilder> 
           getDoubleStatisticsFieldBuilder() {
         if (doubleStatisticsBuilder_ == null) {
-          doubleStatisticsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          doubleStatisticsBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.DoubleStatisticsOrBuilder>(
                   doubleStatistics_,
                   getParentForChildren(),
@@ -5309,7 +5309,7 @@ public final class OrcProto {
 
       // optional .org.apache.hadoop.hive.ql.io.orc.StringStatistics stringStatistics = 4;
       private org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics stringStatistics_ = org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatisticsOrBuilder> stringStatisticsBuilder_;
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.StringStatistics stringStatistics = 4;</code>
@@ -5410,11 +5410,11 @@ public final class OrcProto {
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.StringStatistics stringStatistics = 4;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatisticsOrBuilder> 
           getStringStatisticsFieldBuilder() {
         if (stringStatisticsBuilder_ == null) {
-          stringStatisticsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          stringStatisticsBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StringStatisticsOrBuilder>(
                   stringStatistics_,
                   getParentForChildren(),
@@ -5426,7 +5426,7 @@ public final class OrcProto {
 
       // optional .org.apache.hadoop.hive.ql.io.orc.BucketStatistics bucketStatistics = 5;
       private org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics bucketStatistics_ = org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatisticsOrBuilder> bucketStatisticsBuilder_;
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.BucketStatistics bucketStatistics = 5;</code>
@@ -5527,11 +5527,11 @@ public final class OrcProto {
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.BucketStatistics bucketStatistics = 5;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatisticsOrBuilder> 
           getBucketStatisticsFieldBuilder() {
         if (bucketStatisticsBuilder_ == null) {
-          bucketStatisticsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          bucketStatisticsBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.BucketStatisticsOrBuilder>(
                   bucketStatistics_,
                   getParentForChildren(),
@@ -5543,7 +5543,7 @@ public final class OrcProto {
 
       // optional .org.apache.hadoop.hive.ql.io.orc.DecimalStatistics decimalStatistics = 6;
       private org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics decimalStatistics_ = org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatisticsOrBuilder> decimalStatisticsBuilder_;
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.DecimalStatistics decimalStatistics = 6;</code>
@@ -5644,11 +5644,11 @@ public final class OrcProto {
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.DecimalStatistics decimalStatistics = 6;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatisticsOrBuilder> 
           getDecimalStatisticsFieldBuilder() {
         if (decimalStatisticsBuilder_ == null) {
-          decimalStatisticsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          decimalStatisticsBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.DecimalStatisticsOrBuilder>(
                   decimalStatistics_,
                   getParentForChildren(),
@@ -5660,7 +5660,7 @@ public final class OrcProto {
 
       // optional .org.apache.hadoop.hive.ql.io.orc.DateStatistics dateStatistics = 7;
       private org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics dateStatistics_ = org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatisticsOrBuilder> dateStatisticsBuilder_;
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.DateStatistics dateStatistics = 7;</code>
@@ -5761,11 +5761,11 @@ public final class OrcProto {
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.DateStatistics dateStatistics = 7;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatisticsOrBuilder> 
           getDateStatisticsFieldBuilder() {
         if (dateStatisticsBuilder_ == null) {
-          dateStatisticsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          dateStatisticsBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.DateStatisticsOrBuilder>(
                   dateStatistics_,
                   getParentForChildren(),
@@ -5777,7 +5777,7 @@ public final class OrcProto {
 
       // optional .org.apache.hadoop.hive.ql.io.orc.BinaryStatistics binaryStatistics = 8;
       private org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics binaryStatistics_ = org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatisticsOrBuilder> binaryStatisticsBuilder_;
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.BinaryStatistics binaryStatistics = 8;</code>
@@ -5878,11 +5878,11 @@ public final class OrcProto {
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.BinaryStatistics binaryStatistics = 8;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatisticsOrBuilder> 
           getBinaryStatisticsFieldBuilder() {
         if (binaryStatisticsBuilder_ == null) {
-          binaryStatisticsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          binaryStatisticsBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.BinaryStatisticsOrBuilder>(
                   binaryStatistics_,
                   getParentForChildren(),
@@ -5904,7 +5904,7 @@ public final class OrcProto {
   }
 
   public interface RowIndexEntryOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // repeated uint64 positions = 1 [packed = true];
     /**
@@ -5938,14 +5938,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.RowIndexEntry}
    */
   public static final class RowIndexEntry extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements RowIndexEntryOrBuilder {
     // Use RowIndexEntry.newBuilder() to construct.
-    private RowIndexEntry(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private RowIndexEntry(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private RowIndexEntry(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private RowIndexEntry(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final RowIndexEntry defaultInstance;
     public static RowIndexEntry getDefaultInstance() {
@@ -5956,20 +5956,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private RowIndexEntry(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -6021,10 +6021,10 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6034,30 +6034,30 @@ public final class OrcProto {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<RowIndexEntry> PARSER =
-        new com.google.protobuf.AbstractParser<RowIndexEntry>() {
+    public static org.spark-project.protobuf.Parser<RowIndexEntry> PARSER =
+        new org.spark-project.protobuf.AbstractParser<RowIndexEntry>() {
       public RowIndexEntry parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new RowIndexEntry(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<RowIndexEntry> getParserForType() {
+    public org.spark-project.protobuf.Parser<RowIndexEntry> getParserForType() {
       return PARSER;
     }
 
@@ -6121,7 +6121,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (getPositionsList().size() > 0) {
@@ -6146,19 +6146,19 @@ public final class OrcProto {
       {
         int dataSize = 0;
         for (int i = 0; i < positions_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
+          dataSize += org.spark-project.protobuf.CodedOutputStream
             .computeUInt64SizeNoTag(positions_.get(i));
         }
         size += dataSize;
         if (!getPositionsList().isEmpty()) {
           size += 1;
-          size += com.google.protobuf.CodedOutputStream
+          size += org.spark-project.protobuf.CodedOutputStream
               .computeInt32SizeNoTag(dataSize);
         }
         positionsMemoizedSerializedSize = dataSize;
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(2, statistics_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -6174,24 +6174,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parseFrom(java.io.InputStream input)
@@ -6200,7 +6200,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -6210,18 +6210,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -6235,7 +6235,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6243,14 +6243,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.RowIndexEntry}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntryOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -6263,12 +6263,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getStatisticsFieldBuilder();
         }
       }
@@ -6293,7 +6293,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_descriptor;
       }
@@ -6332,7 +6332,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry)other);
         } else {
@@ -6365,13 +6365,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -6451,7 +6451,7 @@ public final class OrcProto {
 
       // optional .org.apache.hadoop.hive.ql.io.orc.ColumnStatistics statistics = 2;
       private org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics statistics_ = org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder> statisticsBuilder_;
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.ColumnStatistics statistics = 2;</code>
@@ -6552,11 +6552,11 @@ public final class OrcProto {
       /**
        * <code>optional .org.apache.hadoop.hive.ql.io.orc.ColumnStatistics statistics = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.spark-project.protobuf.SingleFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder> 
           getStatisticsFieldBuilder() {
         if (statisticsBuilder_ == null) {
-          statisticsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          statisticsBuilder_ = new org.spark-project.protobuf.SingleFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder>(
                   statistics_,
                   getParentForChildren(),
@@ -6578,7 +6578,7 @@ public final class OrcProto {
   }
 
   public interface RowIndexOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // repeated .org.apache.hadoop.hive.ql.io.orc.RowIndexEntry entry = 1;
     /**
@@ -6609,14 +6609,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.RowIndex}
    */
   public static final class RowIndex extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements RowIndexOrBuilder {
     // Use RowIndex.newBuilder() to construct.
-    private RowIndex(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private RowIndex(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private RowIndex(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private RowIndex(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final RowIndex defaultInstance;
     public static RowIndex getDefaultInstance() {
@@ -6627,20 +6627,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private RowIndex(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -6666,10 +6666,10 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6679,30 +6679,30 @@ public final class OrcProto {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<RowIndex> PARSER =
-        new com.google.protobuf.AbstractParser<RowIndex>() {
+    public static org.spark-project.protobuf.Parser<RowIndex> PARSER =
+        new org.spark-project.protobuf.AbstractParser<RowIndex>() {
       public RowIndex parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new RowIndex(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<RowIndex> getParserForType() {
+    public org.spark-project.protobuf.Parser<RowIndex> getParserForType() {
       return PARSER;
     }
 
@@ -6754,7 +6754,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       for (int i = 0; i < entry_.size(); i++) {
@@ -6770,7 +6770,7 @@ public final class OrcProto {
 
       size = 0;
       for (int i = 0; i < entry_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, entry_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
@@ -6786,24 +6786,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parseFrom(java.io.InputStream input)
@@ -6812,7 +6812,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -6822,18 +6822,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -6847,7 +6847,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6855,14 +6855,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.RowIndex}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -6875,12 +6875,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getEntryFieldBuilder();
         }
       }
@@ -6903,7 +6903,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_descriptor;
       }
@@ -6936,7 +6936,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex)other);
         } else {
@@ -6966,7 +6966,7 @@ public final class OrcProto {
               entry_ = other.entry_;
               bitField0_ = (bitField0_ & ~0x00000001);
               entryBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getEntryFieldBuilder() : null;
             } else {
               entryBuilder_.addAllMessages(other.entry_);
@@ -6982,13 +6982,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndex) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -7010,7 +7010,7 @@ public final class OrcProto {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry, org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntryOrBuilder> entryBuilder_;
 
       /**
@@ -7225,11 +7225,11 @@ public final class OrcProto {
            getEntryBuilderList() {
         return getEntryFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry, org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntryOrBuilder> 
           getEntryFieldBuilder() {
         if (entryBuilder_ == null) {
-          entryBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          entryBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry, org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntry.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.RowIndexEntryOrBuilder>(
                   entry_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -7252,7 +7252,7 @@ public final class OrcProto {
   }
 
   public interface StreamOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required .org.apache.hadoop.hive.ql.io.orc.Stream.Kind kind = 1;
     /**
@@ -7288,14 +7288,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.Stream}
    */
   public static final class Stream extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements StreamOrBuilder {
     // Use Stream.newBuilder() to construct.
-    private Stream(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Stream(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private Stream(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private Stream(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final Stream defaultInstance;
     public static Stream getDefaultInstance() {
@@ -7306,20 +7306,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private Stream(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -7358,40 +7358,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Stream> PARSER =
-        new com.google.protobuf.AbstractParser<Stream>() {
+    public static org.spark-project.protobuf.Parser<Stream> PARSER =
+        new org.spark-project.protobuf.AbstractParser<Stream>() {
       public Stream parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new Stream(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Stream> getParserForType() {
+    public org.spark-project.protobuf.Parser<Stream> getParserForType() {
       return PARSER;
     }
 
@@ -7404,7 +7404,7 @@ public final class OrcProto {
      * </pre>
      */
     public enum Kind
-        implements com.google.protobuf.ProtocolMessageEnum {
+        implements org.spark-project.protobuf.ProtocolMessageEnum {
       /**
        * <code>PRESENT = 0;</code>
        */
@@ -7480,27 +7480,27 @@ public final class OrcProto {
         }
       }
 
-      public static com.google.protobuf.Internal.EnumLiteMap<Kind>
+      public static org.spark-project.protobuf.Internal.EnumLiteMap<Kind>
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<Kind>
+      private static org.spark-project.protobuf.Internal.EnumLiteMap<Kind>
           internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Kind>() {
+            new org.spark-project.protobuf.Internal.EnumLiteMap<Kind>() {
               public Kind findValueByNumber(int number) {
                 return Kind.valueOf(number);
               }
             };
 
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+      public final org.spark-project.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
       }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
+      public final org.spark-project.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
         return getDescriptor();
       }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
+      public static final org.spark-project.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream.getDescriptor().getEnumTypes().get(0);
       }
@@ -7508,7 +7508,7 @@ public final class OrcProto {
       private static final Kind[] VALUES = values();
 
       public static Kind valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+          org.spark-project.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
           throw new java.lang.IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
@@ -7594,7 +7594,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7616,15 +7616,15 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeEnumSize(1, kind_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt32Size(2, column_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(3, length_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -7640,24 +7640,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parseFrom(java.io.InputStream input)
@@ -7666,7 +7666,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -7676,18 +7676,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -7701,7 +7701,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -7709,14 +7709,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.Stream}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.StreamOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -7729,12 +7729,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -7756,7 +7756,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_descriptor;
       }
@@ -7794,7 +7794,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream)other);
         } else {
@@ -7827,13 +7827,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -7959,7 +7959,7 @@ public final class OrcProto {
   }
 
   public interface ColumnEncodingOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required .org.apache.hadoop.hive.ql.io.orc.ColumnEncoding.Kind kind = 1;
     /**
@@ -7985,14 +7985,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.ColumnEncoding}
    */
   public static final class ColumnEncoding extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements ColumnEncodingOrBuilder {
     // Use ColumnEncoding.newBuilder() to construct.
-    private ColumnEncoding(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ColumnEncoding(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ColumnEncoding(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private ColumnEncoding(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final ColumnEncoding defaultInstance;
     public static ColumnEncoding getDefaultInstance() {
@@ -8003,20 +8003,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private ColumnEncoding(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -8050,40 +8050,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ColumnEncoding> PARSER =
-        new com.google.protobuf.AbstractParser<ColumnEncoding>() {
+    public static org.spark-project.protobuf.Parser<ColumnEncoding> PARSER =
+        new org.spark-project.protobuf.AbstractParser<ColumnEncoding>() {
       public ColumnEncoding parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new ColumnEncoding(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ColumnEncoding> getParserForType() {
+    public org.spark-project.protobuf.Parser<ColumnEncoding> getParserForType() {
       return PARSER;
     }
 
@@ -8091,7 +8091,7 @@ public final class OrcProto {
      * Protobuf enum {@code org.apache.hadoop.hive.ql.io.orc.ColumnEncoding.Kind}
      */
     public enum Kind
-        implements com.google.protobuf.ProtocolMessageEnum {
+        implements org.spark-project.protobuf.ProtocolMessageEnum {
       /**
        * <code>DIRECT = 0;</code>
        */
@@ -8140,27 +8140,27 @@ public final class OrcProto {
         }
       }
 
-      public static com.google.protobuf.Internal.EnumLiteMap<Kind>
+      public static org.spark-project.protobuf.Internal.EnumLiteMap<Kind>
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<Kind>
+      private static org.spark-project.protobuf.Internal.EnumLiteMap<Kind>
           internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Kind>() {
+            new org.spark-project.protobuf.Internal.EnumLiteMap<Kind>() {
               public Kind findValueByNumber(int number) {
                 return Kind.valueOf(number);
               }
             };
 
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+      public final org.spark-project.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
       }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
+      public final org.spark-project.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
         return getDescriptor();
       }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
+      public static final org.spark-project.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding.getDescriptor().getEnumTypes().get(0);
       }
@@ -8168,7 +8168,7 @@ public final class OrcProto {
       private static final Kind[] VALUES = values();
 
       public static Kind valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+          org.spark-project.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
           throw new java.lang.IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
@@ -8237,7 +8237,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8256,11 +8256,11 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeEnumSize(1, kind_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt32Size(2, dictionarySize_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -8276,24 +8276,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parseFrom(java.io.InputStream input)
@@ -8302,7 +8302,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -8312,18 +8312,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -8337,7 +8337,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -8345,14 +8345,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.ColumnEncoding}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncodingOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -8365,12 +8365,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -8390,7 +8390,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_descriptor;
       }
@@ -8424,7 +8424,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding)other);
         } else {
@@ -8454,13 +8454,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -8553,7 +8553,7 @@ public final class OrcProto {
   }
 
   public interface StripeFooterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // repeated .org.apache.hadoop.hive.ql.io.orc.Stream streams = 1;
     /**
@@ -8609,14 +8609,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.StripeFooter}
    */
   public static final class StripeFooter extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements StripeFooterOrBuilder {
     // Use StripeFooter.newBuilder() to construct.
-    private StripeFooter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private StripeFooter(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private StripeFooter(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private StripeFooter(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final StripeFooter defaultInstance;
     public static StripeFooter getDefaultInstance() {
@@ -8627,20 +8627,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private StripeFooter(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -8674,10 +8674,10 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8690,30 +8690,30 @@ public final class OrcProto {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<StripeFooter> PARSER =
-        new com.google.protobuf.AbstractParser<StripeFooter>() {
+    public static org.spark-project.protobuf.Parser<StripeFooter> PARSER =
+        new org.spark-project.protobuf.AbstractParser<StripeFooter>() {
       public StripeFooter parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new StripeFooter(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<StripeFooter> getParserForType() {
+    public org.spark-project.protobuf.Parser<StripeFooter> getParserForType() {
       return PARSER;
     }
 
@@ -8814,7 +8814,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       for (int i = 0; i < streams_.size(); i++) {
@@ -8833,11 +8833,11 @@ public final class OrcProto {
 
       size = 0;
       for (int i = 0; i < streams_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, streams_.get(i));
       }
       for (int i = 0; i < columns_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(2, columns_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
@@ -8853,24 +8853,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parseFrom(java.io.InputStream input)
@@ -8879,7 +8879,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -8889,18 +8889,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -8914,7 +8914,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -8922,14 +8922,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.StripeFooter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooterOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -8942,12 +8942,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getStreamsFieldBuilder();
           getColumnsFieldBuilder();
         }
@@ -8977,7 +8977,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_descriptor;
       }
@@ -9019,7 +9019,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter)other);
         } else {
@@ -9049,7 +9049,7 @@ public final class OrcProto {
               streams_ = other.streams_;
               bitField0_ = (bitField0_ & ~0x00000001);
               streamsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getStreamsFieldBuilder() : null;
             } else {
               streamsBuilder_.addAllMessages(other.streams_);
@@ -9075,7 +9075,7 @@ public final class OrcProto {
               columns_ = other.columns_;
               bitField0_ = (bitField0_ & ~0x00000002);
               columnsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getColumnsFieldBuilder() : null;
             } else {
               columnsBuilder_.addAllMessages(other.columns_);
@@ -9103,13 +9103,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeFooter) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -9131,7 +9131,7 @@ public final class OrcProto {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream, org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StreamOrBuilder> streamsBuilder_;
 
       /**
@@ -9346,11 +9346,11 @@ public final class OrcProto {
            getStreamsBuilderList() {
         return getStreamsFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream, org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StreamOrBuilder> 
           getStreamsFieldBuilder() {
         if (streamsBuilder_ == null) {
-          streamsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          streamsBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream, org.apache.hadoop.hive.ql.io.orc.OrcProto.Stream.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StreamOrBuilder>(
                   streams_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -9371,7 +9371,7 @@ public final class OrcProto {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncodingOrBuilder> columnsBuilder_;
 
       /**
@@ -9586,11 +9586,11 @@ public final class OrcProto {
            getColumnsBuilderList() {
         return getColumnsFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncodingOrBuilder> 
           getColumnsFieldBuilder() {
         if (columnsBuilder_ == null) {
-          columnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          columnsBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncoding.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnEncodingOrBuilder>(
                   columns_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
@@ -9613,7 +9613,7 @@ public final class OrcProto {
   }
 
   public interface TypeOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required .org.apache.hadoop.hive.ql.io.orc.Type.Kind kind = 1;
     /**
@@ -9656,7 +9656,7 @@ public final class OrcProto {
     /**
      * <code>repeated string fieldNames = 3;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getFieldNamesBytes(int index);
 
     // optional uint32 maximumLength = 4;
@@ -9693,14 +9693,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.Type}
    */
   public static final class Type extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements TypeOrBuilder {
     // Use Type.newBuilder() to construct.
-    private Type(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Type(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private Type(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private Type(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final Type defaultInstance;
     public static Type getDefaultInstance() {
@@ -9711,20 +9711,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private Type(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -9774,7 +9774,7 @@ public final class OrcProto {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                fieldNames_ = new com.google.protobuf.LazyStringArrayList();
+                fieldNames_ = new org.spark-project.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000004;
               }
               fieldNames_.add(input.readBytes());
@@ -9797,46 +9797,46 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           subtypes_ = java.util.Collections.unmodifiableList(subtypes_);
         }
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          fieldNames_ = new com.google.protobuf.UnmodifiableLazyStringList(fieldNames_);
+          fieldNames_ = new org.spark-project.protobuf.UnmodifiableLazyStringList(fieldNames_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Type_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Type_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.Type.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.Type.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Type> PARSER =
-        new com.google.protobuf.AbstractParser<Type>() {
+    public static org.spark-project.protobuf.Parser<Type> PARSER =
+        new org.spark-project.protobuf.AbstractParser<Type>() {
       public Type parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new Type(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Type> getParserForType() {
+    public org.spark-project.protobuf.Parser<Type> getParserForType() {
       return PARSER;
     }
 
@@ -9844,7 +9844,7 @@ public final class OrcProto {
      * Protobuf enum {@code org.apache.hadoop.hive.ql.io.orc.Type.Kind}
      */
     public enum Kind
-        implements com.google.protobuf.ProtocolMessageEnum {
+        implements org.spark-project.protobuf.ProtocolMessageEnum {
       /**
        * <code>BOOLEAN = 0;</code>
        */
@@ -10019,27 +10019,27 @@ public final class OrcProto {
         }
       }
 
-      public static com.google.protobuf.Internal.EnumLiteMap<Kind>
+      public static org.spark-project.protobuf.Internal.EnumLiteMap<Kind>
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<Kind>
+      private static org.spark-project.protobuf.Internal.EnumLiteMap<Kind>
           internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Kind>() {
+            new org.spark-project.protobuf.Internal.EnumLiteMap<Kind>() {
               public Kind findValueByNumber(int number) {
                 return Kind.valueOf(number);
               }
             };
 
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+      public final org.spark-project.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
       }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
+      public final org.spark-project.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
         return getDescriptor();
       }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
+      public static final org.spark-project.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.Type.getDescriptor().getEnumTypes().get(0);
       }
@@ -10047,7 +10047,7 @@ public final class OrcProto {
       private static final Kind[] VALUES = values();
 
       public static Kind valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+          org.spark-project.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
           throw new java.lang.IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
@@ -10109,7 +10109,7 @@ public final class OrcProto {
 
     // repeated string fieldNames = 3;
     public static final int FIELDNAMES_FIELD_NUMBER = 3;
-    private com.google.protobuf.LazyStringList fieldNames_;
+    private org.spark-project.protobuf.LazyStringList fieldNames_;
     /**
      * <code>repeated string fieldNames = 3;</code>
      */
@@ -10132,7 +10132,7 @@ public final class OrcProto {
     /**
      * <code>repeated string fieldNames = 3;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getFieldNamesBytes(int index) {
       return fieldNames_.getByteString(index);
     }
@@ -10188,7 +10188,7 @@ public final class OrcProto {
     private void initFields() {
       kind_ = org.apache.hadoop.hive.ql.io.orc.OrcProto.Type.Kind.BOOLEAN;
       subtypes_ = java.util.Collections.emptyList();
-      fieldNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      fieldNames_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
       maximumLength_ = 0;
       precision_ = 0;
       scale_ = 0;
@@ -10206,7 +10206,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10241,19 +10241,19 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeEnumSize(1, kind_.getNumber());
       }
       {
         int dataSize = 0;
         for (int i = 0; i < subtypes_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
+          dataSize += org.spark-project.protobuf.CodedOutputStream
             .computeUInt32SizeNoTag(subtypes_.get(i));
         }
         size += dataSize;
         if (!getSubtypesList().isEmpty()) {
           size += 1;
-          size += com.google.protobuf.CodedOutputStream
+          size += org.spark-project.protobuf.CodedOutputStream
               .computeInt32SizeNoTag(dataSize);
         }
         subtypesMemoizedSerializedSize = dataSize;
@@ -10261,22 +10261,22 @@ public final class OrcProto {
       {
         int dataSize = 0;
         for (int i = 0; i < fieldNames_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
+          dataSize += org.spark-project.protobuf.CodedOutputStream
             .computeBytesSizeNoTag(fieldNames_.getByteString(i));
         }
         size += dataSize;
         size += 1 * getFieldNamesList().size();
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt32Size(4, maximumLength_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt32Size(5, precision_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt32Size(6, scale_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -10292,24 +10292,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parseFrom(java.io.InputStream input)
@@ -10318,7 +10318,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -10328,18 +10328,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -10353,7 +10353,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -10361,14 +10361,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.Type}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.TypeOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Type_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Type_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -10381,12 +10381,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -10399,7 +10399,7 @@ public final class OrcProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         subtypes_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
-        fieldNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        fieldNames_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         maximumLength_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -10414,7 +10414,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Type_descriptor;
       }
@@ -10445,7 +10445,7 @@ public final class OrcProto {
         }
         result.subtypes_ = subtypes_;
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          fieldNames_ = new com.google.protobuf.UnmodifiableLazyStringList(
+          fieldNames_ = new org.spark-project.protobuf.UnmodifiableLazyStringList(
               fieldNames_);
           bitField0_ = (bitField0_ & ~0x00000004);
         }
@@ -10467,7 +10467,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.Type) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.Type)other);
         } else {
@@ -10523,13 +10523,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.Type parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.Type) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -10644,10 +10644,10 @@ public final class OrcProto {
       }
 
       // repeated string fieldNames = 3;
-      private com.google.protobuf.LazyStringList fieldNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private org.spark-project.protobuf.LazyStringList fieldNames_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
       private void ensureFieldNamesIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          fieldNames_ = new com.google.protobuf.LazyStringArrayList(fieldNames_);
+          fieldNames_ = new org.spark-project.protobuf.LazyStringArrayList(fieldNames_);
           bitField0_ |= 0x00000004;
          }
       }
@@ -10673,7 +10673,7 @@ public final class OrcProto {
       /**
        * <code>repeated string fieldNames = 3;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getFieldNamesBytes(int index) {
         return fieldNames_.getByteString(index);
       }
@@ -10717,7 +10717,7 @@ public final class OrcProto {
        * <code>repeated string fieldNames = 3;</code>
        */
       public Builder clearFieldNames() {
-        fieldNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        fieldNames_ = org.spark-project.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
@@ -10726,7 +10726,7 @@ public final class OrcProto {
        * <code>repeated string fieldNames = 3;</code>
        */
       public Builder addFieldNamesBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -10847,7 +10847,7 @@ public final class OrcProto {
   }
 
   public interface StripeInformationOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional uint64 offset = 1;
     /**
@@ -10903,14 +10903,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.StripeInformation}
    */
   public static final class StripeInformation extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements StripeInformationOrBuilder {
     // Use StripeInformation.newBuilder() to construct.
-    private StripeInformation(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private StripeInformation(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private StripeInformation(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private StripeInformation(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final StripeInformation defaultInstance;
     public static StripeInformation getDefaultInstance() {
@@ -10921,20 +10921,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private StripeInformation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -10977,40 +10977,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<StripeInformation> PARSER =
-        new com.google.protobuf.AbstractParser<StripeInformation>() {
+    public static org.spark-project.protobuf.Parser<StripeInformation> PARSER =
+        new org.spark-project.protobuf.AbstractParser<StripeInformation>() {
       public StripeInformation parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new StripeInformation(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<StripeInformation> getParserForType() {
+    public org.spark-project.protobuf.Parser<StripeInformation> getParserForType() {
       return PARSER;
     }
 
@@ -11111,7 +11111,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11139,23 +11139,23 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(1, offset_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(2, indexLength_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(3, dataLength_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(4, footerLength_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(5, numberOfRows_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -11171,24 +11171,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parseFrom(java.io.InputStream input)
@@ -11197,7 +11197,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -11207,18 +11207,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -11232,7 +11232,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -11240,14 +11240,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.StripeInformation}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformationOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -11260,12 +11260,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -11291,7 +11291,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_descriptor;
       }
@@ -11337,7 +11337,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation)other);
         } else {
@@ -11372,13 +11372,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -11567,7 +11567,7 @@ public final class OrcProto {
   }
 
   public interface UserMetadataItemOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // required string name = 1;
     /**
@@ -11581,7 +11581,7 @@ public final class OrcProto {
     /**
      * <code>required string name = 1;</code>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getNameBytes();
 
     // required bytes value = 2;
@@ -11592,20 +11592,20 @@ public final class OrcProto {
     /**
      * <code>required bytes value = 2;</code>
      */
-    com.google.protobuf.ByteString getValue();
+    org.spark-project.protobuf.ByteString getValue();
   }
   /**
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.UserMetadataItem}
    */
   public static final class UserMetadataItem extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements UserMetadataItemOrBuilder {
     // Use UserMetadataItem.newBuilder() to construct.
-    private UserMetadataItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private UserMetadataItem(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private UserMetadataItem(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private UserMetadataItem(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final UserMetadataItem defaultInstance;
     public static UserMetadataItem getDefaultInstance() {
@@ -11616,20 +11616,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private UserMetadataItem(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -11657,40 +11657,40 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<UserMetadataItem> PARSER =
-        new com.google.protobuf.AbstractParser<UserMetadataItem>() {
+    public static org.spark-project.protobuf.Parser<UserMetadataItem> PARSER =
+        new org.spark-project.protobuf.AbstractParser<UserMetadataItem>() {
       public UserMetadataItem parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new UserMetadataItem(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<UserMetadataItem> getParserForType() {
+    public org.spark-project.protobuf.Parser<UserMetadataItem> getParserForType() {
       return PARSER;
     }
 
@@ -11712,8 +11712,8 @@ public final class OrcProto {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           name_ = s;
@@ -11724,23 +11724,23 @@ public final class OrcProto {
     /**
      * <code>required string name = 1;</code>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getNameBytes() {
       java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         name_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
     // required bytes value = 2;
     public static final int VALUE_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString value_;
+    private org.spark-project.protobuf.ByteString value_;
     /**
      * <code>required bytes value = 2;</code>
      */
@@ -11750,13 +11750,13 @@ public final class OrcProto {
     /**
      * <code>required bytes value = 2;</code>
      */
-    public com.google.protobuf.ByteString getValue() {
+    public org.spark-project.protobuf.ByteString getValue() {
       return value_;
     }
 
     private void initFields() {
       name_ = "";
-      value_ = com.google.protobuf.ByteString.EMPTY;
+      value_ = org.spark-project.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -11775,7 +11775,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11794,11 +11794,11 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(1, getNameBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(2, value_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -11814,24 +11814,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parseFrom(java.io.InputStream input)
@@ -11840,7 +11840,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -11850,18 +11850,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -11875,7 +11875,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -11883,14 +11883,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.UserMetadataItem}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItemOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -11903,12 +11903,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -11919,7 +11919,7 @@ public final class OrcProto {
         super.clear();
         name_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        value_ = com.google.protobuf.ByteString.EMPTY;
+        value_ = org.spark-project.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -11928,7 +11928,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_descriptor;
       }
@@ -11962,7 +11962,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem)other);
         } else {
@@ -11998,13 +11998,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -12030,7 +12030,7 @@ public final class OrcProto {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           name_ = s;
           return s;
@@ -12041,17 +12041,17 @@ public final class OrcProto {
       /**
        * <code>required string name = 1;</code>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getNameBytes() {
         java.lang.Object ref = name_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           name_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -12080,7 +12080,7 @@ public final class OrcProto {
        * <code>required string name = 1;</code>
        */
       public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -12091,7 +12091,7 @@ public final class OrcProto {
       }
 
       // required bytes value = 2;
-      private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+      private org.spark-project.protobuf.ByteString value_ = org.spark-project.protobuf.ByteString.EMPTY;
       /**
        * <code>required bytes value = 2;</code>
        */
@@ -12101,13 +12101,13 @@ public final class OrcProto {
       /**
        * <code>required bytes value = 2;</code>
        */
-      public com.google.protobuf.ByteString getValue() {
+      public org.spark-project.protobuf.ByteString getValue() {
         return value_;
       }
       /**
        * <code>required bytes value = 2;</code>
        */
-      public Builder setValue(com.google.protobuf.ByteString value) {
+      public Builder setValue(org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -12138,7 +12138,7 @@ public final class OrcProto {
   }
 
   public interface StripeStatisticsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // repeated .org.apache.hadoop.hive.ql.io.orc.ColumnStatistics colStats = 1;
     /**
@@ -12169,14 +12169,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.StripeStatistics}
    */
   public static final class StripeStatistics extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements StripeStatisticsOrBuilder {
     // Use StripeStatistics.newBuilder() to construct.
-    private StripeStatistics(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private StripeStatistics(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private StripeStatistics(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private StripeStatistics(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final StripeStatistics defaultInstance;
     public static StripeStatistics getDefaultInstance() {
@@ -12187,20 +12187,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private StripeStatistics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -12226,10 +12226,10 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12239,30 +12239,30 @@ public final class OrcProto {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<StripeStatistics> PARSER =
-        new com.google.protobuf.AbstractParser<StripeStatistics>() {
+    public static org.spark-project.protobuf.Parser<StripeStatistics> PARSER =
+        new org.spark-project.protobuf.AbstractParser<StripeStatistics>() {
       public StripeStatistics parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new StripeStatistics(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<StripeStatistics> getParserForType() {
+    public org.spark-project.protobuf.Parser<StripeStatistics> getParserForType() {
       return PARSER;
     }
 
@@ -12314,7 +12314,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       for (int i = 0; i < colStats_.size(); i++) {
@@ -12330,7 +12330,7 @@ public final class OrcProto {
 
       size = 0;
       for (int i = 0; i < colStats_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, colStats_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
@@ -12346,24 +12346,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parseFrom(java.io.InputStream input)
@@ -12372,7 +12372,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -12382,18 +12382,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -12407,7 +12407,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -12415,14 +12415,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.StripeStatistics}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatisticsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -12435,12 +12435,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getColStatsFieldBuilder();
         }
       }
@@ -12463,7 +12463,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_descriptor;
       }
@@ -12496,7 +12496,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics)other);
         } else {
@@ -12526,7 +12526,7 @@ public final class OrcProto {
               colStats_ = other.colStats_;
               bitField0_ = (bitField0_ & ~0x00000001);
               colStatsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getColStatsFieldBuilder() : null;
             } else {
               colStatsBuilder_.addAllMessages(other.colStats_);
@@ -12542,13 +12542,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -12570,7 +12570,7 @@ public final class OrcProto {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder> colStatsBuilder_;
 
       /**
@@ -12785,11 +12785,11 @@ public final class OrcProto {
            getColStatsBuilderList() {
         return getColStatsFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder> 
           getColStatsFieldBuilder() {
         if (colStatsBuilder_ == null) {
-          colStatsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          colStatsBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder>(
                   colStats_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -12812,7 +12812,7 @@ public final class OrcProto {
   }
 
   public interface MetadataOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // repeated .org.apache.hadoop.hive.ql.io.orc.StripeStatistics stripeStats = 1;
     /**
@@ -12843,14 +12843,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.Metadata}
    */
   public static final class Metadata extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements MetadataOrBuilder {
     // Use Metadata.newBuilder() to construct.
-    private Metadata(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Metadata(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private Metadata(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private Metadata(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final Metadata defaultInstance;
     public static Metadata getDefaultInstance() {
@@ -12861,20 +12861,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private Metadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -12900,10 +12900,10 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12913,30 +12913,30 @@ public final class OrcProto {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Metadata> PARSER =
-        new com.google.protobuf.AbstractParser<Metadata>() {
+    public static org.spark-project.protobuf.Parser<Metadata> PARSER =
+        new org.spark-project.protobuf.AbstractParser<Metadata>() {
       public Metadata parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new Metadata(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Metadata> getParserForType() {
+    public org.spark-project.protobuf.Parser<Metadata> getParserForType() {
       return PARSER;
     }
 
@@ -12988,7 +12988,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       for (int i = 0; i < stripeStats_.size(); i++) {
@@ -13004,7 +13004,7 @@ public final class OrcProto {
 
       size = 0;
       for (int i = 0; i < stripeStats_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(1, stripeStats_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
@@ -13020,24 +13020,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parseFrom(java.io.InputStream input)
@@ -13046,7 +13046,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -13056,18 +13056,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -13081,7 +13081,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -13089,14 +13089,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.Metadata}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.MetadataOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -13109,12 +13109,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getStripeStatsFieldBuilder();
         }
       }
@@ -13137,7 +13137,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_descriptor;
       }
@@ -13170,7 +13170,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata)other);
         } else {
@@ -13200,7 +13200,7 @@ public final class OrcProto {
               stripeStats_ = other.stripeStats_;
               bitField0_ = (bitField0_ & ~0x00000001);
               stripeStatsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getStripeStatsFieldBuilder() : null;
             } else {
               stripeStatsBuilder_.addAllMessages(other.stripeStats_);
@@ -13216,13 +13216,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.Metadata) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -13244,7 +13244,7 @@ public final class OrcProto {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatisticsOrBuilder> stripeStatsBuilder_;
 
       /**
@@ -13459,11 +13459,11 @@ public final class OrcProto {
            getStripeStatsBuilderList() {
         return getStripeStatsFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatisticsOrBuilder> 
           getStripeStatsFieldBuilder() {
         if (stripeStatsBuilder_ == null) {
-          stripeStatsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          stripeStatsBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeStatisticsOrBuilder>(
                   stripeStats_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -13486,7 +13486,7 @@ public final class OrcProto {
   }
 
   public interface FooterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional uint64 headerLength = 1;
     /**
@@ -13632,14 +13632,14 @@ public final class OrcProto {
    * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.Footer}
    */
   public static final class Footer extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements FooterOrBuilder {
     // Use Footer.newBuilder() to construct.
-    private Footer(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Footer(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private Footer(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private Footer(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final Footer defaultInstance;
     public static Footer getDefaultInstance() {
@@ -13650,20 +13650,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private Footer(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -13733,10 +13733,10 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
@@ -13755,30 +13755,30 @@ public final class OrcProto {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Footer> PARSER =
-        new com.google.protobuf.AbstractParser<Footer>() {
+    public static org.spark-project.protobuf.Parser<Footer> PARSER =
+        new org.spark-project.protobuf.AbstractParser<Footer>() {
       public Footer parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new Footer(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Footer> getParserForType() {
+    public org.spark-project.protobuf.Parser<Footer> getParserForType() {
       return PARSER;
     }
 
@@ -14022,7 +14022,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -14059,35 +14059,35 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(1, headerLength_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(2, contentLength_);
       }
       for (int i = 0; i < stripes_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(3, stripes_.get(i));
       }
       for (int i = 0; i < types_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(4, types_.get(i));
       }
       for (int i = 0; i < metadata_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(5, metadata_.get(i));
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(6, numberOfRows_);
       }
       for (int i = 0; i < statistics_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeMessageSize(7, statistics_.get(i));
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt32Size(8, rowIndexStride_);
       }
       size += getUnknownFields().getSerializedSize();
@@ -14103,24 +14103,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parseFrom(java.io.InputStream input)
@@ -14129,7 +14129,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -14139,18 +14139,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -14164,7 +14164,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -14172,14 +14172,14 @@ public final class OrcProto {
      * Protobuf type {@code org.apache.hadoop.hive.ql.io.orc.Footer}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.FooterOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -14192,12 +14192,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getStripesFieldBuilder();
           getTypesFieldBuilder();
           getMetadataFieldBuilder();
@@ -14249,7 +14249,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_descriptor;
       }
@@ -14327,7 +14327,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer)other);
         } else {
@@ -14363,7 +14363,7 @@ public final class OrcProto {
               stripes_ = other.stripes_;
               bitField0_ = (bitField0_ & ~0x00000004);
               stripesBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getStripesFieldBuilder() : null;
             } else {
               stripesBuilder_.addAllMessages(other.stripes_);
@@ -14389,7 +14389,7 @@ public final class OrcProto {
               types_ = other.types_;
               bitField0_ = (bitField0_ & ~0x00000008);
               typesBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getTypesFieldBuilder() : null;
             } else {
               typesBuilder_.addAllMessages(other.types_);
@@ -14415,7 +14415,7 @@ public final class OrcProto {
               metadata_ = other.metadata_;
               bitField0_ = (bitField0_ & ~0x00000010);
               metadataBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getMetadataFieldBuilder() : null;
             } else {
               metadataBuilder_.addAllMessages(other.metadata_);
@@ -14444,7 +14444,7 @@ public final class OrcProto {
               statistics_ = other.statistics_;
               bitField0_ = (bitField0_ & ~0x00000040);
               statisticsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getStatisticsFieldBuilder() : null;
             } else {
               statisticsBuilder_.addAllMessages(other.statistics_);
@@ -14475,13 +14475,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.Footer) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -14569,7 +14569,7 @@ public final class OrcProto {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformationOrBuilder> stripesBuilder_;
 
       /**
@@ -14784,11 +14784,11 @@ public final class OrcProto {
            getStripesBuilderList() {
         return getStripesFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformationOrBuilder> 
           getStripesFieldBuilder() {
         if (stripesBuilder_ == null) {
-          stripesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          stripesBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformation.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.StripeInformationOrBuilder>(
                   stripes_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
@@ -14809,7 +14809,7 @@ public final class OrcProto {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.Type, org.apache.hadoop.hive.ql.io.orc.OrcProto.Type.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.TypeOrBuilder> typesBuilder_;
 
       /**
@@ -15024,11 +15024,11 @@ public final class OrcProto {
            getTypesBuilderList() {
         return getTypesFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.Type, org.apache.hadoop.hive.ql.io.orc.OrcProto.Type.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.TypeOrBuilder> 
           getTypesFieldBuilder() {
         if (typesBuilder_ == null) {
-          typesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          typesBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.Type, org.apache.hadoop.hive.ql.io.orc.OrcProto.Type.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.TypeOrBuilder>(
                   types_,
                   ((bitField0_ & 0x00000008) == 0x00000008),
@@ -15049,7 +15049,7 @@ public final class OrcProto {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem, org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItemOrBuilder> metadataBuilder_;
 
       /**
@@ -15264,11 +15264,11 @@ public final class OrcProto {
            getMetadataBuilderList() {
         return getMetadataFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem, org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItemOrBuilder> 
           getMetadataFieldBuilder() {
         if (metadataBuilder_ == null) {
-          metadataBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          metadataBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem, org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItem.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.UserMetadataItemOrBuilder>(
                   metadata_,
                   ((bitField0_ & 0x00000010) == 0x00000010),
@@ -15322,7 +15322,7 @@ public final class OrcProto {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder> statisticsBuilder_;
 
       /**
@@ -15537,11 +15537,11 @@ public final class OrcProto {
            getStatisticsBuilderList() {
         return getStatisticsFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private org.spark-project.protobuf.RepeatedFieldBuilder<
           org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder> 
           getStatisticsFieldBuilder() {
         if (statisticsBuilder_ == null) {
-          statisticsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          statisticsBuilder_ = new org.spark-project.protobuf.RepeatedFieldBuilder<
               org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatistics.Builder, org.apache.hadoop.hive.ql.io.orc.OrcProto.ColumnStatisticsOrBuilder>(
                   statistics_,
                   ((bitField0_ & 0x00000040) == 0x00000040),
@@ -15597,7 +15597,7 @@ public final class OrcProto {
   }
 
   public interface PostScriptOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+      extends org.spark-project.protobuf.MessageOrBuilder {
 
     // optional uint64 footerLength = 1;
     /**
@@ -15677,7 +15677,7 @@ public final class OrcProto {
      * Leave this last in the record
      * </pre>
      */
-    com.google.protobuf.ByteString
+    org.spark-project.protobuf.ByteString
         getMagicBytes();
   }
   /**
@@ -15688,14 +15688,14 @@ public final class OrcProto {
    * </pre>
    */
   public static final class PostScript extends
-      com.google.protobuf.GeneratedMessage
+      org.spark-project.protobuf.GeneratedMessage
       implements PostScriptOrBuilder {
     // Use PostScript.newBuilder() to construct.
-    private PostScript(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private PostScript(org.spark-project.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private PostScript(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private PostScript(boolean noInit) { this.unknownFields = org.spark-project.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
     private static final PostScript defaultInstance;
     public static PostScript getDefaultInstance() {
@@ -15706,20 +15706,20 @@ public final class OrcProto {
       return defaultInstance;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    private final org.spark-project.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
+    public final org.spark-project.protobuf.UnknownFieldSet
         getUnknownFields() {
       return this.unknownFields;
     }
     private PostScript(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
+      org.spark-project.protobuf.UnknownFieldSet.Builder unknownFields =
+          org.spark-project.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -15789,10 +15789,10 @@ public final class OrcProto {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
+        throw new org.spark-project.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
@@ -15802,30 +15802,30 @@ public final class OrcProto {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+    public static final org.spark-project.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript.class, org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<PostScript> PARSER =
-        new com.google.protobuf.AbstractParser<PostScript>() {
+    public static org.spark-project.protobuf.Parser<PostScript> PARSER =
+        new org.spark-project.protobuf.AbstractParser<PostScript>() {
       public PostScript parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws org.spark-project.protobuf.InvalidProtocolBufferException {
         return new PostScript(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PostScript> getParserForType() {
+    public org.spark-project.protobuf.Parser<PostScript> getParserForType() {
       return PARSER;
     }
 
@@ -15943,8 +15943,8 @@ public final class OrcProto {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        org.spark-project.protobuf.ByteString bs = 
+            (org.spark-project.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           magic_ = s;
@@ -15959,17 +15959,17 @@ public final class OrcProto {
      * Leave this last in the record
      * </pre>
      */
-    public com.google.protobuf.ByteString
+    public org.spark-project.protobuf.ByteString
         getMagicBytes() {
       java.lang.Object ref = magic_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
+        org.spark-project.protobuf.ByteString b = 
+            org.spark-project.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         magic_ = b;
         return b;
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return (org.spark-project.protobuf.ByteString) ref;
       }
     }
 
@@ -15990,7 +15990,7 @@ public final class OrcProto {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
+    public void writeTo(org.spark-project.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16025,37 +16025,37 @@ public final class OrcProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(1, footerLength_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeEnumSize(2, compression_.getNumber());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(3, compressionBlockSize_);
       }
       {
         int dataSize = 0;
         for (int i = 0; i < version_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
+          dataSize += org.spark-project.protobuf.CodedOutputStream
             .computeUInt32SizeNoTag(version_.get(i));
         }
         size += dataSize;
         if (!getVersionList().isEmpty()) {
           size += 1;
-          size += com.google.protobuf.CodedOutputStream
+          size += org.spark-project.protobuf.CodedOutputStream
               .computeInt32SizeNoTag(dataSize);
         }
         versionMemoizedSerializedSize = dataSize;
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeUInt64Size(5, metadataLength_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
+        size += org.spark-project.protobuf.CodedOutputStream
           .computeBytesSize(8000, getMagicBytes());
       }
       size += getUnknownFields().getSerializedSize();
@@ -16071,24 +16071,24 @@ public final class OrcProto {
     }
 
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ByteString data,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parseFrom(
         byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws org.spark-project.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parseFrom(java.io.InputStream input)
@@ -16097,7 +16097,7 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parseFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -16107,18 +16107,18 @@ public final class OrcProto {
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parseDelimitedFrom(
         java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parseFrom(
-        com.google.protobuf.CodedInputStream input)
+        org.spark-project.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
     public static org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        org.spark-project.protobuf.CodedInputStream input,
+        org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
@@ -16132,7 +16132,7 @@ public final class OrcProto {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -16144,14 +16144,14 @@ public final class OrcProto {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
+        org.spark-project.protobuf.GeneratedMessage.Builder<Builder>
        implements org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScriptOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
+      public static final org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -16164,12 +16164,12 @@ public final class OrcProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          org.spark-project.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (org.spark-project.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       private static Builder create() {
@@ -16197,7 +16197,7 @@ public final class OrcProto {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
+      public org.spark-project.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hive.ql.io.orc.OrcProto.internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_descriptor;
       }
@@ -16248,7 +16248,7 @@ public final class OrcProto {
         return result;
       }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
+      public Builder mergeFrom(org.spark-project.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript) {
           return mergeFrom((org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript)other);
         } else {
@@ -16295,13 +16295,13 @@ public final class OrcProto {
       }
 
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          org.spark-project.protobuf.CodedInputStream input,
+          org.spark-project.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        } catch (org.spark-project.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hive.ql.io.orc.OrcProto.PostScript) e.getUnfinishedMessage();
           throw e;
         } finally {
@@ -16536,7 +16536,7 @@ public final class OrcProto {
       public java.lang.String getMagic() {
         java.lang.Object ref = magic_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+          java.lang.String s = ((org.spark-project.protobuf.ByteString) ref)
               .toStringUtf8();
           magic_ = s;
           return s;
@@ -16551,17 +16551,17 @@ public final class OrcProto {
        * Leave this last in the record
        * </pre>
        */
-      public com.google.protobuf.ByteString
+      public org.spark-project.protobuf.ByteString
           getMagicBytes() {
         java.lang.Object ref = magic_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
+          org.spark-project.protobuf.ByteString b = 
+              org.spark-project.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           magic_ = b;
           return b;
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return (org.spark-project.protobuf.ByteString) ref;
         }
       }
       /**
@@ -16602,7 +16602,7 @@ public final class OrcProto {
        * </pre>
        */
       public Builder setMagicBytes(
-          com.google.protobuf.ByteString value) {
+          org.spark-project.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -16623,112 +16623,112 @@ public final class OrcProto {
     // @@protoc_insertion_point(class_scope:org.apache.hadoop.hive.ql.io.orc.PostScript)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_Type_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_Type_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static org.spark-project.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_descriptor;
   private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
+  public static org.spark-project.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static org.spark-project.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -16811,137 +16811,137 @@ public final class OrcProto {
       "\001(\004\022\016\n\005magic\030\300> \001(\t*:\n\017CompressionKind\022\010" +
       "\n\004NONE\020\000\022\010\n\004ZLIB\020\001\022\n\n\006SNAPPY\020\002\022\007\n\003LZO\020\003"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
+    org.spark-project.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+      new org.spark-project.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        public org.spark-project.protobuf.ExtensionRegistry assignDescriptors(
+            org.spark-project.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
           internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_descriptor =
             getDescriptor().getMessageTypes().get(0);
           internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_IntegerStatistics_descriptor,
               new java.lang.String[] { "Minimum", "Maximum", "Sum", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_DoubleStatistics_descriptor,
               new java.lang.String[] { "Minimum", "Maximum", "Sum", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_StringStatistics_descriptor,
               new java.lang.String[] { "Minimum", "Maximum", "Sum", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_BucketStatistics_descriptor,
               new java.lang.String[] { "Count", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_DecimalStatistics_descriptor,
               new java.lang.String[] { "Minimum", "Maximum", "Sum", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_DateStatistics_descriptor,
               new java.lang.String[] { "Minimum", "Maximum", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_BinaryStatistics_descriptor,
               new java.lang.String[] { "Sum", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_descriptor =
             getDescriptor().getMessageTypes().get(7);
           internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnStatistics_descriptor,
               new java.lang.String[] { "NumberOfValues", "IntStatistics", "DoubleStatistics", "StringStatistics", "BucketStatistics", "DecimalStatistics", "DateStatistics", "BinaryStatistics", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_descriptor =
             getDescriptor().getMessageTypes().get(8);
           internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndexEntry_descriptor,
               new java.lang.String[] { "Positions", "Statistics", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_descriptor =
             getDescriptor().getMessageTypes().get(9);
           internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_RowIndex_descriptor,
               new java.lang.String[] { "Entry", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_descriptor =
             getDescriptor().getMessageTypes().get(10);
           internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_Stream_descriptor,
               new java.lang.String[] { "Kind", "Column", "Length", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_descriptor =
             getDescriptor().getMessageTypes().get(11);
           internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_ColumnEncoding_descriptor,
               new java.lang.String[] { "Kind", "DictionarySize", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_descriptor =
             getDescriptor().getMessageTypes().get(12);
           internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_StripeFooter_descriptor,
               new java.lang.String[] { "Streams", "Columns", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_Type_descriptor =
             getDescriptor().getMessageTypes().get(13);
           internal_static_org_apache_hadoop_hive_ql_io_orc_Type_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_Type_descriptor,
               new java.lang.String[] { "Kind", "Subtypes", "FieldNames", "MaximumLength", "Precision", "Scale", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_descriptor =
             getDescriptor().getMessageTypes().get(14);
           internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_StripeInformation_descriptor,
               new java.lang.String[] { "Offset", "IndexLength", "DataLength", "FooterLength", "NumberOfRows", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_descriptor =
             getDescriptor().getMessageTypes().get(15);
           internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_UserMetadataItem_descriptor,
               new java.lang.String[] { "Name", "Value", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_descriptor =
             getDescriptor().getMessageTypes().get(16);
           internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_StripeStatistics_descriptor,
               new java.lang.String[] { "ColStats", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_descriptor =
             getDescriptor().getMessageTypes().get(17);
           internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_Metadata_descriptor,
               new java.lang.String[] { "StripeStats", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_descriptor =
             getDescriptor().getMessageTypes().get(18);
           internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_Footer_descriptor,
               new java.lang.String[] { "HeaderLength", "ContentLength", "Stripes", "Types", "Metadata", "NumberOfRows", "Statistics", "RowIndexStride", });
           internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_descriptor =
             getDescriptor().getMessageTypes().get(19);
           internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            org.spark-project.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_org_apache_hadoop_hive_ql_io_orc_PostScript_descriptor,
               new java.lang.String[] { "FooterLength", "Compression", "CompressionBlockSize", "Version", "MetadataLength", "Magic", });
           return null;
         }
       };
-    com.google.protobuf.Descriptors.FileDescriptor
+    org.spark-project.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        new org.spark-project.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
   }
 
