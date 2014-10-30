@@ -1,5 +1,5 @@
 
-Release Notes - Hive - Version 0.13.1
+Release Notes - Hive - Version 0.13.1a
 
 ** Bug
     * [HIVE-4576] - templeton.hive.properties does not allow values with commas
