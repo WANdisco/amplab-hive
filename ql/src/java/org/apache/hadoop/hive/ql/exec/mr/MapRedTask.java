@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.fs.ContentSummary;
 import org.apache.hadoop.fs.FileSystem;
@@ -170,10 +171,18 @@ public class MapRedTask extends ExecDriver implements Serializable {
 
       // write out the plan to a local file
       Path planPath = new Path(ctx.getLocalTmpPath(), "plan.xml");
-      OutputStream out = FileSystem.getLocal(conf).create(planPath);
       MapredWork plan = getWork();
       LOG.info("Generating plan file " + planPath.toString());
-      Utilities.serializePlan(plan, out, conf);
+
+      OutputStream out = null;
+      try {
+        out = FileSystem.getLocal(conf).create(planPath);
+        Utilities.serializePlan(plan, out, conf);
+        out.close();
+        out = null;
+      } finally {
+        IOUtils.closeQuietly(out);
+      }
 
       String isSilent = "true".equalsIgnoreCase(System
           .getProperty("test.silent")) ? "-nolog" : "";
