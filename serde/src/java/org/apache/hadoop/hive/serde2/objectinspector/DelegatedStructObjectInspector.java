@@ -97,4 +97,18 @@ public class DelegatedStructObjectInspector extends StructObjectInspector {
   public Category getCategory() {
     return delegate.getCategory();
   }
+
+  public int hashCode() {
+    return delegate.hashCode();
+  }
+
+  public boolean equals(Object obj) {
+    if (!(obj instanceof DelegatedStructObjectInspector)) {
+      return false;
+    }
+    if (obj == this) {
+      return true;
+    }
+    return delegate.equals(((DelegatedStructObjectInspector)obj).delegate);
+  }
 }
