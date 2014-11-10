@@ -24,7 +24,7 @@
     <parent>
         <groupId>edu.berkeley.cs.shark</groupId>
         <artifactId>hcatalog</artifactId>
-        <version>0.11.0-shark</version>
+        <version>0.11.0-shark-0.9.1</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
