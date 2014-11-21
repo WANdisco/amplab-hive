@@ -367,12 +367,12 @@ public class HiveServer extends ThriftHive {
     }
 
     private void cleanTmpFile() {
-      if (pipeIn != null) {
-        SessionState session = SessionState.get();
-        File tmp = session.getTmpOutputFile();
+      // clean file in all cases. Even if pipeIn is null
+      SessionState session = SessionState.get();
+      File tmp = session.getTmpOutputFile();
+      if(tmp != null)
         tmp.delete();
-        pipeIn = null;
-      }
+      pipeIn = null;
     }
 
     /**
