@@ -212,6 +212,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
   private static final long serialVersionUID = 1L;
   protected transient FileSystem fs;
   protected transient Serializer serializer;
+  protected transient TableIdEnum tabIdEnum = null;
   protected transient LongWritable row_count;
   private transient boolean isNativeTable = true;
 
@@ -267,6 +268,28 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
     childSpecPathDynLinkedPartitions = conf.getDirName().getName();
   }
 
+  /**
+   * TableIdEnum.
+   *
+   */
+  public static enum TableIdEnum {
+    TABLE_ID_1_ROWCOUNT,
+    TABLE_ID_2_ROWCOUNT,
+    TABLE_ID_3_ROWCOUNT,
+    TABLE_ID_4_ROWCOUNT,
+    TABLE_ID_5_ROWCOUNT,
+    TABLE_ID_6_ROWCOUNT,
+    TABLE_ID_7_ROWCOUNT,
+    TABLE_ID_8_ROWCOUNT,
+    TABLE_ID_9_ROWCOUNT,
+    TABLE_ID_10_ROWCOUNT,
+    TABLE_ID_11_ROWCOUNT,
+    TABLE_ID_12_ROWCOUNT,
+    TABLE_ID_13_ROWCOUNT,
+    TABLE_ID_14_ROWCOUNT,
+    TABLE_ID_15_ROWCOUNT;
+  }
+
   @Override
   protected void initializeOp(Configuration hconf) throws HiveException {
     try {
@@ -317,6 +340,13 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
             jc.getPartitionerClass(), null);
       }
       row_count = new LongWritable();
+      int id = conf.getDestTableId();
+      if ((id != 0) && (id <= TableIdEnum.values().length)) {
+        String enumName = "TABLE_ID_" + String.valueOf(id) + "_ROWCOUNT";
+        tabIdEnum = TableIdEnum.valueOf(enumName);
+        statsMap.put(tabIdEnum, row_count);
+      }
+
       if (dpCtx != null) {
         dpSetup();
       }
