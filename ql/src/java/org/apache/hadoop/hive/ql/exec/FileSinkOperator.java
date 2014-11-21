@@ -323,6 +323,28 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
     childSpecPathDynLinkedPartitions = conf.getDirName().getName();
   }
 
+  /**
+   * TableIdEnum.
+   *
+   */
+  public static enum TableIdEnum {
+    TABLE_ID_1_ROWCOUNT,
+    TABLE_ID_2_ROWCOUNT,
+    TABLE_ID_3_ROWCOUNT,
+    TABLE_ID_4_ROWCOUNT,
+    TABLE_ID_5_ROWCOUNT,
+    TABLE_ID_6_ROWCOUNT,
+    TABLE_ID_7_ROWCOUNT,
+    TABLE_ID_8_ROWCOUNT,
+    TABLE_ID_9_ROWCOUNT,
+    TABLE_ID_10_ROWCOUNT,
+    TABLE_ID_11_ROWCOUNT,
+    TABLE_ID_12_ROWCOUNT,
+    TABLE_ID_13_ROWCOUNT,
+    TABLE_ID_14_ROWCOUNT,
+    TABLE_ID_15_ROWCOUNT;
+  }
+
   @Override
   protected Collection<Future<?>> initializeOp(Configuration hconf) throws HiveException {
     Collection<Future<?>> result = super.initializeOp(hconf);
@@ -382,6 +404,11 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
         partitionObjectInspectors = initEvaluators(partitionEval, outputObjInspector);
         prtner = (HivePartitioner<HiveKey, Object>) ReflectionUtils.newInstance(
             jc.getPartitionerClass(), null);
+      }
+      int id = conf.getDestTableId();
+      if (id != 0) {
+        String enumName = "TABLE_ID_" + String.valueOf(id) + "_ROWCOUNT";
+        statsMap.put(enumName, row_count);
       }
 
       if (dpCtx != null) {
