@@ -349,6 +349,8 @@ public class RCFile {
   public static final String TOLERATE_CORRUPTIONS_CONF_STR =
     "hive.io.rcfile.tolerate.corruptions";
 
+  public static final String SKIP_EMPTY_FILES = "hive.io.rcfile.skip.empty.files";
+
   // HACK: We actually need BlockMissingException, but that is not available
   // in all hadoop versions.
   public static final String BLOCK_MISSING_MESSAGE =
@@ -1322,6 +1324,9 @@ public class RCFile {
     // Should we try to tolerate corruption? Default is No.
     private boolean tolerateCorruptions = false;
 
+    // Should we skip empty files
+    private boolean skipEmptyFiles = false;
+
     private boolean decompress = false;
 
     private Decompressor keyDecompressor;
@@ -1348,88 +1353,107 @@ public class RCFile {
         long start, long length) throws IOException {
       tolerateCorruptions = conf.getBoolean(
         TOLERATE_CORRUPTIONS_CONF_STR, false);
+      skipEmptyFiles = conf.getBoolean(SKIP_EMPTY_FILES, false);
       conf.setInt("io.file.buffer.size", bufferSize);
       this.file = file;
+
       in = openFile(fs, file, bufferSize, length);
       this.conf = conf;
-      end = start + length;
-      boolean succeed = false;
-      try {
-        if (start > 0) {
-          seek(0);
-          init();
-          seek(start);
+      boolean[] skippedColIDs = null;
+      if (fs.getFileStatus(file).getLen() == 0) {
+        if (!skipEmptyFiles) {
+          throw new IOException("File: " + file + " is empty");
         } else {
-          init();
+          columnNumber = loadColumnNum = 0;
+          metadata = new Metadata();
+          metadata.set(new Text(COLUMN_NUMBER_METADATA_STR), new Text("0"));
+          version = ORIGINAL_VERSION;
+          selectedColumns = null;
+          revPrjColIDs = null;
+          colValLenBufferReadIn = null;
+          end = 0;
         }
-        succeed = true;
-      } finally {
-        if (!succeed) {
-          if (in != null) {
-            try {
-              in.close();
-            } catch(IOException e) {
-              if (LOG != null && LOG.isDebugEnabled()) {
-                LOG.debug("Exception in closing " + in, e);
+      } else {
+        end = start + length;
+        boolean succeed = false;
+        try {
+          if (start > 0) {
+            seek(0);
+            init();
+            seek(start);
+          } else {
+            init();
+          }
+          succeed = true;
+        } finally {
+          if (!succeed) {
+            if (in != null) {
+              try {
+                in.close();
+              } catch (IOException e) {
+                if (LOG != null && LOG.isDebugEnabled()) {
+                  LOG.debug("Exception in closing " + in, e);
+                }
               }
             }
           }
         }
-      }
 
-      columnNumber = Integer.parseInt(metadata.get(
-          new Text(COLUMN_NUMBER_METADATA_STR)).toString());
+        columnNumber = Integer.parseInt(metadata.get(
+            new Text(COLUMN_NUMBER_METADATA_STR)).toString());
 
-      List<Integer> notSkipIDs = ColumnProjectionUtils
-          .getReadColumnIDs(conf);
-      boolean[] skippedColIDs = new boolean[columnNumber];
-      if(ColumnProjectionUtils.isReadAllColumns(conf)) {
-        Arrays.fill(skippedColIDs, false);
-      } else if (notSkipIDs.size() > 0) {
-        Arrays.fill(skippedColIDs, true);
-        for (int read : notSkipIDs) {
-          if (read < columnNumber) {
-            skippedColIDs[read] = false;
+        List<Integer> notSkipIDs = ColumnProjectionUtils
+            .getReadColumnIDs(conf);
+        skippedColIDs = new boolean[columnNumber];
+        if (ColumnProjectionUtils.isReadAllColumns(conf)) {
+          Arrays.fill(skippedColIDs, false);
+        } else if (notSkipIDs.size() > 0) {
+          Arrays.fill(skippedColIDs, true);
+          for (int read : notSkipIDs) {
+            if (read < columnNumber) {
+              skippedColIDs[read] = false;
+            }
           }
-        }
-      } else {
-        // select count(1)
-        Arrays.fill(skippedColIDs, true);
-      }
-      loadColumnNum = columnNumber;
-      if (skippedColIDs.length > 0) {
-        for (boolean skippedColID : skippedColIDs) {
-          if (skippedColID) {
-            loadColumnNum -= 1;
-          }
-        }
-      }
-
-
-      revPrjColIDs = new int[columnNumber];
-      // get list of selected column IDs
-      selectedColumns = new SelectedColumn[loadColumnNum];
-      colValLenBufferReadIn = new NonSyncDataInputBuffer[loadColumnNum];
-      for (int i = 0, j = 0; i < columnNumber; ++i) {
-        if (!skippedColIDs[i]) {
-          SelectedColumn col = new SelectedColumn();
-          col.colIndex = i;
-          col.runLength = 0;
-          col.prvLength = -1;
-          col.rowReadIndex = 0;
-          selectedColumns[j] = col;
-          colValLenBufferReadIn[j] = new NonSyncDataInputBuffer();
-          revPrjColIDs[i] = j;
-          j++;
         } else {
-          revPrjColIDs[i] = -1;
+          // select count(1)
+          Arrays.fill(skippedColIDs, true);
+        }
+        loadColumnNum = columnNumber;
+        if (skippedColIDs.length > 0) {
+          for (boolean skippedColID : skippedColIDs) {
+            if (skippedColID) {
+              loadColumnNum -= 1;
+            }
+          }
+        }
+
+
+        revPrjColIDs = new int[columnNumber];
+        // get list of selected column IDs
+        selectedColumns = new SelectedColumn[loadColumnNum];
+        colValLenBufferReadIn = new NonSyncDataInputBuffer[loadColumnNum];
+        for (int i = 0, j = 0; i < columnNumber; ++i) {
+          if (!skippedColIDs[i]) {
+            SelectedColumn col = new SelectedColumn();
+            col.colIndex = i;
+            col.runLength = 0;
+            col.prvLength = -1;
+            col.rowReadIndex = 0;
+            selectedColumns[j] = col;
+            colValLenBufferReadIn[j] = new NonSyncDataInputBuffer();
+            revPrjColIDs[i] = j;
+            j++;
+          } else {
+            revPrjColIDs[i] = -1;
+          }
         }
       }
-
       currentKey = createKeyBuffer();
       boolean lazyDecompress = !tolerateCorruptions;
       currentValue = new ValueBuffer(
-        null, columnNumber, skippedColIDs, codec, lazyDecompress);
+          null, columnNumber, skippedColIDs, codec, lazyDecompress);
+
+
     }
 
     /**
@@ -1459,7 +1483,13 @@ public class RCFile {
 
     private void init() throws IOException {
       byte[] magic = new byte[MAGIC.length];
-      in.readFully(magic);
+      boolean isEmptyFile = false;
+
+      try {
+        in.readFully(magic);
+      } catch(EOFException e) {
+        isEmptyFile = true;
+      }
 
       if (Arrays.equals(magic, ORIGINAL_MAGIC)) {
         byte vers = in.readByte();
