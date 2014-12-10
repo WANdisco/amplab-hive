@@ -60,6 +60,7 @@ import org.apache.hive.service.cli.operation.ClassicTableTypeMapping;
 import org.apache.hive.service.cli.operation.ClassicTableTypeMapping.ClassicTableTypes;
 import org.apache.hive.service.cli.operation.HiveTableTypeMapping;
 import org.apache.hive.service.cli.operation.TableTypeMappingFactory.TableTypeMappings;
+import org.apache.hive.service.server.HiveServer2;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
