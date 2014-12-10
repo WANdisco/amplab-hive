@@ -244,13 +244,21 @@ public class HiveMetaStore extends ThriftHiveMetastore {
                                      // right now they come from jpox.properties
 
     private Warehouse wh; // hdfs warehouse
-    private final ThreadLocal<RawStore> threadLocalMS =
+    private static ThreadLocal<RawStore> threadLocalMS =
         new ThreadLocal<RawStore>() {
           @Override
           protected synchronized RawStore initialValue() {
             return null;
           }
         };
+
+    public static RawStore getRawStore() {
+      return threadLocalMS.get();
+    }
+
+    public static void removeRawStore() {
+      threadLocalMS.remove();
+    }
 
     private final ThreadLocal<TxnHandler> threadLocalTxn = new ThreadLocal<TxnHandler>() {
       @Override

@@ -844,10 +844,7 @@ public class HiveConf extends Configuration {
     HIVE_EXEC_LOG4J_FILE("hive.exec.log4j.file", ""),
 
     // Hive global init file location
-    HIVE_GLOBAL_INIT_FILE_LOCATION("hive.global.init.file.location", System.getenv("HIVE_CONF_DIR"),
-        "The location of HS2 global init file (.hiverc).\n" +
-        "If the property is not set, then HS2 will search for the file in $HIVE_CONF_DIR/.\n" +
-        "If the property is set, the value must be a valid path where the init file is located."),
+    HIVE_GLOBAL_INIT_FILE_LOCATION("hive.global.init.file.location", System.getenv("HIVE_CONF_DIR")),
 
     // prefix used to auto generated column aliases (this should be started with '_')
     HIVE_AUTOGEN_COLUMNALIAS_PREFIX_LABEL("hive.autogen.columnalias.prefix.label", "_c"),
@@ -882,6 +879,7 @@ public class HiveConf extends Configuration {
     HIVE_SERVER2_THRIFT_HTTP_PATH("hive.server2.thrift.http.path", "cliservice"),
     HIVE_SERVER2_THRIFT_HTTP_MIN_WORKER_THREADS("hive.server2.thrift.http.min.worker.threads", 5),
     HIVE_SERVER2_THRIFT_HTTP_MAX_WORKER_THREADS("hive.server2.thrift.http.max.worker.threads", 500),
+    HIVE_SERVER2_THRIFT_HTTP_WORKER_KEEPALIVE_TIME("hive.server2.thrift.http.worker.keepalive.time", 60),
 
     // binary transport settings
     HIVE_SERVER2_THRIFT_PORT("hive.server2.thrift.port", 10000),
@@ -890,6 +888,7 @@ public class HiveConf extends Configuration {
         new StringsValidator("auth", "auth-int", "auth-conf")),
     HIVE_SERVER2_THRIFT_MIN_WORKER_THREADS("hive.server2.thrift.min.worker.threads", 5),
     HIVE_SERVER2_THRIFT_MAX_WORKER_THREADS("hive.server2.thrift.max.worker.threads", 500),
+    HIVE_SERVER2_THRIFT_WORKER_KEEPALIVE_TIME("hive.server2.thrift.worker.keepalive.time", 60),
 
     // Configuration for async thread pool in SessionManager
     // Number of async threads
