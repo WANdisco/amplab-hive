@@ -931,6 +931,11 @@ public class HiveConf extends Configuration {
 
     HIVE_SECURITY_COMMAND_WHITELIST("hive.security.command.whitelist", "set,reset,dfs,add,delete,compile"),
 
+    HIVE_SERVER2_SESSION_CHECK_INTERVAL("hive.server2.session.check.interval", 0),
+    HIVE_SERVER2_IDLE_SESSION_TIMEOUT("hive.server2.idle.session.timeout", 0),
+    HIVE_SERVER2_IDLE_OPERATION_TIMEOUT("hive.server2.idle.operation.timeout", 0),
+
+
     HIVE_CONF_RESTRICTED_LIST("hive.conf.restricted.list", "hive.security.authenticator.manager,hive.security.authorization.manager"),
 
     // If this is set all move tasks at the end of a multi-insert query will only begin once all

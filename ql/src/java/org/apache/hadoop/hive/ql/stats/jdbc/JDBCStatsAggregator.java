@@ -62,6 +62,7 @@ public class JDBCStatsAggregator implements StatsAggregator {
     String driver = HiveConf.getVar(hiveconf, HiveConf.ConfVars.HIVESTATSJDBCDRIVER);
     maxRetries = HiveConf.getIntVar(hiveconf, HiveConf.ConfVars.HIVE_STATS_RETRIES_MAX);
     waitWindow = HiveConf.getIntVar(hiveconf, HiveConf.ConfVars.HIVE_STATS_RETRIES_WAIT);
+    this.sourceTask = sourceTask;
 
     try {
       Class.forName(driver).newInstance();

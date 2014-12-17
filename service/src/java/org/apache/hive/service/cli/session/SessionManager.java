@@ -18,6 +18,8 @@
 
 package org.apache.hive.service.cli.session;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -55,6 +57,11 @@ public class SessionManager extends CompositeService {
   private final OperationManager operationManager = new OperationManager();
   private ThreadPoolExecutor backgroundOperationPool;
 
+  private long checkInterval;
+  private long sessionTimeout;
+
+  private volatile boolean shutdown;
+
   public SessionManager() {
     super("SessionManager");
   }
@@ -87,6 +94,9 @@ public class SessionManager extends CompositeService {
         keepAliveTime, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(backgroundPoolQueueSize),
         new ThreadFactoryWithGarbageCleanup(threadPoolName));
     backgroundOperationPool.allowCoreThreadTimeOut(true);
+
+    checkInterval = HiveConf.getIntVar(hiveConf, ConfVars.HIVE_SERVER2_SESSION_CHECK_INTERVAL);
+    sessionTimeout = HiveConf.getIntVar(hiveConf, ConfVars.HIVE_SERVER2_IDLE_SESSION_TIMEOUT);
   }
 
   private void applyAuthorizationConfigPolicy(HiveConf newHiveConf) throws HiveException {
@@ -99,11 +109,50 @@ public class SessionManager extends CompositeService {
   @Override
   public synchronized void start() {
     super.start();
+    if(checkInterval > 0) {
+      startTimeoutChecker();
+    }
+  }
+
+  private void startTimeoutChecker() {
+    final long interval = Math.max(checkInterval, 3000l);  // minimum 3 seconds
+    Runnable timeoutChecker = new Runnable() {
+      @Override
+      public void run() {
+        for (sleepInterval(interval); !shutdown; sleepInterval(interval)) {
+          long current = System.currentTimeMillis();
+          for (HiveSession session : new ArrayList<HiveSession>(handleToSession.values())) {
+            if (sessionTimeout > 0 && session.getLastAccessTime() + sessionTimeout <= current) {
+              SessionHandle handle = session.getSessionHandle();
+              LOG.warn("Session " + handle + " is Timed-out (last access : " +
+                  new Date(session.getLastAccessTime()) + ") and will be closed");
+              try {
+                closeSession(handle);
+              } catch (HiveSQLException e) {
+                LOG.warn("Exception is thrown closing session " + handle, e);
+              }
+            } else {
+              session.closeExpiredOperations();
+            }
+          }
+        }
+      }
+
+      private void sleepInterval(long interval) {
+        try {
+          Thread.sleep(interval);
+        } catch (InterruptedException e) {
+          // ignore
+        }
+      }
+    };
+    backgroundOperationPool.execute(timeoutChecker);
   }
 
   @Override
   public synchronized void stop() {
     super.stop();
+    shutdown = true;
     if (backgroundOperationPool != null) {
       backgroundOperationPool.shutdown();
       int timeout = hiveConf.getIntVar(ConfVars.HIVE_SERVER2_ASYNC_EXEC_SHUTDOWN_TIMEOUT);
@@ -113,6 +162,7 @@ public class SessionManager extends CompositeService {
         LOG.warn("HIVE_SERVER2_ASYNC_EXEC_SHUTDOWN_TIMEOUT = " + timeout +
             " seconds has been exceeded. RUNNING background operations will be shut down", e);
       }
+      backgroundOperationPool = null;
     }
   }
 
