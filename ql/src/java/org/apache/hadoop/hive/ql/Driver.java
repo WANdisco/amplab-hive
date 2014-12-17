@@ -1194,6 +1194,14 @@ public class Driver implements CommandProcessor {
       plan.setStarted();
 
       if (SessionState.get() != null) {
+          if (SessionState.get().getLineageState() != null) {
+              try {
+                console.printInfo("LineageState size: " + SessionState.get().getLineageState().getLineageInfo().size());
+              } catch (Exception e) {
+                // ignore
+              }
+          }
+          
         SessionState.get().getHiveHistory().startQuery(queryStr,
             conf.getVar(HiveConf.ConfVars.HIVEQUERYID));
         SessionState.get().getHiveHistory().logPlanProgress(plan);
@@ -1429,12 +1437,21 @@ public class Driver implements CommandProcessor {
         }
         console.printInfo("Total MapReduce CPU Time Spent: " + Utilities.formatMsecToStr(totalCpu));
       }
+
+      if (SessionState.get() != null && SessionState.get().getLineageState() != null) {
+        try {
+          SessionState.get().getLineageState().clear();
+          console.printInfo("LineageState has been cleared");
+        } catch (Exception e) {
+          // ignore
+        }
+      }
+
     }
     plan.setDone();
 
     if (SessionState.get() != null) {
       try {
-        SessionState.get().getLineageState().clear();
         SessionState.get().getHiveHistory().logPlanProgress(plan);
       } catch (Exception e) {
         // ignore
