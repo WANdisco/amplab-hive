@@ -1362,6 +1362,7 @@ public class RCFile {
       boolean[] skippedColIDs = null;
       if (fs.getFileStatus(file).getLen() == 0) {
         if (!skipEmptyFiles) {
+          in.close();
           throw new IOException("File: " + file + " is empty");
         } else {
           columnNumber = loadColumnNum = 0;
