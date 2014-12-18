@@ -50,8 +50,8 @@ public class TestHiveServer2SessionTimeout {
   public void setUp() throws Exception {
     confOverlay = new HashMap<String, String>();
     confOverlay.put(ConfVars.HIVE_SUPPORT_CONCURRENCY.varname, "false");
-    confOverlay.put(ConfVars.HIVE_SERVER2_SESSION_CHECK_INTERVAL.varname, 3);
-    confOverlay.put(ConfVars.HIVE_SERVER2_IDLE_OPERATION_TIMEOUT.varname, 3);
+    confOverlay.put(ConfVars.HIVE_SERVER2_SESSION_CHECK_INTERVAL.varname, "3");
+    confOverlay.put(ConfVars.HIVE_SERVER2_IDLE_OPERATION_TIMEOUT.varname, "3");
     miniHS2.start(confOverlay);
   }
 
