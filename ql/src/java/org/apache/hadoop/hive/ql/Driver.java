@@ -1196,14 +1196,6 @@ public class Driver implements CommandProcessor {
       plan.setStarted();
 
       if (SessionState.get() != null) {
-          if (SessionState.get().getLineageState() != null) {
-              try {
-                console.printInfo("LineageState size: " + SessionState.get().getLineageState().getLineageInfo().size());
-              } catch (Exception e) {
-                // ignore
-              }
-          }
-          
         SessionState.get().getHiveHistory().startQuery(queryStr,
             conf.getVar(HiveConf.ConfVars.HIVEQUERYID));
         SessionState.get().getHiveHistory().logPlanProgress(plan);
@@ -1443,7 +1435,6 @@ public class Driver implements CommandProcessor {
       if (SessionState.get() != null && SessionState.get().getLineageState() != null) {
         try {
           SessionState.get().getLineageState().clear();
-          console.printInfo("LineageState has been cleared");
         } catch (Exception e) {
           // ignore
         }

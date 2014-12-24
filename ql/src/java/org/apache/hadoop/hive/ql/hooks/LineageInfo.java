@@ -433,7 +433,4 @@ public class LineageInfo implements Serializable {
     index.clear();
   }
   
-  public int size() {
-	  return index.size();
-  }
 }
