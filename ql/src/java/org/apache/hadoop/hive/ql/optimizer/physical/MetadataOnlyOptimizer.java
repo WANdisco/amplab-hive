@@ -21,10 +21,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Stack;
 
 import org.apache.commons.logging.Log;
@@ -151,8 +151,7 @@ public class MetadataOnlyOptimizer implements PhysicalPlanResolver {
       WalkerCtx walkerCtx = (WalkerCtx) procCtx;
       // There can be atmost one element eligible to be converted to
       // metadata only
-      if ((walkerCtx.getMayBeMetadataOnlyTableScans().isEmpty())
-          || (walkerCtx.getMayBeMetadataOnlyTableScans().size() > 1)) {
+      if (walkerCtx.getMayBeMetadataOnlyTableScans().isEmpty()) {
         return nd;
       }
 
@@ -229,22 +228,49 @@ public class MetadataOnlyOptimizer implements PhysicalPlanResolver {
       return paths;
     }
 
-    private void processAlias(MapWork work, String alias) {
-      // Change the alias partition desc
-      PartitionDesc aliasPartn = work.getAliasToPartnInfo().get(alias);
-      changePartitionToMetadataOnly(aliasPartn);
-
-      List<String> paths = getPathsForAlias(work, alias);
-      for (String path : paths) {
-        PartitionDesc partDesc = work.getPathToPartitionInfo().get(path);
+    private void processAlias(MapWork work, String path, ArrayList<String> aliasesAffected,
+        ArrayList<String> aliases) {
+      // the aliases that are allowed to map to a null scan.
+      ArrayList<String> allowed = new ArrayList<String>();
+      for (String alias : aliasesAffected) {
+        if (aliases.contains(alias)) {
+          allowed.add(alias);
+        }
+      }
+      if (allowed.size() > 0) {
+//        work.setUseOneNullRowInputFormat(true);
+        PartitionDesc partDesc = work.getPathToPartitionInfo().get(path).clone();
         PartitionDesc newPartition = changePartitionToMetadataOnly(partDesc);
         Path fakePath = new Path(physicalContext.getContext().getMRTmpPath()
-            + newPartition.getTableName()
-            + encode(newPartition.getPartSpec()));
-        work.getPathToPartitionInfo().remove(path);
+            + newPartition.getTableName() + encode(newPartition.getPartSpec()));
         work.getPathToPartitionInfo().put(fakePath.getName(), newPartition);
-        ArrayList<String> aliases = work.getPathToAliases().remove(path);
-        work.getPathToAliases().put(fakePath.getName(), aliases);
+        work.getPathToAliases().put(fakePath.getName(), new ArrayList<String>(allowed));
+        aliasesAffected.removeAll(allowed);
+        if (aliasesAffected.isEmpty()) {
+          work.getPathToAliases().remove(path);
+          work.getPathToPartitionInfo().remove(path);
+        }
+      }
+    }
+    private void processAlias(MapWork work, HashSet<TableScanOperator> tableScans) {
+      ArrayList<String> aliases = new ArrayList<String>();
+      for (TableScanOperator tso : tableScans) {
+        // use LinkedHashMap<String, Operator<? extends OperatorDesc>>
+        // getAliasToWork()
+        String alias = getAliasForTableScanOperator(work, tso);
+        aliases.add(alias);
+        tso.getConf().setIsMetadataOnly(true);
+      }
+      // group path alias according to work
+      LinkedHashMap<String, ArrayList<String>> candidates = new LinkedHashMap<String, ArrayList<String>>();
+      for (String path : work.getPaths()) {
+        ArrayList<String> aliasesAffected = work.getPathToAliases().get(path);
+        if (aliasesAffected != null && aliasesAffected.size() > 0) {
+          candidates.put(path, aliasesAffected);
+        }
+      }
+      for (Entry<String, ArrayList<String>> entry : candidates.entrySet()) {
+        processAlias(work, entry.getKey(), entry.getValue(), aliases);
       }
     }
 
@@ -300,18 +326,9 @@ public class MetadataOnlyOptimizer implements PhysicalPlanResolver {
 
       LOG.info(String.format("Found %d metadata only table scans",
           walkerCtx.getMetadataOnlyTableScans().size()));
-      Iterator<TableScanOperator> iterator
-        = walkerCtx.getMetadataOnlyTableScans().iterator();
-
-      while (iterator.hasNext()) {
-        TableScanOperator tso = iterator.next();
-        ((TableScanDesc)tso.getConf()).setIsMetadataOnly(true);
-        MapWork work = ((MapredWork) task.getWork()).getMapWork();
-        String alias = getAliasForTableScanOperator(work, tso);
-        LOG.info("Metadata only table scan for " + alias);
-        processAlias(work, alias);
+      if (walkerCtx.getMetadataOnlyTableScans().size() > 0) {
+        processAlias(((MapredWork) task.getWork()).getMapWork(), walkerCtx.getMetadataOnlyTableScans());
       }
-
       return null;
     }
   }
