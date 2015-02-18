@@ -78,6 +78,9 @@ public class TezTask extends Task<TezWork> {
   private TezCounters counters;
 
   private final DagUtils utils;
+  
+  Map<BaseWork, Vertex> workToVertex = new HashMap<BaseWork, Vertex>();
+  Map<BaseWork, JobConf> workToConf = new HashMap<BaseWork, JobConf>();
 
   public TezTask() {
     this(DagUtils.getInstance());
@@ -186,6 +189,15 @@ public class TezTask extends Task<TezWork> {
       // rc will be 1 at this point indicating failure.
     } finally {
       Utilities.clearWork(conf);
+
+      // Clear gWorkMap
+      for (BaseWork w : work.getAllWork()) {
+        JobConf workCfg = workToConf.get(w);
+        if (workCfg != null) {
+          Utilities.clearWorkMapForConf(workCfg);
+        }
+      }
+      
       if (cleanContext) {
         try {
           ctx.clear();
@@ -208,8 +220,6 @@ public class TezTask extends Task<TezWork> {
       throws Exception {
 
     perfLogger.PerfLogBegin(CLASS_NAME, PerfLogger.TEZ_BUILD_DAG);
-    Map<BaseWork, Vertex> workToVertex = new HashMap<BaseWork, Vertex>();
-    Map<BaseWork, JobConf> workToConf = new HashMap<BaseWork, JobConf>();
 
     // getAllWork returns a topologically sorted list, which we use to make
     // sure that vertices are created before they are used in edges.
