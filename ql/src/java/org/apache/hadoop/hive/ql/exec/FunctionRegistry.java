@@ -453,6 +453,18 @@ public final class FunctionRegistry {
     registerTableFunction(NOOP_MAP_TABLE_FUNCTION, NoopWithMapResolver.class);
     registerTableFunction(WINDOWING_TABLE_FUNCTION,  WindowingTableFunctionResolver.class);
     registerTableFunction("matchpath", MatchPathResolver.class);
+
+
+    //Initialize CustomFunctionRegistry
+    try {
+      // Initializes and returns the Class object for the class with the specified name
+      Class cls = Class.forName("com.nsn.ngdb.hive.CustomFunctionRegistry");
+      LOG.debug("CustomFunctionRegistry initialized: "+cls.getCanonicalName());
+    }
+    catch(ClassNotFoundException ex) {
+      LOG.error("Error while initializing Custom UDFs: "+ex.getLocalizedMessage(),ex);
+    }
+    //Initialize CustomFunctionRegistry ends
   }
 
   public static void registerTemporaryUDF(String functionName,
