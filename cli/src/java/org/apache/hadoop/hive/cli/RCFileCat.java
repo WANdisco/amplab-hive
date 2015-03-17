@@ -1,5 +1,4 @@
 /**
- * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
  * regarding copyright ownership.  The ASF licenses this file
@@ -28,14 +27,28 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.hive.conf.HiveConf;
+import org.apache.hadoop.hive.metastore.api.FieldSchema;
 import org.apache.hadoop.hive.ql.io.RCFile.KeyBuffer;
 import org.apache.hadoop.hive.ql.io.RCFileRecordReader;
+import org.apache.hadoop.hive.ql.metadata.Hive;
+import org.apache.hadoop.hive.ql.metadata.HiveException;
+import org.apache.hadoop.hive.ql.metadata.Table;
+import org.apache.hadoop.hive.ql.session.SessionState;
+import org.apache.hadoop.hive.serde.serdeConstants;
+import org.apache.hadoop.hive.serde2.SerDeException;
 import org.apache.hadoop.hive.serde2.columnar.BytesRefArrayWritable;
 import org.apache.hadoop.hive.serde2.columnar.BytesRefWritable;
+import org.apache.hadoop.hive.serde2.columnar.ColumnarSerDeBase;
+import org.apache.hadoop.hive.serde2.columnar.ColumnarStructBase;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapred.FileSplit;
 import org.apache.hadoop.mapred.JobConf;
@@ -80,6 +93,8 @@ public class RCFileCat implements Tool{
     boolean columnSizes = false;
     boolean pretty = false;
     boolean fileSizes = false;
+    String tableName = null;
+    String serdeName = null;
 
     //get options from arguments
     if (args.length < 1 || args.length > 3) {
@@ -102,6 +117,10 @@ public class RCFileCat implements Tool{
         pretty = true;
       } else if (arg.equals("--file-sizes")){
         fileSizes = true;
+      } else if (arg.startsWith("--table=")) {
+        tableName = arg.substring("--table=".length());
+      } else if (arg.startsWith("--serde=")) {
+        serdeName = arg.substring("--serde=".length());
       } else if (fileName == null){
         fileName = new Path(arg);
       } else {
@@ -109,6 +128,9 @@ public class RCFileCat implements Tool{
         return -1;
       }
     }
+
+    String tableInfo[] = readTableInfo(tableName);
+    ColumnarSerDeBase serde = prepareSerDe(serdeName, tableInfo[0], tableInfo[1]);
 
     setupBufferedOutput();
     FileSystem fs = FileSystem.get(fileName.toUri(), conf);
@@ -186,7 +208,11 @@ public class RCFileCat implements Tool{
     BytesRefArrayWritable value = new BytesRefArrayWritable();
     StringBuilder buf = new StringBuilder(STRING_BUFFER_SIZE); // extra capacity in case we overrun, to avoid resizing
     while (recordReader.next(key, value)) {
-      printRecord(value, buf);
+      if (serde == null) {
+        printRecord(value, buf);
+      } else {
+        printRecordSerde(value, buf, serde);
+      }
       recordCount++;
       if (verbose && (recordCount % RECORD_PRINT_INTERVAL) == 0) {
         long now = System.currentTimeMillis();
@@ -207,6 +233,39 @@ public class RCFileCat implements Tool{
     return 0;
   }
 
+  private ColumnarSerDeBase prepareSerDe(String serdeName, String columns, String types) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SerDeException {
+    if (serdeName == null) {
+      return null;
+    }
+    Properties props = new Properties();
+    props.setProperty(serdeConstants.LIST_COLUMNS,
+            columns);
+    props.setProperty(serdeConstants.LIST_COLUMN_TYPES,
+            types);
+    ColumnarSerDeBase serde = (ColumnarSerDeBase) Class.forName(serdeName).newInstance();
+    serde.initialize(conf, props);
+    return serde;
+  }
+
+  private String[] readTableInfo(String tableName) throws HiveException {
+    String[] result = new String[2];
+    if (tableName != null) {
+      HiveConf conf = new HiveConf(this.getClass());
+      Hive h = Hive.get(conf);
+      SessionState.start(conf);
+      Table t = h.getTable(tableName);
+      List<FieldSchema> cols = t.getAllCols();
+      String colTypes[] = new String[cols.size()];
+      String colNames[] = new String[cols.size()];
+      for (int i = 0; i < cols.size(); i++) {
+        colTypes[i] = cols.get(i).getType();
+        colNames[i] = "col" + i;
+      }
+      result[0] = StringUtils.join(colNames, ',');
+      result[1] = StringUtils.join(colTypes, ',');
+    }
+    return result;
+  }
 
   /**
    * Print record to string builder
@@ -231,6 +290,20 @@ public class RCFileCat implements Tool{
       }
       buf.append(RCFileCat.NEWLINE);
     }
+  }
+
+  private void printRecordSerde(BytesRefArrayWritable value, StringBuilder buf,
+      ColumnarSerDeBase serde) throws SerDeException {
+    ColumnarStructBase o = (ColumnarStructBase) serde.deserialize(value);
+    ArrayList<Object> list = o.getFieldsAsList();
+    for (Object object : list) {
+        buf.append(object).append(RCFileCat.TAB);
+    }
+    // Strip last ','
+    if (buf.length() > 0) {
+        buf.setLength(buf.length() - 1);
+    }
+    buf.append(RCFileCat.NEWLINE);
   }
 
   @Override
