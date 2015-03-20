@@ -401,7 +401,7 @@ public final class TypeInfoUtils {
 
   }
 
-  static Map<TypeInfo, ObjectInspector> cachedStandardObjectInspector =
+  static ConcurrentHashMap<TypeInfo, ObjectInspector> cachedStandardObjectInspector =
       new ConcurrentHashMap<TypeInfo, ObjectInspector>();
 
   /**
@@ -473,12 +473,16 @@ public final class TypeInfoUtils {
         result = null;
       }
       }
-      cachedStandardObjectInspector.put(typeInfo, result);
+      ObjectInspector prev =
+        cachedStandardObjectInspector.putIfAbsent(typeInfo, result);
+      if (prev != null) {
+        result = prev;
+      }
     }
     return result;
   }
 
-  static Map<TypeInfo, ObjectInspector> cachedStandardJavaObjectInspector =
+  static ConcurrentHashMap<TypeInfo, ObjectInspector> cachedStandardJavaObjectInspector =
       new ConcurrentHashMap<TypeInfo, ObjectInspector>();
 
   /**
@@ -551,7 +555,11 @@ public final class TypeInfoUtils {
         result = null;
       }
       }
-      cachedStandardJavaObjectInspector.put(typeInfo, result);
+      ObjectInspector prev =
+        cachedStandardJavaObjectInspector.putIfAbsent(typeInfo, result);
+      if (prev != null) {
+        result = prev;
+      }
     }
     return result;
   }

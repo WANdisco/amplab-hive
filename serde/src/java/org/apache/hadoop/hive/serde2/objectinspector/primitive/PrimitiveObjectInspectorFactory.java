@@ -19,7 +19,6 @@
 package org.apache.hadoop.hive.serde2.objectinspector.primitive;
 
 import java.util.HashMap;
-
 import org.apache.hadoop.hive.serde2.io.HiveDecimalWritable;
 import org.apache.hadoop.hive.serde2.io.ByteWritable;
 import org.apache.hadoop.hive.serde2.io.DoubleWritable;

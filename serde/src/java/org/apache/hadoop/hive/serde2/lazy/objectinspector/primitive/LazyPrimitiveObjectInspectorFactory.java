@@ -19,7 +19,7 @@
 package org.apache.hadoop.hive.serde2.lazy.objectinspector.primitive;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.hadoop.hive.serde2.objectinspector.PrimitiveObjectInspector.PrimitiveCategory;
 
@@ -60,8 +60,8 @@ public final class LazyPrimitiveObjectInspectorFactory {
   public static final LazyHiveDecimalObjectInspector LAZY_BIG_DECIMAL_OBJECT_INSPECTOR =
       new LazyHiveDecimalObjectInspector();
 
-  static HashMap<ArrayList<Object>, LazyStringObjectInspector> cachedLazyStringObjectInspector =
-      new HashMap<ArrayList<Object>, LazyStringObjectInspector>();
+  static ConcurrentHashMap<ArrayList<Object>, LazyStringObjectInspector> cachedLazyStringObjectInspector =
+      new ConcurrentHashMap<ArrayList<Object>, LazyStringObjectInspector>();
 
   public static LazyStringObjectInspector getLazyStringObjectInspector(
       boolean escaped, byte escapeChar) {
@@ -72,7 +72,11 @@ public final class LazyPrimitiveObjectInspectorFactory {
         .get(signature);
     if (result == null) {
       result = new LazyStringObjectInspector(escaped, escapeChar);
-      cachedLazyStringObjectInspector.put(signature, result);
+      AbstractPrimitiveLazyObjectInspector<?> prev =
+        cachedLazyStringObjectInspector.putIfAbsent(signature, result);
+      if (prev != null) {
+        result = (LazyStringObjectInspector) prev;
+      }
     }
     return result;
   }

@@ -18,11 +18,9 @@
 package org.apache.hadoop.hive.serde2.lazybinary;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.hive.serde2.ByteStream.Output;
 import org.apache.hadoop.hive.serde2.io.TimestampWritable;
 import org.apache.hadoop.hive.serde2.lazybinary.objectinspector.LazyBinaryObjectInspectorFactory;
@@ -43,8 +41,6 @@ import org.apache.hadoop.io.WritableUtils;
  *
  */
 public final class LazyBinaryUtils {
-
-  private static Log LOG = LogFactory.getLog(LazyBinaryUtils.class.getName());
 
   /**
    * Convert the byte array to an int starting from the given offset. Refer to
@@ -381,7 +377,8 @@ public final class LazyBinaryUtils {
     byteStream.write(vLongBytes, 0, len);
   }
 
-  static HashMap<TypeInfo, ObjectInspector> cachedLazyBinaryObjectInspector = new HashMap<TypeInfo, ObjectInspector>();
+  static ConcurrentHashMap<TypeInfo, ObjectInspector> cachedLazyBinaryObjectInspector =
+      new ConcurrentHashMap<TypeInfo, ObjectInspector>();
 
   /**
    * Returns the lazy binary object inspector that can be used to inspect an
@@ -439,7 +436,11 @@ public final class LazyBinaryUtils {
         result = null;
       }
       }
-      cachedLazyBinaryObjectInspector.put(typeInfo, result);
+      ObjectInspector prev =
+        cachedLazyBinaryObjectInspector.putIfAbsent(typeInfo, result);
+      if (prev != null) {
+        result = prev;
+      }
     }
     return result;
   }

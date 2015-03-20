@@ -48,7 +48,10 @@ public final class TypeInfoFactory {
     TypeInfo result = cachedPrimitiveTypeInfo.get(typeName);
     if (result == null) {
       result = new PrimitiveTypeInfo(typeName);
-      cachedPrimitiveTypeInfo.put(typeName, result);
+      TypeInfo prev = cachedPrimitiveTypeInfo.putIfAbsent(typeName, result);
+      if (prev != null) {
+        result = prev;
+      }
     }
     return result;
   }
@@ -95,7 +98,10 @@ public final class TypeInfoFactory {
     TypeInfo result = cachedStructTypeInfo.get(signature);
     if (result == null) {
       result = new StructTypeInfo(names, typeInfos);
-      cachedStructTypeInfo.put(signature, result);
+      TypeInfo prev = cachedStructTypeInfo.putIfAbsent(signature, result);
+      if (prev != null) {
+        result = prev;
+      }
     }
     return result;
   }
@@ -107,7 +113,10 @@ public final class TypeInfoFactory {
     TypeInfo result = cachedUnionTypeInfo.get(typeInfos);
     if (result == null) {
       result = new UnionTypeInfo(typeInfos);
-      cachedUnionTypeInfo.put(typeInfos, result);
+      TypeInfo prev = cachedUnionTypeInfo.putIfAbsent(typeInfos, result);
+      if (prev != null) {
+        result = prev;
+      }
     }
     return result;
   }
@@ -118,7 +127,10 @@ public final class TypeInfoFactory {
     TypeInfo result = cachedListTypeInfo.get(elementTypeInfo);
     if (result == null) {
       result = new ListTypeInfo(elementTypeInfo);
-      cachedListTypeInfo.put(elementTypeInfo, result);
+      TypeInfo prev = cachedListTypeInfo.putIfAbsent(elementTypeInfo, result);
+      if (prev != null) {
+        result = prev;
+      }
     }
     return result;
   }
@@ -134,7 +146,10 @@ public final class TypeInfoFactory {
     TypeInfo result = cachedMapTypeInfo.get(signature);
     if (result == null) {
       result = new MapTypeInfo(keyTypeInfo, valueTypeInfo);
-      cachedMapTypeInfo.put(signature, result);
+      TypeInfo prev = cachedMapTypeInfo.putIfAbsent(signature, result);
+      if (prev != null) {
+        result = prev;
+      }
     }
     return result;
   };
