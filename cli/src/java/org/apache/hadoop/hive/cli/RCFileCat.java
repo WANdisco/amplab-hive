@@ -28,7 +28,6 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.lang.StringUtils;
@@ -36,7 +35,6 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hive.conf.HiveConf;
-import org.apache.hadoop.hive.metastore.api.FieldSchema;
 import org.apache.hadoop.hive.ql.io.RCFile.KeyBuffer;
 import org.apache.hadoop.hive.ql.io.RCFileRecordReader;
 import org.apache.hadoop.hive.ql.metadata.Hive;
@@ -49,6 +47,7 @@ import org.apache.hadoop.hive.serde2.columnar.BytesRefArrayWritable;
 import org.apache.hadoop.hive.serde2.columnar.BytesRefWritable;
 import org.apache.hadoop.hive.serde2.columnar.ColumnarSerDeBase;
 import org.apache.hadoop.hive.serde2.columnar.ColumnarStructBase;
+import org.apache.hadoop.hive.serde2.objectinspector.StructField;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapred.FileSplit;
 import org.apache.hadoop.mapred.JobConf;
@@ -254,12 +253,12 @@ public class RCFileCat implements Tool{
       Hive h = Hive.get(conf);
       SessionState.start(conf);
       Table t = h.getTable(tableName);
-      List<FieldSchema> cols = t.getAllCols();
-      String colTypes[] = new String[cols.size()];
-      String colNames[] = new String[cols.size()];
-      for (int i = 0; i < cols.size(); i++) {
-        colTypes[i] = cols.get(i).getType();
-        colNames[i] = "col" + i;
+      ArrayList<StructField> flds = t.getFields();
+      String colTypes[] = new String[flds.size()];
+      String colNames[] = new String[flds.size()];
+      for (int i = 0; i < flds.size(); i++) {
+        colTypes[i] = flds.get(i).getFieldObjectInspector().getTypeName();
+        colNames[i] = flds.get(i).getFieldName();
       }
       result[0] = StringUtils.join(colNames, ',');
       result[1] = StringUtils.join(colTypes, ',');
