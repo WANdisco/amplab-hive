@@ -2277,7 +2277,7 @@ private void constructOneLBLocationMap(FileStatus fSta,
         }
       }
 
-      if (hdfsEncryptionShim != null && (hdfsEncryptionShim.isPathEncrypted(srcf) || hdfsEncryptionShim.isPathEncrypted(destf))
+      if (hdfsEncryptionShim != null && ("hdfs".equals(srcf.getFileSystem(conf).getUri().getScheme()) && hdfsEncryptionShim.isPathEncrypted(srcf) || "hdfs".equals(destf.getFileSystem(conf).getUri().getScheme()) && hdfsEncryptionShim.isPathEncrypted(destf))
           && !hdfsEncryptionShim.arePathsOnSameEncryptionZone(srcf, destf))
       {
         LOG.info("Copying source " + srcf + " to " + destf + " because HDFS encryption zones are different.");
