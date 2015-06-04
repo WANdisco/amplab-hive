@@ -24,6 +24,7 @@ import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.security.auth.login.LoginException;
 
@@ -69,6 +70,7 @@ public abstract class ThriftCLIService extends AbstractService implements TCLISe
   protected CLIService cliService;
   private static final TStatus OK_STATUS = new TStatus(TStatusCode.SUCCESS_STATUS);
   protected static HiveAuthFactory hiveAuthFactory;
+  private static final AtomicInteger sessionCount = new AtomicInteger();
 
   protected int portNum;
   protected InetAddress serverIPAddress;
@@ -306,6 +308,7 @@ public abstract class ThriftCLIService extends AbstractService implements TCLISe
       if (context != null) {
         context.setSessionHandle(sessionHandle);
       }
+      LOG.info("Opened a session, current sessions: " + sessionCount.incrementAndGet());
     } catch (Exception e) {
       LOG.warn("Error opening session: ", e);
       resp.setStatus(HiveSQLException.toTStatus(e));
@@ -448,6 +451,7 @@ public abstract class ThriftCLIService extends AbstractService implements TCLISe
     try {
       SessionHandle sessionHandle = new SessionHandle(req.getSessionHandle());
       cliService.closeSession(sessionHandle);
+      LOG.info("Closed a session, current sessions: " + sessionCount.decrementAndGet());
       resp.setStatus(OK_STATUS);
       ThriftCLIServerContext context =
         (ThriftCLIServerContext)currentServerContext.get();
