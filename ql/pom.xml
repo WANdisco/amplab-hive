@@ -67,7 +67,7 @@
     </dependency>
     <!-- inter-project -->
     <dependency>
-      <groupId>com.esotericsoftware.kryo</groupId>
+      <groupId>com.esotericsoftware</groupId>
       <artifactId>kryo</artifactId>
       <version>${kryo.version}</version>
     </dependency>
@@ -694,7 +694,7 @@
                   <include>org.spark-project.hive.shims:hive-shims-0.23</include>
                   <include>org.spark-project.hive.shims:hive-shims-0.23</include>
                   <include>org.spark-project.hive.shims:hive-shims-common</include>
-                  <include>com.esotericsoftware.kryo:kryo</include>
+                  <include>com.esotericsoftware:kryo</include>
                   <include>com.google.protobuf:protobuf-java</include>
                 </includes>
               </artifactSet>
@@ -705,7 +705,6 @@
                   <include>org.spark-project.hive:hive-common</include>
                   <include>org.spark-project.hive:hive-exec</include>
                   <include>org.spark-project.hive:hive-serde</include>
-                  <include>com.esotericsoftware.kryo:kryo</include>
                   <include>com.twitter:parquet-hadoop-bundle</include>
                   <include>org.apache.thrift:libthrift</include>
                   <include>commons-lang:commons-lang</include>
