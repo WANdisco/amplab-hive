@@ -1093,7 +1093,7 @@ public final class Utilities {
       kryo.register(java.sql.Date.class, new SqlDateSerializer());
       kryo.register(java.sql.Timestamp.class, new TimestampSerializer());
       kryo.register(Path.class, new PathSerializer());
-      kryo.setInstantiatorStrategy(new StdInstantiatorStrategy());
+      kryo.setInstantiatorStrategy(new Kryo.DefaultInstantiatorStrategy(new StdInstantiatorStrategy()));
       removeField(kryo, Operator.class, "colExprMap");
       removeField(kryo, ColumnInfo.class, "objectInspector");
       removeField(kryo, AbstractOperatorDesc.class, "statistics");
