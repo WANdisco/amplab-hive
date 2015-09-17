@@ -504,6 +504,7 @@
                   <include>com.esotericsoftware:kryo</include>
                   <include>org.objenesis:objenesis</include>
                   <include>com.esotericsoftware:minlog</include>
+                  <include>com.esotericsoftware:reflectasm</include>
                   <include>com.twitter:parquet-hadoop-bundle</include>
                   <include>org.apache.thrift:libthrift</include>
                   <include>commons-lang:commons-lang</include>
