@@ -200,7 +200,7 @@
       <!-- dependencies are always listed in sorted order by groupId, artifectId -->
       <dependency>
         <groupId>com.esotericsoftware</groupId>
-        <artifactId>kryo</artifactId>
+        <artifactId>kryo-shaded</artifactId>
         <version>${kryo.version}</version>
       </dependency>
       <dependency>
