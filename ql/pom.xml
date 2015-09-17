@@ -68,7 +68,7 @@
     <!-- inter-project -->
     <dependency>
       <groupId>com.esotericsoftware</groupId>
-      <artifactId>kryo</artifactId>
+      <artifactId>kryo-shaded</artifactId>
       <version>${kryo.version}</version>
     </dependency>
     <dependency>
