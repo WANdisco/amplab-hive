@@ -694,10 +694,9 @@
                   <include>org.spark-project.hive.shims:hive-shims-0.23</include>
                   <include>org.spark-project.hive.shims:hive-shims-0.23</include>
                   <include>org.spark-project.hive.shims:hive-shims-common</include>
-                  <include>com.esotericsoftware:kryo</include>
                   <include>org.objenesis:objenesis</include>
+                  <include>com.esotericsoftware:kryo-shaded</include>
                   <include>com.esotericsoftware:minlog</include>
-                  <include>com.esotericsoftware:reflectasm</include>
                   <include>com.google.protobuf:protobuf-java</include>
                 </includes>
               </artifactSet>
