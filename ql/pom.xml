@@ -529,6 +529,10 @@
                   <pattern>com.esotericsoftware</pattern>
                   <shadedPattern>org.apache.hive.com.esotericsoftware</shadedPattern>
                 </relocation>
+                <relocation>
+                  <pattern>org.objenesis</pattern>
+                  <shadedPattern>org.apache.hive.org.objenesis</shadedPattern>
+                </relocation>
               </relocations>
             </configuration>
           </execution>
