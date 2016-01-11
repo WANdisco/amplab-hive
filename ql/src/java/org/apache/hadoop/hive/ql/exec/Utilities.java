@@ -124,6 +124,7 @@ import org.apache.hadoop.hive.ql.io.HiveOutputFormat;
 import org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat;
 import org.apache.hadoop.hive.ql.io.OneNullRowInputFormat;
 import org.apache.hadoop.hive.ql.io.RCFile;
+import org.apache.hadoop.hive.ql.io.RCFileInputFormat;
 import org.apache.hadoop.hive.ql.io.ReworkMapredInputFormat;
 import org.apache.hadoop.hive.ql.io.rcfile.merge.MergeWork;
 import org.apache.hadoop.hive.ql.io.rcfile.merge.RCFileMergeMapper;
@@ -944,6 +945,7 @@ public final class Utilities {
       kryo.register(StandardConstantListObjectInspector.class);
       kryo.register(StandardConstantMapObjectInspector.class);
       kryo.register(SequenceFileInputFormat.class);
+      kryo.register(RCFileInputFormat.class);
       kryo.register(HiveSequenceFileOutputFormat.class);
       return kryo;
     };
