@@ -211,6 +211,9 @@ public class ColumnTruncateMapper extends MapReduceBase implements
     } else {
       if (!autoDelete) {
         fs.delete(outPath, true);
+      } else {
+        fs.cancelDeleteOnExit(outPath);
+        fs.delete(outPath, true);
       }
     }
   }

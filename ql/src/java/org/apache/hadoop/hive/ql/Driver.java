@@ -1572,12 +1572,20 @@ public class Driver implements CommandProcessor {
         }
         console.printInfo("Total MapReduce CPU Time Spent: " + Utilities.formatMsecToStr(totalCpu));
       }
+
+      if (SessionState.get() != null && SessionState.get().getLineageState() != null) {
+        try {
+          SessionState.get().getLineageState().clear();
+        } catch (Exception e) {
+          // ignore
+        }
+      }
+
     }
     plan.setDone();
 
     if (SessionState.get() != null) {
       try {
-        SessionState.get().getLineageState().clear();
         SessionState.get().getHiveHistory().logPlanProgress(plan);
       } catch (Exception e) {
         // ignore

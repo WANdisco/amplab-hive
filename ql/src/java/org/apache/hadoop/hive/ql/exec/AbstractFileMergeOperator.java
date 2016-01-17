@@ -229,6 +229,9 @@ public abstract class AbstractFileMergeOperator<T extends FileMergeDesc>
       } else {
         if (!autoDelete) {
           fs.delete(outPath, true);
+        } else {
+          fs.cancelDeleteOnExit(outPath);
+          fs.delete(outPath, true);
         }
       }
     } catch (IOException e) {
