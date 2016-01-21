@@ -233,6 +233,7 @@ public class BlockMergeTask extends Task<MergeWork> implements Serializable,
       success = false;
       returnVal = 1;
     } finally {
+      Utilities.clearWork(job);
       try {
         if (ctxCreated) {
           ctx.clear();
