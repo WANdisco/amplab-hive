@@ -1110,8 +1110,6 @@ public final class Utilities {
           new StdInstantiatorStrategy());
       removeField(kryo, Operator.class, "colExprMap");
       removeField(kryo, AbstractOperatorDesc.class, "statistics");
-      removeField(kryo, MapWork.class, "opParseCtxMap");
-      removeField(kryo, MapWork.class, "joinTree");
       kryo.register(MapWork.class);
       kryo.register(ReduceWork.class);
       kryo.register(TableDesc.class);
