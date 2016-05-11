@@ -34,10 +34,10 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.hive.common.JavaUtils;
 import org.apache.hadoop.hive.conf.HiveConf;
 import org.apache.hadoop.hive.conf.HiveConf.ConfVars;
 import org.apache.hadoop.hive.ql.MapRedStats;
+import org.apache.hadoop.hive.ql.exec.FileSinkOperator;
 import org.apache.hadoop.hive.ql.exec.Heartbeater;
 import org.apache.hadoop.hive.ql.exec.Operator;
 import org.apache.hadoop.hive.ql.exec.Task;
@@ -46,6 +46,7 @@ import org.apache.hadoop.hive.ql.exec.Utilities;
 import org.apache.hadoop.hive.ql.history.HiveHistory.Keys;
 import org.apache.hadoop.hive.ql.lockmgr.HiveTxnManager;
 import org.apache.hadoop.hive.ql.plan.ReducerTimeStatsPerJob;
+import org.apache.hadoop.hive.ql.session.OperationMetrics;
 import org.apache.hadoop.hive.ql.session.SessionState;
 import org.apache.hadoop.hive.ql.session.SessionState.LogHelper;
 import org.apache.hadoop.hive.ql.stats.ClientStatsPublisher;
@@ -394,6 +395,7 @@ public class HadoopJobExecHelper {
           ss.getHiveHistory().setTaskCounters(SessionState.get().getQueryId(), getId(), ctrs);
         }
         success = rj.isSuccessful();
+        updateOperationMetrics(ctrs);
       }
     }
 
@@ -420,6 +422,19 @@ public class HadoopJobExecHelper {
     }
     // LOG.info(queryPlan);
     return mapRedStats;
+  }
+
+  private void updateOperationMetrics(Counters ctrs) {
+    // check for number of created files
+    Counters.Group group = ctrs.getGroup(HiveConf.getVar(job, ConfVars.HIVECOUNTERGROUP));
+    for (Counter counter : group) {
+      if(FileSinkOperator.Counter.RECORDS_OUT.toString().equalsIgnoreCase(counter.getDisplayName())){
+        if (OperationMetrics.getCurrentOperationMetrics() != null) {
+          OperationMetrics.getCurrentOperationMetrics().setAffectRowCount(counter.getCounter());
+        }
+        break;
+      }
+    }
   }
 
 

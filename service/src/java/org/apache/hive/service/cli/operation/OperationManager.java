@@ -30,6 +30,7 @@ import org.apache.hadoop.hive.conf.HiveConf;
 import org.apache.hadoop.hive.metastore.api.FieldSchema;
 import org.apache.hadoop.hive.metastore.api.Schema;
 import org.apache.hadoop.hive.ql.session.OperationLog;
+import org.apache.hadoop.hive.ql.session.OperationMetrics;
 import org.apache.hive.service.AbstractService;
 import org.apache.hive.service.cli.FetchOrientation;
 import org.apache.hive.service.cli.HiveSQLException;
@@ -248,6 +249,22 @@ public class OperationManager extends AbstractService {
     return rowSet;
   }
 
+  public RowSet getOperationMetricsRowSet(OperationHandle opHandle, HiveConf hConf)
+    throws HiveSQLException {
+    TableSchema tableSchema = new TableSchema(getRowCountSchema());
+    RowSet rowSet = RowSetFactory.create(tableSchema, getOperation(opHandle).getProtocolVersion());
+
+    // get the OperationMetrics object from the operation
+    OperationMetrics operationMetrics = getOperation(opHandle).getOperationMetrics();
+    if (operationMetrics == null) {
+      throw new HiveSQLException("Couldn't find OperationMetrics associated with operation handle: " + opHandle);
+    }
+    // convert row count to RowSet
+    rowSet.addRow(new String[] {String.valueOf(operationMetrics.getAffectRowCount())});
+
+    return rowSet;
+  }
+
   private boolean isFetchFirst(FetchOrientation fetchOrientation) {
     //TODO: Since OperationLog is moved to package o.a.h.h.ql.session,
     // we may add a Enum there and map FetchOrientation to it.
@@ -261,6 +278,15 @@ public class OperationManager extends AbstractService {
     Schema schema = new Schema();
     FieldSchema fieldSchema = new FieldSchema();
     fieldSchema.setName("operation_log");
+    fieldSchema.setType("string");
+    schema.addToFieldSchemas(fieldSchema);
+    return schema;
+  }
+
+  private Schema getRowCountSchema() {
+    Schema schema = new Schema();
+    FieldSchema fieldSchema = new FieldSchema();
+    fieldSchema.setName("affect_row_count");
     fieldSchema.setType("string");
     schema.addToFieldSchemas(fieldSchema);
     return schema;

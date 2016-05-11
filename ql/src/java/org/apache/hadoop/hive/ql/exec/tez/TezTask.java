@@ -32,6 +32,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hive.conf.HiveConf;
 import org.apache.hadoop.hive.ql.Context;
 import org.apache.hadoop.hive.ql.DriverContext;
+import org.apache.hadoop.hive.ql.exec.FileSinkOperator;
 import org.apache.hadoop.hive.ql.exec.Operator;
 import org.apache.hadoop.hive.ql.exec.Task;
 import org.apache.hadoop.hive.ql.exec.Utilities;
@@ -47,6 +48,7 @@ import org.apache.hadoop.hive.ql.plan.TezEdgeProperty.EdgeType;
 import org.apache.hadoop.hive.ql.plan.TezWork;
 import org.apache.hadoop.hive.ql.plan.UnionWork;
 import org.apache.hadoop.hive.ql.plan.api.StageType;
+import org.apache.hadoop.hive.ql.session.OperationMetrics;
 import org.apache.hadoop.hive.ql.session.SessionState;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.util.StringUtils;
@@ -81,7 +83,7 @@ public class TezTask extends Task<TezWork> {
   private TezCounters counters;
 
   private final DagUtils utils;
-  
+
   Map<BaseWork, Vertex> workToVertex = new HashMap<BaseWork, Vertex>();
   Map<BaseWork, JobConf> workToConf = new HashMap<BaseWork, JobConf>();
 
@@ -178,13 +180,23 @@ public class TezTask extends Task<TezWork> {
       counters = client.getDAGStatus(statusGetOpts).getDAGCounters();
       TezSessionPoolManager.getInstance().returnSession(session);
 
-      if (LOG.isInfoEnabled() && counters != null
-          && (conf.getBoolVar(conf, HiveConf.ConfVars.TEZ_EXEC_SUMMARY) ||
-          Utilities.isPerfOrAboveLogging(conf))) {
+      if (counters != null) {
+        boolean isLog = (LOG.isInfoEnabled() && (HiveConf.getBoolVar(conf,
+            HiveConf.ConfVars.TEZ_EXEC_SUMMARY) || Utilities.isPerfOrAboveLogging(conf)));
         for (CounterGroup group: counters) {
-          LOG.info(group.getDisplayName() +":");
+          if (isLog) {
+            LOG.info(group.getDisplayName() +":");
+          }
           for (TezCounter counter: group) {
-            LOG.info("   "+counter.getDisplayName()+": "+counter.getValue());
+            if (isLog) {
+              LOG.info("   "+counter.getDisplayName()+": "+counter.getValue());
+            }
+            if (FileSinkOperator.Counter.RECORDS_OUT.toString().equalsIgnoreCase(
+                counter.getDisplayName())) {
+              if (OperationMetrics.getCurrentOperationMetrics() != null) {
+                OperationMetrics.getCurrentOperationMetrics().setAffectRowCount(counter.getValue());
+              }
+            }
           }
         }
       }
@@ -201,7 +213,7 @@ public class TezTask extends Task<TezWork> {
           Utilities.clearWorkMapForConf(workCfg);
         }
       }
-      
+
       if (cleanContext) {
         try {
           ctx.clear();

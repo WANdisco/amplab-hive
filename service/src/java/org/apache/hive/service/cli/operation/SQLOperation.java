@@ -43,6 +43,7 @@ import org.apache.hadoop.hive.ql.metadata.HiveException;
 import org.apache.hadoop.hive.ql.parse.VariableSubstitution;
 import org.apache.hadoop.hive.ql.processors.CommandProcessorResponse;
 import org.apache.hadoop.hive.ql.session.OperationLog;
+import org.apache.hadoop.hive.ql.session.OperationMetrics;
 import org.apache.hadoop.hive.ql.session.SessionState;
 import org.apache.hadoop.hive.serde.serdeConstants;
 import org.apache.hadoop.hive.serde2.SerDe;
@@ -190,6 +191,8 @@ public class SQLOperation extends ExecuteStatementOperation {
       // Current UGI will get used by metastore when metsatore is in embedded mode
       // So this needs to get passed to the new background thread
       final UserGroupInformation currentUGI = getCurrentUGI(opConfig);
+
+      final OperationMetrics operationMetrics = getOperationMetrics();
       // Runnable impl to call runInternal asynchronously,
       // from a different thread
       Runnable backgroundOperation = new Runnable() {
@@ -202,6 +205,7 @@ public class SQLOperation extends ExecuteStatementOperation {
               SessionState.setCurrentSessionState(parentSessionState);
               // Set current OperationLog in this async thread for keeping on saving query log.
               registerCurrentOperationLog();
+              registerCurrentOperationMetrics();
               try {
                 runQuery(opConfig);
               } catch (HiveSQLException e) {
@@ -209,6 +213,7 @@ public class SQLOperation extends ExecuteStatementOperation {
                 LOG.error("Error running hive query: ", e);
               } finally {
                 unregisterOperationLog();
+                unregisterOperationMetrics();
               }
               return null;
             }
@@ -284,6 +289,10 @@ public class SQLOperation extends ExecuteStatementOperation {
       }
       OperationLog.setCurrentOperationLog(operationLog);
     }
+  }
+
+  private void registerCurrentOperationMetrics() {
+    OperationMetrics.setCurrentOperationMetrics(operationMetrics);
   }
 
   private void cleanup(OperationState state) throws HiveSQLException {

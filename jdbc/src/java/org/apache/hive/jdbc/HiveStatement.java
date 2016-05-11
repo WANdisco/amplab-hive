@@ -404,7 +404,7 @@ public class HiveStatement implements java.sql.Statement {
   @Override
   public int executeUpdate(String sql) throws SQLException {
     execute(sql);
-    return 0;
+    return (int) getAffectedRowCount();
   }
 
   /*
@@ -841,6 +841,52 @@ public class HiveStatement implements java.sql.Statement {
       logs.add(String.valueOf(row[0]));
     }
     return logs;
+  }
+
+  /**
+   * Get the affected row count of the given SQL statement.
+   */
+  private long  getAffectedRowCount()
+          throws SQLException  {
+    checkConnection("getAffectedRowCount");
+    if (isCancelled) {
+      throw new ClosedOrCancelledStatementException("Method getAffectedRowCount() failed. The " +
+        "statement has been closed or cancelled.");
+    }
+
+    long affectedRows = 0l;
+    TFetchResultsResp tFetchResultsResp = null;
+    try {
+      if (stmtHandle != null) {
+        TFetchResultsReq tFetchResultsReq = new TFetchResultsReq(stmtHandle,
+          getFetchOrientation(false), 1);
+        tFetchResultsReq.setFetchType((short)2);
+        tFetchResultsResp = client.FetchResults(tFetchResultsReq);
+        Utils.verifySuccessWithInfo(tFetchResultsResp.getStatus());
+      } else {
+        if (isQueryClosed) {
+          throw new ClosedOrCancelledStatementException("Method getAffectedRowCount() failed. The " +
+            "statement has been closed or cancelled.");
+        }
+        if (isExecuteStatementFailed) {
+          throw new SQLException("Method getAffectedRowCount() failed. Because the stmtHandle in " +
+            "HiveStatement is null and the statement execution might fail.");
+        } else {
+          return affectedRows;
+        }
+      }
+    } catch (SQLException e) {
+      throw e;
+    } catch (Exception e) {
+      throw new SQLException("Error when getting affected row count: " + e, e);
+    }
+
+    RowSet rowSet = RowSetFactory.create(tFetchResultsResp.getResults(),
+      connection.getProtocol());
+    for (Object[] row : rowSet) {
+      affectedRows = Long.valueOf(String.valueOf(row[0]));
+    }
+    return affectedRows;
   }
 
   private TFetchOrientation getFetchOrientation(boolean incremental) {

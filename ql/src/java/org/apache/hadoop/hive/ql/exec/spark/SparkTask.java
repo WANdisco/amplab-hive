@@ -68,6 +68,7 @@ import org.apache.hadoop.hive.ql.plan.ReduceWork;
 import org.apache.hadoop.hive.ql.plan.SparkWork;
 import org.apache.hadoop.hive.ql.plan.StatsWork;
 import org.apache.hadoop.hive.ql.plan.api.StageType;
+import org.apache.hadoop.hive.ql.session.OperationMetrics;
 import org.apache.hadoop.hive.ql.session.SessionState;
 import org.apache.hadoop.hive.ql.session.SessionState.LogHelper;
 import org.apache.hadoop.hive.ql.stats.StatsFactory;
@@ -114,7 +115,7 @@ public class SparkTask extends Task<SparkWork> {
         sparkCounters = sparkJobStatus.getCounter();
         // for RSC, we should get the counters after job has finished
         SparkStatistics sparkStatistics = sparkJobStatus.getSparkStatistics();
-        if (LOG.isInfoEnabled() && sparkStatistics != null) {
+        if (sparkStatistics != null) {
           LOG.info(String.format("=====Spark Job[%s] statistics=====", jobRef.getJobId()));
           logSparkStatistic(sparkStatistics);
         }
@@ -161,6 +162,11 @@ public class SparkTask extends Task<SparkWork> {
       while (statisticIterator.hasNext()) {
         SparkStatistic statistic = statisticIterator.next();
         LOG.info("\t" + statistic.getName() + ": " + statistic.getValue());
+        if (FileSinkOperator.Counter.RECORDS_OUT.toString().equalsIgnoreCase(statistic.getName())) {
+          if (OperationMetrics.getCurrentOperationMetrics() != null) {
+            OperationMetrics.getCurrentOperationMetrics().setAffectRowCount(Long.valueOf(statistic.getValue()));
+          }
+        }
       }
     }
   }
