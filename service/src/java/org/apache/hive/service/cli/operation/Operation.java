@@ -28,6 +28,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.hive.conf.HiveConf;
 import org.apache.hadoop.hive.ql.processors.CommandProcessorResponse;
 import org.apache.hadoop.hive.ql.session.OperationLog;
+import org.apache.hadoop.hive.ql.session.OperationMetrics;
 import org.apache.hive.service.cli.FetchOrientation;
 import org.apache.hive.service.cli.HiveSQLException;
 import org.apache.hive.service.cli.OperationHandle;
@@ -53,6 +54,7 @@ public abstract class Operation {
   protected volatile Future<?> backgroundHandle;
   protected OperationLog operationLog;
   protected boolean isOperationLogEnabled;
+  protected OperationMetrics operationMetrics = new OperationMetrics();
 
   private long operationTimeout;
   private long lastAccessTime;
@@ -229,6 +231,10 @@ public abstract class Operation {
     }
   }
 
+  protected void unregisterOperationMetrics() {
+    OperationMetrics.removeCurrentOperationMetrics();
+  }
+
   /**
    * Invoked before runInternal().
    * Set up some preconditions, or configurations.
@@ -309,6 +315,10 @@ public abstract class Operation {
       throw new HiveSQLException("The fetch type " + orientation.toString() +
           " is not supported for this resultset", "HY106");
     }
+  }
+
+  public OperationMetrics getOperationMetrics() {
+    return operationMetrics;
   }
 
   protected HiveSQLException toSQLException(String prefix, CommandProcessorResponse response) {

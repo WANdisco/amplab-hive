@@ -465,6 +465,7 @@ public class FileSinkOperator extends TerminalOperator<FileSinkDesc> implements
       }
 
       statsMap.put(Counter.RECORDS_OUT + "_" + suffix, row_count);
+      statsMap.put(Counter.RECORDS_OUT.toString(), row_count);
     } catch (HiveException e) {
       throw e;
     } catch (Exception e) {

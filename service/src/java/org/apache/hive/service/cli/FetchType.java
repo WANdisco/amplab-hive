@@ -24,7 +24,8 @@ package org.apache.hive.service.cli;
  */
 public enum FetchType {
   QUERY_OUTPUT((short)0),
-  LOG((short)1);
+  LOG((short)1),
+  ROW_COUNT((short)2);
 
   private final short tFetchType;
 
