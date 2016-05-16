@@ -681,10 +681,16 @@ public class HiveSessionImpl implements HiveSession {
       long maxRows, FetchType fetchType) throws HiveSQLException {
     acquire(true);
     try {
-      if (fetchType == FetchType.QUERY_OUTPUT) {
-        return operationManager.getOperationNextRowSet(opHandle, orientation, maxRows);
+      switch (fetchType)
+      {
+        case QUERY_OUTPUT:
+          return operationManager.getOperationNextRowSet(opHandle, orientation, maxRows);
+        case ROW_COUNT:
+          return operationManager.getOperationMetricsRowSet(opHandle, hiveConf);
+        case LOG:
+        default:
+          return operationManager.getOperationLogRowSet(opHandle, orientation, maxRows);
       }
-      return operationManager.getOperationLogRowSet(opHandle, orientation, maxRows);
     } finally {
       release(true);
     }

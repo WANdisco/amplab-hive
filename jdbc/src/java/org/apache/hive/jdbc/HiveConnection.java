@@ -193,6 +193,13 @@ public class HiveConnection implements java.sql.Connection {
   }
 
   private void openTransport() throws SQLException {
+    int numRetries = 0;
+    int maxRetries = 1;
+    try {
+      maxRetries = Integer.parseInt(sessConfMap.get(JdbcConnectionParams.RETRIES));
+    } catch(NumberFormatException e) {
+    }
+
     while (true) {
       try {
         assumeSubject =
@@ -228,8 +235,15 @@ public class HiveConnection implements java.sql.Connection {
         } else {
           LOG.info("Transport Used for JDBC connection: " +
             sessConfMap.get(JdbcConnectionParams.TRANSPORT_MODE));
-          throw new SQLException("Could not open client transport with JDBC Uri: " + jdbcUriString
-              + ": " + e.getMessage(), " 08S01", e);
+
+          // Retry maxRetries times
+          String errMsg = "Could not open client transport with JDBC Uri: " +
+              jdbcUriString + ": " + e.getMessage();
+          if (++numRetries >= maxRetries) {
+            throw new SQLException(errMsg, " 08S01", e);
+          } else {
+            LOG.warn(errMsg + " Retrying " + numRetries + " of " + maxRetries);
+          }
         }
       }
     }
