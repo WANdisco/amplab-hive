@@ -954,6 +954,7 @@ public class HiveConf extends Configuration {
     HIVE_RCFILE_COLUMN_NUMBER_CONF("hive.io.rcfile.column.number.conf", 0, ""),
     HIVE_RCFILE_TOLERATE_CORRUPTIONS("hive.io.rcfile.tolerate.corruptions", false, ""),
     HIVE_RCFILE_RECORD_BUFFER_SIZE("hive.io.rcfile.record.buffer.size", 4194304, ""),   // 4M
+    HIVE_RCFILE_SKIP_EMPTY_FILES("hive.io.rcfile.skip.empty.files", false, ""),
 
     PARQUET_MEMORY_POOL_RATIO("parquet.memory.pool.ratio", 0.5f,
         "Maximum fraction of heap that can be used by Parquet file writers in one task.\n" +

@@ -351,8 +351,6 @@ public class RCFile {
 
   public static final String TOLERATE_CORRUPTIONS_CONF_STR = HIVE_RCFILE_TOLERATE_CORRUPTIONS.varname;
 
-  public static final String SKIP_EMPTY_FILES = "hive.io.rcfile.skip.empty.files";
-
   // HACK: We actually need BlockMissingException, but that is not available
   // in all hadoop versions.
   public static final String BLOCK_MISSING_MESSAGE =
@@ -1353,7 +1351,7 @@ public class RCFile {
     public Reader(FileSystem fs, Path file, int bufferSize, Configuration conf,
         long start, long length) throws IOException {
       tolerateCorruptions = HiveConf.getBoolVar(conf, HIVE_RCFILE_TOLERATE_CORRUPTIONS);
-      skipEmptyFiles = conf.getBoolean(SKIP_EMPTY_FILES, false);
+      skipEmptyFiles = HiveConf.getBoolVar(conf, HIVE_RCFILE_SKIP_EMPTY_FILES);
       conf.setInt("io.file.buffer.size", bufferSize);
       this.file = file;
 
