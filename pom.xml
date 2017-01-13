@@ -140,7 +140,7 @@
     <jodd.version>3.5.2</jodd.version>
     <json.version>20090211</json.version>
     <junit.version>4.11</junit.version>
-    <kryo.version>2.22</kryo.version>
+    <kryo.version>3.0.3</kryo.version>
     <libfb303.version>0.9.2</libfb303.version>
     <libthrift.version>0.9.2</libthrift.version>
     <log4j.version>1.2.16</log4j.version>
@@ -224,8 +224,8 @@
     <dependencies>
       <!-- dependencies are always listed in sorted order by groupId, artifectId -->
       <dependency>
-        <groupId>com.esotericsoftware.kryo</groupId>
-        <artifactId>kryo</artifactId>
+        <groupId>com.esotericsoftware</groupId>
+        <artifactId>kryo-shaded</artifactId>
         <version>${kryo.version}</version>
       </dependency>
       <dependency>
