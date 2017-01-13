@@ -1174,7 +1174,6 @@ public final class Utilities {
       kryo.register( Arrays.asList( "" ).getClass(), new ArraysAsListSerializer() );
       ((Kryo.DefaultInstantiatorStrategy) kryo.getInstantiatorStrategy()).setFallbackInstantiatorStrategy(new StdInstantiatorStrategy());
       removeField(kryo, Operator.class, "colExprMap");
-      removeField(kryo, ColumnInfo.class, "objectInspector");
       removeField(kryo, AbstractOperatorDesc.class, "statistics");
       kryo.register(MapWork.class);
       kryo.register(ReduceWork.class);
