@@ -503,17 +503,6 @@ public class MapWork extends BaseWork {
     }
   }
 
-  public void logPathToAliases() {
-    if (LOG.isDebugEnabled()) {
-      LOG.debug("LOGGING PATH TO ALIASES");
-      for (Map.Entry<String, ArrayList<String>> entry: pathToAliases.entrySet()) {
-        for (String a: entry.getValue()) {
-          LOG.debug("Path: " + entry.getKey() + ", Alias: " + a);
-        }
-      }
-    }
-  }
-
   public void setDummyTableScan(boolean dummyTableScan) {
     this.dummyTableScan = dummyTableScan;
   }
