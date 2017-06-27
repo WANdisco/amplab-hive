@@ -278,9 +278,9 @@ public final class ColumnPrunerProcFactory {
       } else {
         prunedCols = referencedColumns;
       }
-      
-      List<ColumnInfo> newRS = prunedColumnsList(prunedCols, op.getSchema(), funcDef);      
-      
+
+      List<ColumnInfo> newRS = prunedColumnsList(prunedCols, op.getSchema(), funcDef);
+
       op.getSchema().setSignature(new ArrayList<ColumnInfo>(newRS));
 
       ShapeDetails outputShape = funcDef.getStartOfChain().getInput().getOutputShape();
@@ -288,7 +288,7 @@ public final class ColumnPrunerProcFactory {
       return null;
     }
 
-    private List<ColumnInfo> buildPrunedRS(List<String> prunedCols, RowSchema oldRS) 
+    private List<ColumnInfo> buildPrunedRS(List<String> prunedCols, RowSchema oldRS)
         throws SemanticException {
       ArrayList<ColumnInfo> sig = new ArrayList<ColumnInfo>();
       HashSet<String> prunedColsSet = new HashSet<String>(prunedCols);
@@ -310,7 +310,7 @@ public final class ColumnPrunerProcFactory {
       }
       return columns;
     }
-    
+
     private RowResolver buildPrunedRR(List<String> prunedCols, RowSchema oldRS)
         throws SemanticException {
       RowResolver resolver = new RowResolver();
@@ -358,12 +358,12 @@ public final class ColumnPrunerProcFactory {
       } else {
         pDef.getOutputShape().setRr(buildPrunedRR(prunedCols, oldRS));
       }
-      
+
       PTFInputDef input = pDef.getInput();
       if (input instanceof PartitionedTableFunctionDef) {
         return prunedColumnsList(prunedCols, oldRS, (PartitionedTableFunctionDef)input);
       }
-      
+
       ArrayList<String> inputColumns = prunedInputList(prunedCols, input);
       input.getOutputShape().setRr(buildPrunedRR(inputColumns, oldRS));
       input.getOutputShape().setColumnNames(inputColumns);
@@ -664,12 +664,12 @@ public final class ColumnPrunerProcFactory {
       ((SelectDesc)select.getConf()).setColList(colList);
       ((SelectDesc)select.getConf()).setOutputColumnNames(outputColNames);
       pruneOperator(ctx, select, outputColNames);
-      
+
       Operator<?> udtfPath = op.getChildOperators().get(LateralViewJoinOperator.UDTF_TAG);
       List<String> lvFCols = new ArrayList<String>(cppCtx.getPrunedColLists().get(udtfPath));
       lvFCols = Utilities.mergeUniqElems(lvFCols, outputColNames);
       pruneOperator(ctx, op, lvFCols);
-      
+
       return null;
     }
   }
@@ -739,11 +739,14 @@ public final class ColumnPrunerProcFactory {
         ArrayList<String> newOutputColumnNames = new ArrayList<String>();
         ArrayList<ColumnInfo> rs_oldsignature = op.getSchema().getSignature();
         ArrayList<ColumnInfo> rs_newsignature = new ArrayList<ColumnInfo>();
-        for (String col : cols) {
-          int index = originalOutputColumnNames.indexOf(col);
-          newOutputColumnNames.add(col);
-          newColList.add(originalColList.get(index));
-          rs_newsignature.add(rs_oldsignature.get(index));
+        // The pruning needs to preserve the order of columns in the input schema
+        for (int i = 0; i < originalOutputColumnNames.size(); i++) {
+          String colName = originalOutputColumnNames.get(i);
+          if (cols.contains(colName)) {
+            newOutputColumnNames.add(colName);
+            newColList.add(originalColList.get(i));
+            rs_newsignature.add(rs_oldsignature.get(i));
+          }
         }
         op.getSchema().setSignature(rs_newsignature);
         conf.setColList(newColList);
